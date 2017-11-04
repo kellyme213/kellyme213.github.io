@@ -10,6 +10,7 @@ h1 {
     font-size: 50px;
     top: 10px;
     margin: 0px;
+    margin-left: 30px;
     font-weight: 500;
     overflow-x: hidden;
     overflow-y: auto;
@@ -18,11 +19,20 @@ h1 {
 p
 {
     color: black;
-    font-size: 30px;
+    font-size: 20px;
     left: 170px;
     padding-top: 10px;
+    margin-left: 30px;
     font-weight: normal;
     word-wrap: normal;
+}
+
+img
+{
+    margin-left: 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 101, 0);
 }
 
 .bar
