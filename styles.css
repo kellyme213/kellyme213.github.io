@@ -25,7 +25,7 @@ p
     word-wrap: normal;
 }
 
-.scroll
+.bar
 {
     white-space: nowrap;
     background-color: rgb(255, 101, 0);
@@ -39,23 +39,29 @@ p
     margin-left: 0px;
 }
 
-.scroll a
+.bar a
 {
     display: block;
     text-align: left;
     text-decoration: none;
     color: white;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-left: 20px;
-    padding-bottom: 20px;
-    transition-duration: 0.5s;
+    padding-bottom: 15px;
+    transition-duration: 0.4s;
     word-wrap: break-all;
     word-break: break-word;
     white-space: normal;
     z-index: 1;
 }
 
-.scroll a:hover
+.bar .selectedbar
+{
+    background-color: white;
+    color: rgb(255, 101, 0);
+}
+
+.bar a:hover
 {
     padding-left: 30px;
 }
