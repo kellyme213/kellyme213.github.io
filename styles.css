@@ -17,12 +17,12 @@ h1 {
 
 p
 {
+    color: black;
     font-size: 30px;
     left: 170px;
     padding-top: 10px;
     font-weight: normal;
     word-wrap: normal;
-    color: black;
 }
 
 .scroll
