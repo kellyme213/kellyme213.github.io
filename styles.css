@@ -3,17 +3,46 @@ body {
     color: rgb(255, 101, 0);
     margin: 0px;
     padding: 0px;
-    margin-left: 150px;
+    margin-left: 180px;
+    margin-right: 30px;
 }
 
-h1 {
+h1
+{
     font-size: 50px;
     top: 10px;
     margin: 0px;
-    margin-left: 30px;
     font-weight: 500;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+h2
+{
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.heading
+{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    display: inline;
+    list-style-type: none;
+}
+
+.heading a
+{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    bottom: 0px;
+}
+
+.heading p
+{
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
 p
@@ -22,14 +51,12 @@ p
     font-size: 20px;
     left: 170px;
     padding-top: 10px;
-    margin-left: 30px;
     font-weight: normal;
     word-wrap: normal;
 }
 
 img
 {
-    margin-left: 30px;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(255, 101, 0);
