@@ -1,4 +1,5 @@
-body {
+body
+{
     font-family: Avenir;
     color: rgb(255, 101, 0);
     margin: 0px;
@@ -10,17 +11,20 @@ body {
 h1
 {
     font-size: 50px;
-    top: 10px;
     margin: 0px;
+    margin-top: 20px;
     font-weight: 500;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-h2
+.resumeHeading
 {
     font-size: 30px;
     font-weight: normal;
+    color: rgb(255, 101, 0);
+    padding-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .heading
@@ -43,6 +47,21 @@ h2
 {
     padding-top: 0px;
     margin-top: 0px;
+}
+
+.links a
+{
+    text-decoration: none;
+    display: block;
+    color: black;
+    font-size: 20px;
+    padding-right: 30px;
+    transition-duration: 0.4s;
+}
+
+.links a:hover
+{
+    color: rgb(255, 101, 0);
 }
 
 p
