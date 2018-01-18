@@ -87,6 +87,20 @@ img
     display: block;
 }
 
+.imagelist
+{
+    text-decoration: none;
+    padding: 0px;
+    text-align: center;
+}
+
+.imagelist img
+{
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .bar
 {
     white-space: nowrap;
