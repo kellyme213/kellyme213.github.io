@@ -6,9 +6,24 @@
         <title> Michael Kelly </title>
     </head>
     
-    <body style = "margin: 0px; padding: 0px;">
+    <div class = "bar">
+        <a class = "selectedbar" href = "index.html"> Home </a>
+        <a href = "resume.html"> Resume </a>
+        <a href = "coursework.html"> Course Work </a>
+        <a href = "raytracer.html"> Ray Tracer </a>
+        <a href = "oxio.html"> OXIO </a>
+        <a href = "shapes.html"> Connect the Shapes! </a>
+        <a href = "dungeon.html"> The Dungeon </a>
+        <a href = "otherwork.html"> Other Work </a>
+        <a href = "https://github.com/kellyme213/" target = "_blank"> Github </a>
+        <a href = "https://www.linkedin.com/in/kellyme213/" target = "_blank"> LinkedIn </a>
+    </div>
+    
+    
+    
+    <body>
     <img id = "bI" class = "backImage" src = "mayasnowman1.png">
-        <h1 style = "text-align: center; font-weight: normal;"> Featured Projects </h1>
+        <h1> Featured Projects </h1>
     <div id = "foreground">
 
     </div>
@@ -59,13 +74,13 @@
         circle.style.cy = yPoints[n];
     }
     
-    //window.setInterval(moveRandom, 10);
+    window.setInterval(moveRandom, 10);
     
     
     
     function moveRandom()
     {
-        for (var n = 0; n < 4; n++)
+        for (var n = 0; n < 12; n++)
         {
             xPoints[n] += Math.round((2 * Math.random()) - 1);
             yPoints[n] += Math.round((2 * Math.random()) - 1);

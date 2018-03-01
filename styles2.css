@@ -4,6 +4,7 @@ body
     color: rgb(255, 101, 0);
     margin: 0px;
     padding: 0px;
+    margin-left: 150px;
 }
 
 #svgCircle
@@ -118,7 +119,63 @@ circle
 h1
 {
     font-size: 50px;
-    margin: 15px;
-    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 0px;
     color: black;
+    text-align: center;
+    font-weight: 500;
 }
+/*
+h1
+{
+    font-size: 50px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-weight: 500;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+*/
+.bar
+{
+    white-space: nowrap;
+    background-color: rgb(255, 101, 0);
+    width: 150px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    position: fixed;
+    z-index: 1;
+    margin-left: 0px;
+}
+
+.bar a
+{
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    transition-duration: 0.4s;
+    word-wrap: break-all;
+    word-break: break-word;
+    white-space: normal;
+    z-index: 1;
+}
+
+.bar .selectedbar
+{
+    background-color: white;
+    color: rgb(255, 101, 0);
+}
+
+.bar a:hover
+{
+    padding-left: 30px;
+}
+
