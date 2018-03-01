@@ -35,11 +35,11 @@ circle
 .projectPanel
 {
     position: relative;
-    width: 250px;
-    height: 250px;
-    border-color: rgb(255, 101, 0);
-    border-width: 1px;
-    border-style: solid;
+    width: 25%;
+    height: 25%;
+    //border-color: rgb(255, 101, 0);
+    //border-width: 1px;
+    //border-style: solid;
     -webkit-transition-duration: 0.15s;
     background-color: white;
     color: black;
@@ -57,10 +57,11 @@ circle
 {
     position: absolute;
     z-index: 1;
-    margin: auto;
+    //margin: auto;
+    margin-top: 0px;
     margin-top: 85%;
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 2%;
+    padding-left: 3%;
     top: 0;
     left: 0;
     right: 0;
@@ -70,12 +71,23 @@ circle
     color: white;
     transition-duration: 0.3s;
     text-decoration: none;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: rgb(255, 101, 0);
+    height: 13%;
+    width: 97%;
+    vertical-align: middle;
+    font-size: 1.5vw;
 }
 
 .projectPanel img
 {
     width: 100%;
     height: 85%;
+    padding: 0px;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: rgb(255, 101, 0);
 }
 
 .panelList
@@ -103,9 +115,8 @@ circle
     opacity: 0.0;
 }
 
-.projectPanel img
+h1
 {
-    border-width: 0px;
-    margin: 0px;
-    padding: 0px;
+    font-size: 50px;
+    margin: 5px;
 }
