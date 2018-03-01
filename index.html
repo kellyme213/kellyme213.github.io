@@ -1,66 +1,84 @@
 <!DOCTYPE html>
+<meta charset = "UTF-8">
 <html>
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles2.css">
         <title> Michael Kelly </title>
     </head>
     
-    <body>
-        
-        <div class = "bar">
-            <a class = "selectedbar" href = "index.html"> About </a>
-            <a href = "resume.html"> Resume </a>
-            <a href = "coursework.html"> Course Work </a>
-            <a href = "raytracer.html"> Ray Tracer </a>
-            <a href = "oxio.html"> OXIO </a>
-            <a href = "shapes.html"> Connect the Shapes! </a>
-            <a href = "dungeon.html"> The Dungeon </a>
-            <a href = "otherwork.html"> Other Work </a>
-            <a href = "https://github.com/kellyme213/" target = "_blank"> Github </a>
-            <a href = "https://www.linkedin.com/in/kellyme213/" target = "_blank"> LinkedIn </a>
-        </div>
-        
-        <h1> About </h1>
-
-
-<p>
-Everyone likes a good story. So here's mine.
-</p>
-
-<p>
-    During my elementary school years, I was fortunate enough to live overseas in Japan and Italy. These experiences enabled me to interact with different people and cultures, granting me an opportunity to learn the stories of others. These stories had a profound impact on me, such as influencing my decision to study Japanese all through high school.
-</p>
-
-<p>
-
-Since I wrote my first program on my TI-84 in middle school, I've been hooked on programming and game design. Always eager to show off my work, I would hand my calculator to my friends and let them enjoy what I  created. While my games weren't the most mechanically or graphically complex, they did bring happiness to those around me, which is all I could really ask for.
-
-</p>
-
-<p>
-    Moving into high school, I ditched my rinky-dink calculator for a fancy PC. Instead of developing for calculators, I began development on PC games written in Java. While my development platform had changed, my unwavering desire to spread happiness through my games had remained the same.
-</p>
-
-<p>
-Throughout high school, I worked to craft better and better games. Fortunately, my work paid off. My games earned me an invitation from Apple to attend Apple's Worldwide Developers Conference in 2016 and 2017. At WWDC, I witnessed people with different stories come together with a common goal of using computers to bring  joy to people, and I want nothing more than to be a part of that.
-</p>
-
-<p>
-    Now, I'm studying at college, learning how to use computers to create experiences and stories that bring smiles to people's faces.
-</p>
-
-<p>
-I believe that computers can tell stories, whether those be in the form of a game, a movie, or something even different. Stories are what define us; I hope you've enjoyed mine.
-</p>
-
-<p style = "color: rgb(255,101,0)";>
-- Michael Kelly
-</p>
-
-
-
-
+    <body style = "margin: 0px; padding: 0px;">
+    <img id = "bI" class = "backImage" src = "mayasnowman1.png">
+        <h1 style = "text-align: center; font-size: 30px; font-weight: normal;"> Featured Projects </h1>
+    
+    <div id = "foreground">
+        <ul class = "panelList">
+            <div id = "pp1" class = "projectPanel"> <img src = "oxiobanner.png"> <a href = "oxio.html"> OXIO </a> </div>
+            <div id = "pp2" class = "projectPanel"> <img src = "shapesbanner.png"> <a href = "shapes.html"> Connect the Shapes! </a> </div>
+            <div id = "pp3" class = "projectPanel"> <img src = "raytracerbanner.png"> <a href = "raytracer.html"> Ray Tracer </a> </div>
+            <div id = "pp4" class = "projectPanel"> <img src = "dungeonbanner.png"> <a href = "dungeon.html"> The Dungeon </a> </div>
+            <!--
+            <div id = "pp5" class = "projectPanel"> <img src = "mayasnowman1.png"> <a> Panel5 </a> </div>
+            <div id = "pp6" class = "projectPanel"> <img src = "mayasnowman1.png"> <a> Panel6 </a> </div>
+             -->
+        </ul>
+    </div>
+    
+    
+    
+    <svg id = "svgCircle">
+        <circle id = "cir1"> </circle>
+        <circle id = "cir2"> </circle>
+        <circle id = "cir3"> </circle>
+        <circle id = "cir4"> </circle>
+        <circle id = "cir5"> </circle>
+        <circle id = "cir6"> </circle>
+        <circle id = "cir7"> </circle>
+        <circle id = "cir8"> </circle>
+        <circle id = "cir9"> </circle>
+        <circle id = "cir10"> </circle>
+        <circle id = "cir11"> </circle>
+        <circle id = "cir12"> </circle>
+    </svg>
+    
+    
     </body>
+    
+    <script>
+        
+    
+    var xPoints = [100, 100, 100, 100];
+    var yPoints = [100, 100, 100, 100];
+    
+    for (var n = 0; n < 12; n++)
+    {
+        xPoints[n] = Math.round(Math.random() * 1000);
+        yPoints[n] = Math.round(Math.random() * 500);
+        var circle = document.getElementById("cir" + (n + 1));
+        circle.style.fillOpacity = Math.sqrt(Math.random());
+        circle.style.r = Math.round(Math.random() * 50);
+        circle.style.cx = xPoints[n];
+        circle.style.cy = yPoints[n];
+    }
+    
+    //window.setInterval(moveRandom, 10);
+    
+    
+    
+    function moveRandom()
+    {
+        for (var n = 0; n < 4; n++)
+        {
+            xPoints[n] += Math.round((2 * Math.random()) - 1);
+            yPoints[n] += Math.round((2 * Math.random()) - 1);
+            var circle = document.getElementById("cir" + (n + 1));
+            circle.style.cx = xPoints[n];
+            circle.style.cy = yPoints[n];
+        }
+    }
+    
+        </script>
+
+
 </html>
 
 <!--
