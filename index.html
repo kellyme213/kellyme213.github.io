@@ -40,6 +40,7 @@
     </ul>
     
     <svg id = "svgCircle">
+        <!--
         <circle id = "cir1"> </circle>
         <circle id = "cir2"> </circle>
         <circle id = "cir3"> </circle>
@@ -52,6 +53,7 @@
         <circle id = "cir10"> </circle>
         <circle id = "cir11"> </circle>
         <circle id = "cir12"> </circle>
+         -->
     </svg>
     
     
@@ -59,38 +61,98 @@
     
     <script>
         
+        var numSteps = 400;
+        var speed = 50;
+        var xPoints = [];
+        var yPoints = [];
+        var radii = [];
+        var opac = [];
+        var dx = [];
+        var dy = [];
+        var dr = [];
+        var dop = [];
+        var numCircles = 12;
+        
+        
+
     
-    var xPoints = [100, 100, 100, 100];
-    var yPoints = [100, 100, 100, 100];
-    
-    for (var n = 0; n < 12; n++)
+    for (var n = 0; n < numCircles; n++)
     {
-        xPoints[n] = Math.round(Math.random() * 1000);
-        yPoints[n] = Math.round(Math.random() * 500);
-        var circle = document.getElementById("cir" + (n + 1));
-        circle.style.fillOpacity = Math.sqrt(Math.random());
-        circle.style.r = Math.round(Math.random() * 50);
-        circle.style.cx = xPoints[n];
-        circle.style.cy = yPoints[n];
+        xPoints[n] = Math.round(Math.random() * window.innerWidth);
+        yPoints[n] = Math.round(Math.random() * window.innerHeight);
+        var px = Math.round(Math.random() * window.innerWidth);
+        var py = Math.round(Math.random() * window.innerHeight);
+        
+        dx[n] = (px - xPoints[n]) / numSteps;
+        dy[n] = (py - yPoints[n]) / numSteps;
+
+        //var circle = document.getElementById("cir" + n);
+        //circle.style.fillOpacity = Math.sqrt(Math.random());
+        //circle.style.r = Math.round(Math.random() * 50);
+        //circle.style.cx = xPoints[n];
+        //circle.style.cy = yPoints[n];
     }
     
-    window.setInterval(moveRandom, 10);
+    var htmlInsert = "";//<svg id = \"svgCircle\"";
     
+    for (var n = 0; n < numCircles; n++)
+    {
+        var circleInsert = "<circle id = \"cir" + (n) + "\" ";
+        var radius = Math.round(Math.random() * 50);
+        radii[n] = radius;
+        dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
+        circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radius;
+        circleInsert += "\"> </circle>\n";
+        htmlInsert += circleInsert;
+    }
+    
+    //htmlInsert += "</svg>\n";
+    
+    document.getElementById("svgCircle").innerHTML += htmlInsert;
+    
+    for (var n = 0; n < numCircles; n++)
+    {
+        var opacity = Math.sqrt(Math.random());
+        opac[n] = opacity;
+        document.getElementById("cir" + n).style.fillOpacity = opacity;
+        dop[n] = (Math.sqrt(Math.random()) - opacity) / numSteps;
+    }
+    
+    window.setInterval(moveRandom, speed);
+    window.setInterval(newPoints, numSteps * speed);
     
     
     function moveRandom()
     {
-        for (var n = 0; n < 12; n++)
+        for (var n = 0; n < numCircles; n++)
         {
-            xPoints[n] += Math.round((2 * Math.random()) - 1);
-            yPoints[n] += Math.round((2 * Math.random()) - 1);
-            var circle = document.getElementById("cir" + (n + 1));
+            xPoints[n] += dx[n];
+            yPoints[n] += dy[n];
+            radii[n] += dr[n];
+            opac[n] += dop[n];
+            var circle = document.getElementById("cir" + n);
             circle.style.cx = xPoints[n];
             circle.style.cy = yPoints[n];
+            circle.style.r = radii[n];
+            circle.style.fillOpacity = opac[n];
         }
     }
     
-        </script>
+    function newPoints()
+    {
+        for (var n = 0; n < numCircles; n++)
+        {
+            var px = Math.round(Math.random() * window.innerWidth);
+            var py = Math.round(Math.random() * window.innerHeight);
+            
+            dx[n] = (px - xPoints[n]) / numSteps;
+            dy[n] = (py - yPoints[n]) / numSteps;
+            dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
+            dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
+        }
+    }
+    
+    </script>
 
 
 </html>
