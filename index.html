@@ -1,150 +1,146 @@
 <!DOCTYPE html>
 <meta charset = "UTF-8">
-<html>
-    <head>
-        <link rel="stylesheet" href="styles2.css">
-        <title> Michael Kelly </title>
-    </head>
-    
-    <div class = "bar">
-        <a class = "selectedbar" href = "index.html"> Home </a>
-        <a href = "resume.html"> Resume </a>
-        <a href = "coursework.html"> Course Work </a>
-        <a href = "raytracer.html"> Ray Tracer </a>
-        <a href = "oxio.html"> OXIO </a>
-        <a href = "shapes.html"> Connect the Shapes! </a>
-        <a href = "dungeon.html"> The Dungeon </a>
-        <a href = "otherwork.html"> Other Work </a>
-        <a href = "https://github.com/kellyme213/" target = "_blank"> Github </a>
-        <a href = "https://www.linkedin.com/in/kellyme213/" target = "_blank"> LinkedIn </a>
-    </div>
-    
-    
-    
-    <body>
-    <img id = "bI" class = "backImage" src = "mayasnowman1.png">
-        <h1> Featured Projects </h1>
-    <div id = "foreground">
-
-    </div>
-    
-    <ul class = "panelList">
-        <a id = "pp1" class = "projectPanel" href = "oxio.html"> <img src = "oxiobanner.png"> <p> OXIO </p> </a>
-        <a id = "pp2" class = "projectPanel" href = "shapes.html"> <img src = "shapesbanner.png"> <p> Connect the Shapes! </p> </a>
-        <a id = "pp3" class = "projectPanel" href = "raytracer.html"> <img src = "raytracerbanner.png"> <p> Ray Tracer </p> </a>
-        <a id = "pp4" class = "projectPanel" href = "dungeon.html"> <img src = "dungeonbanner.png"> <p> The Dungeon </p> </a>
-        <!--
-         <div id = "pp5" class = "projectPanel"> <img src = "mayasnowman1.png"> <a> Panel5 </a> </div>
-         <div id = "pp6" class = "projectPanel"> <img src = "mayasnowman1.png"> <a> Panel6 </a> </div>
-         -->
-    </ul>
-    
-    <svg id = "svgCircle">
+    <html>
+        <head>
+            <link rel="stylesheet" href="styles2.css">
+                <title> Michael Kelly </title>
+                </head>
         
-    </svg>
-    
-    
-    </body>
-    
-    <script>
-        
-        var numSteps = 400;
-        var speed = 50;
-        var xPoints = [];
-        var yPoints = [];
-        //var radii = [];
-        //var opac = [];
-        var dx = [];
-        var dy = [];
-        //var dr = [];
-        //var dop = [];
-        var numCircles = 15;
+        <div class = "bar">
+            <a class = "selectedbar" href = "index.html"> Home </a>
+            <a href = "resume.html"> Resume </a>
+            <a href = "coursework.html"> Course Work </a>
+            <a href = "raytracer.html"> Ray Tracer </a>
+            <a href = "oxio.html"> OXIO </a>
+            <a href = "shapes.html"> Connect the Shapes! </a>
+            <a href = "dungeon.html"> The Dungeon </a>
+            <a href = "otherwork.html"> Other Work </a>
+            <a href = "https://github.com/kellyme213/" target = "_blank"> Github </a>
+            <a href = "https://www.linkedin.com/in/kellyme213/" target = "_blank"> LinkedIn </a>
+        </div>
         
         
-
-    
-    for (var n = 0; n < numCircles; n++)
-    {
-        xPoints[n] = Math.round(Math.random() * window.innerWidth);
-        yPoints[n] = Math.round(Math.random() * window.innerHeight);
-        var px = Math.round(Math.random() * window.innerWidth);
-        var py = Math.round(Math.random() * window.innerHeight);
         
-        dx[n] = (px - xPoints[n]) / numSteps;
-        dy[n] = (py - yPoints[n]) / numSteps;
-    }
-    
-    var htmlInsert = "";//<svg id = \"svgCircle\"";
-    
-    for (var n = 0; n < numCircles; n++)
-    {
-        var circleInsert = "<circle id = \"cir" + (n) + "\" ";
-        var radius = Math.round(Math.random() * 50);
-        //radii[n] = radius;
-        //dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
-        circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radius;
-        circleInsert += "\"> </circle>\n";
-        htmlInsert += circleInsert;
-    }
-    
-    document.getElementById("svgCircle").innerHTML += htmlInsert;
-    
-    for (var n = 0; n < numCircles; n++)
-    {
-        var opacity = Math.sqrt(Math.random());
-        //opac[n] = opacity;
-        document.getElementById("cir" + n).style.fillOpacity = opacity;
-        //dop[n] = (Math.sqrt(Math.random()) - opacity) / numSteps;
-    }
-    
-    window.setInterval(moveRandom, speed);
-    window.setInterval(newPoints, numSteps * speed);
-    
-    
-    function moveRandom()
-    {
-        for (var n = 0; n < numCircles; n++)
-        {
-            xPoints[n] += dx[n];
-            yPoints[n] += dy[n];
-            //radii[n] += dr[n];
-            //opac[n] += dop[n];
-            var circle = document.getElementById("cir" + n);
-            circle.style.cx = xPoints[n];
-            circle.style.cy = yPoints[n];
-            //circle.style.r = radii[n];
-            //circle.style.fillOpacity = opac[n];
-        }
-    }
-    
-    function newPoints()
-    {
-        for (var n = 0; n < numCircles; n++)
-        {
-            var px = Math.round(Math.random() * window.innerWidth);
-            var py = Math.round(Math.random() * window.innerHeight);
+        <body>
             
-            dx[n] = (px - xPoints[n]) / numSteps;
-            dy[n] = (py - yPoints[n]) / numSteps;
+            <h1> Featured Projects </h1>
+            <div id = "foreground">
+                
+            </div>
+            
+            <ul class = "panelList">
+                <a id = "pp1" class = "projectPanel" href = "oxio.html"> <img src = "oxiobanner.png"> <p> OXIO </p> </a>
+                <a id = "pp2" class = "projectPanel" href = "shapes.html"> <img src = "shapesbanner.png"> <p> Connect the Shapes! </p> </a>
+                <a id = "pp3" class = "projectPanel" href = "raytracer.html"> <img src = "raytracerbanner.png"> <p> Ray Tracer </p> </a>
+                <a id = "pp4" class = "projectPanel" href = "dungeon.html"> <img src = "dungeonbanner.png"> <p> The Dungeon </p> </a>
+            </ul>
+            
+            <svg id = "svgCircle">
+                
+            </svg>
+            
+            
+        </body>
+        
+        <script>
+            
+            var numSteps = 400;
+            var speed = 50;
+            var xPoints = [];
+            var yPoints = [];
+            //var radii = [];
+            //var opac = [];
+            var dx = [];
+            var dy = [];
+            //var dr = [];
+            //var dop = [];
+            var numCircles = 15;
+            
+            
+            
+            
+            for (var n = 0; n < numCircles; n++)
+            {
+                xPoints[n] = Math.round(Math.random() * window.innerWidth);
+                yPoints[n] = Math.round(Math.random() * window.innerHeight);
+                var px = Math.round(Math.random() * window.innerWidth);
+                var py = Math.round(Math.random() * window.innerHeight);
+                
+                dx[n] = (px - xPoints[n]) / numSteps;
+                dy[n] = (py - yPoints[n]) / numSteps;
+            }
+        
+        var htmlInsert = "";//<svg id = \"svgCircle\"";
+        
+        for (var n = 0; n < numCircles; n++)
+        {
+            var circleInsert = "<circle id = \"cir" + (n) + "\" ";
+            var radius = Math.round(Math.random() * 50);
+            //radii[n] = radius;
             //dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
-            //dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
+            circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radius;
+            circleInsert += "\"> </circle>\n";
+            htmlInsert += circleInsert;
         }
-    }
+        
+        document.getElementById("svgCircle").innerHTML += htmlInsert;
+        
+        for (var n = 0; n < numCircles; n++)
+        {
+            var opacity = Math.sqrt(Math.random());
+            //opac[n] = opacity;
+            document.getElementById("cir" + n).style.fillOpacity = opacity;
+            //dop[n] = (Math.sqrt(Math.random()) - opacity) / numSteps;
+        }
+        
+        window.setInterval(moveRandom, speed);
+        window.setInterval(newPoints, numSteps * speed);
+        
+        
+        function moveRandom()
+        {
+            for (var n = 0; n < numCircles; n++)
+            {
+                xPoints[n] += dx[n];
+                yPoints[n] += dy[n];
+                //radii[n] += dr[n];
+                //opac[n] += dop[n];
+                var circle = document.getElementById("cir" + n);
+                circle.style.cx = xPoints[n];
+                circle.style.cy = yPoints[n];
+                //circle.style.r = radii[n];
+                //circle.style.fillOpacity = opac[n];
+            }
+        }
+        
+        function newPoints()
+        {
+            for (var n = 0; n < numCircles; n++)
+            {
+                var px = Math.round(Math.random() * window.innerWidth);
+                var py = Math.round(Math.random() * window.innerHeight);
+                
+                dx[n] = (px - xPoints[n]) / numSteps;
+                dy[n] = (py - yPoints[n]) / numSteps;
+                //dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
+                //dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
+            }
+        }
+        
+            </script>
+        
+        
+    </html>
     
-    </script>
-
-
-</html>
-
-<!--
- <p>
- 
- During the past few summers, I interned at the Naval Research Laboratory in Washington, DC. At the Naval Research Laboratory, I developed analysis software for a seabed penetrometer. A seabed penetrometer is used to determine bearing strength, a measurement that has uses is mine detection and underwater construction. My custom analysis software replaced outdated software and provides researchers groundwork on which to add more software features.
- 
- </p>
- 
- 
- <div class = "links">
- <a href = "" target = "_blank"> Download Naval Research Laboratory Report </a>
- </div>
- -->
+    <!--
+     <p>
+     
+     During the past few summers, I interned at the Naval Research Laboratory in Washington, DC. At the Naval Research Laboratory, I developed analysis software for a seabed penetrometer. A seabed penetrometer is used to determine bearing strength, a measurement that has uses is mine detection and underwater construction. My custom analysis software replaced outdated software and provides researchers groundwork on which to add more software features.
+     
+     </p>
+     
+     
+     <div class = "links">
+     <a href = "" target = "_blank"> Download Naval Research Laboratory Report </a>
+     </div>
+     -->
