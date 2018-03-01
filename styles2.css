@@ -56,7 +56,6 @@ circle
 .projectPanel p
 {
     position: absolute;
-    z-index: 1;
     //margin: auto;
     margin-top: 0px;
     margin-top: 85%;
