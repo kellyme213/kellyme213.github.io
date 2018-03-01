@@ -47,13 +47,13 @@ circle
     display: inline-block;
 }
 
-.projectPanel:hover a
+.projectPanel:hover p
 {
     background-color: white;
     color: rgb(255, 101, 0);
 }
 
-.projectPanel a
+.projectPanel p
 {
     position: absolute;
     z-index: 1;
