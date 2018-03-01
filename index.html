@@ -40,20 +40,7 @@
     </ul>
     
     <svg id = "svgCircle">
-        <!--
-        <circle id = "cir1"> </circle>
-        <circle id = "cir2"> </circle>
-        <circle id = "cir3"> </circle>
-        <circle id = "cir4"> </circle>
-        <circle id = "cir5"> </circle>
-        <circle id = "cir6"> </circle>
-        <circle id = "cir7"> </circle>
-        <circle id = "cir8"> </circle>
-        <circle id = "cir9"> </circle>
-        <circle id = "cir10"> </circle>
-        <circle id = "cir11"> </circle>
-        <circle id = "cir12"> </circle>
-         -->
+        
     </svg>
     
     
@@ -65,13 +52,13 @@
         var speed = 50;
         var xPoints = [];
         var yPoints = [];
-        var radii = [];
-        var opac = [];
+        //var radii = [];
+        //var opac = [];
         var dx = [];
         var dy = [];
-        var dr = [];
-        var dop = [];
-        var numCircles = 12;
+        //var dr = [];
+        //var dop = [];
+        var numCircles = 15;
         
         
 
@@ -85,12 +72,6 @@
         
         dx[n] = (px - xPoints[n]) / numSteps;
         dy[n] = (py - yPoints[n]) / numSteps;
-
-        //var circle = document.getElementById("cir" + n);
-        //circle.style.fillOpacity = Math.sqrt(Math.random());
-        //circle.style.r = Math.round(Math.random() * 50);
-        //circle.style.cx = xPoints[n];
-        //circle.style.cy = yPoints[n];
     }
     
     var htmlInsert = "";//<svg id = \"svgCircle\"";
@@ -99,23 +80,21 @@
     {
         var circleInsert = "<circle id = \"cir" + (n) + "\" ";
         var radius = Math.round(Math.random() * 50);
-        radii[n] = radius;
-        dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
+        //radii[n] = radius;
+        //dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
         circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radius;
         circleInsert += "\"> </circle>\n";
         htmlInsert += circleInsert;
     }
-    
-    //htmlInsert += "</svg>\n";
     
     document.getElementById("svgCircle").innerHTML += htmlInsert;
     
     for (var n = 0; n < numCircles; n++)
     {
         var opacity = Math.sqrt(Math.random());
-        opac[n] = opacity;
+        //opac[n] = opacity;
         document.getElementById("cir" + n).style.fillOpacity = opacity;
-        dop[n] = (Math.sqrt(Math.random()) - opacity) / numSteps;
+        //dop[n] = (Math.sqrt(Math.random()) - opacity) / numSteps;
     }
     
     window.setInterval(moveRandom, speed);
@@ -128,13 +107,13 @@
         {
             xPoints[n] += dx[n];
             yPoints[n] += dy[n];
-            radii[n] += dr[n];
-            opac[n] += dop[n];
+            //radii[n] += dr[n];
+            //opac[n] += dop[n];
             var circle = document.getElementById("cir" + n);
             circle.style.cx = xPoints[n];
             circle.style.cy = yPoints[n];
-            circle.style.r = radii[n];
-            circle.style.fillOpacity = opac[n];
+            //circle.style.r = radii[n];
+            //circle.style.fillOpacity = opac[n];
         }
     }
     
@@ -147,8 +126,8 @@
             
             dx[n] = (px - xPoints[n]) / numSteps;
             dy[n] = (py - yPoints[n]) / numSteps;
-            dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
-            dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
+            //dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
+            //dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
         }
     }
     
