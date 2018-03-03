@@ -5,7 +5,8 @@
             <link rel="stylesheet" href="styles2.css">
                 <title> Michael Kelly </title>
                 </head>
-        
+        <body>
+
         <div class = "bar">
             <a class = "selectedbar" href = "index.html"> Home </a>
             <a href = "resume.html"> Resume </a>
@@ -21,8 +22,6 @@
         
         
         
-        <body>
-                        
             <h1> Featured Projects </h1>
             <div id = "foreground">
                 
@@ -38,11 +37,6 @@
             <svg id = "svgCircle">
                 
             </svg>
-            
-            
-            
-            
-            
         </body>
         
         <script>
@@ -51,16 +45,13 @@
             var speed = 50;
             var xPoints = [];
             var yPoints = [];
-            //var radii = [];
-            //var opac = [];
+            var radii = [];
+            var opac = [];
             var dx = [];
             var dy = [];
-            //var dr = [];
-            //var dop = [];
-            var numCircles = 15;
-            
-            
-            
+            var dr = [];
+            var dop = [];
+            var numCircles = 30;
             
             for (var n = 0; n < numCircles; n++)
             {
@@ -73,15 +64,15 @@
                 dy[n] = (py - yPoints[n]) / numSteps;
             }
         
-        var htmlInsert = "";//<svg id = \"svgCircle\"";
+        var htmlInsert = "";
         
         for (var n = 0; n < numCircles; n++)
         {
             var circleInsert = "<circle id = \"cir" + (n) + "\" ";
             var radius = Math.round(Math.random() * 50);
-            //radii[n] = radius;
-            //dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
-            circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radius;
+            radii[n] = radius;
+            dr[n] = (Math.round(Math.random() * 50) - radii[n]) / numSteps;
+            circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radii[n];
             circleInsert += "\"> </circle>\n";
             htmlInsert += circleInsert;
         }
@@ -91,9 +82,9 @@
         for (var n = 0; n < numCircles; n++)
         {
             var opacity = Math.sqrt(Math.random());
-            //opac[n] = opacity;
+            opac[n] = opacity;
             document.getElementById("cir" + n).style.fillOpacity = opacity;
-            //dop[n] = (Math.sqrt(Math.random()) - opacity) / numSteps;
+            dop[n] = (Math.sqrt(Math.random()) - opacity) / numSteps;
         }
         
         window.setInterval(moveRandom, speed);
@@ -106,13 +97,13 @@
             {
                 xPoints[n] += dx[n];
                 yPoints[n] += dy[n];
-                //radii[n] += dr[n];
-                //opac[n] += dop[n];
+                radii[n] += dr[n];
+                opac[n] += dop[n];
                 var circle = document.getElementById("cir" + n);
                 circle.style.cx = xPoints[n];
                 circle.style.cy = yPoints[n];
-                //circle.style.r = radii[n];
-                //circle.style.fillOpacity = opac[n];
+                circle.style.r = radii[n];
+                circle.style.fillOpacity = opac[n];
             }
         }
         
@@ -125,14 +116,12 @@
                 
                 dx[n] = (px - xPoints[n]) / numSteps;
                 dy[n] = (py - yPoints[n]) / numSteps;
-                //dr[n] = (Math.round(Math.random() * 50) - radius) / numSteps;
-                //dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
+                dr[n] = (Math.round(Math.random() * 50) - radii[n]) / numSteps;
+                dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
             }
         }
         
-            </script>
-        
-        
+        </script>
     </html>
     
     <!--
