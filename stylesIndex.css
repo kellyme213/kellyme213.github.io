@@ -4,7 +4,19 @@ body
     color: rgb(255, 101, 0);
     margin: 0px;
     padding: 0px;
-    margin-left: 150px;
+    margin-left: 0px;
+}
+
+#title
+{
+    width: 100vw;
+    height: 100vh;
+}
+
+#title h1
+{
+    margin: auto;
+    padding-top: 40vh;
 }
 
 #svgCircle
@@ -121,18 +133,15 @@ h1
     text-align: center;
     font-weight: 500;
 }
-/*
-h1
+
+h2
 {
-    font-size: 50px;
-    margin: 0px;
-    margin-top: 20px;
-    margin-left: 30px;
+    font-size: 40px;
+    color: black;
+    text-align: center;
     font-weight: 500;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
-*/
+
 .bar
 {
     white-space: nowrap;
@@ -189,3 +198,131 @@ p
     margin-left: 0px;
 }
 
+.leftthing
+{
+    border-width: 1px 1px 1px 1px;
+    border-color: rgb(255, 101, 0);
+    border-style: solid;
+    width: 68vw;
+    height: 17vw;
+    margin: auto;
+    position: relative;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    text-decoration: none;
+    background-color: white;
+}
+
+.leftthing:hover h1
+{
+    padding-left: 2vw;
+}
+
+.leftthing img
+{
+    width: 20vw;
+    height: 17vw;
+    top: 0vw;
+    left: 0vw;
+    position: absolute;
+    border-width: 0px 1px 0px 0px;
+    border-color: rgb(255, 101, 0);
+    border-style: solid;
+}
+
+.leftthing p
+{
+    position: absolute;
+    top: 3vw;
+    left: 20vw;
+    padding-right: 1vw;
+    padding-left: 1vw;
+    margin: 0;
+    text-align: left;
+    font-size: 1.5vw;
+    color: black;
+}
+
+.leftthing h1
+{
+    font-size: 2vw;
+    color: rgb(255, 101, 0);
+    position: absolute;
+    top: 0vw;
+    left: 20vw;
+    margin: 0;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    transition-duration: 0.4s;
+}
+
+.rightthing
+{
+    border-width: 1px 1px 1px 1px;
+    border-color: rgb(255, 101, 0);
+    border-style: solid;
+    width: 68vw;
+    height: 17vw;
+    position: relative;
+    margin: auto;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    text-decoration: none;
+    background-color: white;
+}
+
+.rightthing img
+{
+    width: 20vw;
+    height: 17vw;
+    top: 0vw;
+    right: 0vw;
+    position: absolute;
+    border-width: 0px 0px 0px 1px;
+    border-color: rgb(255, 101, 0);
+    border-style: solid;
+}
+
+.rightthing p
+{
+    position: absolute;
+    top: 3vw;
+    left: 0vw;
+    padding-left: 1vw;
+    padding-right: 21vw;
+    margin: 0;
+    text-align: right;
+    font-size: 1.5vw;
+    color: black;
+}
+
+.rightthing h1
+{
+    font-size: 2vw;
+    color: rgb(255, 101, 0);
+    position: absolute;
+    top: 0vw;
+    right: 20vw;
+    text-align: right;
+    margin: 0;
+    padding-top: 1vw;
+    padding-right: 1vw;
+    transition-duration: 0.4s;
+}
+
+.rightthing:hover h1
+{
+    padding-right: 2vw;
+}
+
+.stickyBanner
+{
+    top: 0px;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1;
+    background-color: white;
+    border-width: 1px 0px 1px 0px;
+    border-color: rgb(255, 101, 0);
+    border-style: solid;
+}
