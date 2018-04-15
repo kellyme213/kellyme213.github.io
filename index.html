@@ -6,23 +6,7 @@
                 <title> Michael Kelly </title>
                 </head>
         <body>
-
-<!--
-        <div class = "bar">
-            <a class = "selectedbar" href = "index.html"> Home </a>
-            <a href = "resume.html"> Resume </a>
-            <a href = "coursework.html"> Course Work </a>
-            <a href = "raytracer.html"> Ray Tracer </a>
-            <a href = "oxio.html"> OXIO </a>
-            <a href = "shapes.html"> Connect the Shapes! </a>
-            <a href = "dungeon.html"> The Dungeon </a>
-            <a href = "otherwork.html"> Other Work </a>
-            <a href = "https://github.com/kellyme213/" target = "_blank"> Github </a>
-            <a href = "https://www.linkedin.com/in/kellyme213/" target = "_blank"> LinkedIn </a>
-        </div>
-        
-        -->
-
+            
             <div id = "title">
                 <h1> Michael Kelly </h1>
             </div>
@@ -39,13 +23,6 @@
             
         <h1 class = "stickyBanner"> Featured Projects </h1>
         
-        <!--
-            <div id = "foreground">
-                
-            </div>
-            -->
-
-            
             <a href = "oxio.html">
                 <div class = "rightthing">
                     <img src = "pictures/banners/oxiobanner.png"> </img>
@@ -132,6 +109,10 @@
             circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radii[n];
             circleInsert += "\"> </circle>\n";
             htmlInsert += circleInsert;
+            
+            var lineInsert = "<line id = \"line" + n + "\" x1 = \"" + xPoints[n % numCircles] + "\" y1 = \"" + yPoints[n % numCircles] + "\" x2 = \"" + xPoints[(n + 1) % numCircles] + "\" y2 = \"" + yPoints[(n + 1) % numCircles] + "\"/>\n"
+            htmlInsert += lineInsert;
+            
         }
         
         document.getElementById("svgCircle").innerHTML += htmlInsert;
@@ -157,10 +138,16 @@
                 radii[n] += dr[n];
                 opac[n] += dop[n];
                 var circle = document.getElementById("cir" + n);
-                circle.style.cx = xPoints[n];
-                circle.style.cy = yPoints[n];
-                circle.style.r = radii[n];
-                circle.style.fillOpacity = opac[n];
+                circle.setAttribute("cx", xPoints[n]);
+                circle.setAttribute("cy", yPoints[n]);
+                circle.setAttribute("r", radii[n]);
+                circle.setAttribute("fill-opacity", opac[n]);
+                
+                var line = document.getElementById("line" + n);
+                line.setAttribute("x1", xPoints[n % numCircles]);
+                line.setAttribute("y1", yPoints[n % numCircles]);
+                line.setAttribute("x2", xPoints[(n + 1) % numCircles]);
+                line.setAttribute("y2", yPoints[(n + 1) % numCircles]);
             }
         }
         
@@ -180,16 +167,3 @@
         
         </script>
     </html>
-    
-    <!--
-     <p>
-     
-     During the past few summers, I interned at the Naval Research Laboratory in Washington, DC. At the Naval Research Laboratory, I developed analysis software for a seabed penetrometer. A seabed penetrometer is used to determine bearing strength, a measurement that has uses is mine detection and underwater construction. My custom analysis software replaced outdated software and provides researchers groundwork on which to add more software features.
-     
-     </p>
-     
-     
-     <div class = "links">
-     <a href = "" target = "_blank"> Download Naval Research Laboratory Report </a>
-     </div>
-     -->

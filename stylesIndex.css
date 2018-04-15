@@ -326,3 +326,9 @@ p
     border-color: rgb(255, 101, 0);
     border-style: solid;
 }
+
+line
+{
+    stroke: rgb(255, 101, 0);
+    stroke-width: 1px;
+}
