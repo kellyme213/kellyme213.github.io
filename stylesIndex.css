@@ -321,9 +321,9 @@ p
     position: -webkit-sticky;
     position: sticky;
     z-index: 1;
-    background-color: white;
-    border-width: 1px 0px 1px 0px;
+    background-color: rgba(255, 101, 0, 0.7);
     border-color: rgb(255, 101, 0);
+    border-width: 1px 0px 1px 0px;
     border-style: solid;
 }
 

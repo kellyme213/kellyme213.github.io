@@ -21,7 +21,7 @@
             </p>
         -->
             
-        <h1 class = "stickyBanner"> Featured Projects </h1>
+        <h1 class = "stickyBanner">  Featured Projects </h1>
         
             <a href = "oxio.html">
                 <div class = "rightthing">
@@ -86,6 +86,7 @@
             var dr = [];
             var dop = [];
             var numCircles = 30;
+            var drawLines = false;
             
             for (var n = 0; n < numCircles; n++)
             {
@@ -110,9 +111,10 @@
             circleInsert += "\"> </circle>\n";
             htmlInsert += circleInsert;
             /*
-            var lineInsert = "<line id = \"line" + n + "\" x1 = \"" + xPoints[n % numCircles] + "\" y1 = \"" + yPoints[n % numCircles] + "\" x2 = \"" + xPoints[(n + 1) % numCircles] + "\" y2 = \"" + yPoints[(n + 1) % numCircles] + "\"/>\n"
-            htmlInsert += lineInsert;
-            */
+                var lineInsert = "<line id = \"line" + n + "\" x1 = \"" + xPoints[n % numCircles] + "\" y1 = \"" + yPoints[n % numCircles] + "\" x2 = \"" + xPoints[(n + 1) % numCircles] + "\" y2 = \"" + yPoints[(n + 1) % numCircles] + "\"/>\n"
+                htmlInsert += lineInsert;
+             */
+            
         }
         
         document.getElementById("svgCircle").innerHTML += htmlInsert;
@@ -143,11 +145,11 @@
                 circle.setAttribute("r", radii[n]);
                 circle.setAttribute("fill-opacity", opac[n]);
                 /*
-                var line = document.getElementById("line" + n);
-                line.setAttribute("x1", xPoints[n % numCircles]);
-                line.setAttribute("y1", yPoints[n % numCircles]);
-                line.setAttribute("x2", xPoints[(n + 1) % numCircles]);
-                line.setAttribute("y2", yPoints[(n + 1) % numCircles]);
+                    var line = document.getElementById("line" + n);
+                    line.setAttribute("x1", xPoints[n % numCircles]);
+                    line.setAttribute("y1", yPoints[n % numCircles]);
+                    line.setAttribute("x2", xPoints[(n + 1) % numCircles]);
+                    line.setAttribute("y2", yPoints[(n + 1) % numCircles]);
                  */
             }
         }
