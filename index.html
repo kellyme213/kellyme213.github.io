@@ -11,20 +11,23 @@
                 <h1> Michael Kelly </h1>
             </div>
             
-            <!--
-            <h1 class = "stickyBanner"> About </h1>
+            <h1 class = "stickyBanner" id = "banner0"> About </h1>
             
-            <p style = "background-color: white;">
-            Hi! I'm Michael. I'm a CS and game design student.
+            <div class = "textbox">
+                <p>
+                    Hi! I'm Michael. I'm a Computer Science and Game Design student.
+                </p>
+                
+                <p>
+                    Take a look at my <a href = "resume.html" style = "text-decoration: none; color: var(--siteColor);"> resume</a>, and code on <a href = "https://github.com/kellyme213/" style = "text-decoration: none; color: var(--siteColor);"> GitHub</a>.
+                </p>
+
+            </div>
             
-         Take a look at my <a href = "resume.html" style = "text-decoration: none; color: rgb(255, 101, 0);"> resume</a>, and code on <a href = "https://github.com/kellyme213/" style = "text-decoration: none; color: rgb(255, 101, 0);"> GitHub</a>.
-            </p>
-        -->
-            
-        <h1 class = "stickyBanner">  Featured Projects </h1>
+            <h1 class = "stickyBanner" id = "banner1">  Featured Projects </h1>
         
             <a href = "oxio.html">
-                <div class = "rightthing">
+                <div class = "rightProjectBox">
                     <img src = "pictures/banners/oxiobanner.png"> </img>
                     <h1> OXIO </h1>
                     <p> Puzzle game where players move the center of mass of a group of blocks to the goal. In development for iOS and macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2017. </p>
@@ -32,7 +35,7 @@
             </a>
 
             <a href = "raytracer.html">
-                <div class = "leftthing">
+                <div class = "leftProjectBox">
                     <img src = "pictures/banners/raytracerbanner.png"> </img>
                     <h1> Ray Tracer </h1>
                     <p> Renders spheres, cones, polygons, planes, and cylinders. </p>
@@ -40,7 +43,7 @@
             </a>
             
             <a href = "shapes.html">
-                <div class = "rightthing">
+                <div class = "rightProjectBox">
                     <img src = "pictures/banners/shapesbanner.png"> </img>
                     <h1> Connect the Shapes! </h1>
                     <p> A cross between a match three and connect the dots. Availible now on iOS, coming soon to macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2016. </p>
@@ -48,7 +51,7 @@
             </a>
 
             <a href = "dungeon.html">
-                <div class = "leftthing">
+                <div class = "leftProjectBox">
                     <img src = "pictures/banners/dungeonbanner.png"> </img>
                     <h1> The Dungeon </h1>
                     <p> Top-down exploration game written in Java. Includes primitive collision and animation systems, as well as a level editor. </p>
@@ -75,6 +78,8 @@
         
         <script>
             
+            //window.onscroll = function(){makeSticky()};
+            
             var numSteps = 400;
             var speed = 50;
             var xPoints = [];
@@ -87,6 +92,7 @@
             var dop = [];
             var numCircles = 30;
             var drawLines = false;
+            var bannerNum = 2;
             
             for (var n = 0; n < numCircles; n++)
             {
@@ -110,11 +116,11 @@
             circleInsert += "cx = \"" + xPoints[n] + "\" cy = \"" + yPoints[n] + "\" r = \"" + radii[n];
             circleInsert += "\"> </circle>\n";
             htmlInsert += circleInsert;
-            /*
+            if (drawLines)
+            {
                 var lineInsert = "<line id = \"line" + n + "\" x1 = \"" + xPoints[n % numCircles] + "\" y1 = \"" + yPoints[n % numCircles] + "\" x2 = \"" + xPoints[(n + 1) % numCircles] + "\" y2 = \"" + yPoints[(n + 1) % numCircles] + "\"/>\n"
                 htmlInsert += lineInsert;
-             */
-            
+            }
         }
         
         document.getElementById("svgCircle").innerHTML += htmlInsert;
@@ -144,13 +150,15 @@
                 circle.setAttribute("cy", yPoints[n]);
                 circle.setAttribute("r", radii[n]);
                 circle.setAttribute("fill-opacity", opac[n]);
-                /*
+                
+                if (drawLines)
+                {
                     var line = document.getElementById("line" + n);
                     line.setAttribute("x1", xPoints[n % numCircles]);
                     line.setAttribute("y1", yPoints[n % numCircles]);
                     line.setAttribute("x2", xPoints[(n + 1) % numCircles]);
                     line.setAttribute("y2", yPoints[(n + 1) % numCircles]);
-                 */
+                }
             }
         }
         
@@ -165,6 +173,32 @@
                 dy[n] = (py - yPoints[n]) / numSteps;
                 dr[n] = (Math.round(Math.random() * 50) - radii[n]) / numSteps;
                 dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
+            }
+        }
+        
+        function makeSticky()
+        {
+            for (var x = 0; x < bannerNum; x++)
+            {
+                document.getElementById("banner" + x).classList.remove("sticky");
+            }
+            
+            for (var x = bannerNum - 1; x >= 0; x--)
+            {
+                var header = document.getElementById("banner" + x);
+                if (window.pageYOffset >= header.offsetTop)
+                {
+                    header.classList.add("sticky");
+                    for (var y = x - 1; y >= 0; y--)
+                    {
+                        document.getElementById("banner" + y).classList.remove("sticky");
+                    }
+                    return;
+                }
+                else
+                {
+                    header.classList.remove("sticky");
+                }
             }
         }
         

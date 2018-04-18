@@ -1,7 +1,7 @@
 body
 {
     font-family: Avenir;
-    color: rgb(255, 101, 0);
+    color: var(--siteColor);
     margin: 0px;
     padding: 0px;
     margin-left: 180px;
@@ -22,7 +22,7 @@ h1
 {
     font-size: 30px;
     font-weight: normal;
-    color: rgb(255, 101, 0);
+    color: var(--siteColor);
     padding-bottom: 10px;
     margin-bottom: 0px;
 }
@@ -62,7 +62,7 @@ h1
 
 .links a:hover
 {
-    color: rgb(255, 101, 0);
+    color: var(--siteColor);
 }
 
 p
@@ -79,7 +79,7 @@ img
 {
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(255, 101, 0);
+    border-color: var(--siteColor);
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: auto;
@@ -104,7 +104,7 @@ img
 .bar
 {
     white-space: nowrap;
-    background-color: rgb(255, 101, 0);
+    background-color: var(--siteColor);
     width: 150px;
     height: 100%;
     top: 0;
@@ -134,7 +134,7 @@ img
 .bar .selectedbar
 {
     background-color: white;
-    color: rgb(255, 101, 0);
+    color: var(--siteColor);
 }
 
 .bar a:hover
@@ -157,4 +157,9 @@ tr
     color: black;
     font-size: 20px;
     table-layout: fixed;
+}
+
+:root
+{
+    --siteColor: rgba(255, 101, 0, 1.0);
 }
