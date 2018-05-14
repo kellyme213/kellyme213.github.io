@@ -15,7 +15,7 @@
             
             <div class = "textbox">
                 <p>
-                    Hi! I'm Michael. I'm a Computer Science and Game Design student. I love making things, and I want to use my coding skills to create works of art that people love. My interests include game design, computer graphics, cooking, and sleeping in as late as I can.
+                    Hi! I'm Michael. I'm a Computer Science and Game Design student. I love making things that combine programming with art and design. My interests include game design, computer graphics, cooking, and sleeping in as late as I can.
                 </p>
                 
                 <p>
@@ -69,7 +69,7 @@
                 <a id = "pp3" class = "projectPanel" href = "raytracer.html"> <img src = "pictures/banners/raytracerbanner.png"> <p class = "bannerp"> Ray Tracer </p> </a>
                 <a id = "pp4" class = "projectPanel" href = "dungeon.html"> <img src = "pictures/banners/dungeonbanner.png"> <p class = "bannerp"> The Dungeon </p> </a>
             </ul>
--->
+            -->
             
             <svg id = "svgCircle">
                 
@@ -79,6 +79,7 @@
         <script>
             
             //window.onscroll = function(){makeSticky()};
+            window.onscroll = function(){addBlur()};
             
             var numSteps = 400;
             var speed = 50;
@@ -174,6 +175,25 @@
                 dr[n] = (Math.round(Math.random() * 50) - radii[n]) / numSteps;
                 dop[n] = (Math.sqrt(Math.random()) - opac[n]) / numSteps;
             }
+        }
+        
+        function addBlur()
+        {
+            var blurAmount = 3;
+            var temp = document.getElementById("svgCircle");
+            
+            var percent = blurAmount * window.pageYOffset / window.innerHeight;
+            
+            if (percent > blurAmount)
+            {
+                percent = blurAmount;
+            }
+            if (percent < 0)
+            {
+                percent = 0;
+            }
+            
+            temp.style.filter = "blur(" + percent + "px)";
         }
         
         function makeSticky()
