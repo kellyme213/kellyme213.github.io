@@ -211,12 +211,17 @@ p
     margin-bottom: 5vw;
     text-decoration: none;
     background-color: white;
-    //box-shadow: 0px 0px 5px var(--siteColor);
+    box-shadow: 0px 0px 3px var(--siteColor);
 }
 
 .leftProjectBox:hover h1
 {
     padding-left: 2vw;
+}
+
+.leftProjectBox:hover
+{
+    box-shadow: 0px 0px 3px var(--siteColor);
 }
 
 .leftProjectBox img
@@ -270,6 +275,11 @@ p
     margin-bottom: 5vw;
     text-decoration: none;
     background-color: white;
+    box-shadow: 0px 0px 3px var(--siteColor);
+}
+
+.rightProjectBox:hover
+{
     //box-shadow: 0px 0px 5px var(--siteColor);
 }
 
@@ -357,6 +367,7 @@ line
     margin-bottom: 5vw;
     text-decoration: none;
     background-color: white;
+    box-shadow: 0px 0px 3px var(--siteColor);
 }
 
 .textbox p
