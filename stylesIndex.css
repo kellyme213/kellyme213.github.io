@@ -17,6 +17,7 @@ body
 {
     margin: auto;
     padding-top: 40vh;
+    color: white;
 }
 
 #svgCircle
@@ -28,6 +29,7 @@ body
     top: 0px;
     left: 0px;
     z-index: -10;
+    background: black;
 }
 
 circle
@@ -96,6 +98,7 @@ circle
     border-width: 1px 1px 1px 1px;
     border-style: solid;
     border-color: var(--siteColor);
+    margin-top: 0px;
 }
 
 .panelList
@@ -224,19 +227,20 @@ p
     box-shadow: 0px 0px 3px var(--siteColor);
 }
 
-.leftProjectBox img
+.leftImage
 {
     width: 20vw;
     height: 17vw;
     top: 0vw;
     left: 0vw;
     position: absolute;
-    border-width: 0px 1px 0px 0px;
+    border-width: 0px 1px 1px 0px;
     border-color: var(--siteColor);
     border-style: solid;
+    margin: 0px; /* */
 }
 
-.leftProjectBox p
+.leftP
 {
     position: absolute;
     top: 3vw;
@@ -249,7 +253,7 @@ p
     color: black;
 }
 
-.leftProjectBox h1
+.leftH1
 {
     font-size: 2vw;
     color: var(--siteColor);
@@ -283,19 +287,20 @@ p
     //box-shadow: 0px 0px 5px var(--siteColor);
 }
 
-.rightProjectBox img
+.rightImage
 {
     width: 20vw;
     height: 17vw;
     top: 0vw;
     right: 0vw;
     position: absolute;
-    border-width: 0px 0px 0px 1px;
+    border-width: 0px 0px 1px 1px;
     border-color: var(--siteColor);
     border-style: solid;
+    margin: 0px; /* */
 }
 
-.rightProjectBox p
+.rightP
 {
     position: absolute;
     top: 3vw;
@@ -308,7 +313,7 @@ p
     color: black;
 }
 
-.rightProjectBox h1
+.rightH1
 {
     font-size: 2vw;
     color: var(--siteColor);
@@ -383,4 +388,53 @@ line
 :root
 {
     --siteColor: rgba(255, 101, 0, 1.0);
+}
+
+
+.links a
+{
+    text-decoration: none;
+    display: block;
+    color: black;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    padding-bottom: 1.5vw;
+    text-align: center;
+}
+
+.links a:hover
+{
+    color: var(--siteColor);
+}
+
+.imagelist
+{
+    text-decoration: none;
+    padding: 0px;
+    text-align: center;
+}
+
+.imagelist img
+{
+    display: inline-block;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+}
+
+img
+{
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--siteColor);
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.htmlinsert p, .htmlinsert a
+{
+    margin-right: 30px;
+    font-size: 1.5vw;
 }
