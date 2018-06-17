@@ -166,7 +166,7 @@ function openBoxDungeon()
     }
     else
     {
-        openBox("dungeon", 136, dungeonInsert);
+        openBox("dungeon", 137, dungeonInsert);
     }
     
     dungeonOpen = !dungeonOpen;
