@@ -1,42 +1,38 @@
 <!DOCTYPE html>
-<meta charset = "UTF-8">
-    <html>
-        <head>
-            <link rel="stylesheet" href="stylesIndex.css">
-            <title> Michael Kelly </title>
-            <script src = "scripts/openingBoxes.js" type = "text/javascript"> </script>
-        </head>
+<meta charset = "UTF-8"> </meta>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesIndex.css"> </link>
+        <title> Michael Kelly </title>
+        <script src = "scripts/openingBoxes.js" type = "text/javascript"> </script>
+    </head>
+    
+    <body>
         
-        <body>
+        <div id = "title">
+            <h1> Michael Kelly </h1>
+        </div>
+        
+        <h1 class = "stickyBanner" id = "banner0"> About </h1>
+        
+        <div class = "textbox">
+            <p>
+            Hi! I'm Michael. I'm a Computer Science and Game Design student. I love making things that combine programming with art and design. My interests include game design, computer graphics, cooking, and sleeping in as late as I can.
+            </p>
             
-            <div id = "title">
-                <h1> Michael Kelly </h1>
-            </div>
+            <p>
+            Check out my <a href = "resume.html" style = "text-decoration: none; color: var(--siteColor);"> resume</a>, <a href = "https://www.linkedin.com/in/kellyme213/" style = "text-decoration: none; color: var(--siteColor);"> LinkedIn</a>, and code on <a href = "https://github.com/kellyme213/" style = "text-decoration: none; color: var(--siteColor);"> GitHub</a>. You can click on my projects below to expand them.
+            </p>
             
-            <h1 class = "stickyBanner" id = "banner0"> About </h1>
-            
-            <div class = "textbox">
+            <noscript>
                 <p>
-                    Hi! I'm Michael. I'm a Computer Science and Game Design student. I love making things that combine programming with art and design. My interests include game design, computer graphics, cooking, and sleeping in as late as I can.
+                It looks like JavaScript isn't working right now. Please enable it or go <a href = "indexnojs.html" style = "text-decoration: none; color: var(--siteColor);">here</a> to view my website without JavaScript.
                 </p>
-                
-                <p>
-                    Check out my <a href = "resume.html" style = "text-decoration: none; color: var(--siteColor);"> resume</a>, <a href = "https://www.linkedin.com/in/kellyme213/" style = "text-decoration: none; color: var(--siteColor);"> LinkedIn</a>, and code on <a href = "https://github.com/kellyme213/" style = "text-decoration: none; color: var(--siteColor);"> GitHub</a>. You can click on my projects below to expand them.
-                </p>
-                
-                <noscript>
-                
-                <p>
-                    It looks like JavaScript isn't working right now. Please enable it or go <a href = "indexnojs.html" style = "text-decoration: none; color: var(--siteColor);">here</a> to view my website without JavaScript.
-                </p>
-                
-                </noscript>
-                
-                
-                
-            </div>
+            </noscript>
             
-            <h1 class = "stickyBanner" id = "banner1"> Things I've Made </h1>
+        </div>
+        
+        <h1 class = "stickyBanner" id = "banner1"> Things I've Made </h1>
         
         <div onclick = "openBoxOxio()" class = "rightProjectBox" id = "oxiobox">
             <img class = "rightImage" src = "pictures/banners/oxiobanner.png" id = "oxiopic"> </img>
@@ -55,43 +51,39 @@
                 
             </div>
         </div>
-            
-                <div onclick = "openBoxShapes()" class = "rightProjectBox" id = "shapesbox">
-                    <img class = "rightImage" src = "pictures/banners/shapesbanner.png" id = "shapespic"> </img>
-                    <h1 class = "rightH1"> Connect the Shapes! </h1>
-                    <p class = "rightP"> A cross between a match three and connect the dots. Availible now on iOS, coming soon to macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2016. </p>
-                    <div class = "htmlinsert" id = "shapesinside" style = "margin-top: 17vw;">
-                        
-                    </div>
-                </div>
-
-                <div onclick = "openBoxDungeon()" class = "leftProjectBox" id = "dungeonbox">
-                    <img class = "leftImage" src = "pictures/banners/dungeonbanner.png" id = "dungeonpic"> </img>
-                    <h1 class = "leftH1"> The Dungeon </h1>
-                    <p class = "leftP"> Top-down exploration game written in Java. Includes primitive collision and animation systems, as well as a level editor. </p>
-                    <div class = "htmlinsert" id = "dungeoninside" style = "margin-top: 17vw;">
-                        
-                    </div>
-                </div>
-
-
-            
-            
-            
-            <!--
-            <ul class = "panelList">
-                <a id = "pp1" class = "projectPanel" href = "oxio.html"> <img src = "pictures/banners/oxiobanner.png"> <p class = "bannerp"> OXIO </p> </a>
-                <a id = "pp2" class = "projectPanel" href = "shapes.html"> <img src = "pictures/banners/shapesbanner.png"> <p class = "bannerp"> Connect the Shapes! </p> </a>
-                <a id = "pp3" class = "projectPanel" href = "raytracer.html"> <img src = "pictures/banners/raytracerbanner.png"> <p class = "bannerp"> Ray Tracer </p> </a>
-                <a id = "pp4" class = "projectPanel" href = "dungeon.html"> <img src = "pictures/banners/dungeonbanner.png"> <p class = "bannerp"> The Dungeon </p> </a>
-            </ul>
-            -->
-            
-            <svg id = "svgCircle">
-                
-            </svg>
-        </body>
         
-        <script src = "scripts/backgroundCircles.js" type = "text/javascript"> </script>
-
-    </html>
+        <div onclick = "openBoxShapes()" class = "rightProjectBox" id = "shapesbox">
+            <img class = "rightImage" src = "pictures/banners/shapesbanner.png" id = "shapespic"> </img>
+            <h1 class = "rightH1"> Connect the Shapes! </h1>
+            <p class = "rightP"> A cross between a match three and connect the dots. Available now on iOS, coming soon to macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2016. </p>
+            <div class = "htmlinsert" id = "shapesinside" style = "margin-top: 17vw;">
+                
+            </div>
+        </div>
+        
+        <div onclick = "openBoxDungeon()" class = "leftProjectBox" id = "dungeonbox">
+            <img class = "leftImage" src = "pictures/banners/dungeonbanner.png" id = "dungeonpic"> </img>
+            <h1 class = "leftH1"> The Dungeon </h1>
+            <p class = "leftP"> Top-down exploration game written in Java. Includes primitive collision and animation systems, as well as a level editor. </p>
+            <div class = "htmlinsert" id = "dungeoninside" style = "margin-top: 17vw;">
+                
+            </div>
+        </div>
+        
+        <!--
+         <ul class = "panelList">
+         <a id = "pp1" class = "projectPanel" href = "oxio.html"> <img src = "pictures/banners/oxiobanner.png"> <p class = "bannerp"> OXIO </p> </a>
+         <a id = "pp2" class = "projectPanel" href = "shapes.html"> <img src = "pictures/banners/shapesbanner.png"> <p class = "bannerp"> Connect the Shapes! </p> </a>
+         <a id = "pp3" class = "projectPanel" href = "raytracer.html"> <img src = "pictures/banners/raytracerbanner.png"> <p class = "bannerp"> Ray Tracer </p> </a>
+         <a id = "pp4" class = "projectPanel" href = "dungeon.html"> <img src = "pictures/banners/dungeonbanner.png"> <p class = "bannerp"> The Dungeon </p> </a>
+         </ul>
+         -->
+        
+        <svg id = "svgCircle">
+            
+        </svg>
+    </body>
+    
+    <script src = "scripts/backgroundCircles.js" type = "text/javascript"> </script>
+    
+</html>

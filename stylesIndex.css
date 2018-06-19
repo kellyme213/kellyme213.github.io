@@ -103,7 +103,7 @@ circle
 
 .panelList
 {
-    width: 80%;
+    width: 68%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -338,10 +338,16 @@ p
     position: -webkit-sticky;
     position: sticky;
     z-index: 1;
+    //background-color: white;
+    //background-color: black;
     background-color: var(--siteColor);
     border-color: var(--siteColor);
+    //border-color: white;
     border-width: 1px 0px 1px 0px;
     border-style: solid;
+    color: white;
+    //color: black;
+    //color: var(--siteColor);
 }
 
 .sticky
