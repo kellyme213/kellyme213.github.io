@@ -118,7 +118,7 @@ function openBoxOxio()
     }
     else
     {
-        openBox("oxio", 145, oxioInsert);
+        openBox("oxio", 155, oxioInsert);
     }
     
     oxioOpen = !oxioOpen;
@@ -133,7 +133,7 @@ function openBoxRay()
     }
     else
     {
-        openBox("ray", 185, rayInsert);
+        openBox("ray", 195, rayInsert);
     }
     
     rayOpen = !rayOpen;
@@ -148,7 +148,7 @@ function openBoxShapes()
     }
     else
     {
-        openBox("shapes", 77, shapesInsert);
+        openBox("shapes", 85, shapesInsert);
     }
     
     shapesOpen = !shapesOpen;
@@ -163,7 +163,7 @@ function openBoxDungeon()
     }
     else
     {
-        openBox("dungeon", 138, dungeonInsert);
+        openBox("dungeon", 150, dungeonInsert);
     }
     
     dungeonOpen = !dungeonOpen;
