@@ -35,17 +35,14 @@ A demo version of <i>OXIO</i> earned me a ticket to Apple\'s  Worldwide Develope
 
 var rayInsert = '\
 <p>\
-Following an online tutorial, I programmed a ray tracer in Swift for macOS. The tutorial \
-only rendered spheres, so I extended my ray tracer to render cones, cylinders, planes, and \
-polygons. Additionally, I implemented lighting to allow for more complex renders. \
+I\'ve made ray tracers in both C++ and Swift for macOS. \
+My ray tracer renders triangles, spheres, cylinders, and cones.\
 </p>\
 \
-<img src = "pictures/raytracer/raytracer1.png" alt = "render1" style = "width: 95%;"/>\
-<img src = "pictures/raytracer/raytracer2.png" alt = "render2" style = "width: 95%;"/>\
-<img src = "pictures/raytracer/raytracer3.png" alt = "render3" style = "width: 95%;"/>\
-<img src = "pictures/raytracer/raytracer4.png" alt = "render4" style = "width: 95%;"/>\
-<img src = "pictures/raytracer/raytracer5.png" alt = "render5" style = "width: 95%;"/>\
-<img src = "pictures/raytracer/raytracer6.png" alt = "render6" style = "width: 95%;"/>\
+<img src = "pictures/raytracer/raytracer3.png" alt = "render1" style = "width: 95%;"/>\
+<img src = "pictures/raytracer/raytracer4.png" alt = "render2" style = "width: 95%;"/>\
+<img src = "pictures/raytracer/raytracer7.png" alt = "render3" style = "width: 95%;"/>\
+<img src = "pictures/raytracer/raytracer8.png" alt = "render4" style = "width: 95%;"/>\
 \
 <div class = "links">\
 <a href = "https://github.com/kellyme213/RayTracers" target = "_blank"> Source Code </a>\
@@ -136,7 +133,7 @@ function openBoxRay()
     }
     else
     {
-        openBox("ray", 250, rayInsert);
+        openBox("ray", 185, rayInsert);
     }
     
     rayOpen = !rayOpen;
