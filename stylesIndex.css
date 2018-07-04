@@ -132,7 +132,6 @@ h1
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 0px;
-    color: black;
     text-align: center;
     font-weight: 500;
 }
@@ -201,20 +200,52 @@ p
     margin-left: 0px;
 }
 
-.leftProjectBox
+.projectBox
 {
     border-width: 1px 1px 1px 1px;
     border-color: var(--siteColor);
     border-style: solid;
     width: 75vw;
     height: 17vw;
-    margin: auto;
     position: relative;
+    margin: auto;
     margin-top: 5vw;
     margin-bottom: 5vw;
     text-decoration: none;
     background-color: white;
     box-shadow: 0px 0px 3px var(--siteColor);
+}
+
+.projectP
+{
+    position: absolute;
+    top: 3vw;
+    padding-left: 1vw;
+    margin: 0;
+    font-size: 1.5vw;
+    color: black; /* change with js*/
+}
+
+.projectH1
+{
+    font-size: 2vw;
+    color: var(--siteColor);
+    position: absolute;
+    top: 0vw;
+    margin: 0;
+    padding-top: 1vw;
+    transition-duration: 0.4s;
+}
+
+.projectImg
+{
+    width: 20vw;
+    height: 17vw;
+    top: 0vw;
+    position: absolute;
+    border-color: var(--siteColor);
+    border-style: solid;
+    margin: 0px;
 }
 
 .leftProjectBox:hover h1
@@ -229,102 +260,41 @@ p
 
 .leftImage
 {
-    width: 20vw;
-    height: 17vw;
-    top: 0vw;
     left: 0vw;
-    position: absolute;
     border-width: 0px 1px 1px 0px;
-    border-color: var(--siteColor);
-    border-style: solid;
-    margin: 0px; /* */
 }
 
 .leftP
 {
-    position: absolute;
-    top: 3vw;
     left: 20vw;
     padding-right: 1vw;
-    padding-left: 1vw;
-    margin: 0;
     text-align: left;
-    font-size: 1.5vw;
-    color: black;
 }
 
 .leftH1
 {
-    font-size: 2vw;
-    color: var(--siteColor);
-    position: absolute;
-    top: 0vw;
     left: 20vw;
-    margin: 0;
     padding-left: 1vw;
-    padding-top: 1vw;
-    transition-duration: 0.4s;
-}
-
-.rightProjectBox
-{
-    border-width: 1px 1px 1px 1px;
-    border-color: var(--siteColor);
-    border-style: solid;
-    width: 75vw;
-    height: 17vw;
-    position: relative;
-    margin: auto;
-    margin-top: 5vw;
-    margin-bottom: 5vw;
-    text-decoration: none;
-    background-color: white;
-    box-shadow: 0px 0px 3px var(--siteColor);
-}
-
-.rightProjectBox:hover
-{
-    //box-shadow: 0px 0px 5px var(--siteColor);
 }
 
 .rightImage
 {
-    width: 20vw;
-    height: 17vw;
-    top: 0vw;
     right: 0vw;
-    position: absolute;
     border-width: 0px 0px 1px 1px;
-    border-color: var(--siteColor);
-    border-style: solid;
-    margin: 0px; /* */
 }
 
 .rightP
 {
-    position: absolute;
-    top: 3vw;
     left: 0vw;
-    padding-left: 1vw;
     padding-right: 21vw;
-    margin: 0;
     text-align: right;
-    font-size: 1.5vw;
-    color: black;
 }
 
 .rightH1
 {
-    font-size: 2vw;
-    color: var(--siteColor);
-    position: absolute;
-    top: 0vw;
     right: 20vw;
     text-align: right;
-    margin: 0;
-    padding-top: 1vw;
     padding-right: 1vw;
-    transition-duration: 0.4s;
 }
 
 .rightProjectBox:hover h1
@@ -443,4 +413,48 @@ img
 {
     margin-right: 30px;
     font-size: 1.5vw;
+}
+
+.blurBox
+{
+    width: 30vw;
+    height: 35vw;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    position: relative;
+    margin-left: 5vw;
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+    display: inline-block;
+}
+
+.blurList
+{
+    border-width: 1px 1px 1px 1px;
+    border-color: var(--siteColor);
+    border-style: solid;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    columns: 2;
+    border-spacing: 0;
+}
+
+.blurTitle
+{
+    color: white;
+    font-size: 20px;
+}
+
+.leftBlurBox
+{
+    //float: left;
+}
+
+.rightBlurBox
+{
+    //float: right;
+    //margin-left: auto;
 }

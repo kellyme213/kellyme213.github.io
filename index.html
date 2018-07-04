@@ -9,7 +9,9 @@
     </head>
     
     <body>
-        
+        <svg id = "svgCircle">
+            
+        </svg>
         <div id = "title">
             <h1> Michael Kelly </h1>
         </div>
@@ -35,42 +37,61 @@
         
         <h1 class = "stickyBanner" id = "banner1"> Things I've Made </h1>
         
-        <div onclick = "openBoxOxio()" class = "rightProjectBox" id = "oxiobox">
-            <img class = "rightImage" src = "pictures/banners/oxiobanner.png" id = "oxiopic"> </img>
-            <h1 class = "rightH1"> OXIO </h1>
-            <p class = "rightP"> Puzzle game where players move the center of mass of a group of blocks to the goal. In development for iOS and macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2017 and 2018. </p>
-            <div class = "htmlinsert" id = "oxioinside" style = "margin-top: 17vw;">
+        <div onclick = "openBoxOxio()" class = "projectBox rightProjectBox" id = "oxiobox">
+            <img class = "projectImg rightImage" src = "pictures/banners/oxiobanner.png" id = "oxiopic"> </img>
+            <h1 class = "projectH1 rightH1"> OXIO </h1>
+            <p class = "projectP rightP"> Puzzle game where players move the center of mass of a group of blocks to the goal. In development for iOS and macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2017 and 2018. </p>
+            <div class = "htmlinsert" id = "oxioinside" style = "margin-top: 17vw; color: white;">
                 
             </div>
         </div>
         
-        <div onclick = "openBoxRay()" class = "leftProjectBox" id = "raybox">
-            <img class = "leftImage" src = "pictures/banners/raytracerbanner.png" id = "raypic"> </img>
-            <h1 class = "leftH1"> Ray Tracer </h1>
-            <p class = "leftP"> Renders spheres, cones, polygons, planes, and cylinders. </p>
-            <div class = "htmlinsert" id = "rayinside" style = "margin-top: 17vw;">
+        <div onclick = "openBoxRay()" class = "projectBox leftProjectBox" id = "raybox">
+            <img class = "projectImg leftImage" src = "pictures/banners/raytracerbanner.png" id = "raypic"> </img>
+            <h1 class = "projectH1 leftH1"> Ray Tracer </h1>
+            <p class = "projectP leftP"> Renders spheres, cones, polygons, planes, and cylinders. </p>
+            <div class = "htmlinsert" id = "rayinside" style = "margin-top: 17vw; color: white;">
                 
             </div>
         </div>
         
-        <div onclick = "openBoxShapes()" class = "rightProjectBox" id = "shapesbox">
-            <img class = "rightImage" src = "pictures/banners/shapesbanner.png" id = "shapespic"> </img>
-            <h1 class = "rightH1"> Connect the Shapes! </h1>
-            <p class = "rightP"> A cross between a match three and connect the dots. Available now on iOS, coming soon to macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2016. </p>
-            <div class = "htmlinsert" id = "shapesinside" style = "margin-top: 17vw;">
+        <div onclick = "openBoxShapes()" class = "projectBox rightProjectBox" id = "shapesbox">
+            <img class = "projectImg rightImage" src = "pictures/banners/shapesbanner.png" id = "shapespic"> </img>
+            <h1 class = "projectH1 rightH1"> Connect the Shapes! </h1>
+            <p class = "projectP rightP"> A cross between a match three and connect the dots. Available now on iOS, coming soon to macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2016. </p>
+            <div class = "htmlinsert" id = "shapesinside" style = "margin-top: 17vw; color: white;">
                 
             </div>
         </div>
         
-        <div onclick = "openBoxDungeon()" class = "leftProjectBox" id = "dungeonbox">
-            <img class = "leftImage" src = "pictures/banners/dungeonbanner.png" id = "dungeonpic"> </img>
-            <h1 class = "leftH1"> The Dungeon </h1>
-            <p class = "leftP"> Top-down exploration game written in Java. Includes primitive collision and animation systems, as well as a level editor. </p>
-            <div class = "htmlinsert" id = "dungeoninside" style = "margin-top: 17vw;">
+        <div onclick = "openBoxDungeon()" class = "projectBox leftProjectBox" id = "dungeonbox">
+            <img class = "projectImg leftImage" src = "pictures/banners/dungeonbanner.png" id = "dungeonpic"> </img>
+            <h1 class = "projectH1 leftH1"> The Dungeon </h1>
+            <p class = "projectP leftP"> Top-down exploration game written in Java. Includes primitive collision and animation systems, as well as a level editor. </p>
+            <div class = "htmlinsert" id = "dungeoninside" style = "margin-top: 17vw; color: white;">
                 
             </div>
         </div>
         
+        <!--
+        <div class = "blurList">
+                <div class = "blurBox leftBlurBox">
+                    <p class = "blurTitle"> HELLO </p>
+                </div>
+                
+                <div class = "blurBox rightBlurBox">
+                    <p class = "blurTitle"> HELLO </p>
+                </div>
+                
+                <div class = "blurBox leftBlurBox">
+                    <p class = "blurTitle"> HELLO </p>
+                </div>
+                
+                <div class = "blurBox rightBlurBox">
+                    <p class = "blurTitle"> HELLO </p>
+                </div>
+        </div>
+         -->
         <!--
          <ul class = "panelList">
          <a id = "pp1" class = "projectPanel" href = "oxio.html"> <img src = "pictures/banners/oxiobanner.png"> <p class = "bannerp"> OXIO </p> </a>
@@ -78,13 +99,11 @@
          <a id = "pp3" class = "projectPanel" href = "raytracer.html"> <img src = "pictures/banners/raytracerbanner.png"> <p class = "bannerp"> Ray Tracer </p> </a>
          <a id = "pp4" class = "projectPanel" href = "dungeon.html"> <img src = "pictures/banners/dungeonbanner.png"> <p class = "bannerp"> The Dungeon </p> </a>
          </ul>
-         -->
+        -->
         
-        <svg id = "svgCircle">
-            
-        </svg>
+
     </body>
     
     <script src = "scripts/backgroundCircles.js" type = "text/javascript"> </script>
-    
+    <script src = "scripts/startup.js" type = "text/javascript"> </script>
 </html>
