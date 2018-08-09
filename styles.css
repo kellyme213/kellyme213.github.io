@@ -23,8 +23,9 @@ h1
     font-size: 30px;
     font-weight: normal;
     color: var(--siteColor);
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 .heading
@@ -150,6 +151,7 @@ table
     margin-right: 0px;
     display: block;
     text-align: left;
+    padding-bottom: 10px;
 }
 
 tr
