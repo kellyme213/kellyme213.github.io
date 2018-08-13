@@ -1,5 +1,13 @@
 //window.onscroll = function(){makeSticky()};
 //window.onscroll = function(){addBlur()};
+window.onscroll = function()
+{
+    if (window.pageYOffset / window.innerHeight > 1.1) {
+        document.getElementById("svgCircle").style.display = 'none';
+    } else {
+        document.getElementById("svgCircle").style.display = 'block';
+    }
+};
 
 var numSteps = 400;
 var speed = 50;
