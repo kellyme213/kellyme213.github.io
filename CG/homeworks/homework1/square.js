@@ -10,20 +10,27 @@ window.onload = function init()
     if ( !gl ) { alert( "WebGL isn't available" ); }
 
     
-    // Four Vertices
+    // Vertices
     
     var vertices = [
-        vec2( -0.5, -0.5 ),
-        vec2(  -0.5,  0.5 ),
-        vec2(  0.5, 0.5 ),
-        vec2( 0.5, -0.5)
+        vec2(-0.3, -0.5),
+        vec2(-0.3,  0.5),
+        vec2(-0.2,  0.5),
+        vec2(-0.2,  0.1),
+        vec2( 0.3,  0.5),
+        vec2( 0.3,  0.4),
+        vec2(-0.2,  0.0),
+        vec2( 0.3, -0.4),
+        vec2( 0.3, -0.5),
+        vec2(-0.2, -0.1),
+        vec2(-0.2, -0.5)
     ];
 
     //
     //  Configure WebGL
     //
     gl.viewport( 0, 0, canvas.width, canvas.height );
-    gl.clearColor( 0.0, 0.0, 0.0, 1.0 );
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
     
     //  Load shaders and initialize attribute buffers
     
@@ -42,11 +49,11 @@ window.onload = function init()
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.enableVertexAttribArray( vPosition );
 
-    render();
+    render(vertices.length);
 };
 
 
-function render() {
+function render(numPoints) {
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.drawArrays( gl.TRIANGLE_FAN, 0, 4 );
+    gl.drawArrays(gl.LINE_LOOP, 0, numPoints);
 }
