@@ -4,17 +4,18 @@
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 attribute vec4 vPosition;
-uniform float x_angle;
-uniform float y_angle;
-uniform float z_angle;
+uniform mat4 rotationMatrix;
+//uniform float x_angle;
+//uniform float y_angle;
+//uniform float z_angle;
 
 void
 main()
 {
-    vec4 position = 0.2 * vPosition;
-    position.x = cos(x_angle) * position.x;
-    position.y = cos(y_angle) * position.y;
-    position.z = cos(z_angle) * position.z;
+    vec4 position = 0.2 * rotationMatrix * vPosition;
+    //position.x = cos(x_angle) * position.x;
+    //position.y = cos(y_angle) * position.y;
+    //position.z = cos(z_angle) * position.z;
 
     position.w = 1.0;
     gl_Position = position;

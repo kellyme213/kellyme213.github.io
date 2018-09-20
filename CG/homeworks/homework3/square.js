@@ -8,6 +8,8 @@ var vertices;
 var xAngleAddr;
 var yAngleAddr;
 var zAngleAddr;
+var matrixAddr;
+var rotationMatrix;
 
 window.onload = function init()
 {
@@ -38,26 +40,22 @@ window.onload = function init()
     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId );
     gl.bufferData( gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW );
     
-    document.getElementById("x-slider").onchange = function(event) {
+    document.getElementById("x-slider").oninput = function(event) {
         xAngle = event.target.value;
         render(vertices.length);
     };
     
-    document.getElementById("y-slider").onchange = function(event) {
+    document.getElementById("y-slider").oninput = function(event) {
         yAngle = event.target.value;
         render(vertices.length);
     };
     
-    document.getElementById("z-slider").onchange = function(event) {
+    document.getElementById("z-slider").oninput = function(event) {
         zAngle = event.target.value;
         render(vertices.length);
-        console.log(zAngle);
     };
     
-    xAngleAddr = gl.getUniformLocation(program, "x_angle");
-    yAngleAddr = gl.getUniformLocation(program, "y_angle");
-    zAngleAddr = gl.getUniformLocation(program, "z_angle");
-
+    matrixAddr = gl.getUniformLocation(program, "rotationMatrix")
     // Associate out shader variables with our data buffer
     
     var vPosition = gl.getAttribLocation( program, "vPosition" );
@@ -69,9 +67,21 @@ window.onload = function init()
 
 
 function render(numPoints) {
+    var c1 = Math.cos(xAngle);
+    var c2 = Math.cos(yAngle);
+    var c3 = Math.cos(zAngle);
+    var s1 = Math.sin(xAngle);
+    var s2 = Math.sin(yAngle);
+    var s3 = Math.sin(zAngle);
+    
+    rotationMatrix = [
+        c2 * c3,                  -s2,      c2 * s3,                0,
+        -s1 * s3 + c1 * c3 * s2,  c1 * c2,  c1 * s2 * s3 - c3 * s1, 0,
+        c3 * s1 * s2 - c1 * s3,   c2 * s1,  c1 * c3 + s1 * s2 * s3, 0,
+        0,                        0,        0,                      1
+    ];
+    
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.uniform1f(xAngleAddr, xAngle);
-    gl.uniform1f(yAngleAddr, yAngle);
-    gl.uniform1f(zAngleAddr, zAngle);
+    gl.uniformMatrix4fv(matrixAddr, false, rotationMatrix);
     gl.drawArrays(gl.TRIANGLES, 0, numPoints);
 }
