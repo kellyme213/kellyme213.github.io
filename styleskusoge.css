@@ -1,0 +1,25 @@
+.bar, .footer
+{
+    background-color: rgb(102, 51, 0);
+}
+
+.resumeHeading, .links a:hover
+{
+    color: rgb(102, 51, 0);
+}
+
+img
+{
+    border-color: rgb(102, 51, 0);
+}
+
+@font-face
+{
+    font-family: 'Shrek';
+    src: url('pictures/kusoge/shrek.TTF');
+}
+
+.shrekDiv
+{
+    font-family: Shrek;
+}
