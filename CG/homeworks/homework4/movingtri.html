@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 vPosition;
+        attribute vec4 vColor;
+        
+        varying vec4 fColor;
+        
+        
+        void
+        main()
+        {
+            gl_Position = vPosition;
+            fColor = vColor;
+        }
+    </script>
+    
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        
+        precision mediump float;
+        
+        varying vec4 fColor;
+        void
+        main()
+        {
+            gl_FragColor = fColor;
+        }
+    </script>
+    
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="movingtri.js"></script>
+    
+    <body style = "font-family: Avenir;">
+        
+        <canvas id="gl-canvas" width="512" height="512">
+            Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+        
+        <div style = "display: inline-block;">
+            <p> Sliders change the vertices' depth value in the range -1 to 1. </p>
+            <div style = "display: inline-block; padding: 10px;">
+                <p> Vertex 1 </p>
+                <input id = "slider1" type = "range" value = "0" min = "-1" max = "1" step = "0.1"> </input>
+                <br/>
+                <select id = "menu1" size = "7">
+                    <option value = "0">Black</option>
+                    <option value = "1">Red</option>
+                    <option value = "2">Yellow</option>
+                    <option value = "3">Green</option>
+                    <option value = "4">Blue</option>
+                    <option value = "5">Magenta</option>
+                    <option value = "6">Cyan</option>
+                </select>
+            </div>
+            
+            <div style = "display: inline-block; padding: 10px;">
+                <p> Vertex 2 </p>
+                <input id = "slider2" type = "range" value = "0" min = "-1" max = "1" step = "0.1"> </input>
+                <br/>
+                <select id = "menu2" size = "7">
+                    <option value = "0">Black</option>
+                    <option value = "1">Red</option>
+                    <option value = "2">Yellow</option>
+                    <option value = "3">Green</option>
+                    <option value = "4">Blue</option>
+                    <option value = "5">Magenta</option>
+                    <option value = "6">Cyan</option>
+                </select>
+            </div>
+            
+            <div style = "display: inline-block; padding: 10px;">
+                <p> Vertex 3 </p>
+                <input id = "slider3" type = "range" value = "0" min = "-1" max = "1" step = "0.1"> </input>
+                <br/>
+                <select id = "menu3" size = "7">
+                    <option value = "0">Black</option>
+                    <option value = "1">Red</option>
+                    <option value = "2">Yellow</option>
+                    <option value = "3">Green</option>
+                    <option value = "4">Blue</option>
+                    <option value = "5">Magenta</option>
+                    <option value = "6">Cyan</option>
+                </select>
+            </div>
+            <br/>
+            <button id = "addtributton"> Add Triangle </button>
+        </div>
+        
+        
+        
+        
+        
+    </body>
+</html>
