@@ -1,0 +1,52 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Delirium</title>
+	<!-- Insert js files here-->
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+	<script type="text/javascript" src="js/preloadstate.js"></script>
+	<script type="text/javascript" src="js/menustate.js"></script>
+	<script type="text/javascript" src="js/playstate.js"></script>
+	<script type="text/javascript" src="js/endstate.js"></script>
+	<script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/spawn.js"></script>
+	<script type="text/javascript" src="js/enemy.js"></script>
+    <script type="text/javascript" src="js/others.js"></script>
+    <script type="text/javascript" src="js/ui.js"></script>
+    <script type="text/javascript" src="js/bubble.js"></script>
+    <script type="text/javascript" src="js/bubblespawner.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+	// Initialize game
+	let game = new Phaser.Game(2436, 1125, Phaser.AUTO);
+	
+	// Add states and start at Preload State
+	game.state.add("PreloadState", preloadState, true);
+	game.state.add("MenuState", menuState);
+	game.state.add("PlayState", playState);
+	game.state.add("EndState", endState);
+	
+	// Add global variables
+	game.global = {
+		title: "Delirium",//"The #Life of a Typical RPI Student:\nThe Netflix Adaptation, Part 2: Electric Boogaloo,\nGaiden Ultra Remastered Edition",
+		player: null,
+		credits: "Sound Credits:\nhttps://www.freesoundeffects.com/\nhttp://soundbible.com/\nhttps://www.youtube.com/watch?v=TyHUUTa_dv4\nhttps://www.youtube.com/watch?v=FFz5EfLvmjc",
+		developers: "Developed by:\n\nChristian Lee\nNicholas Smith\nMichael Kelly\nEric Franco\nAlexander Liavas",
+		UI: null,
+		scale: 2,
+		highscore: 0,
+		insanityState: 0
+	}
+</script>
+
+</body>
+</html>
