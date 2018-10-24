@@ -11,9 +11,9 @@ preloadState.prototype.preload = function() {
     //game.load.image("Endscreen", "assets/Images/endscreen.png");
 	game.load.spritesheet("StartButton", "assets/Images/startbutton.png", 150, 50);
 	game.load.spritesheet("RestartButton", "assets/Images/restartbutton.png", 150, 50);
-    game.load.spritesheet("Player", "assets/Images/schoolgirl.png", 64, 128);
-	game.load.spritesheet("Enemy", "assets/Images/zombie.png", 64, 128);
-	game.load.spritesheet("Wall", "assets/images/Tileset.png", 64, 64);
+    game.load.spritesheet("Player", "assets/Images/Schoolgirl.png", 64, 128);
+	game.load.spritesheet("Enemy", "assets/Images/Zombie.png", 64, 128);
+	game.load.spritesheet("Wall", "assets/Images/Tileset.png", 64, 64);
     game.load.spritesheet("bubble", "assets/Images/Bubble.png", 300, 300);
 	game.load.image("arrow", "assets/Images/arrow.png");
 	game.load.image("arrowPickup", "assets/Images/arrowPickup.png");
