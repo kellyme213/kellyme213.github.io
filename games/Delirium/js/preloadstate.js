@@ -33,7 +33,7 @@ preloadState.prototype.preload = function() {
 
 	//Load tilemap
 	game.load.tilemap("levelmap", "assets/levelmap.json", null, Phaser.Tilemap.TILED_JSON);
-	game.load.image("leveltiles", "assets/images/Tileset.png");
+	game.load.image("leveltiles", "assets/Images/Tileset.png");
 };
 
 // Override create, start MenuState
