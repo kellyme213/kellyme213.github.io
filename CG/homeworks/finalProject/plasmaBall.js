@@ -7,9 +7,11 @@ var tendrils = [];
 var blendBufferID;
 var startBufferID;
 var endBufferID;
+var angleBufferID;
 var blendPointer;
 var startPointer;
 var endPointer;
+var anglePointer;
 var numTendrilPoints = 0;
 
 window.onload = function init()
@@ -18,58 +20,14 @@ window.onload = function init()
     gl = WebGLUtils.setupWebGL( canvas );
     if ( !gl ) { alert( "WebGL isn't available" ); }
 
-    tendrils.push(new Tendril());
-    tendrils.push(new Tendril());
-
+    for (var x = 0; x < 50; x++)
+    {
+        tendrils.push(new Tendril());
+    }
     
     initializeData();
     updateBlendValues();
     updateLoop();
-    
-    // Vertices
-    /*
-    var vertices = [
-        vec2(0.0, 0.1),
-        vec2(0.0, 0.2),
-        vec2(0.0, 0.3),
-        vec2(0.0, 0.4),
-        vec2(0.0, 0.5),
-        vec2(0.0, 0.6),
-        vec2(0.0, 0.7),
-        vec2(0.0, 0.8),
-    ];
-    
-    var directions = [];
-    for (var i = 0; i < vertices.length; i++)
-    {
-        directions.push(i % 2);
-    }
-     */
-    //
-    //  Configure WebGL
-    //
-
-    
-
-    /*
-    // Load the data into the GPU
-    
-    var dbufferId = gl.createBuffer();
-    gl.bindBuffer( gl.ARRAY_BUFFER, dbufferId );
-    gl.bufferData( gl.ARRAY_BUFFER, flatten(directions), gl.STATIC_DRAW );
-    var dirPoint = gl.getAttribLocation( program, "dir" );
-    gl.vertexAttribPointer( dirPoint, 1, gl.FLOAT, false, 0, 0 );
-    gl.enableVertexAttribArray( dirPoint );
-    
-    
-    var bufferId = gl.createBuffer();
-    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId );
-    gl.bufferData( gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW );
-    var vPosition = gl.getAttribLocation( program, "vPosition" );
-    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
-    gl.enableVertexAttribArray( vPosition );
-    render(vertices.length);
-    */
 };
 
 function initializeData()
@@ -98,6 +56,21 @@ function initialTendrilBufferLoad()
     gl.bufferData(gl.ARRAY_BUFFER, flatten(endVertices), gl.STATIC_DRAW);
     gl.vertexAttribPointer(endPointer, 4, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(endPointer);
+    
+    angles = [];
+    for (var x = 0; x < tendrils.length; x++)
+    {
+        for (var y = 0; y < tendrils[x].tendrilLength; y++)
+        {
+            angles.push(x / tendrils.length * 6.28);
+        }
+    }
+    
+    gl.bindBuffer(gl.ARRAY_BUFFER, angleBufferID);
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(angles), gl.STATIC_DRAW);
+    gl.vertexAttribPointer(anglePointer, 1, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(anglePointer);
+    
 }
 
 function initializeGLParameters()
@@ -116,6 +89,9 @@ function initializeGLParameters()
     
     blendBufferID = gl.createBuffer();
     blendPointer = gl.getAttribLocation(program, "blendValue");
+    
+    angleBufferID = gl.createBuffer();
+    anglePointer = gl.getAttribLocation(program, "angle");
     
     for (var x = 0; x < tendrils.length; x++)
     {

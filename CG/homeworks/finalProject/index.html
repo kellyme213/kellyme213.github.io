@@ -3,16 +3,24 @@
 <head>
 
 <script id="vertex-shader" type="x-shader/x-vertex">
-//attribute vec4 vPosition;
-//attribute float dir;
 attribute vec4 startV;
 attribute vec4 endV;
 attribute float blendValue;
+attribute float angle;
 
-void
-main()
+
+
+
+void main()
 {
-    gl_Position = blendValue * endV + (1.0 - blendValue) * startV;
+    vec4 v1 = vec4(cos(angle), sin(angle), 0.0, 0.0);
+    vec4 v2 = vec4(-sin(angle), cos(angle), 0.0, 0.0);
+    vec4 v3 = vec4(0.0, 0.0, 1.0, 0.0);
+    vec4 v4 = vec4(0.0, 0.0, 0.0, 1.0);
+    
+    mat4 m = mat4(v1, v2, v3, v4);
+    
+    gl_Position = m * (blendValue * endV + (1.0 - blendValue) * startV);
 }
 </script>
 
