@@ -3,15 +3,18 @@
 <head>
 
 <script id="vertex-shader" type="x-shader/x-vertex">
+
 attribute vec4 startV;
 attribute vec4 endV;
 attribute vec4 rotationAxis;
 attribute float blendValue;
-//attribute float angle;
 attribute float vertexBlendVal;
 attribute float angleBlendVal;
 attribute vec3 startDirection;
 attribute vec3 endDirection;
+attribute float tendrilColorBlend;
+
+varying float ratio;
 
 //axis is normalized
 mat4 axisAngleMatrix(vec3 axis, float angle)
@@ -44,18 +47,11 @@ mat4 translationMatrix(vec4 v)
 
 void main()
 {
-    //float angle = angleBlendVal * startA + (1.0 - angleBlendVal) * endA;
-    //vec4 v1 = vec4(cos(angle), sin(angle), 0.0, 0.0);
-    //vec4 v2 = vec4(-sin(angle), cos(angle), 0.0, 0.0);
-    //vec4 v3 = vec4(0.0, 0.0, 1.0, 0.0);
-    //vec4 v4 = vec4(0.0, 0.0, 0.0, 1.0);
-    
-    //mat4 m = mat4(v1, v2, v3, v4);
     vec3 directionAxis = normalize(angleBlendVal * endDirection + (1.0 - angleBlendVal) * startDirection);
     vec4 vt = vec4(0.1, 0.0, 0.0, 1.0);
     mat4 tMat = translationMatrix(vt);
     mat4 aaMat = axisAngleMatrix(vec3(0, directionAxis.z, -directionAxis.y), acos(directionAxis.x));
-    
+    ratio = tendrilColorBlend;
     gl_Position = 0.75 * aaMat * tMat * (vertexBlendVal * endV + (1.0 - vertexBlendVal) * startV);
 }
 </script>
@@ -63,10 +59,11 @@ void main()
 <script id="fragment-shader" type="x-shader/x-fragment">
 precision mediump float;
 
-void
-main()
+varying float ratio;
+
+void main()
 {
-    gl_FragColor = vec4( 0.4, 0.4, 0.9, 1.0 );
+    gl_FragColor = ratio * vec4( 0.4, 0.4, 1.0, 1.0 ) + (1.0 - ratio) * vec4(1.0, 1.0, 1.0, 1.0);
 }
 </script>
 
