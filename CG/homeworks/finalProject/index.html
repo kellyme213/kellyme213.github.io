@@ -5,22 +5,58 @@
 <script id="vertex-shader" type="x-shader/x-vertex">
 attribute vec4 startV;
 attribute vec4 endV;
+attribute vec4 rotationAxis;
 attribute float blendValue;
-attribute float angle;
+//attribute float angle;
+attribute float vertexBlendVal;
+attribute float angleBlendVal;
+attribute vec3 startDirection;
+attribute vec3 endDirection;
 
+//axis is normalized
+mat4 axisAngleMatrix(vec3 axis, float angle)
+{
+    float c = cos(angle);
+    float s = sin(angle);
+    float a1 = axis.x;
+    float a2 = axis.y;
+    float a3 = axis.z;
+    
+    vec4 v1 = vec4(c + (1.0 - c) * a1 * a1, (1.0 - c) * a1 * a2 + s * a3, (1.0 - c) * a1 * a3 - s * a2, 0.0);
+    vec4 v2 = vec4((1.0 - c) * a1 * a2 - s * a3, c + (1.0 - c) * a2 * a2, (1.0 - c) * a2 * a3 + s * a1, 0.0);
+    vec4 v3 = vec4((1.0 - c) * a1 * a3 + s * a2, (1.0 - c) * a2 * a3 - s * a1, c + (1.0 - c) * a3 * a3, 0.0);
+    vec4 v4 = vec4(0.0, 0.0, 0.0, 1.0);
+    
+    mat4 m = mat4(v1, v2, v3, v4);
+    return m;
+}
 
+mat4 translationMatrix(vec4 v)
+{
+    vec4 v1 = vec4(1.0, 0.0, 0.0, 0.0);
+    vec4 v2 = vec4(0.0, 1.0, 0.0, 0.0);
+    vec4 v3 = vec4(0.0, 0.0, 1.0, 0.0);
+    vec4 v4 = vec4(v.x, v.y, v.z, 1.0);
+    mat4 m = mat4(v1, v2, v3, v4);
+    return m;
+}
 
 
 void main()
 {
-    vec4 v1 = vec4(cos(angle), sin(angle), 0.0, 0.0);
-    vec4 v2 = vec4(-sin(angle), cos(angle), 0.0, 0.0);
-    vec4 v3 = vec4(0.0, 0.0, 1.0, 0.0);
-    vec4 v4 = vec4(0.0, 0.0, 0.0, 1.0);
+    //float angle = angleBlendVal * startA + (1.0 - angleBlendVal) * endA;
+    //vec4 v1 = vec4(cos(angle), sin(angle), 0.0, 0.0);
+    //vec4 v2 = vec4(-sin(angle), cos(angle), 0.0, 0.0);
+    //vec4 v3 = vec4(0.0, 0.0, 1.0, 0.0);
+    //vec4 v4 = vec4(0.0, 0.0, 0.0, 1.0);
     
-    mat4 m = mat4(v1, v2, v3, v4);
+    //mat4 m = mat4(v1, v2, v3, v4);
+    vec3 directionAxis = normalize(angleBlendVal * endDirection + (1.0 - angleBlendVal) * startDirection);
+    vec4 vt = vec4(0.1, 0.0, 0.0, 1.0);
+    mat4 tMat = translationMatrix(vt);
+    mat4 aaMat = axisAngleMatrix(vec3(0, directionAxis.z, -directionAxis.y), acos(directionAxis.x));
     
-    gl_Position = m * (blendValue * endV + (1.0 - blendValue) * startV);
+    gl_Position = 0.75 * aaMat * tMat * (vertexBlendVal * endV + (1.0 - vertexBlendVal) * startV);
 }
 </script>
 
