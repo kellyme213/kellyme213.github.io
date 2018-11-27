@@ -63,7 +63,14 @@ function initialTendrilBufferLoad()
     {
         for (var y = 0; y < tendrils[x].tendrilLength; y++)
         {
-            colorBlendArray.push(Math.pow(y / tendrils[x].tendrilLength, 0.25));
+            if (y == 0)
+            {
+                colorBlendArray.push(0.5);
+            }
+            else
+            {
+                colorBlendArray.push(1.0);
+            }
         }
         startVertices = startVertices.concat(tendrils[x].startVertices);
         endVertices = endVertices.concat(tendrils[x].endVertices);
