@@ -2,7 +2,7 @@
 var gl;
 var canvas;
 var tendrilProgram;
-var ballProgram;
+var sphereProgram;
 var points;
 var tendrils = [];
 
@@ -30,9 +30,13 @@ var blendAnglePointer;
 var tendrilColorBlendBufferID;
 var tendrilColorBlendPointer;
 
+var sphereVertexBufferID;
+var sphereVertexPointer;
+
 var rotationAngleXLocation;
 var rotationAngleYLocation;
 var tendrilColorLocation;
+var sphereScaleLocation;
 
 var numTendrilPoints = 0;
 var rotationAngleX = 0.0;
@@ -91,7 +95,7 @@ function inputFunction(event)
 {
     //window.alert(event.keyCode);
     var key = event.keyCode;
-    
+    gl.useProgram(tendrilProgram);
     if (key == 37)
     {
         rotationAngleX = (rotationAngleX + 0.05) % 6.28;
@@ -141,10 +145,12 @@ function initializeData()
 {
     initializeGLParameters();
     initialTendrilBufferLoad();
+    generateSphere();
 }
 
 function initialTendrilBufferLoad()
 {
+    gl.useProgram(tendrilProgram);
     var startVertices = [];
     var endVertices = [];
     var colorBlendArray = [];
@@ -189,13 +195,23 @@ function initialTendrilBufferLoad()
 
 }
 
+//doesnt work :(
+function setUpBuffer(bufferID, bufferPointer, program, variableName)
+{
+    bufferID = gl.createBuffer();
+    bufferPointer = gl.getAttribLocation(program, variableName);
+}
+
+
 function initializeGLParameters()
 {
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    
-    tendrilProgram = initShaders(gl, "vertex-shader", "fragment-shader");
     gl.useProgram(tendrilProgram);
+    tendrilProgram = initShaders(gl, "tendril-vertex-shader", "tendril-fragment-shader");
+    
+    
+    //setUpBuffer(startVertexBufferID, startVertexPointer, tendrilProgram, "startV");
     
     startVertexBufferID = gl.createBuffer();
     startVertexPointer = gl.getAttribLocation(tendrilProgram, "startV");
@@ -226,6 +242,24 @@ function initializeGLParameters()
     {
         numTendrilPoints += tendrils[x].tendrilLength;
     }
+    
+    
+    
+    sphereProgram = initShaders(gl, "sphere-vertex-shader", "sphere-fragment-shader");
+    gl.useProgram(sphereProgram);
+    
+    
+    sphereVertexBufferID = gl.createBuffer();
+    sphereVertexPointer = gl.getAttribLocation(sphereProgram, "vPos");
+    sphereScaleLocation = gl.getUniformLocation(sphereProgram, "scale");
+    
+    gl.enable(gl.DEPTH_TEST);
+    gl.enable(gl.BLEND);
+    //gl.disable(gl.CULL_FACE);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    
+    //window.alert(gl.getParameter(gl.CULL_FACE));
+    
 }
 
 function updateBlendValues()
@@ -297,6 +331,14 @@ function updateOldTendrils()
 
 function updateLoop()
 {
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    
+    
+    
+    
+    
+    gl.useProgram(tendrilProgram);
+    initialTendrilBufferLoad();
     if (toggleUpdate)
     {
         updateOldTendrils();
@@ -306,12 +348,27 @@ function updateLoop()
         updateBlendValues();
     }
     renderTendrils();
+    
+    
+    gl.useProgram(sphereProgram);
+    putDataInBuffer(sphereVertexBufferID, sphereVertices, sphereVertexPointer, 3);
+    //console.log(flatten(sphereVertices));
+    renderSphere();
+    
     requestAnimationFrame(updateLoop);
 }
 
+function renderSphere()
+{
+    gl.uniform1f(sphereScaleLocation, 1.0);
+    gl.drawArrays(gl.TRIANGLES, 0, sphereVertices.length);
+    gl.uniform1f(sphereScaleLocation, 0.1);
+    gl.drawArrays(gl.TRIANGLES, 0, sphereVertices.length);
+    //window.alert(sphereVertices.length);
+}
 
 function renderTendrils() {
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    //gl.clear(gl.COLOR_BUFFER_BIT);
     for (var x = 0; x < tendrils.length; x++)
     {
         gl.drawArrays(gl.LINE_STRIP, tendrils[x].tendrilLength * x, tendrils[x].tendrilLength);
@@ -344,23 +401,60 @@ function putSubDataInBuffer(bufferID, data, bufferPointer, length, offset)
 }
 
 
-//based on an algorithm you showed us in class.
-//used to approximate a sphere via subdividing a pyramid.
-function subdivide(p1, p2, p3, level)
+function generateSphere()
 {
-    if (level <= 0)
+    var x = vec3(1.0, 0.0, 0.0);
+    var y = vec3(0.0, 1.0, 0.0);
+    var z = vec3(0.0, 0.0, 1.0);
+
+    subdivide(x, y, z, 4);
+    
+    var len = sphereVertices.length;
+    for (var i = 0; i < len; i++)
     {
-        sphereVertices.push(p1);
-        sphereVertices.push(p2);
-        sphereVertices.push(p3);
-        return;
+        var v = sphereVertices[i];
+        sphereVertices.push([-v[0], v[1], v[2]]);
     }
-    var p4 = [(p1[0] + p2[0] + p3[0]) / 3.0,
-               (p1[1] + p2[1] + p3[1]) / 3.0,
-               (p1[2] + p2[2] + p3[2]) / 3.0];
-    subdivide(p1, p4, p3, level - 1.0);
-    subdivide(p1, p2, p4, level - 1.0);
-    subdivide(p4, p2, p3, level - 1.0);
+    
+    len = sphereVertices.length;
+    for (var i = 0; i < len; i++)
+    {
+        var v = sphereVertices[i];
+        sphereVertices.push([v[0], -v[1], v[2]]);
+    }
+    
+    len = sphereVertices.length;
+    for (var i = 0; i < len; i++)
+    {
+        var v = sphereVertices[i];
+        sphereVertices.push([v[0], v[1], -v[2]]);
+    }
+}
+
+//code used from ANGEL 7th edition chapter 7
+//reflectingSpheres.js
+//https://wrf.ecse.rpi.edu/Teaching/graphics/SEVENTH_EDITION/CODE/07/reflectingSphere.js
+function subdivide(a, b, c, count) {
+    if ( count > 0 ) {
+        console.log(a.length, b.length);
+        var ab = mix( a, b, 0.5);
+        var ac = mix( a, c, 0.5);
+        var bc = mix( b, c, 0.5);
+        
+        ab = normalize(ab);
+        ac = normalize(ac);
+        bc = normalize(bc);
+
+        subdivide( a, ab, ac, count - 1 );
+        subdivide( ab, b, bc, count - 1 );
+        subdivide( bc, c, ac, count - 1 );
+        subdivide( ab, bc, ac, count - 1 );
+    }
+    else {
+        sphereVertices.push(vec3(a[0], a[1], a[2]));
+        sphereVertices.push(vec3(b[0], b[1], b[2]));
+        sphereVertices.push(vec3(c[0], c[1], c[2]));
+    }
 }
 
 //0, z, -y
