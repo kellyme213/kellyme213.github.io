@@ -37,6 +37,8 @@ var rotationAngleXLocation;
 var rotationAngleYLocation;
 var tendrilColorLocation;
 var sphereScaleLocation;
+var sphereDirectionsLocation;
+var sphereTendrilVertLocation;
 
 var numTendrilPoints = 0;
 var rotationAngleX = 0.0;
@@ -252,7 +254,9 @@ function initializeGLParameters()
     sphereVertexBufferID = gl.createBuffer();
     sphereVertexPointer = gl.getAttribLocation(sphereProgram, "vPos");
     sphereScaleLocation = gl.getUniformLocation(sphereProgram, "scale");
-    
+    sphereDirectionsLocation = gl.getUniformLocation(sphereProgram, "directions");
+    sphereTendrilVertLocation = gl.getUniformLocation(sphereProgram, "tendrilVerts");
+
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.BLEND);
     //gl.disable(gl.CULL_FACE);
@@ -352,18 +356,45 @@ function updateLoop()
     
     gl.useProgram(sphereProgram);
     putDataInBuffer(sphereVertexBufferID, sphereVertices, sphereVertexPointer, 3);
+    passInDirectionsToSphere();
     //console.log(flatten(sphereVertices));
     renderSphere();
     
     requestAnimationFrame(updateLoop);
 }
 
+function passInDirectionsToSphere()
+{
+    var directionsArray = [];
+    var vertexArray = [];
+    for (var x = 0; x < tendrils.length; x++)
+    {
+        var blend = tendrils[x].getAngleBlendValue(0);
+        var newX = (tendrils[x].startDirection[0] * (1.0 - blend)) + (tendrils[x].endDirection[0] * (blend));
+        var newY = (tendrils[x].startDirection[1] * (1.0 - blend)) + (tendrils[x].endDirection[1] * (blend));
+        var newZ = (tendrils[x].startDirection[2] * (1.0 - blend)) + (tendrils[x].endDirection[2] * (blend));
+        directionsArray.push([newX, newY, newZ]);
+        
+        blend = tendrils[x].getBlendValue(0);
+        
+        var newDir = mix(tendrils[x].startVertices[tendrils[x].tendrilLength - 1], tendrils[x].endVertices[tendrils[x].tendrilLength - 1], blend);
+        newDir[3] = 1.0;
+        vertexArray.push([newDir[0], newDir[1], newDir[2]]);
+    }
+    //console.log(vertexArray);
+    
+    gl.uniform3fv(sphereDirectionsLocation, flatten(directionsArray));
+    gl.uniform3fv(sphereTendrilVertLocation, flatten(vertexArray));
+    //console.log(flatten(vertexArray).length);
+
+}
+
 function renderSphere()
 {
     gl.uniform1f(sphereScaleLocation, 1.0);
     gl.drawArrays(gl.TRIANGLES, 0, sphereVertices.length);
-    gl.uniform1f(sphereScaleLocation, 0.1);
-    gl.drawArrays(gl.TRIANGLES, 0, sphereVertices.length);
+    //gl.uniform1f(sphereScaleLocation, 0.1);
+    //gl.drawArrays(gl.TRIANGLES, 0, sphereVertices.length);
     //window.alert(sphereVertices.length);
 }
 
@@ -407,7 +438,7 @@ function generateSphere()
     var y = vec3(0.0, 1.0, 0.0);
     var z = vec3(0.0, 0.0, 1.0);
 
-    subdivide(x, y, z, 4);
+    subdivide(x, y, z, 5);
     
     var len = sphereVertices.length;
     for (var i = 0; i < len; i++)
@@ -436,7 +467,6 @@ function generateSphere()
 //https://wrf.ecse.rpi.edu/Teaching/graphics/SEVENTH_EDITION/CODE/07/reflectingSphere.js
 function subdivide(a, b, c, count) {
     if ( count > 0 ) {
-        console.log(a.length, b.length);
         var ab = mix( a, b, 0.5);
         var ac = mix( a, c, 0.5);
         var bc = mix( b, c, 0.5);

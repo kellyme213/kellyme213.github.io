@@ -8,7 +8,7 @@ let Tendril = function()
     var dy = 0.0;
     for (var x = 0; x < this.tendrilLength; x++)
     {
-        this.endVertices.push(vec4(x / this.tendrilLength, dy, 0.0, 1.0));
+        this.endVertices.push(vec4((x + 1) / this.tendrilLength, dy, 0.0, 1.0));
         for (var y = 0; y < this.numRandomRepsPerItr; y++)
         {
             dy += 0.03 * (0.5 - Math.random());
@@ -18,7 +18,7 @@ let Tendril = function()
     dy = 0.0;
     for (var x = 0; x < this.tendrilLength; x++)
     {
-        this.startVertices.push(vec4(x / this.tendrilLength, dy, 0.0, 1.0));
+        this.startVertices.push(vec4((x + 1) / this.tendrilLength, dy, 0.0, 1.0));
         for (var y = 0; y < this.numRandomRepsPerItr; y++)
         {
             dy += 0.03 * (0.5 - Math.random());
@@ -74,7 +74,7 @@ Tendril.prototype.updateTendrilVertices = function()
     var dy = 0.0;
     for (var x = 0; x < this.tendrilLength; x++)
     {
-        this.endVertices.push(vec4(x / this.tendrilLength, dy, 0.0, 1.0));
+        this.endVertices.push(vec4((x + 1) / this.tendrilLength, dy, 0.0, 1.0));
         for (var y = 0; y < this.numRandomRepsPerItr; y++)
         {
             dy += 0.03 * (0.5 - Math.random());

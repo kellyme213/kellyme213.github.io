@@ -53,7 +53,7 @@
         void main()
         {
             vec3 directionAxis = normalize(angleBlendVal * endDirection + (1.0 - angleBlendVal) * startDirection);
-            vec4 vt = vec4(0.1, 0.0, 0.0, 1.0);
+            vec4 vt = vec4(0.05, 0.0, 0.0, 1.0);
             mat4 tMat = translationMatrix(vt);
             mat4 aaMat = axisAngleMatrix(vec3(0, directionAxis.z, -directionAxis.y), acos(directionAxis.x));
             ratio = tendrilColorBlend;
@@ -63,7 +63,7 @@
             vbval = max(vbval, 0.0);
             //vertexBlendVal = max(vertexBlendVal, 0.0);
 
-            gl_Position = axisAngleMatrix(vec3(1, 0, 0), rotationAngleY) * axisAngleMatrix(vec3(0, 1, 0), rotationAngleX) * 0.75 * aaMat * tMat * (vbval * endV + (1.0 - vbval) * startV);
+            gl_Position = axisAngleMatrix(vec3(1, 0, 0), rotationAngleY) * axisAngleMatrix(vec3(0, 1, 0), rotationAngleX) * 0.95 * aaMat * tMat * (vbval * endV + (1.0 - vbval) * startV);
         }
         </script>
         
@@ -111,10 +111,25 @@
             attribute vec4 vPos;
             varying vec3 direction;
             uniform float scale;
-            //uniform vec3 directions[100];
+            uniform vec3 directions[100];
+            uniform vec3 tendrilVerts[100];
+            varying vec4 color;
             
             void main()
             {
+                color = vec4(1.0, 0.0, 0.0, 0.0);
+                for (int x = 0; x < 100; x++)
+                {
+                    mat4 aaMat = axisAngleMatrix(vec3(0, directions[x].z, -directions[x].y), acos(directions[x].x));
+                    vec4 tranformedTendril = aaMat * vec4(tendrilVerts[x], 1.0);
+                    vec3 normDir = normalize(tranformedTendril.xyz);
+                    float dist = distance(normalize(vPos.xyz), normDir);
+                    if (dist < 0.05)
+                    {
+                        color += vec4(1.0, 0.0, 0.0, 0.5 * (1.0 - (dist / 0.05)));
+                    }
+                }
+                
                 gl_Position = vec4(vPos.x, vPos.y, vPos.z, 1.0 / scale);
                 direction = vPos.xyz;
             }
@@ -124,14 +139,18 @@
         <script id = "sphere-fragment-shader" type = "x-shader/x-fragment">
             precision mediump float;
             varying vec3 direction;
-            //varying vec3 color;
+            varying vec4 color;
             //varying normal;
             
             void main()
             {
                 float d = abs(dot(normalize(direction), vec3(0.0, 0.0, 1.0)));
-                vec3 c = 1.0 * (vec3(1.0, 1.0, 1.0));
-                gl_FragColor = vec4(c.x, c.y, c.z, 0.05 * (1.0 - d));//vec4(1.0, 0.0, 0.0, 1.0);
+                vec4 c1 = (color);
+                float k = 0.03 * (1.0 - d);
+                vec4 c2 = vec4(1.0, 1.0, 1.0, k);
+                float outA = c1.a + c2.a * (1.0 - c1.a);
+                vec3 outCol = (c1.xyz * c1.a + c2.xyz * c2.a * (1.0 - c1.a)) * (1.0 / outA);
+                gl_FragColor = vec4(outCol, outA);//color;//vec4(color.xyz, k);//vec4(1.0, 0.0, 0.0, 1.0);
             }
         </script>
         
