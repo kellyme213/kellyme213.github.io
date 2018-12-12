@@ -147,9 +147,9 @@
             void main()
             {
                 float d = abs(dot(normalize(direction), vec3(0.0, 0.0, 1.0)));
-                vec4 c1 = (color);
+                vec4 c2 = (color);
                 float k = 0.03 * (1.0 - d);
-                vec4 c2 = vec4(1.0, 1.0, 1.0, k);
+                vec4 c1 = vec4(1.0, 1.0, 1.0, k);
                 float outA = c1.a + c2.a * (1.0 - c1.a);
                 vec3 outCol = (c1.xyz * c1.a + c2.xyz * c2.a * (1.0 - c1.a)) * (1.0 / outA);
                 gl_FragColor = vec4(outCol, outA);//color;//vec4(color.xyz, k);//vec4(1.0, 0.0, 0.0, 1.0);
