@@ -39,6 +39,8 @@ var tendrilColorLocation;
 var sphereScaleLocation;
 var sphereDirectionsLocation;
 var sphereTendrilVertLocation;
+var sphereRotationAngleXLocation;
+var sphereRotationAngleYLocation;
 
 var numTendrilPoints = 0;
 var rotationAngleX = 0.0;
@@ -97,33 +99,48 @@ function inputFunction(event)
 {
     //window.alert(event.keyCode);
     var key = event.keyCode;
-    gl.useProgram(tendrilProgram);
     if (key == 37)
     {
         rotationAngleX = (rotationAngleX + 0.05) % 6.28;
+        gl.useProgram(tendrilProgram);
         gl.uniform1f(rotationAngleXLocation, rotationAngleX);
+        gl.useProgram(sphereProgram);
+        gl.uniform1f(sphereRotationAngleXLocation, rotationAngleX);
     }
     if (key == 39)
     {
         rotationAngleX = (rotationAngleX - 0.05) % 6.28;
+        gl.useProgram(tendrilProgram);
         gl.uniform1f(rotationAngleXLocation, rotationAngleX);
+        gl.useProgram(sphereProgram);
+        gl.uniform1f(sphereRotationAngleXLocation, rotationAngleX);
     }
     if (key == 38)
     {
         rotationAngleY = (rotationAngleY + 0.05) % 6.28;
+        gl.useProgram(tendrilProgram);
         gl.uniform1f(rotationAngleYLocation, rotationAngleY);
+        gl.useProgram(sphereProgram);
+        gl.uniform1f(sphereRotationAngleYLocation, rotationAngleY);
     }
     if (key == 40)
     {
         rotationAngleY = (rotationAngleY - 0.05) % 6.28;
+        gl.useProgram(tendrilProgram);
         gl.uniform1f(rotationAngleYLocation, rotationAngleY);
+        gl.useProgram(sphereProgram);
+        gl.uniform1f(sphereRotationAngleYLocation, rotationAngleY);
     }
     if (key == 32)
     {
         rotationAngleY = 0.0;
         rotationAngleX = 0.0;
+        gl.useProgram(tendrilProgram);
         gl.uniform1f(rotationAngleXLocation, rotationAngleX);
         gl.uniform1f(rotationAngleYLocation, rotationAngleY);
+        gl.useProgram(sphereProgram);
+        gl.uniform1f(sphereRotationAngleXLocation, rotationAngleX);
+        gl.uniform1f(sphereRotationAngleYLocation, rotationAngleY);
     }
     if (key == 49)
     {
@@ -256,7 +273,9 @@ function initializeGLParameters()
     sphereScaleLocation = gl.getUniformLocation(sphereProgram, "scale");
     sphereDirectionsLocation = gl.getUniformLocation(sphereProgram, "directions");
     sphereTendrilVertLocation = gl.getUniformLocation(sphereProgram, "tendrilVerts");
-
+    sphereRotationAngleXLocation = gl.getUniformLocation(sphereProgram, "rotationAngleX");
+    sphereRotationAngleYLocation = gl.getUniformLocation(sphereProgram, "rotationAngleY");
+    
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.BLEND);
     //gl.disable(gl.CULL_FACE);

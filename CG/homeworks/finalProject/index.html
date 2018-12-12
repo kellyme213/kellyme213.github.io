@@ -114,6 +114,8 @@
             uniform vec3 directions[100];
             uniform vec3 tendrilVerts[100];
             varying vec4 color;
+            uniform float rotationAngleX;
+            uniform float rotationAngleY;
             
             void main()
             {
@@ -130,7 +132,7 @@
                     }
                 }
                 
-                gl_Position = vec4(vPos.x, vPos.y, vPos.z, 1.0 / scale);
+                gl_Position = axisAngleMatrix(vec3(1, 0, 0), rotationAngleY) * axisAngleMatrix(vec3(0, 1, 0), rotationAngleX) * vec4(vPos.x, vPos.y, vPos.z, 1.0 / scale);
                 direction = vPos.xyz;
             }
             
