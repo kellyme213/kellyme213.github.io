@@ -3,8 +3,9 @@
     <head>
         <link rel="stylesheet" href="styles.css"> </link>
         <title> Michael Kelly </title>
-    
+        
         <script id="tendril-vertex-shader" type="x-shader/x-vertex">
+            
             precision mediump float;
             
             attribute vec4 startV;
@@ -41,35 +42,36 @@
                 return m;
             }
         
-        mat4 translationMatrix(vec4 v)
-        {
-            vec4 v1 = vec4(1.0, 0.0, 0.0, 0.0);
-            vec4 v2 = vec4(0.0, 1.0, 0.0, 0.0);
-            vec4 v3 = vec4(0.0, 0.0, 1.0, 0.0);
-            vec4 v4 = vec4(v.x, v.y, v.z, 1.0);
-            mat4 m = mat4(v1, v2, v3, v4);
-            return m;
-        }
-        
-        
-        void main()
-        {
-            vec3 directionAxis = normalize(angleBlendVal * endDirection + (1.0 - angleBlendVal) * startDirection);
-            vec4 vt = vec4(0.05, 0.0, 0.0, 1.0);
-            mat4 tMat = translationMatrix(vt);
-            mat4 aaMat = axisAngleMatrix(vec3(0, directionAxis.z, -directionAxis.y), acos(directionAxis.x));
-            ratio = tendrilColorBlend;
-            col = tendrilCol;
+            mat4 translationMatrix(vec4 v)
+            {
+                vec4 v1 = vec4(1.0, 0.0, 0.0, 0.0);
+                vec4 v2 = vec4(0.0, 1.0, 0.0, 0.0);
+                vec4 v3 = vec4(0.0, 0.0, 1.0, 0.0);
+                vec4 v4 = vec4(v.x, v.y, v.z, 1.0);
+                mat4 m = mat4(v1, v2, v3, v4);
+                return m;
+            }
             
-            float vbval = min(vertexBlendVal, 1.0);
-            vbval = max(vbval, 0.0);
-            //vertexBlendVal = max(vertexBlendVal, 0.0);
-            
-            gl_Position = axisAngleMatrix(vec3(1, 0, 0), rotationAngleY) * axisAngleMatrix(vec3(0, 1, 0), rotationAngleX) * 0.95 * aaMat * tMat * (vbval * endV + (1.0 - vbval) * startV);
-        }
+            void main()
+            {
+                vec3 directionAxis = normalize(angleBlendVal * endDirection + (1.0 - angleBlendVal) * startDirection);
+                vec4 vt = vec4(0.05, 0.0, 0.0, 1.0);
+                mat4 tMat = translationMatrix(vt);
+                mat4 aaMat = axisAngleMatrix(vec3(0, directionAxis.z, -directionAxis.y), acos(directionAxis.x));
+                ratio = tendrilColorBlend;
+                col = tendrilCol;
+                
+                float vbval = min(vertexBlendVal, 1.0);
+                vbval = max(vbval, 0.0);
+                //vertexBlendVal = max(vertexBlendVal, 0.0);
+                
+                gl_Position = axisAngleMatrix(vec3(1, 0, 0), rotationAngleY) * axisAngleMatrix(vec3(0, 1, 0), rotationAngleX) * 0.95 * aaMat * tMat * (vbval * endV + (1.0 - vbval) * startV);
+            }
+        
         </script>
         
         <script id="tendril-fragment-shader" type="x-shader/x-fragment">
+            
             precision mediump float;
             
             varying float ratio;
@@ -79,12 +81,23 @@
             {
                 gl_FragColor = ratio * vec4( col.r, col.g, col.b, 1.0 ) + (1.0 - ratio) * vec4(1.0, 1.0, 1.0, 1.0);
             }
+        
         </script>
         
         
         
         <script id = "sphere-vertex-shader" type = "x-shader/x-vertex">
+            
             precision mediump float;
+            
+            attribute vec4 vPos;
+            varying vec3 direction;
+            uniform float scale;
+            uniform vec3 directions[100];
+            uniform vec3 tendrilVerts[100];
+            varying vec4 color;
+            uniform float rotationAngleX;
+            uniform float rotationAngleY;
             
             //axis is normalized
             mat4 axisAngleMatrix(vec3 axis, float angle)
@@ -104,42 +117,34 @@
                 return m;
             }
         
-        attribute vec4 vPos;
-        varying vec3 direction;
-        uniform float scale;
-        uniform vec3 directions[100];
-        uniform vec3 tendrilVerts[100];
-        varying vec4 color;
-        uniform float rotationAngleX;
-        uniform float rotationAngleY;
-        
-        void main()
-        {
-            color = vec4(1.0, 0.0, 0.0, 0.0);
-            for (int x = 0; x < 100; x++)
+            void main()
             {
-                mat4 aaMat = axisAngleMatrix(vec3(0, directions[x].z, -directions[x].y), acos(directions[x].x));
-                vec4 tranformedTendril = aaMat * vec4(tendrilVerts[x], 1.0);
-                vec3 normDir = normalize(tranformedTendril.xyz);
-                float dist = distance(normalize(vPos.xyz), normDir);
-                if (dist < 0.05)
+                color = vec4(1.0, 0.0, 0.0, 0.0);
+                for (int x = 0; x < 100; x++)
                 {
-                    color += vec4(1.0, 0.0, 0.0, 0.5 * (1.0 - (dist / 0.05)));
+                    mat4 aaMat = axisAngleMatrix(vec3(0, directions[x].z, -directions[x].y), acos(directions[x].x));
+                    vec4 tranformedTendril = aaMat * vec4(tendrilVerts[x], 1.0);
+                    vec3 normDir = normalize(tranformedTendril.xyz);
+                    float dist = distance(normalize(vPos.xyz), normDir);
+                    if (dist < 0.05)
+                    {
+                        color += vec4(1.0, 0.0, 0.0, 0.5 * (1.0 - (dist / 0.05)));
+                    }
                 }
+                
+                gl_Position = axisAngleMatrix(vec3(1, 0, 0), rotationAngleY) * axisAngleMatrix(vec3(0, 1, 0), rotationAngleX) * vec4(vPos.x, vPos.y, vPos.z, 1.0 / scale);
+                direction = vPos.xyz;
             }
-            
-            gl_Position = axisAngleMatrix(vec3(1, 0, 0), rotationAngleY) * axisAngleMatrix(vec3(0, 1, 0), rotationAngleX) * vec4(vPos.x, vPos.y, vPos.z, 1.0 / scale);
-            direction = vPos.xyz;
-        }
         
             </script>
         
         <script id = "sphere-fragment-shader" type = "x-shader/x-fragment">
+           
             precision mediump float;
+            
             varying vec3 direction;
             varying vec4 color;
-            //varying normal;
-            
+
             void main()
             {
                 float d = abs(dot(normalize(direction), vec3(0.0, 0.0, 1.0)));
@@ -148,11 +153,10 @@
                 vec4 c1 = vec4(1.0, 1.0, 1.0, k);
                 float outA = c1.a + c2.a * (1.0 - c1.a);
                 vec3 outCol = (c1.xyz * c1.a + c2.xyz * c2.a * (1.0 - c1.a)) * (1.0 / outA);
-                gl_FragColor = vec4(outCol, outA);//color;//vec4(color.xyz, k);//vec4(1.0, 0.0, 0.0, 1.0);
+                gl_FragColor = vec4(outCol, outA);
             }
+        
         </script>
-        
-        
         
         <script type="text/javascript" src="CG/homeworks/Common/webgl-utils.js"></script>
         <script type="text/javascript" src="CG/homeworks/Common/initShaders.js"></script>
@@ -160,22 +164,29 @@
         <script type="text/javascript" src="CG/homeworks/finalProject/plasmaBall.js"></script>
         <script type="text/javascript" src="CG/homeworks/finalProject/tendril.js"></script>
         
-        
     </head>
     
     <body>
         <div class = "content">
             <div class = "bar">
+                <br/>
                 <a href = "index.html"> Home </a>
                 <a href = "resume.html"> Resume </a>
                 <a href = "coursework.html"> Course Work </a>
+                <!--<a href = "otherwork.html"> Other Work </a>-->
+                <a href = "https://github.com/kellyme213/" target = "_blank"> GitHub </a>
+                
+                <p> 3D Art </p>
+                <a href = "modeling.html"> 3D Modeling </a>
+                
+                <p> Graphics Projects </p>
                 <a href = "raytracer.html"> Ray Tracer </a>
+                <a class = "selectedbar" href = "plasmaball.html"> Plasma Ball </a>
+                
+                <p> Games </p>
                 <a href = "oxio.html"> OXIO </a>
                 <a href = "shapes.html"> Connect the Shapes! </a>
                 <a href = "dungeon.html"> The Dungeon </a>
-                <a class = "selectedbar" href = "otherwork.html"> Other Work </a>
-                <a href = "https://github.com/kellyme213/" target = "_blank"> Github </a>
-                <a href = "https://www.linkedin.com/in/kellyme213/" target = "_blank"> LinkedIn </a>
             </div>
             
             <h1> Plasma Ball </h1>
@@ -226,20 +237,26 @@
                 
             </div>
             
+            <br/>
+            <br/>
+            <h2 class = "resumeHeading"> Project Description </h2>
+            <div class = "heading">
+                <p>
+                I start with a Tendril class. This class stores the two position states of the tendril, as well as the two angle states. The position states are points that are aligned along the x axis from 0 to 1, evenly spaced. Each point is slightly displaced in +y and -y randomly to give a wavy look to the tendrils. These two states are loaded into two separate buffers and sent to the GPU. Another buffer containing the blend value (0 to 1) is also sent to the GPU, which is used to animate the tendrils. Once the blend value reaches one, the old end state becomes the new start state, and a new end state is created. Additionally, two direction state vectors are also generated. They specify that direction the tendril should point away from the sphere. The current direction vector is also interpolated via a different blend value. The tendril is rotated to the correct direction via an axis angle matrix, where the angle of rotation is the cross product between the interpolated direction vector and the x axis, and the angle is the inverse cosine of the dot product between the x axis and the interpolated direction vector. Since the x axis is a special vector (1, 0, 0), it is easy calculate what the cross product and dot product are without needing to call the dot or cross function, so in my shader code, I 'precomputed' what the result would be to save a bit of computation time. As an example, (1, 0, 0) cross (x, y, z) = (0, z, -y).
+                </p>
+            </div>
+            
             <p>
-            I start with a Tendril class. This class stores the two position states of the tendril, as well as the two angle states. The position states are points that are aligned along the x axis from 0 to 1, evenly spaced. Each point is slightly displaced in +y and -y randomly to give a wavy look to the tendrils. These two states are loaded into two separate buffers and sent to the GPU. Another buffer containing the blend value (0 to 1) is also sent to the GPU, which is used to animate the tendrils. Once the blend value reaches one, the old end state becomes the new start state, and a new end state is created. Additionally, two direction state vectors are also generated. They specify that direction the tendril should point away from the sphere. The current direction vector is also interpolated via a different blend value. The tendril is rotated to the correct direction via an axis angle matrix, where the angle of rotation is the cross product between the interpolated direction vector and the x axis, and the angle is the inverse cosine of the dot product between the x axis and the interpolated direction vector. Since the x axis is a special vector (1, 0, 0), it is easy calculate what the cross product and dot product are without needing to call the dot or cross function, so in my shader code, I 'precomputed' what the result would be to save a bit of computation time. As an example, (1, 0, 0) cross (x, y, z) = (0, z, -y).
-                </p>
-                <p>
-                I thought that blending between two states would be an efficient way to produce animation without needing to pass too much data to the GPU every frame. I had originally thought of using compute shaders to calculate the position of each tendril vertex every frame and writing it back to the JavaScript, but unfortunately WebGL does not support this yet. I planned on using bufferSubData to sub in the start and end tendril vertex states when they need to be updated, but I ran into an issue when I was trying to use two separate shaders, so at the moment, I just pass in all data every frame. This is inefficient, but works for now, and fixing the bug would be a part of future improvements.
-                </p>
-                <p>
-                The sphere of the plasma ball is generated via a subdivision algorithm we discussed in class. I've linked to the specific algorithm in my source code. I approximate 1/8th of the sphere using this algorithm, with (1, 0, 0), (0, 1, 0), and (0, 0, 1) as my three control points. Then I duplicate and reflect the sphere 7 other times to create the rest of the sphere. To give my sphere the look where it is transparent in the middle but you can see the edges of it, similar to how a normal glass sphere would look, I used a modified diffuse surface model. The sphere itself is completely white, but the alpha value is modified depending on the dot product between the surface normal and camera direction. The alpha value for each pixel is proportional to 1 - dot product. This means that surface normal around the edge of the sphere, where the dot product is close to zero, are the most visible. Likewise, the vertices that are closer to the center of the screen are more transparent. I would've liked to do more with the sphere, like specular highlights, but I did not get to it.
-                </p>
-                <p>
-                On a real plasma ball, there are little red highlights where the tendril meets the glass. I implemented this by sending each tendril direction vertex to each sphere vertex and calculating the distance between the tendril direction vertex and the direction from the origin of the ball for the sphere vertex. The closer the two vectors are, the stronger the highlight is.
-                </p>
+            I thought that blending between two states would be an efficient way to produce animation without needing to pass too much data to the GPU every frame. I had originally thought of using compute shaders to calculate the position of each tendril vertex every frame and writing it back to the JavaScript, but unfortunately WebGL does not support this yet. I planned on using bufferSubData to sub in the start and end tendril vertex states when they need to be updated, but I ran into an issue when I was trying to use two separate shaders, so at the moment, I just pass in all data every frame. This is inefficient, but works for now, and fixing the bug would be a part of future improvements.
+            </p>
             
+            <p>
+            The sphere of the plasma ball is generated via a subdivision algorithm we discussed in class. I've linked to the specific algorithm in my source code. I approximate 1/8th of the sphere using this algorithm, with (1, 0, 0), (0, 1, 0), and (0, 0, 1) as my three control points. Then I duplicate and reflect the sphere 7 other times to create the rest of the sphere. To give my sphere the look where it is transparent in the middle but you can see the edges of it, similar to how a normal glass sphere would look, I used a modified diffuse surface model. The sphere itself is completely white, but the alpha value is modified depending on the dot product between the surface normal and camera direction. The alpha value for each pixel is proportional to 1 - dot product. This means that surface normal around the edge of the sphere, where the dot product is close to zero, are the most visible. Likewise, the vertices that are closer to the center of the screen are more transparent. I would've liked to do more with the sphere, like specular highlights, but I did not get to it.
+            </p>
             
+            <p>
+            On a real plasma ball, there are little red highlights where the tendril meets the glass. I implemented this by sending each tendril direction vertex to each sphere vertex and calculating the distance between the tendril direction vertex and the direction from the origin of the ball for the sphere vertex. The closer the two vectors are, the stronger the highlight is.
+            </p>
         </div>
         <br/>
         

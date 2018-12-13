@@ -134,14 +134,31 @@ h1
     text-align: left;
     text-decoration: none;
     color: white;
-    padding-top: 15px;
-    padding-left: 20px;
-    padding-bottom: 15px;
+    padding-top: 5px;
+    padding-left: 25px;
+    padding-bottom: 5px;
     transition-duration: 0.4s;
     word-wrap: break-all;
     word-break: break-word;
     white-space: normal;
     z-index: 1;
+}
+
+.bar p
+{
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    margin: 0px;
+    word-wrap: break-all;
+    word-break: break-word;
+    white-space: normal;
+    z-index: 1;
+    font-size: 22px;
 }
 
 .bar .selectedbar
@@ -152,7 +169,7 @@ h1
 
 .bar a:hover
 {
-    padding-left: 30px;
+    padding-left: 35px;
 }
 
 table
@@ -212,6 +229,7 @@ tr
 {
     height: 120px;
     padding: 15px;
+    //padding-left: 165px;
     position: absolute;
 }
 
