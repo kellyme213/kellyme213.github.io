@@ -45,12 +45,20 @@ Tendril.prototype.shouldUpdate = function()
 //delay blend value depending on position in array for effect
 Tendril.prototype.getBlendValue = function(x)
 {
-    return ((Date.now() - this.startingTime) / this.animationTime).clamp(0.0, 1.0);
+    var v = ((Date.now() - this.startingTime) / this.animationTime);
+    v = v - (0.5 * x / this.tendrilLength);
+    v = v.clamp(0.0, 0.5);
+    return v / 0.5;
+    //return ((Date.now() - this.startingTime) / this.animationTime).clamp(0.0, 1.0);
 }
 
 Tendril.prototype.getAngleBlendValue = function(x)
 {
-    return (Date.now() - this.startAngleTime) / this.angleAnimationTime;
+    var v = ((Date.now() - this.startAngleTime) / this.angleAnimationTime);
+    v = v - (0.1 * x / this.tendrilLength);
+    v = v.clamp(0.0, 0.9);
+    return v / 0.9;
+    //return ((Date.now() - this.startAngleTime) / this.angleAnimationTime).clamp(0.0, 1.0);
 }
 
 Tendril.prototype.shouldUpdateAngle = function()

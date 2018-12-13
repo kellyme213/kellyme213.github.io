@@ -293,8 +293,8 @@ function updateBlendValues()
     {
         for (var y = 0; y < tendrils[x].tendrilLength; y++)
         {
-            blendArray.push(tendrils[x].getBlendValue(y));
-            angleArray.push(tendrils[x].getAngleBlendValue(y));
+            blendArray.push(tendrils[x].getBlendValue(y + 1));
+            angleArray.push(tendrils[x].getAngleBlendValue(y + 1));
         }
     }
     
@@ -388,7 +388,7 @@ function passInDirectionsToSphere()
     var vertexArray = [];
     for (var x = 0; x < tendrils.length; x++)
     {
-        var blend = tendrils[x].getAngleBlendValue(0);
+        var blend = tendrils[x].getAngleBlendValue(tendrils[x].tendrilLength);
         var newX = (tendrils[x].startDirection[0] * (1.0 - blend)) + (tendrils[x].endDirection[0] * (blend));
         var newY = (tendrils[x].startDirection[1] * (1.0 - blend)) + (tendrils[x].endDirection[1] * (blend));
         var newZ = (tendrils[x].startDirection[2] * (1.0 - blend)) + (tendrils[x].endDirection[2] * (blend));
