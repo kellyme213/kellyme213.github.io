@@ -7,25 +7,12 @@
     
     <body>
         <div class = "content">
-            <div class = "bar">
+            <div class = "bar" id = "sidebar">
                 <br/>
                 <a href = "index.html"> Home </a>
-                <a href = "resume.html"> Resume </a>
-                <a class = "selectedbar" href = "coursework.html"> Course Work </a>
-                <!--<a href = "otherwork.html"> Other Work </a>-->
-                <a href = "https://github.com/kellyme213/" target = "_blank"> GitHub </a>
-                
-                <p> 3D Art </p>
-                <a href = "modeling.html"> 3D Modeling </a>
-                
-                <p> Graphics Projects </p>
-                <a href = "raytracer.html"> Ray Tracer </a>
-                <a href = "plasmaball.html"> Plasma Ball </a>
-                
-                <p> Games </p>
-                <a href = "oxio.html"> OXIO </a>
-                <a href = "shapes.html"> Connect the Shapes! </a>
-                <a href = "dungeon.html"> The Dungeon </a>
+                <noscript>
+                    <p> Please enable Javascript for side bar to work. </p>
+                </noscript>
             </div>
             
             <h1> Course Work </h1>
@@ -56,43 +43,6 @@
                 <a> Virtual Reality Projects </a>
                 <p> In this project course, we will work with contemporary VR technologies including the Oculus Rift, the HTC Vive and the CAVE. Projects will be open ended, can be team-based, and may take many forms including artworks, performances, games, educational simulations, or visualization/sonification. Readings, screenings, lectures and discussions will explore virtuality and immersion from the perspectives of philosophy, theory, technology and user experience. </p>
             </div>
-            
-            <!--
-            <div class = "heading">
-                <a> 3D Bootcamp </a>
-                <p> In 3D Bootcamp, I learned how to create high poly and low poly models and UV maps in Maya. I baked maps and textured models in Substance Painter. </p>
-            </div>
-            
-            <ul class = "imagelist">
-                <img src = "pictures/maya/lamp1.png" style = "width: 40%"/>
-                <img src = "pictures/maya/lamp2.png" style = "width: 40%"/>
-                <img src = "pictures/maya/lamp3.png" style = "width: 40%"/>
-                <img src = "pictures/maya/lamp4.png" style = "width: 40%"/>
-            </ul>
-            <div class = "links">
-                <a href = "downloads/other/lamp.mb" target = "_blank"> Download Lamp Maya File </a>
-            </div>
-            <div class = "heading">
-                <a> Game Development 1 </a>
-                <p> In Game Development 1, I worked in four different teams on four games in HaxeFlixel, Phaser, Unity, and Unreal. For the HaxeFlixel and Phaser projects, I was a programmer. For the Unity project, I was a 3D modeler and texture artist. </p>
-            </div>
-            
-            <ul class = "imagelist">
-                <img src = "pictures/maya/finger1.png" style = "width: 30%"/>
-                <img src = "pictures/maya/finger2.png" style = "width: 30%"/>
-                <img src = "pictures/maya/finger3.png" style = "width: 30%"/>
-            </ul>
-            
-            <ul class = "imagelist">
-                <img src = "pictures/maya/candy1.png" style = "width: 30%"/>
-                <img src = "pictures/maya/candy2.png" style = "width: 30%"/>
-            </ul>
-            
-            <div class = "links">
-                <a href = "downloads/other/finger.mb" target = "_blank"> Download Finger Maya File </a>
-                <a href = "downloads/other/kiss.mb" target = "_blank"> Download Candy Maya File </a>
-            </div>
-            -->
             
             <h2 class = "resumeHeading"> Completed Courses </h2>
             
@@ -165,6 +115,11 @@
         </div>
         </div>
         
+        
+        <script type = "text/javascript" src = "scripts/bar.js"> </script>
+        <script>
+            document.getElementById("courseworkBar").className = "selectedbar";
+        </script>
         
         <div class = "footer">
             <p> Created By Michael Kelly </p>

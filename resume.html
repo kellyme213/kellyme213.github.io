@@ -8,25 +8,12 @@
     
     <body>
         <div class = "content">
-            <div class = "bar">
+            <div class = "bar" id = "sidebar">
                 <br/>
                 <a href = "index.html"> Home </a>
-                <a class = "selectedbar" href = "resume.html"> Resume </a>
-                <a href = "coursework.html"> Course Work </a>
-                <!--<a href = "otherwork.html"> Other Work </a>-->
-                <a href = "https://github.com/kellyme213/" target = "_blank"> GitHub </a>
-                
-                <p> 3D Art </p>
-                <a href = "modeling.html"> 3D Modeling </a>
-                
-                <p> Graphics Projects </p>
-                <a href = "raytracer.html"> Ray Tracer </a>
-                <a href = "plasmaball.html"> Plasma Ball </a>
-                
-                <p> Games </p>
-                <a href = "oxio.html"> OXIO </a>
-                <a href = "shapes.html"> Connect the Shapes! </a>
-                <a href = "dungeon.html"> The Dungeon </a>
+                <noscript>
+                    <p> Please enable Javascript for side bar to work. </p>
+                </noscript>
             </div>
             
             <h1> Resume </h1>
@@ -45,7 +32,7 @@
                 <a> Amazon - Software Development Engineer Intern </a>
                 <a style = "float: right; font-size: 20px; "> June 2018 to August 2018 </a>
                 <p class = "noBottom"> Designed an internal webpage using AngularJS, Ruby on Rails, and HAML that allows users to filter their development resources by permission type and view which project the selected resource belongs to.  </p>
-                <p> Developed project from UI mockups to release. Created design documents and led design meetings. Wrote unit tests. </p>
+                <p> Developed project from UI mockups to release, created design documents, led product design meetings, wrote unit tests, participated in code reviews, communicated with users for product feedback and feature ideas. </p>
             </div>
             
             <div class = "heading">
@@ -101,9 +88,9 @@
 
             <h2 class = "resumeHeading"> Skills </h2>
             <div class = "heading">
-                <p class = "noBottom"> Programming Languages: C/C++, Swift, HTML/CSS/JavaScript, Java, HAML, Ruby on Rails </p>
-                <p class = "noBottom"> Software and APIs: Xcode, SpriteKit, WebGL, AngularJS, Maya, Substance Painter, Git </p>
-                <p> Other: Computer Graphics, Linear Algebra, UI Mockups, Game Design </p>
+                <p class = "noBottom"> Programming Languages: C/C++, Swift, HTML/CSS/JavaScript, Java, HAML, Ruby on Rails, Python </p>
+                <p class = "noBottom"> Software and APIs: Xcode, SpriteKit, WebGL, AngularJS, Maya, Substance Painter, Balsamiq, Git, Unity, Unreal Engine 4, PyMEL, RSpec, Jasmine </p>
+                <p> Other: Computer Graphics, Linear Algebra, UI Mockups, Game Design, iOS/macOS development, Unit Testing </p>
             </div>
             
             
@@ -132,6 +119,10 @@
             
         </div>
         
+        <script type = "text/javascript" src = "scripts/bar.js"> </script>
+        <script>
+            document.getElementById("resumeBar").className = "selectedbar";
+        </script>
         
         <div class = "footer">
             <p> Created By Michael Kelly </p>

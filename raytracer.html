@@ -7,25 +7,12 @@
     
     <body>
         <div class = "content">
-            <div class = "bar">
+            <div class = "bar" id = "sidebar">
                 <br/>
                 <a href = "index.html"> Home </a>
-                <a href = "resume.html"> Resume </a>
-                <a href = "coursework.html"> Course Work </a>
-                <!--<a href = "otherwork.html"> Other Work </a>-->
-                <a href = "https://github.com/kellyme213/" target = "_blank"> GitHub </a>
-                
-                <p> 3D Art </p>
-                <a href = "modeling.html"> 3D Modeling </a>
-                
-                <p> Graphics Projects </p>
-                <a class = "selectedbar" href = "raytracer.html"> Ray Tracer </a>
-                <a href = "plasmaball.html"> Plasma Ball </a>
-                
-                <p> Games </p>
-                <a href = "oxio.html"> OXIO </a>
-                <a href = "shapes.html"> Connect the Shapes! </a>
-                <a href = "dungeon.html"> The Dungeon </a>
+                <noscript>
+                    <p> Please enable Javascript for side bar to work. </p>
+                </noscript>
             </div>
             
             <h1> Ray Tracer </h1>
@@ -39,15 +26,6 @@
             <img src = "pictures/raytracer/raytracer7.png" alt = "render3" style = "width: 100%;"/>
             <img src = "pictures/raytracer/raytracer8.png" alt = "render4" style = "width: 100%;"/>
             
-            <!--
-             <img src = "pictures/raytracer/raytracer1.png" alt = "render1" style = "width: 100%;"/>
-             <img src = "pictures/raytracer/raytracer2.png" alt = "render2" style = "width: 100%;"/>
-             <img src = "pictures/raytracer/raytracer3.png" alt = "render3" style = "width: 100%;"/>
-             <img src = "pictures/raytracer/raytracer4.png" alt = "render4" style = "width: 100%;"/>
-             <img src = "pictures/raytracer/raytracer5.png" alt = "render5" style = "width: 100%;"/>
-             <img src = "pictures/raytracer/raytracer6.png" alt = "render6" style = "width: 100%;"/>
-             -->
-            
             
             <div class = "links">
                 <a href = "https://github.com/kellyme213/RayTracers" target = "_blank"> Source Code </a>
@@ -55,6 +33,10 @@
             
         </div>
         
+        <script type = "text/javascript" src = "scripts/bar.js"> </script>
+        <script>
+            document.getElementById("raytracerBar").className = "selectedbar";
+        </script>
         
         <div class = "footer">
             <p> Created By Michael Kelly </p>
