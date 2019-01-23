@@ -100,6 +100,20 @@ h1
     display: block;
 }
 
+.content iframe
+{
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--siteColor);
+    text-align: center;
+    display: block;
+    width: 75vw;
+    height: 50vw;
+    margin-bottom: 20px;
+}
+
 .imagelist
 {
     text-decoration: none;
@@ -198,7 +212,7 @@ tr
 .footer
 {
     width: 100%;
-    background-color: rgb(255, 101, 0);
+    background-color: var(--siteColor);
     height: 150px;
     position: relative;
     z-index: 2;
