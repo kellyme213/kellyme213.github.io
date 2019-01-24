@@ -11,9 +11,9 @@ generateA("PyMEL Cherry Blossoms", "blossom.html", "blossomBar");
 generateP("Games");
 generateA("OXIO", "oxio.html", "oxioBar");
 generateA("Connect the Shapes!", "shapes.html", "shapesBar");
-generateA("The Dungeon", "dungeon.html", "dungeonBar");
-//generateP("Short Films");
-//generateA("Films", "film.html", "filmBar");
+//generateA("The Dungeon", "dungeon.html", "dungeonBar");
+generateP("Short Films");
+generateA("Films", "film.html", "filmBar");
 
 function generateA(name, link, id)
 {
