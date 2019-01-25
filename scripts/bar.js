@@ -14,6 +14,7 @@ generateA("Connect the Shapes!", "shapes.html", "shapesBar");
 //generateA("The Dungeon", "dungeon.html", "dungeonBar");
 generateP("Short Films");
 generateA("Films", "film.html", "filmBar");
+generateImage();
 
 function generateA(name, link, id)
 {
@@ -29,4 +30,15 @@ function generateP(name)
     var p = document.createElement("P");
     p.appendChild(document.createTextNode(name));
     document.getElementById("sidebar").appendChild(p);
+}
+
+function generateImage()
+{
+    var a = document.createElement("A");
+    a.className = "barImg";
+    a.href = "index.html";
+    var img = document.createElement("IMG");
+    img.src = "pictures/logo-white.png";
+    a.appendChild(img);
+    document.getElementById("sidebar").appendChild(a);
 }

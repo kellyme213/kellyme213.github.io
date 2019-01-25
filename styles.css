@@ -140,6 +140,7 @@ h1
     position: fixed;
     z-index: 1;
     margin-left: 0px;
+    //overflow-y: scroll;
 }
 
 .bar a
@@ -215,7 +216,7 @@ tr
     background-color: var(--siteColor);
     height: 150px;
     position: relative;
-    z-index: 2;
+    z-index: 0;
 }
 
 .footer a
@@ -241,7 +242,7 @@ tr
 
 .footer img
 {
-    height: 120px;
+    height: 110px;
     padding: 15px;
     //padding-left: 165px;
     position: absolute;
@@ -259,4 +260,21 @@ tr
     height: 120px;
     position: absolute;
     right: 0px;
+}
+
+.bar .barImg
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.bar .barImg:hover
+{
+    padding-left: 0px;
+}
+
+.bar img
+{
+    width: 110px;
+    padding-left: 0px;
 }
