@@ -10,7 +10,7 @@ generateP("Tools");
 generateA("PyMEL Cherry Blossoms", "blossom.html", "blossomBar");
 generateP("3D Art");
 generateA("3D Modeling", "modeling.html", "modelingBar");
-generateA("Rendering", "lighting.html", "lightingBar");
+generateA("Lighting", "lighting.html", "lightingBar");
 generateP("Games");
 generateA("OXIO", "oxio.html", "oxioBar");
 generateA("Connect the Shapes!", "shapes.html", "shapesBar");
