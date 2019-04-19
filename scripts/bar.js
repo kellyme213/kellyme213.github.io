@@ -3,7 +3,7 @@ generateA("Course Work", "coursework.html", "courseworkBar");
 generateA("GitHub", "https://www.github.com/kellyme213", "githubBar");
 generateA("Short Films", "film.html", "filmBar");
 generateP("Graphics");
-//generateA("Balloon Simulation", "balloon.html", "balloonBar");
+generateA("Balloon Simulation", "balloon.html", "balloonBar");
 generateA("Ray Tracer", "raytracer.html", "raytracerBar");
 generateA("Plasma Ball", "plasmaball.html", "plasmaballBar");
 generateP("Tools");
@@ -14,6 +14,7 @@ generateA("Lighting", "lighting.html", "lightingBar");
 generateP("Games");
 generateA("OXIO", "oxio.html", "oxioBar");
 generateA("Connect the Shapes!", "shapes.html", "shapesBar");
+generateA("Duality", "duality.html", "dualityBar");
 //generateA("The Dungeon", "dungeon.html", "dungeonBar");
 //generateImage();
 

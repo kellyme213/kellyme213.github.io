@@ -216,7 +216,7 @@ tr
     background-color: var(--siteColor);
     height: 150px;
     position: relative;
-    z-index: 2;
+    //z-index: 2;
 }
 
 .footer a
