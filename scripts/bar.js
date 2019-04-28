@@ -6,6 +6,7 @@ generateP("Graphics");
 generateA("Balloon Simulation", "balloon.html", "balloonBar");
 generateA("Ray Tracer", "raytracer.html", "raytracerBar");
 generateA("Plasma Ball", "plasmaball.html", "plasmaballBar");
+//generateA("Fun With Shaders", "shader.html", "shaderBar");
 generateP("Tools");
 generateA("PyMEL Cherry Blossoms", "blossom.html", "blossomBar");
 generateP("3D Art");

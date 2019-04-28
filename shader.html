@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css"> </link>
+        <title> Michael Kelly </title>
+    </head>
+    
+    <body>
+        <div class = "content">
+            <div class = "bar" id = "sidebar">
+                <a href = "index.html"> Home </a>
+                <noscript>
+                    <p> Please enable Javascript for side bar to work. </p>
+                </noscript>
+            </div>
+            
+            <h1> Fun With Shaders </h1>
+            <p> Some shaders I've written for various projects. </p>
+            
+            <h2 class = "resumeHeading"> Toon/Cell Shader </h2>
+            <p> An OpenGL Fragment shader. The shader samples a normal map, and if the normal transformed into screen space dotted with the z axis is close to 0, the shader draws a black line. </p>
+            
+            <h2 class = "resumeHeading"> Procedural Wood Shader </h2>
+            <p> A Metal Fragment shader. </p>
+            
+            <h2 class = "resumeHeading"> Procedural Brick Shader </h2>
+            <p> A Metal Fragment shader. </p>
+
+            <h2 class = "resumeHeading"> Mandelbrot Shader </h2>
+            <p> A Metal Fragment Shader takes the 3d position of the pixel, turns it into a complex number, and determines if the number lies in the Mandelbrot set. I also pass in a time parameter that modifies the complex numbers to animate the surface of the shader. </p>
+
+            <h2 class = "resumeHeading"> Alarm Shader </h2>
+            <p> A Unity Surface Shader for my game, Duality. The shader causes the red on the object to pulse. </p>
+
+        </div>
+        
+        
+        <script type = "text/javascript" src = "scripts/bar.js"> </script>
+        <script>
+            document.getElementById("shaderBar").className = "selectedbar";
+        </script>
+        
+        <div class = "footer">
+            <p> Created By Michael Kelly </p>
+            <a href = "index.html"> <img src = "pictures/logo-white.png"> </img> </a>
+            <div class = "linkBox">
+                <a href = "index.html"> Home </a>
+                <a href = "https://github.com/kellyme213/"> GitHub </a>
+                <a href = "https://www.linkedin.com/in/kellyme213/"> LinkedIn </a>
+                <a href = "coursework.html"> Course Work </a>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+<!--
+ <div class = "heading">
+ <a>  </a>
+ <a style = "float:right">  </a>
+ <p>  </p>
+ </div>
+ -->
