@@ -266,3 +266,8 @@ circle
 {
     --siteColor: rgba(255, 101, 0, 1.0);
 }
+
+.cursed
+{
+    cursor: url('pictures/balloon/balloon.png'), auto;
+}

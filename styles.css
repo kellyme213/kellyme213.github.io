@@ -141,6 +141,7 @@ h1
     z-index: 1;
     margin-left: 0px;
     //overflow-y: scroll;
+    cursor: auto;
 }
 
 .bar a
@@ -277,4 +278,9 @@ tr
 {
     width: 110px;
     padding-left: 0px;
+}
+
+.cursed
+{
+    cursor: url('pictures/balloon/balloon.png'), auto;
 }
