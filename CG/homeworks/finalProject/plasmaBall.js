@@ -71,6 +71,11 @@ window.onload = function init()
     updateBlendValues();
     
     
+    tendrilR = 0.4;
+    tendrilG = 0.4;
+    tendrilB = 1.0;
+    gl.uniform3fv(tendrilColorLocation, flatten([tendrilR, tendrilG, tendrilB]));
+    /*
     document.addEventListener('keydown', inputFunction, false);
     document.getElementById("r-slider").oninput = function(event)
     {
@@ -89,12 +94,14 @@ window.onload = function init()
         tendrilB = event.target.value;
         gl.uniform3fv(tendrilColorLocation, flatten([tendrilR, tendrilG, tendrilB]));
     }
+    */
     
     updateLoop();
     
     
 };
 
+//not used at the moment
 function inputFunction(event)
 {
     //window.alert(event.keyCode);
