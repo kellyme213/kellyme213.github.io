@@ -1,6 +1,6 @@
 generateA("Resume", "resume.html", "resumeBar");
-generateA("Course Work", "coursework.html", "courseworkBar");
-generateA("GitHub", "https://www.github.com/kellyme213", "githubBar");
+//generateA("Course Work", "coursework.html", "courseworkBar");
+//generateA("GitHub", "https://www.github.com/kellyme213", "githubBar");
 //generateA("Short Films", "film.html", "filmBar");
 generateP("Graphics");
 generateA("Balloon Simulation", "balloon.html", "balloonBar");

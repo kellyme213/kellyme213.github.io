@@ -31,6 +31,19 @@ body
     margin: 15px 0px;
 }
 
+.box p
+{
+    display: block;
+    font-size: 30px;
+    padding: 0px;
+    -webkit-transition-duration: 0.3s;
+}
+
+.box:hover p
+{
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .other
 {
     background-color: var(--siteColor);
@@ -52,13 +65,18 @@ body
     margin: 20px;
     position: relative;
     overflow: hidden;
-    background-color: var(--siteColor):
+    //background-color: var(--siteColor);
 }
 
 .projectList
 {
     padding-bottom: 30px;
     text-align: center;
+}
+
+.shadow
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
 }
 
 .content
@@ -151,13 +169,6 @@ a
 {
     text-decoration: none;
     color: white;
-}
-
-.box p
-{
-    display: block;
-    font-size: 30px;
-    padding: 0px;
 }
 
 .title

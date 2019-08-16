@@ -4,6 +4,11 @@ body
     margin: 0px;
 }
 
+.shadow
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+}
+
 .content
 {
     color: var(--siteColor);
@@ -98,6 +103,7 @@ h1
     margin-left: auto;
     margin-right: auto;
     display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
 }
 
 .content iframe
@@ -112,6 +118,7 @@ h1
     width: 75vw;
     height: 50vw;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
 
 .imagelist
@@ -138,10 +145,11 @@ h1
     left: 0;
     overflow-x: hidden;
     position: fixed;
-    z-index: 1;
+    //z-index: 1;
     margin-left: 0px;
     //overflow-y: scroll;
     cursor: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
 }
 
 .bar a
@@ -283,4 +291,13 @@ tr
 .cursed
 {
     cursor: url('pictures/balloon/balloon.png'), auto;
+}
+
+canvas
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
 }
