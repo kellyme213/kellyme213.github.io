@@ -24,4 +24,10 @@ window.onscroll = function()
         
         box.style.opacity = fade;
     }
+    
+    if (window.pageYOffset / window.innerHeight > 1.3) {
+        document.getElementById("svgCircle").style.display = 'none';
+    } else {
+        document.getElementById("svgCircle").style.display = 'block';
+    }
 }

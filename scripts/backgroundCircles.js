@@ -2,6 +2,8 @@
 //window.onscroll = function(){addBlur()};
 window.onscroll = function()
 {
+    //this is added to the fade.js function because that code
+    //overrides this onscroll function since it is added after this one.
     if (window.pageYOffset / window.innerHeight > 1.1) {
         document.getElementById("svgCircle").style.display = 'none';
     } else {
