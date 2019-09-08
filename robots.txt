@@ -8,4 +8,5 @@ Disallow: /kusoge.html
 Disallow: /pictures/kusoge/*
 Disallow: /pictures/kusoge/
 Disallow: /games/
+Disallow: /downloads/other/resume.pdf
 Allow: /downloads/other/paper.pdf
