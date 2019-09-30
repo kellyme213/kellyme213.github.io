@@ -12,9 +12,10 @@ generateP("3D Art");
 generateA("3D Modeling", "modeling.html", "modelingBar");
 generateA("Lighting", "lighting.html", "lightingBar");
 generateP("Games");
-generateA("OXIO", "oxio.html", "oxioBar");
-generateA("Connect the Shapes!", "shapes.html", "shapesBar");
+//generateA("Connect the Shapes!", "shapes.html", "shapesBar");
+generateA("The Lonely Fisherman", "fisherman.html", "fishermanBar");
 generateA("Duality", "duality.html", "dualityBar");
+generateA("OXIO", "oxio.html", "oxioBar");
 //generateA("The Dungeon", "dungeon.html", "dungeonBar");
 //generateImage();
 
