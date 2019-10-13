@@ -56,8 +56,8 @@ body
 
 .projectBox
 {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 340px;
     border-style: solid;
     border-width: 1px;
     border-color: var(--siteColor);
@@ -92,14 +92,19 @@ body
     padding: 0px;
     padding-left: 5px;
     padding-top: 5px;
-    top: 85%;
+    top: 87%;
     position: absolute;
     font-size: 25px;
     color: white;
-    background-color: var(--siteColor);
+    //background-color: var(--siteColor);
     width: 100%;
-    height: 15%;
+    //height: 15%;
     -webkit-transition-duration: 0.3s;
+}
+
+.pdBlack
+{
+    color: black;
 }
 
 .projectDescription
@@ -157,7 +162,7 @@ body
 .projectBox img
 {
     width: 100%;
-    height: 85%;
+    height: 100%;
     position: absolute;
     top: 0px;
     left: 0px;

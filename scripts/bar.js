@@ -6,17 +6,17 @@ generateP("Graphics");
 generateA("Balloon Simulation", "balloon.html", "balloonBar");
 generateA("GPU Photon Mapping", "photonmapping.html", "photonmappingBar");
 generateA("Plasma Ball", "plasmaball.html", "plasmaballBar");
-generateP("Tools");
-generateA("PyMEL Cherry Blossoms", "blossom.html", "blossomBar");
-generateP("3D Art");
-generateA("3D Modeling", "modeling.html", "modelingBar");
-generateA("Lighting", "lighting.html", "lightingBar");
 generateP("Games");
 //generateA("Connect the Shapes!", "shapes.html", "shapesBar");
 generateA("The Lonely Fisherman", "fisherman.html", "fishermanBar");
 generateA("Duality", "duality.html", "dualityBar");
 generateA("OXIO", "oxio.html", "oxioBar");
 //generateA("The Dungeon", "dungeon.html", "dungeonBar");
+generateP("Tools");
+generateA("PyMEL Cherry Blossoms", "blossom.html", "blossomBar");
+generateP("3D Art");
+generateA("3D Modeling", "modeling.html", "modelingBar");
+generateA("Lighting", "lighting.html", "lightingBar");
 //generateImage();
 
 function generateA(name, link, id)
