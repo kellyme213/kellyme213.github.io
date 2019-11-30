@@ -1,4 +1,4 @@
-generateA("Resume", "resume.html", "resumeBar");
+//generateA("Resume", "resume.html", "resumeBar");
 //generateA("Course Work", "coursework.html", "courseworkBar");
 //generateA("GitHub", "https://www.github.com/kellyme213", "githubBar");
 //generateA("Short Films", "film.html", "filmBar");
@@ -8,6 +8,7 @@ generateA("GPU Photon Mapping", "photonmapping.html", "photonmappingBar");
 generateA("Plasma Ball", "plasmaball.html", "plasmaballBar");
 generateP("Games");
 //generateA("Connect the Shapes!", "shapes.html", "shapesBar");
+generateA("Pandora's Box", "escaperoom.html", "escaperoomBar");
 generateA("The Lonely Fisherman", "fisherman.html", "fishermanBar");
 generateA("Duality", "duality.html", "dualityBar");
 generateA("OXIO", "oxio.html", "oxioBar");
@@ -19,12 +20,13 @@ generateA("3D Modeling", "modeling.html", "modelingBar");
 generateA("Lighting", "lighting.html", "lightingBar");
 //generateImage();
 
-function generateA(name, link, id)
+function generateA(name, link, id, section)
 {
     var a = document.createElement("A");
     a.appendChild(document.createTextNode(name));
     a.id = id;
     a.href = link;
+    //a.style = "display: none";
     document.getElementById("sidebar").appendChild(a);
 }
 
