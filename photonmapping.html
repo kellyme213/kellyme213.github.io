@@ -16,10 +16,7 @@
             
             <h1> GPU Photon Mapping </h1>
             
-            <h2 class = "resumeHeading"> TLDR </h2>
-            <div class = "heading">
-                <p> This project achieves real time GPU photon mapping by translating photons into small triangles and utilizing Apple's implementation of a BVH in their ray tracing intersection library to gather photons from a photon map on the GPU. Photons are gathered via ray casts around the gather point. A ray cast that intersects a photon triangle 'gathers' that photon. Metal kernel functions translate the results of the ray casts into a caustic texture, which is passed to the path tracer and added to the result of the path tracer's shading. </p>
-            </div>
+            <p> This project achieves real time GPU photon mapping by translating photons into small triangles and utilizing Apple's implementation of a BVH in their ray tracing intersection library to gather photons from a photon map on the GPU. Photons are gathered via ray casts around the gather point. A ray cast that intersects a photon triangle 'gathers' that photon. Metal kernel functions translate the results of the ray casts into a caustic texture, which is passed to the path tracer and added to the result of the path tracer's shading. </p>
             
             <div class = "links">
                 <a href = "https://github.com/kellyme213/BrotonMapping" target = "_blank"> Source Code </a>
@@ -70,14 +67,14 @@
                 <p> Gather rays around the same gather point are rendered into pixel tiles in a large caustic texture. The size of each tile depends on the number of gather rays. Then, the pixels in the tiles are summed to a final pixel value that represents the value of the caustic for the gather point. This pixel summation is done via a 'texture reducer', which essentially mipmaps the large texture. Instead of using Metal's mipmapping functionality, I implemented my own version. I did this because I wanted to preserve all color data from the large causic texture, and I worried that a standard texture could not handle the precision needed to accomplish this. </p>
                 <p> My texture reducer reads in the large caustic texture and converts the pixel to 3 unsigned integer values, which are then stored as a Color data structure in a buffer. Then, a kernel function repeatedly adds groups of four Color data structures together and outputs the sum to an output buffer. Once the buffer is summed to the desired size, another kernel function converts the Colors into the final caustic texture, and performs any desired scaling or averaging on the pixels. </p>
             </div>
-            
+            <!--
             <h2 class = "resumeHeading"> Lessons Learned </h2>
             <div class = "heading">
                 <p> Real time photon mapping is expensive and difficult, even for a GPU. This project used up so much of my CPU and GPU that it caused other windows on my laptop to render incorrectly. I ran into multiple GPU instruction timeouts. Metal would also complain if I made my photon gather ray buffer too large, so this limited the quality of rendered images. Still, it was a fun project. </p>
             </div>
             <img src = "pictures/photonmapping/bug2.png" alt = "render1" style = "width: 50%;"/>
             <br/>
-            
+            -->
             <div class = "links">
                 <a href = "https://github.com/kellyme213/BrotonMapping" target = "_blank"> Source Code </a>
             </div>

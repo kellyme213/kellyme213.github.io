@@ -1,20 +1,17 @@
-//generateA("Resume", "resume.html", "resumeBar");
-//generateA("Course Work", "coursework.html", "courseworkBar");
-//generateA("GitHub", "https://www.github.com/kellyme213", "githubBar");
-//generateA("Short Films", "film.html", "filmBar");
 generateP("Graphics");
 generateA("Balloon Simulation", "balloon.html", "balloonBar");
 generateA("GPU Photon Mapping", "photonmapping.html", "photonmappingBar");
 generateA("Plasma Ball", "plasmaball.html", "plasmaballBar");
+
 generateP("Games");
-//generateA("Connect the Shapes!", "shapes.html", "shapesBar");
 generateA("Pandora's Box", "escaperoom.html", "escaperoomBar");
 generateA("The Lonely Fisherman", "fisherman.html", "fishermanBar");
-generateA("Duality", "duality.html", "dualityBar");
 generateA("OXIO", "oxio.html", "oxioBar");
-//generateA("The Dungeon", "dungeon.html", "dungeonBar");
+
 generateP("Tools");
-generateA("PyMEL Cherry Blossoms", "blossom.html", "blossomBar");
+generateA("AR Camera Layout Tool", "arcamera.html", "arCameraBar");
+generateA("Procedural Snowman", "snowman.html", "snowmanBar");
+
 generateP("3D Art");
 generateA("3D Modeling", "modeling.html", "modelingBar");
 generateA("Lighting", "lighting.html", "lightingBar");

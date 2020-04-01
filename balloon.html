@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="styles.css"> </link>
         <title> Balloon Simulation </title>
+        <meta name = "viewport" content = "width=1000"> </meta>
     </head>
     
     <body>
@@ -22,37 +23,46 @@
                 <img src = "pictures/balloon/gif1.gif" style = "width: 15%"/>
             </ul>
             -->
-            <h2 class = "resumeHeading"> Abstract </h2>
-            <div class = "heading">
-                <p> We developed a real-time balloon simulation application using a mass-spring simulation model and explicit Euler integrator. Our application reads in a user-specified quad mesh .obj file and generates a balloon with structural, shear, and flexion springs between the vertices of the balloon. Our application also allows the user to inflate and deflate the balloon in real time. Optionally, the user can apply a vertex position correction algorithm to the vertices to constrain the balloon's shape. Additionally, we implemented sphere-balloon collision detection so that the user
-                can throw spheres at the balloon.
-                </p>
+            <p> 
+                We developed a real-time balloon simulation application using a mass-spring simulation model and explicit Euler integrator. Our application reads in a user-specified quad mesh .obj file and generates a balloon with structural, shear, and flexion springs between the vertices of the balloon. Our application also allows the user to inflate and deflate the balloon in real time. Optionally, the user can apply a vertex position correction algorithm to the vertices to constrain the balloon's shape. Additionally, we implemented sphere-balloon collision detection so that the user can throw spheres at the balloon.
+            </p>
+            <p> 
+                Our simulation is similar to cloth simulation. In order to simulate the balloon floating, we add a helium force so the balloon floats up. We also apply inflation forces along the surface normals of each particle. 
+            </p>
+            <p> 
+                I was responsible for implementing the .obj loader, generating the springs between vertices, and collision detection. 
+            </p>
+
+            <div class = "links">
+                <a href = "downloads/other/paper.pdf"> Balloon Paper </a>
+                <a href = "https://www.github.com/kellyme213/Balloons"> Source Code </a>
             </div>
-            
-            <h2 class = "resumeHeading"> Discussion </h2>
-            <div class = "heading">
-                <p> Our simulation is similar to cloth simulation. In order to simulate the balloon floating, we add a helium force so the balloon floats up. We also apply inflation forces along the surface normals of each particle. </p>
-            </div>
-            <p> I was responsible for implementing the .obj loader, generating the springs between vertices, and collision detection. </p>
+
+
             
             <h2 class = "resumeHeading"> Examples </h2>
             <div class = "heading">
                 <p> Regular balloon - inflating a squirrel. As the simulation progresses, the pressure in the balloon is increased, which is why the balloon keeps floating up. You can see the squirrel's tail blows up as pressure increases. </p>
             </div>
             <img class = "cursed" src = "pictures/balloon/gif1.gif" style = "width: 50%"/>
-            
+            <br/>
+
             <p> Turtle - it's a turtle this time. </p>
             <img class = "cursed" src = "pictures/balloon/gif4.gif" style = "width: 50%"/>
-            
+            <br/>
+
             <p> Upside-down squirrel - The string is attached to the squirrel's tail, and the squirrel turns upside-down, like expected. </p>
             <img class = "cursed" src = "pictures/balloon/gif5.gif" style = "width: 50%"/>
-            
+            <br/>
+
             <p> Collision - throwing spheres against a balloon. The spheres hit the balloon and bounce off like a real balloon. </p>
             <img class = "cursed" src = "pictures/balloon/gif3.gif" style = "width: 50%"/>
-            
+            <br/>
+
             <p> Launching spheres - a 'bowl' balloon inflates and launches spheres in to the air. The mass of the spheres is changed, which impacts the simulation. The spheres in the gif have 1, 100, 1000, and 10000 units of mass. </p>
             <img class = "cursed" src = "pictures/balloon/gif2.gif" style = "width: 50%"/>
-            
+            <br/>
+
             <div class = "links">
                 <a href = "downloads/other/paper.pdf"> Balloon Paper </a>
                 <a href = "https://www.github.com/kellyme213/Balloons"> Source Code </a>
