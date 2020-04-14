@@ -12,7 +12,7 @@ generateP("Tools");
 generateA("AR Camera Layout Tool", "arcamera.html", "arCameraBar");
 generateA("Procedural Snowman", "snowman.html", "snowmanBar");
 
-generateP("3D Art");
+generateP("Art");
 generateA("3D Modeling", "modeling.html", "modelingBar");
 generateA("Lighting", "lighting.html", "lightingBar");
 //generateImage();
