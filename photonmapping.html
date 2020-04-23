@@ -16,7 +16,9 @@
             
             <h1> GPU Photon Mapping </h1>
             
-            <p> This project achieves real time GPU photon mapping by translating photons into small triangles and utilizing Apple's implementation of a BVH in their ray tracing intersection library to gather photons from a photon map on the GPU. Photons are gathered via ray casts around the gather point. A ray cast that intersects a photon triangle 'gathers' that photon. Metal kernel functions translate the results of the ray casts into a caustic texture, which is passed to the path tracer and added to the result of the path tracer's shading. </p>
+            <p> 
+            	This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize the BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image.
+        	</p>
             
             <div class = "links">
                 <a href = "https://github.com/kellyme213/BrotonMapping" target = "_blank"> Source Code </a>
@@ -24,7 +26,9 @@
             
             <h2 class = "resumeHeading"> How Photon Mapping Works </h2>
             <div class = "heading">
-                <p> Photon mapping is one of the most photorealistic and computationally expensive rendering algorithms. Photon mapping simulates the path that a photon takes through a scene. At each scene intersection point, the color and position of the photon is recorded in a photon map. This process is repeated with many photons and many bounces. During scene rendering, the photon map is queried to gather the photon records within a specified radius around a gather point. The more photon records that are gathered from the photon map, the brighter that point should be in the rendered image. </p>
+            	<p>
+            		Photon mapping is an implementation of Bidirectional Path Tracing. In BDPT, partial ray paths are generated starting from both the light sources and camera. Then, camera paths and light paths are connected together to generate a full light path from the camera to the light. In photon mapping, when a light path intersects scene geometry, the light color and direction are cached in a photon map. When camera paths intersect with scene geometry, the photon map is queried for light path intersections within a specified radius around the camera path intersection point. The queried data is then used in rendering.
+            	</p>
             </div>
             
             <h2 class = "resumeHeading"> Rendering Modes </h2>
