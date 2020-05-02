@@ -35,24 +35,48 @@
             <div class = "heading">
                 <p> There are four rendering modes in the project. </p>
             </div>
-            
-            <p> The first is rasterization mode. This mode is material-based and uses the Phong reflection model for rendering. </p>
-            <img src = "pictures/photonmapping/mode1.png" alt = "render1" style = "width: 50%;"/>
-            <br/>
-                        
-            <p> The second is path tracing mode, which uses kernel functions to generate the output image, and runs on the GPU. This mode works like most other path tracers, and is based off of Apple's <a style = "text-decoration:none;color:var(--siteColor);" href = "https://developer.apple.com/documentation/metalperformanceshaders/metal_for_accelerating_ray_tracing" target = "_blank"> ray tracing project</a>. </p>
-            <img src = "pictures/photonmapping/mode2.png" alt = "render1" style = "width: 50%;"/>
-            <br/>
-                        
-            <p> The third mode is photon rasterization mode. This mode visualizes the photons in the photon map. A caustic is generated on the inside of the ring. This is caused by light reflecting off of the ring on to the ground. </p>
-            <img src = "pictures/photonmapping/mode3.png" alt = "render1" style = "width: 50%;"/>
 
-            <br/>
-                        
-            <p> The fourth mode is photon mapping mode, which combines the photon map with path tracing to render caustics. </p>
-            <img src = "pictures/photonmapping/mode4.png" alt = "render1" style = "width: 50%;"/>
-            <br/>
-            
+            <div>
+                <div class = "splitContent smallSplitContent">
+                    <p> 
+                        The first is rasterization mode. This mode is material-based and uses the Phong reflection model for rendering. 
+                    </p>
+                </div>
+                <div class = "splitContent bigSplitContent">
+                    <img src = "pictures/photonmapping/mode1.png" alt = "render1"/>
+                </div>
+            </div>
+
+            <div>
+                <div class = "splitContent smallSplitContent">
+                    <p> The second is path tracing mode, which uses kernel functions to generate the output image, and runs on the GPU. This mode works like most other path tracers, and is based off of Apple's <a style = "text-decoration:none;color:var(--siteColor);" href = "https://developer.apple.com/documentation/metalperformanceshaders/metal_for_accelerating_ray_tracing" target = "_blank"> ray tracing project</a>. </p>
+                </div>
+                <div class = "splitContent bigSplitContent">
+                    <img src = "pictures/photonmapping/mode2.png" alt = "render2"/>
+                </div>
+            </div>
+
+            <div>
+                <div class = "splitContent smallSplitContent">
+                    <p> 
+                        The third mode is photon rasterization mode. This mode visualizes the photons in the photon map. A caustic is generated on the inside of the ring. This is caused by light reflecting off of the ring on to the ground.
+                    </p>
+                </div>
+                <div class = "splitContent bigSplitContent">
+                    <img src = "pictures/photonmapping/mode3.png" alt = "render3"/>
+                </div>
+            </div>
+
+            <div>
+                <div class = "splitContent smallSplitContent">
+                    <p> 
+                        The fourth mode is photon mapping mode, which combines the photon map with path tracing to render caustics.
+                    </p>
+                </div>
+                <div class = "splitContent bigSplitContent">
+                    <img src = "pictures/photonmapping/mode4.png" alt = "render4"/>
+                </div>
+            </div>            
             
             <h2 class = "resumeHeading"> Photon Generation </h2>
             <div class = "heading">

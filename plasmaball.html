@@ -177,100 +177,41 @@
             
             <h1> Plasma Ball </h1>
             <br/>
-            
-            <canvas id="gl-canvas" width="1024" height="1024">
-                Oops ... your browser doesn't support the HTML5 canvas element
-            </canvas>
-            
-            <!--
-            <div style = "display:inline-block; padding-left: 20px;">
-                <p id = "numTendrilP">
-                Number of tendrils -
-                </p>
-                
-                <p id = "xAngleP">
-                X angle -
-                </p>
-                
-                <p id = "yAngleP">
-                Y angle -
-                <p>
-                
-                <p id = "updateP">
-                Tendril update -
-                </p>
-                
-                <p id = "blendP">
-                Blend update -
-                </p>
-                
-                
-                
-                <input id = "r-slider" max = "1.0" min = "0.0" step = "0.01" type = "range" value = "0.4">
-                    R
-                </input>
-                <br/>
-                
-                <input id = "g-slider" max = "1.0" min = "0.0" step = "0.01" type = "range" value = "0.4">
-                    G
-                </input>
-                <br/>
-                
-                <input id = "b-slider" max = "1.0" min = "0.0" step = "0.01" type = "range" value = "1.0">
-                    B
-                </input>
-                <br/>
-                
+
+            <div>
+                <div class = "splitContent bigSplitContent">            
+                    <canvas id="gl-canvas" width="1024" height="1024">
+                        Oops ... your browser doesn't support the HTML5 canvas element
+                    </canvas>
+                </div>
+                <div class = "splitContent smallSplitContent">
+                    <p> This project is a recreation of a plasma ball using WebGL and JavaScript. The plasma ball is rendered with two shaders, one for the tendrils and one for the ball. The tendrils are animated on the GPU by blending rotation values passed into the vertex shader. The red contact points are rendered by coloring vertices on the sphere that are close to the tendrils and then relying on interpolation to create a drop off effect around the contact point. See below for a detailed project description. </p>
+                </div>
             </div>
-            -->
-            
             <br/>
-            <br/>
+
             <h2 class = "resumeHeading"> Project Description </h2>
             <div class = "heading">
-                
-                
                 <p>
-                Each tendril in the plasma ball is comprised of a line of vertices. These vertices are slightly displaced from the main tendril axis to give a wavy look to the tendrils. Tendrils are animated via linear interpolation between two displacement states. One buffer contains the tendril start vertex states, while another buffer contains the tendril end vertex states. A third buffer contains the interpolation values for the tendril positions. By only changing the interpolation value every frame, animation of the tendrils is achieved on the GPU without the need to update the tendril positions on the CPU. Once a tendril's position has fully interpolated from the start state to the end state, the old end state becomes the new start state, and a new end state is generated, and buffer data is updated accordingly.
+                    Each tendril in the plasma ball is comprised of a line of vertices. These vertices are slightly displaced from the main tendril axis to give a wavy look to the tendrils. Tendrils are animated via linear interpolation between two displacement states. One buffer contains the tendril start vertex states, while another buffer contains the tendril end vertex states. A third buffer contains the interpolation values for the tendril positions. By only changing the interpolation value every frame, animation of the tendrils is achieved on the GPU without the need to update the tendril positions on the CPU. Once a tendril's position has fully interpolated from the start state to the end state, the old end state becomes the new start state, and a new end state is generated, and buffer data is updated accordingly.
                 </p>
                 
                 <p>
-                To allow the tendrils to move around the plasma ball, start and end direction vectors are defined, as well as an interpolation value. These values are updated similarly to the vertex position values. Tendrils are aligned to their correct direction via an axis-angle matrix generated on the GPU.
+                    To allow the tendrils to move around the plasma ball, start and end direction vectors are defined, as well as an interpolation value. These values are updated similarly to the vertex position values. Tendrils are aligned to their correct direction via an axis-angle matrix generated on the GPU.
                 </p>
                 
                 <p>
-                Due to time constraints, the red highlights are generated inefficiently. Before each frame is rendered, the endpoints of the tendrils are translated to their interpolated positions on the CPU via an axis-angle matrix. Then, the distance between the end tendril vertices and sphere vertices is calculated. If a vertex on the sphere is close to a tendril point, then the sphere vertex is colored red for this frame. After this, tendril and sphere vertex data is sent to the GPU for rendering.
-                
+                    Due to time constraints, the red highlights are generated inefficiently. Before each frame is rendered, the endpoints of the tendrils are translated to their interpolated positions on the CPU via an axis-angle matrix. Then, the distance between the end tendril vertices and sphere vertices is calculated. If a vertex on the sphere is close to a tendril point, then the sphere vertex is colored red for this frame. After this, tendril and sphere vertex data is sent to the GPU for rendering.
                 </p>
                 
                 <p>
-                In order to produce more realistic tendril animation, the interpolation values of each tendril are not the same for each vertex in the tendril. Vertices closest to the center change interpolation values at a faster rate than outer vertices. This causes the inner end of the tendril to start moving before the outer end. This is most obvious on fast-moving tendrils, where the tendrils will take on a curved shape.
+                    In order to produce more realistic tendril animation, the interpolation values of each tendril are not the same for each vertex in the tendril. Vertices closest to the center change interpolation values at a faster rate than outer vertices. This causes the inner end of the tendril to start moving before the outer end. This is most obvious on fast-moving tendrils, where the tendrils will take on a curved shape.
                 </p>
                 
                 <p>
-                Finally, the sphere itself changes coloration depending on the dot product between the vertex normal and camera direction. Vertices near the center of the screen on the plasma ball are transparent, where vertices near the edge of the screen are more transparent. This is a cheap way to simulate the look of a glass ball.
+                    Finally, the sphere itself changes coloration depending on the dot product between the vertex normal and camera direction. Vertices near the center of the screen on the plasma ball are transparent, where vertices near the edge of the screen are more transparent. This is a cheap way to simulate the look of a glass ball.
                 </p>
-                
-                <!--
-                <p>
-                I start with a Tendril class. This class stores the two position states of the tendril, as well as the two angle states. The position states are points that are aligned along the x axis from 0 to 1, evenly spaced. Each point is slightly displaced in +y and -y randomly to give a wavy look to the tendrils. These two states are loaded into two separate buffers and sent to the GPU. Another buffer containing the blend value (0 to 1) is also sent to the GPU, which is used to animate the tendrils. Once the blend value reaches one, the old end state becomes the new start state, and a new end state is created. Additionally, two direction state vectors are also generated. They specify that direction the tendril should point away from the sphere. The current direction vector is also interpolated via a different blend value. The tendril is rotated to the correct direction via an axis angle matrix, where the angle of rotation is the cross product between the interpolated direction vector and the x axis, and the angle is the inverse cosine of the dot product between the x axis and the interpolated direction vector. Since the x axis is a special vector (1, 0, 0), it is easy calculate what the cross product and dot product are without needing to call the dot or cross function, so in my shader code, I 'precomputed' what the result would be to save a bit of computation time. As an example, (x, y, z) cross (1, 0, 0) = (0, z, -y).
-                </p>
-                 -->
             </div>
-            
-            <!--
-            <p>
-            I thought that blending between two states would be an efficient way to produce animation without needing to pass too much data to the GPU every frame. I had originally thought of using compute shaders to calculate the position of each tendril vertex every frame and writing it back to the JavaScript, but unfortunately WebGL does not support this yet. I planned on using bufferSubData to sub in the start and end tendril vertex states when they need to be updated, but I ran into an issue when I was trying to use two separate shaders, so at the moment, I just pass in all data every frame. This is inefficient, but works for now, and fixing the bug would be a part of future improvements.
-            </p>
-            
-            <p>
-            The sphere of the plasma ball is generated via a subdivision algorithm we discussed in class. I've linked to the specific algorithm in my source code. I approximate 1/8th of the sphere using this algorithm, with (1, 0, 0), (0, 1, 0), and (0, 0, 1) as my three control points. Then I duplicate and reflect the sphere 7 other times to create the rest of the sphere. To give my sphere the look where it is transparent in the middle but you can see the edges of it, similar to how a normal glass sphere would look, I used a modified diffuse surface model. The sphere itself is completely white, but the alpha value is modified depending on the dot product between the surface normal and camera direction. The alpha value for each pixel is proportional to 1 - dot product. This means that surface normal around the edge of the sphere, where the dot product is close to zero, are the most visible. Likewise, the vertices that are closer to the center of the screen are more transparent. I would've liked to do more with the sphere, like specular highlights, but I did not get to it.
-            </p>
-            
-            <p>
-            On a real plasma ball, there are little red highlights where the tendril meets the glass. I implemented this by sending each tendril direction vertex to each sphere vertex and calculating the distance between the tendril direction vertex and the direction from the origin of the ball for the sphere vertex. The closer the two vectors are, the stronger the highlight is.
-            </p>
-             -->
         </div>
         <br/>
         
