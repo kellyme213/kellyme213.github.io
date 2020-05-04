@@ -343,4 +343,16 @@ canvas
     width: 30%;
 }
 
+.movieList p
+{
+    text-align: center;
+}
+
+.movieList iframe
+{
+    width: 45vw;
+    height: 30vw;
+    margin-bottom: 40px;
+}
+
 

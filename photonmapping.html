@@ -27,7 +27,7 @@
             <h2 class = "resumeHeading"> How Photon Mapping Works </h2>
             <div class = "heading">
             	<p>
-            		Photon mapping is an implementation of Bidirectional Path Tracing. In BDPT, partial ray paths are generated starting from both the light sources and camera. Then, camera paths and light paths are connected together to generate a full light path from the camera to the light. In photon mapping, when a light path intersects scene geometry, the light color and direction are cached in a photon map. When camera paths intersect with scene geometry, the photon map is queried for light path intersections within a specified radius around the camera path intersection point. The queried data is then used in rendering.
+            		Photon mapping is an implementation of bidirectional path tracing and it is best suited for rendering complex lighting effects like color bleeding, indirect illumination, and caustics. In bidirectional path tracing, partial ray paths are generated starting from both the light sources and camera. Next, the partial camera paths and light paths are connected together to generate a full light path from the camera to the light. In photon mapping, when a light path intersects scene geometry, the light's intersection point, color and incoming direction are cached in a photon map. When camera paths intersect with scene geometry, the photon map is queried for light path intersections within a specified radius around the camera path intersection point. The queried data is then used in rendering.
             	</p>
             </div>
             
