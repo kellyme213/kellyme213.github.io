@@ -18,7 +18,7 @@
             <h1> GPU Photon Mapping </h1>
             
             <p> 
-            	This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize the BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image.
+            	This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize Metal's BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image.
         	</p>
             
             <div class = "links">
@@ -40,7 +40,7 @@
             <div>
                 <div class = "splitContent smallSplitContent">
                     <p> 
-                        The first is rasterization mode. This mode is physically-based(ish) and uses the Phong reflection model for rendering. 
+                        The first is rasterization mode. This mode is physically-based(ish) and uses the Phong reflection model for shading. 
                     </p>
                 </div>
                 <div class = "splitContent bigSplitContent">
@@ -50,7 +50,7 @@
 
             <div>
                 <div class = "splitContent smallSplitContent">
-                    <p> The second is path tracing mode, which uses kernel functions to generate the output image, and runs on the GPU. This mode works like most other path tracers, and is based off of Apple's <a style = "text-decoration:none;color:var(--siteColor);" href = "https://developer.apple.com/documentation/metalperformanceshaders/metal_for_accelerating_ray_tracing" target = "_blank"> ray tracing project</a>. </p>
+                    <p> The second is path tracing mode, which uses compute shaders to generate the output image, and runs on the GPU. This mode works like most other path tracers, and is based off of Apple's <a style = "text-decoration:none;color:var(--siteColor);" href = "https://developer.apple.com/documentation/metalperformanceshaders/metal_for_accelerating_ray_tracing" target = "_blank"> ray tracing project</a>. </p>
                 </div>
                 <div class = "splitContent bigSplitContent">
                     <img src = "pictures/photonmapping/mode2.png" alt = "render2"/>
@@ -94,7 +94,7 @@
             <h2 class = "resumeHeading"> Caustic Texture Generation </h2>
             <div class = "heading">
                 <p> Gather rays around the same gather point are rendered into pixel tiles in a large caustic texture. The size of each tile depends on the number of gather rays. Then, the pixels in the tiles are summed to a final pixel value that represents the value of the caustic for the gather point. This pixel summation is done via a 'texture reducer', which essentially mipmaps the large texture. Instead of using Metal's mipmapping functionality, I implemented my own version. I did this because I wanted to preserve all color data from the large causic texture, and I worried that a standard texture could not handle the precision needed to accomplish this. </p>
-                <p> My texture reducer reads in the large caustic texture and converts the pixel to 3 unsigned integer values, which are then stored as a Color data structure in a buffer. Then, a kernel function repeatedly adds groups of four Color data structures together and outputs the sum to an output buffer. Once the buffer is summed to the desired size, another kernel function converts the Colors into the final caustic texture, and performs any desired scaling or averaging on the pixels. </p>
+                <p> My texture reducer reads in the large caustic texture and converts the pixel to 3 unsigned integer values, which are then stored as a Color data structure in a buffer. Then, a compute shader repeatedly adds groups of four Color data structures together and outputs the sum to an output buffer. Once the buffer is summed to the desired size, another kernel function converts the Colors into the final caustic texture, and performs any desired scaling or averaging on the pixels. </p>
             </div>
             <!--
             <h2 class = "resumeHeading"> Lessons Learned </h2>
