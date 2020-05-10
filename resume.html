@@ -7,13 +7,12 @@
     </head>
     
     <body>
-        <div class = "content">
-            <div class = "bar" id = "sidebar">
-                <a href = "index.html"> Home </a>
-                <noscript>
-                    <p> Please enable Javascript for side bar to work. </p>
-                </noscript>
+        <div class = "header" id = "header">
+            <div class = "headerSection">
+                <p> <a href = "index.html" style = "text-decoration: none; color: white;"> Home </a> </p>
             </div>
+        </div>
+        <div class = "content">
             
             <h1> Resume </h1>
 
@@ -22,142 +21,9 @@
             <div class = "links">
                 <a href = "downloads/other/resume.pdf"> Download Resume </a>
             </div>
-            <!--
-            
-            <h2 class = "resumeHeading"> Education </h2>
-            <div class = "heading">
-                <a> Rensselaer Polytechnic Institute - Troy, NY </a>
-                <a style = "float: right; font-size: 20px;"> August 2017 to May 2020 </a>
-                <p> Bachelor of Science, Computer Science, Games and Simulation Arts and Sciences. 3.54 GPA. </p>
-            </div>
-            
-            
-            
-            <h2 class = "resumeHeading"> Experience </h2>
-            <div class = "heading">
-                <a> Amazon Web Services - Software Development Engineer Intern </a>
-                <a style = "float: right; font-size: 20px; "> June 2019 to August 2019 </a>
-                <p class = "noBottom"> Created a paginated API function in Java that displays history information on a CloudWatch Application Insights application. Customers can filter history data by timestamp, event type, and other parameters. </p>
-                <p> Wrote design documents, designed DynamoDB database schema, and modified Lambda functions to write data to the datastore. </p>
-            </div>
-            
-            <div class = "heading">
-                <a> Amazon - Software Development Engineer Intern </a>
-                <a style = "float: right; font-size: 20px; "> June 2018 to August 2018 </a>
-                <p class = "noBottom"> Designed a webpage using AngularJS, Ruby on Rails, and HAML that allows users to filter their development resources by permission type and view which project the selected resource belongs to. </p>
-                <p> Developed project from concept to release, created design documents, led product design meetings, wrote unit tests, participated in code reviews, communicated with users for product feedback and feature ideas. </p>
-            </div>
-            
-            
-            
-            <h2 class = "resumeHeading"> Projects </h2>
-            <div class = "heading">
-                <a> GPU Photon Mapping </a>
-                <a style = "float: right; font-size: 20px; "> July 2019 </a>
-                <p> Developed a path tracer and photon mapper in Swift utilizing Metal compute shaders and ray tracing library. Photons are stored as triangles in an MPSTriangleAccelerationStructure and gathered on the GPU via ray casts. </p>
-            </div>
-            
-            <div class = "heading">
-                <a> Balloon Simulation </a>
-                <a style = "float: right; font-size: 20px; "> May 2019 </a>
-                <p> Developed a C++ mass-spring balloon simulation application. Wrote code for obj loading, spring generation, and collision detection. Wrote a nine page technical paper describing application features. </p>
-            </div>
-            
-            <div class = "heading">
-                <a> <i>Duality</i> </a>
-                <a style = "float: right; font-size: 20px; "> January 2019 to May 2019 </a>
-                <p> A 2D co-op platformer developed by a five person team in Unity. Developed all 3D models, some textures, level designs, cutscene layout, some gameplay and cutscene code, and a Unity surface shader. </p>
-            </div>
-            
-            <div class = "heading">
-                <a> Plasma Ball </a>
-                <a style = "float: right; font-size: 20px; "> December 2018 </a>
-                <p> A real-time recreation of a plasma ball implemented in WebGL. Wrote vertex and fragment shaders in GLSL ES. </p>
-            </div>
-            
-            <div class = "heading">
-                <a> PyMEL Cherry Blossoms </a>
-                <a style = "float: right; font-size: 20px; "> November 2018 </a>
-                <p> A Python script that adds cherry blossoms to a tree model in Maya. Used script to generate flowers for a Maya scene that was rendered with Arnold. </p>
-            </div>
-            
-            <div class = "heading">
-                <a> <i>OXIO</i> </a>
-                <a style = "float: right; font-size: 20px; "> September 2017 to June 2018 </a>
-                <p> A puzzle game developed using Swift and SpriteKit for iOS and macOS. Created a real-time level editor. OXIO received a WWDC scholarship in 2018. </p>
-            </div>
-            
-            
-            
-            <h2 class = "resumeHeading"> Skills </h2>
-            <table style = "font-weight: bolder;">
-                
-                <col width = "150px"/>
-                <col width = "150px"/>
-                <col width = "150px"/>
-                <col width = "150px"/>
-                <col width = "150px"/>
-                <col width = "150px"/>
-                <col width = "250px"/>
-                
-                <tr>
-                    <td> C++ </td>
-                    <td> Metal </td>
-                    <td> SpriteKit </td>
-                    <td> Python </td>
-                    <td> HAML </td>
-                    <td> Java </td>
-                    <td> Substance Painter </td>
-                </tr>
-                
-                <tr>
-                    <td> WebGL </td>
-                    <td> OpenGL </td>
-                    <td> Swift </td>
-                    <td> Arnold </td>
-                    <td> AngularJS </td>
-                    <td> DynamoDB </td>
-                    <td> JavaScript </td>
-                </tr>
-                
-                <tr>
-                    <td> Unity </td>
-                    <td> PyMEL </td>
-                    <td> PySide (QT) </td>
-                    <td> Maya </td>
-                    <td> Ruby on Rails </td>
-                    <td> AWS Lambda </td>
-                    <td> Mockito </td>
-                </tr>
-            </table>
-            
-
-
-            <h2 class = "resumeHeading"> Hobbies and Interests </h2>
-            <table style = "font-weight: bolder;">
-                
-                <col width = "450px"/>
-                <col width = "450px"/>
-                <col width = "450px"/>
-                
-                <tr>
-                    <td> Programming Competitions </td>
-                    <td> <i>Kingdom Hearts</i> (video game) </td>
-                    <td> Jigsaw Puzzles </td>
-                </tr>
-                
-                <tr>
-                    <td> <i>Ghost Adventures</i> (TV show) </td>
-                    <td> Baking and Cooking </td>
-                    <td> Computer-Animated Films </td>
-                </tr>
-            </table>
-            
-            <br/>
-            -->
         </div>
         
-        <script type = "text/javascript" src = "scripts/bar.js"> </script>
+        <script type = "text/javascript" src = "scripts/header.js"> </script>
         <script>
             document.getElementById("resumeBar").className = "selectedbar";
         </script>

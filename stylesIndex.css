@@ -10,13 +10,31 @@
 
 @font-face
 {
-    font-family: 'Gotham';
-    src: url('fonts/Gotham-Font/Gotham-Light.otf');
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face
+{
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat/Montserrat-SemiBold.ttf');
+}
+
+@font-face
+{
+    font-weight: 600;
+    font-style: italic;
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat/Montserrat-SemiBoldItalic.ttf');
 }
 
 body
 {
-    font-family: Avenir;
+    font-family: Montserrat;
     margin: 0px;
 }
 
@@ -106,6 +124,8 @@ body
     width: 100%;
     //height: 15%;
     -webkit-transition-duration: 0.3s;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .pdBlack
@@ -118,7 +138,8 @@ body
     color: white;
     position: absolute;
     top: 0px;
-    left: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: left;
     color: rgba(255, 255, 255, 0.0);
     -webkit-transition-duration: 0.3s;
@@ -292,4 +313,9 @@ circle
 .cursed
 {
     cursor: url('pictures/balloon/balloon.png'), auto;
+}
+
+.title p
+{
+    font-weight: 600;
 }
