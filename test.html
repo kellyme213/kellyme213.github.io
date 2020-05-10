@@ -1,52 +1,123 @@
 <!DOCTYPE html>
-<meta charset = "UTF-8">
-    <html>
-        <head>
-            <link rel="stylesheet" href="stylesIndex.css">
-            <title> Michael Kelly </title>
-            
-            <script src = "scripts/openingBoxes.js" type = "text/javascript"> </script>
-        </head>
-        
-        <body>
-            
-            
-                <div onclick = "openBoxOxio()" class = "rightProjectBox" id = "oxiobox">
-                    <img class = "rightImage" src = "pictures/banners/oxiobanner.png" id = "oxiopic"> </img>
-                    <h1 class = "rightH1"> OXIO </h1>
-                    <p class = "rightP"> Puzzle game where players move the center of mass of a group of blocks to the goal. In development for iOS and macOS. Developed with SpriteKit. Awarded a WWDC Scholarship in 2017 and 2018. </p>
-                    <div id = "oxioinside" style = "margin-top: 17vw;">
-                        
-                    </div>
-                </div>
-
-                <div onclick = "openBoxRay()" class = "leftProjectBox" id = "raybox">
-                    <img class = "leftImage" src = "pictures/banners/raytracerbanner.png" id = "raypic"> </img>
-                    <h1 class = "leftH1" > Ray Tracer </h1>
-                    <p class = "leftP" > Renders spheres, cones, polygons, planes, and cylinders. </p>
-                    <div id = "rayinside" style = "margin-top: 17vw;">
-                        
-                    </div>
-                </div>
-
-            
-            <svg id = "svgCircle">
-                
-            </svg>
-            
-            <!--
-            <ul class = "panelList">
-                <a id = "pp1" class = "projectPanel" href = "oxio.html"> <img src = "pictures/banners/oxiobanner.png"> <p class = "bannerp"> OXIO </p> </a>
-                <a id = "pp2" class = "projectPanel" href = "shapes.html"> <img src = "pictures/banners/shapesbanner.png"> <p class = "bannerp"> Connect the Shapes! </p> </a>
-                <a id = "pp3" class = "projectPanel" href = "raytracer.html"> <img src = "pictures/banners/raytracerbanner.png"> <p class = "bannerp"> Ray Tracer </p> </a>
-                <a id = "pp4" class = "projectPanel" href = "dungeon.html"> <img src = "pictures/banners/dungeonbanner.png"> <p class = "bannerp"> The Dungeon </p> </a>
-            </ul>
-            -->
-            
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css"> </link>
+        <title>  </title>
+    </head>
     
-        </body>
+    <body>
+        <div class = "header" id = "header">
+            <div class = "headerSection">
+                <p> <a href = "index.html" style = "text-decoration: none; color: white;"> Home </a> </p>
+            </div>
+        </div>
+        <div class = "content">
+            <!--
+            <div class = "bar" id = "sidebar">
+                <a href = "index.html"> Home </a>
+                <noscript>
+                    <p> Please enable Javascript for side bar to work. </p>
+                </noscript>
+            </div>
+            -->
+
+            <h1> Test Test Test</h1>
+
+
+            <div>
+            	<div class = "splitContent bigSplitContent">
+                    <img src = "pictures/escape/room.jpg"/>
+                    <img src = "pictures/escape/room.jpg"/>
+                    <div class = "links">
+                        <a href = "https://github.com/kellyme213/OXIO" target = "_blank"> Source Code </a>
+                        <a href = "downloads/other/OXIOmac.zip" target = "_blank" download> Download demo for macOS </a>
+                    </div>
+            	</div>
+            	<div class = "splitContent smallSplitContent">
+            		<p> This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize the BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image. </p>
+            	</div>
+
+            </div>
+
+            <div>
+
+            	<div class = "splitContent">
+            		<p> This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize the BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image. </p>
+            	</div>
+            	<div class = "splitContent">
+            		<img src = "pictures/escape/room.jpg"/>
+            		<img src = "pictures/escape/room.jpg"/>
+		            <div class = "links">
+                		<a href = "https://github.com/kellyme213/OXIO" target = "_blank"> Source Code </a>
+                		<a href = "downloads/other/OXIOmac.zip" target = "_blank" download> Download demo for macOS </a>
+            		</div>
+            	</div>
+            </div>
+
+<!--
+            <div class = "splitContent">
+        		<p> 
+        			<div class = "leftContent">         		
+        				<img src = "pictures/escape/room.jpg"/>
+					</div> 
+        		This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize the BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image. </p>
+            </div>
+-->
+
+    		<p> HI This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize the BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image. </p>
+        </div>
         
-        <script src = "scripts/backgroundCircles.js" type = "text/javascript"> </script>
+        <script type = "text/javascript" src = "scripts/header.js"> </script>
+        <script>
+
+        </script>
         
         
-    </html>
+        <div class = "footer">
+            <p> Created By Michael Kelly </p>
+            <a href = "index.html"> <img src = "pictures/logo-white.png"> </img> </a>
+            <div class = "linkBox">
+                <a href = "index.html"> Home </a>
+            </div>
+        </div>
+        <script type = "text/javascript" src = "scripts/footer.js"> </script>
+        
+    </body>
+</html>
+
+            <!--
+            <div class = "headerSection"> 
+                <p> Graphics </p> 
+                <div class = "headerContent"> 
+                    <a> Balloon Simulation </a> 
+                    <a> GPU Photon Mapping </a> 
+                    <a> Plasma Ball </a>
+                </div>
+            </div>
+            <div class = "headerSection"> 
+                <p> Games </p> 
+                <div class = "headerContent"> 
+                    <a> Pandora's Box </a> 
+                    <a> The Lonely Fisherman </a> 
+                    <a> OXIO </a>
+                </div>
+            </div>
+            <div class = "headerSection"> 
+                <p> Tools </p>
+                <div class = "headerContent"> 
+                    <a class = "selectedBar"> AR Camera Layout Tool </a> 
+                    <a> Procedural Snowman </a> 
+                </div> 
+            </div>
+            <div class = "headerSection"> 
+                <p> Art </p>
+                <div class = "headerContent"> 
+                    <a> Modeling </a> 
+                    <a> Lighting </a> 
+                </div>
+            </div>
+        -->
+
+<!--
+ 
+ -->
