@@ -33,7 +33,6 @@
 body
 {
     line-height: 1.3;
-    //font-family: Gotham;
     font-family: Montserrat;
     margin: 0px;
 }
@@ -131,9 +130,6 @@ h1
 
 .content img
 {
-    //border-width: 1px;
-    //border-style: solid;
-    //border-color: var(--siteColor);
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: auto;
@@ -146,9 +142,6 @@ h1
 {
     margin-left: auto;
     margin-right: auto;
-    //border-width: 1px;
-    //border-style: solid;
-    //border-color: var(--siteColor);
     text-align: center;
     display: block;
     width: 75vw;
@@ -181,9 +174,7 @@ h1
     left: 0;
     overflow-x: hidden;
     position: fixed;
-    //z-index: 1;
     margin-left: 0px;
-    //overflow-y: scroll;
     cursor: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
 }
@@ -261,7 +252,6 @@ tr
     background-color: var(--siteColor);
     height: 150px;
     position: relative;
-    //z-index: 2;
 }
 
 .footer a
@@ -289,7 +279,6 @@ tr
 {
     height: 110px;
     padding: 15px;
-    //padding-left: 165px;
     position: absolute;
 }
 
@@ -369,6 +358,19 @@ canvas
     width: 30%;
 }
 
+.movieList
+{
+    text-align: center;
+}
+
+.movieList div
+{
+    width: 500px;
+    margin-left: 0px;
+    margin-right: 0px;
+    display: inline-block;
+}
+
 .movieList p
 {
     text-align: center;
@@ -377,8 +379,8 @@ canvas
 
 .movieList iframe
 {
-    width: 45vw;
-    height: 30vw;
+    width: 450px;
+    height: 300px;
     margin-bottom: 40px;
 }
 
@@ -386,12 +388,10 @@ canvas
 {
     width: 100%;
     background-color: var(--siteColor);
-    //height: 50px;
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    //z-index: 2;
     font-size: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
 }

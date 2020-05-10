@@ -298,6 +298,9 @@ types of shaders
 	compute/kernel
 	tesellation
 
+Tile rendering
+importance sampling
+
 
 
 
