@@ -38,43 +38,43 @@
             </div>
 
             <div>
-                <div class = "splitContent smallSplitContent">
+                <div class = "splitContent smallSplitContent noLeft">
                     <p> 
                         The first is rasterization mode. This mode is physically-based(ish) and uses the Phong reflection model for shading. 
                     </p>
                 </div>
-                <div class = "splitContent bigSplitContent">
+                <div class = "splitContent bigSplitContent noRight">
                     <img src = "pictures/photonmapping/mode1.png" alt = "render1"/>
                 </div>
             </div>
 
             <div>
-                <div class = "splitContent smallSplitContent">
+                <div class = "splitContent smallSplitContent noLeft">
                     <p> The second is path tracing mode, which uses compute shaders to generate the output image, and runs on the GPU. This mode works like most other path tracers, and is based off of Apple's <a style = "text-decoration:none;color:var(--siteColor);" href = "https://developer.apple.com/documentation/metalperformanceshaders/metal_for_accelerating_ray_tracing" target = "_blank"> ray tracing project</a>. </p>
                 </div>
-                <div class = "splitContent bigSplitContent">
+                <div class = "splitContent bigSplitContent noRight">
                     <img src = "pictures/photonmapping/mode2.png" alt = "render2"/>
                 </div>
             </div>
 
             <div>
-                <div class = "splitContent smallSplitContent">
+                <div class = "splitContent smallSplitContent noLeft">
                     <p> 
                         The third mode is photon rasterization mode. This mode visualizes the photons in the photon map. A caustic is generated on the inside of the ring. This is caused by light reflecting off of the ring on to the ground.
                     </p>
                 </div>
-                <div class = "splitContent bigSplitContent">
+                <div class = "splitContent bigSplitContent noRight">
                     <img src = "pictures/photonmapping/mode3.png" alt = "render3"/>
                 </div>
             </div>
 
             <div>
-                <div class = "splitContent smallSplitContent">
+                <div class = "splitContent smallSplitContent noLeft">
                     <p> 
                         The fourth mode is photon mapping mode, which combines the photon map with path tracing to render caustics.
                     </p>
                 </div>
-                <div class = "splitContent bigSplitContent">
+                <div class = "splitContent bigSplitContent noRight">
                     <img src = "pictures/photonmapping/mode4.png" alt = "render4"/>
                 </div>
             </div>            
