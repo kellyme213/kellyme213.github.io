@@ -87,6 +87,15 @@ body
     margin: 20px;
     position: relative;
     overflow: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: black;
+}
+
+img
+{
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .projectList
@@ -97,7 +106,6 @@ body
 
 .shadow
 {
-    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
     box-shadow: 0px 0px 10px 2px rgb(200, 200, 200);
 }
 
@@ -127,6 +135,11 @@ body
 .pdBlack
 {
     color: black;
+}
+
+.pWhite
+{
+    background-color: white;
 }
 
 .projectDescription
@@ -179,7 +192,8 @@ body
 
 .projectBox:hover img
 {
-    filter: blur(8px);
+    opacity: 0.6;
+    //filter: blur(8px);
 }
 
 .projectBox img
@@ -305,6 +319,8 @@ circle
 :root
 {
     --siteColor: rgba(255, 101, 0, 1.0);
+    //--siteColor: rgba(186, 0, 255, 1.0);
+    //--siteColor: rgba(246, 195, 0, 1.0);
 }
 
 .cursed
@@ -315,4 +331,5 @@ circle
 .title p
 {
     font-weight: 600;
+    //color: var(--siteColor);
 }

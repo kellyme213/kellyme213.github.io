@@ -244,6 +244,8 @@ tr
 :root
 {
     --siteColor: rgba(255, 101, 0, 1.0);
+    //--siteColor: rgba(186, 0, 255, 1.0);  
+    //--siteColor: rgba(246, 195, 0, 1.0);
 }
 
 .footer
