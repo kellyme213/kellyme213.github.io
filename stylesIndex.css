@@ -122,14 +122,16 @@ img
     padding: 0px;
     padding-left: 5px;
     padding-top: 5px;
-    top: 87%;
+    bottom: 2%;
     position: absolute;
     font-size: 25px;
     color: white;
-    width: 100%;
+    width: 90%;
     -webkit-transition-duration: 0.3s;
     font-weight: 600;
     font-style: normal;
+    word-wrap: break-word;
+    vertical-align: text-bottom;
 }
 
 .pdBlack
