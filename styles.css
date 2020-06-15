@@ -120,7 +120,7 @@ h1
 
 .content p
 {
-    color: black;
+    color: var(--blackColor);
     font-size: 20px;
     left: 170px;
     padding-top: 10px;
@@ -244,6 +244,7 @@ tr
 :root
 {
     --siteColor: rgba(255, 101, 0, 1.0);
+    --blackColor: rgba(25, 25, 25, 1.0);
     //--siteColor: rgba(186, 0, 255, 1.0);  
     //--siteColor: rgba(246, 195, 0, 1.0);
 }

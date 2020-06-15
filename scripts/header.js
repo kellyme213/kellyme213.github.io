@@ -66,6 +66,7 @@ function generateArtHeader()
 	var section = createHeaderSection("Art");
 	var sectionContent = document.createElement("DIV");
 	sectionContent.className = "headerContent";
+	//sectionContent.appendChild(createLink("ProcGenArt", "pga.html", "pgaBar"));
 	sectionContent.appendChild(createLink("3D Modeling", "modeling.html", "modelingBar"));
 	sectionContent.appendChild(createLink("Lighting", "lighting.html", "lightingBar"));
 	section.appendChild(sectionContent);
