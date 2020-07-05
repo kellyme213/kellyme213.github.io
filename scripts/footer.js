@@ -1,7 +1,7 @@
+generateA("About", "about.html");
 generateA("GitHub", "https://github.com/kellyme213/");
-//generateA("LinkedIn", "https://www.linkedin.com/in/kellyme213/");
 generateA("Resume", "resume.html");
-generateA("Course Work", "coursework.html");
+//generateA("LinkedIn", "https://www.linkedin.com/in/kellyme213/");
 
 
 function generateA(name, link)
