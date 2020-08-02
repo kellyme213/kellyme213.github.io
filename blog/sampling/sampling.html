@@ -31,17 +31,17 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas1"> </canvas>
                 </div>
                 <div class = "splitContent rightSplitContent noRight">
-                    <b><p> The graph of y = 3x<sup>2</sup> from 0 to 1.</p></b>
+                    <p> <b>The graph of y = 3x<sup>2</sup> from 0 to 1.</b> </p>
                     <p> Exact Area: 1.0 </p>
                     <p id = "label1a"> Approximated Area: </p>
                     <p id = "label1b"> Difference: </p>
                     <p id = "label1c"> Number of Rectangles: </p>
                     <br/>
-                    <input type = "range" id = "slider1" min = "1" max = "100" value = "10"/>
+                    <input type = "range" id = "slider1" min = "1" max = "500" value = "10"/>
                 </div>
             </div>
 
-            <p> If you play around with the graph above, you can visually see how to approximate an integral. As the number of rectangles increases, the approximation gets better. In fact, as the number of rectangles used approaches infinity, the approximation approaches the exact solution! </p>
+            <p> If you play around with the graph above, you can visually see how to approximate an integral. As the number of rectangles increases, the approximation gets better. In fact, as the number of rectangles used approaches infinity, the approximation approaches the exact solution! This type of approximation is typically reffered to as a Riemann sum. </p>
 
 
             <p> But is there a different way to approximate the integral? Instead of evaluating the function at evenly spaced points on the curve, what if we evaluate at randomly selected points? Let's try it! </p>
@@ -53,26 +53,58 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas2"> </canvas>
                 </div>
                 <div class = "splitContent rightSplitContent noRight">
-                    <b><p> The graph of y = 3x<sup>2</sup> from 0 to 1 with random samples.</p></b>
+                    <p> <b>The graph of y = 3x<sup>2</sup> from 0 to 1 with random samples.</b> </p>
                     <p> Exact Area: 1.0 </p>
                     <p id = "label2a"> Approximated Area: </p>
                     <p id = "label2b"> Difference: </p>
                     <p id = "label2c"> Number of Rectangles: </p>
                     <br/>
-                    <input type = "range" id = "slider2" min = "1" max = "100" value = "10"/>
-
+                    <input class = "slider" type = "range" id = "slider2" min = "1" max = "500" value = "10"/>
+                    <br/>
                     <div style = "width = 100%; text-align: center">
                         <input type = "checkbox" id = "check2" name = "check2" style = "width: 15px;"/>
                         <label for = "check2" style = "padding-right: 10px"> Align Rectangles </label>
                     </div>
+                    <br/>
                     <div style="width = 100%; text-align: center;">
-                        <button type = "button" name = "button2" id = "button2" style = "width: 150px"> Reevaluate Integral </button>
+                        <button type = "button" name = "button2" id = "button2" style = "width: 150px"> Evaluate Integral </button>
                     </div>
                 </div>
             </div>
 
 
+            <p> Since we aren't evaluating the function at even intervals anymore, the rectangles overlap in the visualization, so you can check the 'Align Rectangles' box to align the rectangles like in the first visualization. </p>
 
+            <p> The randomly sampled integral estimation gives a slightly different result than the Riemann sum. Like the Riemann sum, the random approximation gets better as the number of samples increases. However, the random approximation varies in how accurate it is. Sometimes the random approximation is closer than the Reimann sum to the true value, sometimes it is further away. </p>
+
+
+            <p> This error can be visualized using a historgram. </p>
+            <!--<textarea id = "t" rows = "5" cols = "50"> </textarea>-->
+
+
+            <div class = "graph"> 
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas3"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b> A histogram showing the error between the randomly approximated area and exact area. </b> </p>
+
+                    <p> Number of Approximations: 1000 </p>
+                    <p id = "label3a"> Smallest Difference: </p>
+                    <p id = "label3b"> Largest Difference: </p>
+                    <p id = "label3c"> Samples Per Approximation: </p>
+                    <br/>
+                    <input class = "slider" type = "range" id = "slider3" min = "1" max = "1000" value = "500"/>
+
+                    <div style="width = 100%; text-align: center;">
+                        <button type = "button" name = "button3" id = "button3" style = "width: 150px"> Generate Histogram </button>
+                    </div>
+                    <br/>
+                    <p> <i>This graph is expensive to generate, especially for high number of samples, so you'll need to press the 'Generate Histogram' button to render the graph.</i> </p>
+                </div>
+            </div>
+
+            <p> As you increase the number of samples per approximation, you will notice that the errors converge towards 0. <b>Talk about variance a bit.</b> </p>
             <br/>
             <br/>
             <script src = "math.js"> </script>

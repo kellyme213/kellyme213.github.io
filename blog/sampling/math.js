@@ -10,7 +10,7 @@ function calculateArea(graphObj, start, end)
 	graphObj.area = sum * (end - start);
 }
 
-function approximateIntegral(func, start, end, numRectangles)
+function riemannSum(func, start, end, numRectangles)
 {
 	var sum = 0;
 	for (var n = 0; n < numRectangles; n++)
@@ -20,6 +20,19 @@ function approximateIntegral(func, start, end, numRectangles)
 		sum += y / numRectangles;
 	}
 	return sum * (end - start);
+}
+
+function sampleFunction(func, start, end, numSamples, pdf, cdf)
+{
+	var sum = 0;
+	for (var n = 0; n < numSamples; n++)
+	{
+		var r = generateRandomNumber(cdf);
+		var x = lerp(start, end, r);
+		sum += func(x) / pdf(r);
+	}
+
+	return sum * (end - start) / numSamples;
 }
 
 function integrate(graphObj)
@@ -41,6 +54,12 @@ function lerp(a, b, t)
 function unlerp(a, b, c)
 {
 	return (c - a) / (b - a);
+}
+
+function truncate(val, digits)
+{
+	var x = Math.pow(10, digits);
+	return Math.floor(val * x) / x;
 }
 
 function randomNumbers(n)
