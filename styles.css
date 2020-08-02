@@ -364,6 +364,12 @@ canvas
     padding-top: 0px;
 }
 
+.splitContent canvas
+{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
 .splitContent iframe
 {
     width: 100%;

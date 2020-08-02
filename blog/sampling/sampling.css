@@ -1,0 +1,27 @@
+canvas
+{
+	//box-shadow: none;
+	margin: 0px: 
+	//display: inline;
+}
+
+.graph p
+{
+	font-size: 12px;
+	font-weight: inherit;
+}
+
+label
+{
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+	display: inline;
+	color: var(--blackColor);
+}
+
+button
+{
+	font-size: 12px;
+	font-family: 'Montserrat';
+}

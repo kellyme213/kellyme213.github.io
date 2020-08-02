@@ -1,14 +1,5 @@
 
-
-var obj = createGraphObject(0, 10, 0, 50, 5, 2, 100, 400, 500, 500, graphFunction1);
-cacheGraphPoints(obj, 10, 0, 10);
-var c = document.getElementById("canvas1").getContext("2d");
-
-window.onload = function() {
-	c.font = '50px Montserrat';
-	c.canvasHeight = 1000;
-	drawGraphLines(c, obj);
-};
+var RAND = false;
 
 
 function cacheGraphPoints(graphObj, numPoints, start, end)
@@ -16,9 +7,14 @@ function cacheGraphPoints(graphObj, numPoints, start, end)
 	var graphPoints = [];
 	var rectWidths = [];
 
+	//var rands = randomNumbers(numPoints);
 	for (var n = 0; n < numPoints; n++)
 	{
 		var x = lerp(start, end, n / numPoints);
+		if (RAND)
+		{
+			x = lerp(start, end, rands[n]);
+		}
 		var y = graphObj.graphFunc(x);
 
 		graphPoints.push({x: x, y: y});
@@ -32,7 +28,7 @@ function cacheGraphPoints(graphObj, numPoints, start, end)
 
 function graphFunction1(x)
 {
-	return - x * x + 40;
+	return 3 * x * x;
 }
 
 
@@ -55,15 +51,7 @@ function createGraphObject(xMin, xMax, yMin, yMax, xStep, yStep, graphX, graphY,
 	return graph;
 }
 
-function lerp(a, b, t)
-{
-	return a + (b - a) * t;
-}
 
-function unlerp(a, b, c)
-{
-	return (c - a) / (b - a);
-}
 
 function moveTo(ctx, graphObj, x, y)
 {
@@ -138,13 +126,63 @@ function drawGraphLines(ctx, graphObj)
 		graphObj.yMax.toString(), 
 		graphObj.graphX - 15, 
 		ctx.canvasHeight - graphObj.graphY - graphObj.graphHeight);
+}
 
-	drawPoints(ctx, graphObj);
+function drawLine(ctx, graphObj, useCachedPoints, start, end)
+{
+	if (ctx.canvasHeight === undefined)
+	{
+		console.log("canvasHeight not set.");
+	}
+
+	var numPoints = 100;
+	if (useCachedPoints)
+	{
+		numPoints = graphObj.graphPoints.length;
+	}
+
+	ctx.beginPath();
+	for (var n = 0; n < numPoints; n++)
+	{
+		var x = 0;
+		var y = 0;
+
+		if (useCachedPoints)
+		{
+			x = graphObj.graphPoints[n].x;
+			y = graphObj.graphPoints[n].y;
+		}
+		else
+		{
+			x = lerp(start, end, n / numPoints);
+			y = graphObj.graphFunc(x);
+		}
+		if (n == 0)
+		{
+			moveTo(ctx, graphObj, x, y);
+		}
+		else
+		{
+			lineTo(ctx, graphObj, x, y);
+		}
+	}
+
+	ctx.stroke();
+}
+
+function drawLineNoCached(ctx, graphObj, start, end)
+{
+	drawLine(ctx, graphObj, false, start, end);
+}
+
+function drawLineCached(ctx, graphObj)
+{
+	drawLine(ctx, graphObj, true, 0, 0);
 }
 
 function drawRectangle(ctx, graphObj, x, y, w)
 {
-	ctx.fillStyle = "rgb(255, 100, 100)";
+	ctx.fillStyle = "rgba(255, 0, 0, 0.6)";
 	ctx.lineWidth = 5;
 	ctx.strokeStyle = "red";
 	ctx.beginPath();
@@ -157,13 +195,92 @@ function drawRectangle(ctx, graphObj, x, y, w)
 	ctx.stroke();
 }
 
+function drawRectangles(ctx, graphObj, flag)
+{
+	if (ctx.canvasHeight === undefined)
+	{
+		console.log("canvasHeight not set.");
+	}
+	
+	if (flag)
+	{
+		var xVal = graphObj.graphPoints[0].x;
+		for (var n = 0; n < graphObj.graphPoints.length; n++)
+		{
+			drawRectangle(
+				ctx, 
+				graphObj, 
+				xVal, 
+				graphObj.graphPoints[n].y, 
+				graphObj.rectWidths[n]);
+			xVal += graphObj.rectWidths[n];
+		}
+	}
+	else
+	{
+		for (var n = 0; n < graphObj.graphPoints.length; n++)
+		{
+			drawRectangle(
+				ctx,
+				graphObj, 
+				graphObj.graphPoints[n].x, 
+				graphObj.graphPoints[n].y, 
+				graphObj.rectWidths[n]);
+		}
+	}
+}
+
+function drawIntegralRectangles(ctx, graphObj, numRectangles, start, end)
+{
+	if (ctx.canvasHeight === undefined)
+	{
+		console.log("canvasHeight not set.");
+	}
+	
+	for (var n = 0; n < numRectangles; n++)
+	{
+		drawRectangle(
+			ctx, 
+			graphObj, 
+			n / numRectangles, 
+			graphObj.graphFunc(lerp(start, end, n / numRectangles)), 
+			1.0 / numRectangles);
+	}
+}
+
+function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end, pdf, cdf, flag)
+{
+	var randoms = generateRandomNumbers(cdf, numRectangles, flag);
+	var sum = 0;
+
+	var xVal = 0;
+
+	for (var n = 0; n < numRectangles; n++)
+	{
+		var x = lerp(start, end, randoms[n]);
+		var y = graphObj.graphFunc(x);
+		var w = (1.0 / numRectangles) * (1.0 / pdf(randoms[n]));
+
+		if (flag)
+		{
+			drawRectangle(ctx, graphObj, xVal, y, w);
+			xVal += w;
+		}
+		else
+		{
+			drawRectangle(ctx, graphObj, x, y, w);
+		}
+		sum += y * w;
+	}
+
+	return sum * (end - start);
+}
+
 function drawPoints(ctx, graphObj)
 {
 	ctx.fillStyle = "red";
-	console.log(graphObj.graphPoints);
 	for (var n = 0; n < graphObj.graphPoints.length; n++)
 	{
-		drawRectangle(ctx, graphObj, graphObj.graphPoints[n].x, graphObj.graphPoints[n].y, graphObj.rectWidths[n]);
 		drawPoint(ctx, graphObj, graphObj.graphPoints[n].x, graphObj.graphPoints[n].y, 10);
 	}
 }
@@ -174,11 +291,36 @@ function drawPoint(ctx, graphObj, x, y, r)
 	var ty = unlerp(graphObj.yMin, graphObj.yMax, y);
 	ctx.beginPath();
 	ctx.arc(tx * graphObj.graphWidth + graphObj.graphX, 
-				ctx.canvasHeight - (ty * graphObj.graphHeight + graphObj.graphY),
-				r,
-				0,
-				6.28);
+			ctx.canvasHeight - (ty * graphObj.graphHeight + graphObj.graphY),
+			r,
+			0,
+			6.28);
 	ctx.fill();
+}
+
+function drawHistogram(ctx, graphObj, histogram)
+{
+	var currentYMax = graphObj.yMax;
+	var currentXMax = graphObj.xMax;
+	var currentXMin = graphObj.xMin;
+
+	graphObj.yMax = histogram.maxBucketValue;
+	graphObj.xMax = 1.0;
+	graphObj.xMin = 0.0;
+
+	for (var n = 0; n < histogram.buckets.length; n++)
+	{
+		drawRectangle(
+			ctx, 
+			graphObj, 
+			n / histogram.buckets.length, 
+			histogram.buckets[n], 
+			1.0 / histogram.buckets.length);
+	}
+
+	graphObj.yMax = currentYMax;
+	graphObj.xMax = currentXMax;
+	graphObj.xMin = currentXMin;
 }
 
 

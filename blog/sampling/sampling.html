@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../../styles.css"> </link>
+        <link rel="stylesheet" href="./sampling.css"> </link>
         <meta name = "viewport" content = "width=1000"> </meta>
         <title> TEST </title>
         <meta charset = "UTF-8"> </meta>
@@ -19,12 +20,67 @@
 
 
 
-            <canvas width = "2000px" height = "1000px" id = "canvas1"> </canvas>
+            <canvas width = "2000px" height = "1000px" id = "canvas0" style = "width: 500px;"> </canvas>
+
+
+            <p> Before we talk about sampling, let's talk about integrals. Integrals are all about finding the area under a curve. How do we find the area under a curve. Some functions are easy to integrate, the integral can be written in a closed form and we can solve for the exact area under the curve. However, some functions cannot be integraled easily, and we have to solve them analytically. This will allow us to approximate the integral's solution. One way to approximate the integral is to draw rectangles under the funciton, then add up the areas of the triangles to get an approximation. </p>
+
+
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas1"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <b><p> The graph of y = 3x<sup>2</sup> from 0 to 1.</p></b>
+                    <p> Exact Area: 1.0 </p>
+                    <p id = "label1a"> Approximated Area: </p>
+                    <p id = "label1b"> Difference: </p>
+                    <p id = "label1c"> Number of Rectangles: </p>
+                    <br/>
+                    <input type = "range" id = "slider1" min = "1" max = "100" value = "10"/>
+                </div>
+            </div>
+
+            <p> If you play around with the graph above, you can visually see how to approximate an integral. As the number of rectangles increases, the approximation gets better. In fact, as the number of rectangles used approaches infinity, the approximation approaches the exact solution! </p>
+
+
+            <p> But is there a different way to approximate the integral? Instead of evaluating the function at evenly spaced points on the curve, what if we evaluate at randomly selected points? Let's try it! </p>
+
+
+
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas2"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <b><p> The graph of y = 3x<sup>2</sup> from 0 to 1 with random samples.</p></b>
+                    <p> Exact Area: 1.0 </p>
+                    <p id = "label2a"> Approximated Area: </p>
+                    <p id = "label2b"> Difference: </p>
+                    <p id = "label2c"> Number of Rectangles: </p>
+                    <br/>
+                    <input type = "range" id = "slider2" min = "1" max = "100" value = "10"/>
+
+                    <div style = "width = 100%; text-align: center">
+                        <input type = "checkbox" id = "check2" name = "check2" style = "width: 15px;"/>
+                        <label for = "check2" style = "padding-right: 10px"> Align Rectangles </label>
+                    </div>
+                    <div style="width = 100%; text-align: center;">
+                        <button type = "button" name = "button2" id = "button2" style = "width: 150px"> Reevaluate Integral </button>
+                    </div>
+                </div>
+            </div>
+
 
 
             <br/>
             <br/>
+            <script src = "math.js"> </script>
+            <script src = "pdf.js"> </script>            
+            <script src = "histogram.js"> </script>
             <script src = "graph.js"> </script>
+            <script src = "main.js"> </script>
+
 
 
         </div>
