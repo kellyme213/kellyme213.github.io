@@ -31,6 +31,10 @@ function graphFunction1(x)
 	return 3 * x * x;
 }
 
+function graphFunction2(x)
+{
+	return 3 * x * x;
+}
 
 
 function createGraphObject(xMin, xMax, yMin, yMax, xStep, yStep, graphX, graphY, graphWidth, graphHeight, graphFunc)
@@ -182,9 +186,6 @@ function drawLineCached(ctx, graphObj)
 
 function drawRectangle(ctx, graphObj, x, y, w)
 {
-	ctx.fillStyle = "rgba(255, 0, 0, 0.6)";
-	ctx.lineWidth = 5;
-	ctx.strokeStyle = "red";
 	ctx.beginPath();
 	moveTo(ctx, graphObj, x, y);
 	lineTo(ctx, graphObj, x + w, y);
@@ -248,7 +249,7 @@ function drawIntegralRectangles(ctx, graphObj, numRectangles, start, end)
 	}
 }
 
-function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end, pdf, cdf, flag)
+function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end, pdf, cdf, flag, colorFunction)
 {
 	var randoms = generateRandomNumbers(cdf, numRectangles, flag);
 	var sum = 0;
@@ -259,8 +260,10 @@ function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end,
 	{
 		var x = lerp(start, end, randoms[n]);
 		var y = graphObj.graphFunc(x);
-		var w = (1.0 / numRectangles) * (1.0 / pdf(randoms[n]));
+		var p = pdf(randoms[n]);
+		var w = (1.0 / numRectangles) * (1.0 / p);
 
+		colorFunction(ctx, x, y, p, flag);
 		if (flag)
 		{
 			drawRectangle(ctx, graphObj, xVal, y, w);
@@ -276,9 +279,38 @@ function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end,
 	return sum * (end - start);
 }
 
+function colorFunction2(ctx, x, y, pdf, flag)
+{
+	if (!flag)
+	{
+		ctx.fillStyle = "rgba(255, 0, 0, 0.3)";
+	}
+	else
+	{
+		ctx.fillStyle = "rgba(255, 0, 0, 0.7)";
+	}
+	ctx.strokeStyle = "rgb(255, 0, 0)";
+}
+
+function colorFunction22(ctx, x, y, pdf, flag)
+{
+	var p = (Math.min(pdf / 4.0, 1.0));
+	var r = lerp(255, 150, p);
+	var b = lerp(0, 255, p);
+
+	if (!flag)
+	{
+		ctx.fillStyle = "rgba(" + r + ", 0, " + b + ", 0.3)";
+	}
+	else
+	{
+		ctx.fillStyle = "rgba(" + r + ", 0, " + b + ", 0.7)";
+	}
+	ctx.strokeStyle = "rgb(" + r + ", 0, " + b + ")";
+}
+
 function drawPoints(ctx, graphObj)
 {
-	ctx.fillStyle = "red";
 	for (var n = 0; n < graphObj.graphPoints.length; n++)
 	{
 		drawPoint(ctx, graphObj, graphObj.graphPoints[n].x, graphObj.graphPoints[n].y, 10);

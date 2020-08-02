@@ -61,7 +61,6 @@ function pdf4(x)
 
 function uniformPdf(x)
 {
-	return pdf4(x);
 	return 1;
 }
 

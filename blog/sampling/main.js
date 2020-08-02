@@ -27,7 +27,7 @@ var ctx2 = document.getElementById("canvas2").getContext("2d");
 var slider2 = document.getElementById("slider2");
 var button2 = document.getElementById("button2");
 var check2 = document.getElementById("check2");
-var graph2 = createGraphObject(0, 1, 0, 3, 2, 6, 100, 100, 800, 800, graphFunction1);
+var graph2 = createGraphObject(0, 1, 0, 3, 2, 6, 100, 100, 800, 800, graphFunction2);
 
 
 window.onload = function() {
@@ -44,8 +44,10 @@ window.onload = function() {
 	ctx1.font = '50px Montserrat';
 	ctx1.canvasHeight = 1000;
 	drawGraphLines(ctx1, graph1);
-	drawIntegralRectangles(ctx1, graph1, 10, 0, 1);
+	ctx1.fillStyle = "rgba(255, 0, 0, 0.7)";
 	ctx1.lineWidth = 5;
+	ctx1.strokeStyle = "red";
+	drawIntegralRectangles(ctx1, graph1, 10, 0, 1);
 	ctx1.strokeStyle = "black";
 	ctx1.fillStyle = "black";
 	drawLineNoCached(ctx1, graph1, 0, 1);
@@ -75,6 +77,10 @@ slider1.oninput = function()
 
 	ctx1.lineWidth = 5;
 	drawLineNoCached(ctx1, graph1, 0, 1);
+
+	ctx1.fillStyle = "rgba(255, 0, 0, 0.7)";
+	ctx1.lineWidth = 5;
+	ctx1.strokeStyle = "red";
 	drawIntegralRectangles(ctx1, graph1, numRectangles, 0, 1);
 
 	var approximateArea = approximateIntegral(graph1.graphFunc, 0, 1, numRectangles);
@@ -122,6 +128,8 @@ function updateGraph2()
 
 	ctx2.lineWidth = 5;
 	drawLineNoCached(ctx2, graph2, 0, 1);
+
+	ctx2.lineWidth = 5;
 	var approximateArea = drawIntegralRectanglesSampled(
 		ctx2, 
 		graph2, 
@@ -130,7 +138,8 @@ function updateGraph2()
 		1, 
 		uniformPdf, 
 		uniformCdf, 
-		flag);
+		flag,
+		colorFunction2);
 
 	approximateArea = Math.floor(approximateArea * 10000) / 10000;
 
