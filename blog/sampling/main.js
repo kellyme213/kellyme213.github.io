@@ -2,21 +2,6 @@
 
 
 
-var obj = createGraphObject(0, 1, 0, 10, 5, 2, 100, 400, 1000, 500, pdf2);
-cacheGraphPoints(obj, 50, 0, 1);
-calculateArea(obj, 0, 1);
-//integrate(obj);
-var c = document.getElementById("canvas0").getContext("2d");
-
-//console.log("pdf " + integratePdf(pdf3));
-
-var cdf1 = generateCdf(pdf1);
-var histo = generateHistogramForCdf(cdf1);
-
-
-
-
-
 
 var ctx1 = document.getElementById("canvas1").getContext("2d");
 var slider1 = document.getElementById("slider1");
@@ -36,13 +21,6 @@ var button3 = document.getElementById("button3");
 var graph3 = createGraphObject(-0.25, 0.25, 0, 1, 4, 2, 80, 100, 800, 800, undefined);
 
 window.onload = function() {
-	c.font = '50px Montserrat';
-	c.canvasHeight = 1000;
-	drawGraphLines(c, obj);
-	//drawLine(c, obj);
-	//drawPoints(c, obj);
-	drawHistogram(c, obj, histo);
-	//drawRectangles(c, obj, true);
 
 
 
