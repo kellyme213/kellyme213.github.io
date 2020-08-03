@@ -94,7 +94,7 @@
                     <p id = "label3b"> Largest Difference: </p>
                     <p id = "label3c"> Samples Per Approximation: </p>
                     <br/>
-                    <input class = "slider" type = "range" id = "slider3" min = "1" max = "1000" value = "500"/>
+                    <input class = "slider" type = "range" id = "slider3" min = "1" max = "500" value = "250"/>
 
                     <div style="width = 100%; text-align: center;">
                         <button type = "button" name = "button3" id = "button3" style = "width: 150px"> Generate Histogram </button>
@@ -105,6 +105,39 @@
             </div>
 
             <p> As you increase the number of samples per approximation, you will notice that the errors converge towards 0. <b>Talk about variance a bit.</b> </p>
+            
+
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas4"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>The graph of y = 2x * g(x) from 0 to 3 randomly sampled with pdf of 2x.</b> </p>
+                    <p> Exact Area: 9.001996 </p>
+                    <p id = "label4a"> Approximated Area: </p>
+                    <p id = "label4b"> Difference: </p>
+                    <p id = "label4c"> Number of Rectangles: </p>
+                    <br/>
+                    <input class = "slider" type = "range" id = "slider4" min = "1" max = "500" value = "10"/>
+                    <br/>
+                    <div style = "width = 100%; text-align: center">
+                        <input type = "checkbox" id = "check4" name = "check4" style = "width: 15px;"/>
+                        <label for = "check4" style = "padding-right: 10px"> Align Rectangles </label>
+                    </div>
+                    <br/>
+                    <div style="width = 100%; text-align: center;">
+                        <button type = "button" name = "button4" id = "button4" style = "width: 150px"> Evaluate Integral </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
             <br/>
             <br/>
             <script src = "math.js"> </script>

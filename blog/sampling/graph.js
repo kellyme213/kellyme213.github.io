@@ -36,6 +36,11 @@ function graphFunction2(x)
 	return 3 * x * x;
 }
 
+function graphFunction4(x)
+{
+	return 2 * x * (1.0 + 0.2 * Math.cos(x * x * 100));
+}
+
 
 function createGraphObject(xMin, xMax, yMin, yMax, xStep, yStep, graphX, graphY, graphWidth, graphHeight, graphFunc)
 {
@@ -261,7 +266,7 @@ function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end,
 		var x = lerp(start, end, randoms[n]);
 		var y = graphObj.graphFunc(x);
 		var p = pdf(randoms[n]);
-		var w = (1.0 / numRectangles) * (1.0 / p);
+		var w = (1.0 / numRectangles) * (1.0 / p) * (end - start);
 
 		colorFunction(ctx, x, y, p, flag);
 		if (flag)
@@ -276,7 +281,7 @@ function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end,
 		sum += y * w;
 	}
 
-	return sum * (end - start);
+	return sum;
 }
 
 function colorFunction2(ctx, x, y, pdf, flag)

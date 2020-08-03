@@ -50,7 +50,7 @@ function pdf3(x)
 	return 3 * x * x;
 }
 
-function pdf4(x)
+function pdf5(x)
 {
 	if (x < 0.2 || x > 0.8) 
 	{
@@ -66,6 +66,12 @@ function uniformPdf(x)
 
 var uniformCdf = generateCdf(uniformPdf);
 
+function pdf4(x)
+{
+	return 2 * x;
+}
+
+var cdf4 = generateCdf(pdf4);
 
 
 function generateCdf(pdf)
