@@ -27,6 +27,10 @@ var button4 = document.getElementById("button4");
 var check4 = document.getElementById("check4");
 var graph4 = createGraphObject(0, 3, 0, 9, 2, 6, 100, 100, 800, 800, graphFunction4);
 
+var ctx5 = document.getElementById("canvas5").getContext("2d");
+var graph5 = createGraphObject(0, 500, 0, 0.1, 2, 6, 100, 100, 800, 800, undefined);
+
+
 window.onload = function() {
 
 
@@ -64,6 +68,21 @@ window.onload = function() {
 
 	initializeContext(ctx4, graph4);
 	drawLineNoCached(ctx4, graph4, 0, 3);
+
+
+	ctx5.font = '50px Montserrat';
+	ctx5.canvasHeight = 1000;
+	drawGraphLines(ctx5, graph5);
+	ctx5.lineWidth = 5;
+	ctx5.strokeStyle = "red";
+	graph5.graphPoints = constant3;
+	drawLineCached(ctx5, graph5);
+	ctx5.strokeStyle = "blue";
+	graph5.graphPoints = constant4;
+	drawLineCached(ctx5, graph5);
+
+	//console.log(generateVarianceForRiemannSum(graphFunction4, 0, 3, 11.793940));
+	//console.log(generateVarianceForSampling(graphFunction4, 0, 3, 11.793940, pdf4, cdf4));
 };
 
 
@@ -87,13 +106,13 @@ slider1.oninput = function()
 
 	drawGraphLines(ctx1, graph1);
 
-	ctx1.lineWidth = 5;
-	drawLineNoCached(ctx1, graph1, 0, 1);
-
 	ctx1.fillStyle = "rgba(255, 0, 0, 0.7)";
 	ctx1.lineWidth = 5;
 	ctx1.strokeStyle = "red";
 	drawIntegralRectangles(ctx1, graph1, numRectangles, 0, 1);
+		
+	ctx1.strokeStyle = "black";
+	drawLineNoCached(ctx1, graph1, 0, 1);
 
 	var approximateArea = riemannSum(graph1.graphFunc, 0, 1, numRectangles);
 	approximateArea = truncate(approximateArea, 5);
@@ -163,8 +182,7 @@ function updateGraph2()
 
 	drawGraphLines(ctx2, graph2);
 
-	ctx2.lineWidth = 5;
-	drawLineNoCached(ctx2, graph2, 0, 1);
+
 
 	ctx2.lineWidth = 5;
 	var approximateArea = drawIntegralRectanglesSampled(
@@ -177,6 +195,9 @@ function updateGraph2()
 		uniformCdf, 
 		flag,
 		colorFunction2);
+
+	ctx2.strokeStyle = "black";
+	drawLineNoCached(ctx2, graph2, 0, 1);
 
 	approximateArea = truncate(approximateArea, 5);
 
@@ -205,9 +226,55 @@ function updateGraph3()
 
 	ctx3.fillStyle = "rgba(255, 0, 0, 0.7)";
 	ctx3.strokeStyle = "rgb(255, 0, 0)";
-	var histogram = generateErrorHistogramForFunction(graphFunction1, 0, 1, uniformPdf, uniformCdf, 1.0, numSamples);
+	var histogram = generateErrorHistogramForFunction(
+		graphFunction1, 
+		0, 
+		1, 
+		uniformPdf, 
+		uniformCdf, 
+		1.0, 
+		numSamples, 
+		500);
 	drawHistogram(ctx3, graph3, histogram);
 	updateGraph3Labels(histogram.minDiff, histogram.maxDiff, numSamples);
+	//console.log(histogram.percent, 1.0 / (histogram.variance));
+
+	ctx3.strokeStyle = "black";
+	ctx3.fillStyle = "black";
+
+	ctx3.lineWidth = 5;
+	graph3.graphFunc = gaussianDistribution(Math.sqrt(histogram.variance));
+	graph3.yMax = (graph3.graphFunc(0));
+	drawLineNoCached(ctx3, graph3, -0.25, 0.25);
+	graph3.yMax = 1.0;
+
+/*
+	graph3.yMax = numSamples;
+	graph3.xMin = 0;
+	graph3.xMax = numSamples;
+	
+	graph3.graphPoints = generateVarianceGraph(graphFunction1, 0, 1, uniformPdf, uniformCdf, 1.0, numSamples);
+	drawLineCached(ctx3, graph3);
+
+	graph3.yMax = 1.0;
+	graph3.xMin = -0.25;
+	graph3.xMax = 0.25;
+
+	var s = 0;
+	for (var x = 0; x < graph3.graphPoints.length; x++)
+	{
+		var t = graph3.graphPoints[x].x / graph3.graphPoints[x].y;
+		s += t;
+	}
+
+	s = s / graph3.graphPoints.length;
+	console.log("acg " + s, 1.0 / s);
+	*/
+
+	//var h = generateErrorHistogramForFunction(graphFunction1, 0, 1, uniformPdf, uniformCdf, 1.0, 10000);
+	//var v = 1.0 / h.variance;
+	//console.log(v / 10000, 10000 / v);
+
 }
 
 function updateGraph3Labels(val1, val2, val3)
@@ -252,13 +319,13 @@ function updateGraph4()
 
 	approximateArea = truncate(approximateArea, 5);
 
-	var diff = 9.001996 - approximateArea;
+	var diff = 11.793940 - approximateArea;
 	diff = truncate(diff, 5);
 
 	updateGraph4Labels(approximateArea, diff, numRectangles);
 
 	var r = riemannSum(graph4.graphFunc, 0, 3, numRectangles);
-	console.log(9.001996 - r);
+	console.log(11.793940 - r);
 }
 
 function updateGraph4Labels(val1, val2, val3)

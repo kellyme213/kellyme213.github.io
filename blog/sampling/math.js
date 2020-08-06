@@ -73,3 +73,51 @@ function randomNumbers(n)
 	array.sort();
 	return array;
 }
+
+
+
+
+function generateVarianceForRiemannSum(func, start, end, expectedArea)
+{
+	var points = [];
+
+	for (var n = 10; n <= 500; n+=10)
+	{
+		var approximatedArea = riemannSum(func, start, end, n);
+		var variance = approximatedArea - expectedArea;
+		variance = variance * variance;
+		points.push({x: n, y: truncate(variance, 5)});
+	}
+
+	return points;
+}
+
+
+function generateVarianceForSampling(func, start, end, expectedArea, pdf, cdf)
+{
+	var points = [];
+
+	for (var n = 10; n <= 500; n+=10)
+	{
+		var histogram = generateErrorHistogramForFunction(
+			func, 
+			start, 
+			end, 
+			pdf, 
+			cdf, 
+			expectedArea, 
+			n, 
+			500);
+
+		points.push({x: n, y: histogram.variance});
+	}
+
+	return points;
+}
+
+
+
+
+
+
+

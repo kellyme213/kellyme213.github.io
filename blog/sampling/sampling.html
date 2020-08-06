@@ -89,7 +89,7 @@
                 <div class = "splitContent rightSplitContent noRight">
                     <p> <b> A histogram showing the error between the randomly approximated area and exact area. </b> </p>
 
-                    <p> Number of Approximations: 1000 </p>
+                    <p> Number of Approximations: 500 </p>
                     <p id = "label3a"> Smallest Difference: </p>
                     <p id = "label3b"> Largest Difference: </p>
                     <p id = "label3c"> Samples Per Approximation: </p>
@@ -113,21 +113,32 @@
                 </div>
                 <div class = "splitContent rightSplitContent noRight">
                     <p> <b>The graph of y = 2x * g(x) from 0 to 3 randomly sampled with pdf of 2x.</b> </p>
-                    <p> Exact Area: 9.001996 </p>
+                    <p> Exact Area: 11.793940 </p>
                     <p id = "label4a"> Approximated Area: </p>
                     <p id = "label4b"> Difference: </p>
                     <p id = "label4c"> Number of Rectangles: </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider4" min = "1" max = "500" value = "10"/>
                     <br/>
-                    <div style = "width = 100%; text-align: center">
+                    <div style = "width: 100%; text-align: center">
                         <input type = "checkbox" id = "check4" name = "check4" style = "width: 15px;"/>
                         <label for = "check4" style = "padding-right: 10px"> Align Rectangles </label>
                     </div>
                     <br/>
-                    <div style="width = 100%; text-align: center;">
+                    <div style="width: 100%; text-align: center;">
                         <button type = "button" name = "button4" id = "button4" style = "width: 150px"> Evaluate Integral </button>
                     </div>
+                </div>
+            </div>
+
+                <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas5"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>Variances vs number of samples</b> </p>
+                    <p> Red line - Riemann </p>
+                    <p> Blue line - Random </p>
                 </div>
             </div>
 
@@ -140,6 +151,7 @@
 
             <br/>
             <br/>
+            <script src = "graphConstants.js"> </script>
             <script src = "math.js"> </script>
             <script src = "pdf.js"> </script>            
             <script src = "histogram.js"> </script>

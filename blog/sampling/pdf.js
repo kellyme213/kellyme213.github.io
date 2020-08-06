@@ -122,6 +122,14 @@ function evaluateInvertedCdf(cdf, x)
 	return invert(cdf.points[l].x, cdf.points[l].y, 1.0, 1.0, x);
 }
 
+function gaussianDistribution(sigma)
+{
+	return function(x) {
+		return (1.0 / (sigma * Math.sqrt(2.0 * Math.PI))) * 
+			Math.pow(Math.E, -0.5 * (x * x) / (sigma * sigma));
+	};
+}
+
 
 
 

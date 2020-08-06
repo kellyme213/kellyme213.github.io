@@ -38,7 +38,7 @@ function graphFunction2(x)
 
 function graphFunction4(x)
 {
-	return 2 * x * (1.0 + 0.2 * Math.cos(x * x * 100));
+	return 2 * x * (1.0 + 0.5 * Math.abs(Math.cos(x * x)));
 }
 
 
