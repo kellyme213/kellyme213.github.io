@@ -30,16 +30,17 @@ var graph4 = createGraphObject(0, 3, 0, 9, 2, 6, 100, 100, 800, 800, graphFuncti
 var ctx5 = document.getElementById("canvas5").getContext("2d");
 var graph5 = createGraphObject(0, 500, 0, 0.1, 2, 6, 100, 100, 800, 800, undefined);
 
+var ctx6 = document.getElementById("canvas6").getContext("2d");
+var radio6a = document.getElementById("radio6a");
+var radio6b = document.getElementById("radio6b");
+var button6 = document.getElementById("button6");
+var graph6 = createGraphObject(0, 1.0, 0, 1.0, 10, 10, 100, 100, 800, 800, undefined);
 
 window.onload = function() {
 
 
-
-	ctx1.font = '50px Montserrat';
-	ctx1.canvasHeight = 1000;
-	drawGraphLines(ctx1, graph1);
+	initializeContext(ctx1, graph1);
 	ctx1.fillStyle = "rgba(255, 0, 0, 0.7)";
-	ctx1.lineWidth = 5;
 	ctx1.strokeStyle = "red";
 	drawIntegralRectangles(ctx1, graph1, 10, 0, 1);
 	ctx1.strokeStyle = "black";
@@ -48,21 +49,12 @@ window.onload = function() {
 	updateGraph1Labels(0.855, 0.145, 10);
 
 
-	ctx2.font = '50px Montserrat';
-	ctx2.canvasHeight = 1000;
-	drawGraphLines(ctx2, graph2);
-	ctx2.lineWidth = 5;
-	ctx2.strokeStyle = "black";
-	ctx2.fillStyle = "black";
+	initializeContext(ctx2, graph2);
 	drawLineNoCached(ctx2, graph2, 0, 1);
 	updateGraph2();
 
-	ctx3.font = '50px Montserrat';
-	ctx3.canvasHeight = 1000;
-	drawGraphLines(ctx3, graph3);
-	ctx3.lineWidth = 5;
-	ctx3.strokeStyle = "black";
-	ctx3.fillStyle = "black";
+
+	initializeContext(ctx3, graph3);
 	//updateGraph3();
 
 
@@ -70,16 +62,19 @@ window.onload = function() {
 	drawLineNoCached(ctx4, graph4, 0, 3);
 
 
-	ctx5.font = '50px Montserrat';
-	ctx5.canvasHeight = 1000;
-	drawGraphLines(ctx5, graph5);
-	ctx5.lineWidth = 5;
+	initializeContext(ctx5, graph5);
 	ctx5.strokeStyle = "red";
-	graph5.graphPoints = constant3;
+	graph5.graphPoints = constant1;
 	drawLineCached(ctx5, graph5);
 	ctx5.strokeStyle = "blue";
-	graph5.graphPoints = constant4;
+	graph5.graphPoints = constant2;
 	drawLineCached(ctx5, graph5);
+
+
+	initializeContext(ctx6, graph6);
+	radio6a.checked = true;
+	updateGraph6();
+
 
 	//console.log(generateVarianceForRiemannSum(graphFunction4, 0, 3, 11.793940));
 	//console.log(generateVarianceForSampling(graphFunction4, 0, 3, 11.793940, pdf4, cdf4));
@@ -170,6 +165,27 @@ check4.onclick = function()
 {
 	updateGraph4();
 }
+
+button6.onclick = function()
+{
+	updateGraph6();
+}
+
+slider6.oninput = function() 
+{
+	updateGraph6();
+}
+
+radio6a.onclick = function()
+{
+	updateGraph6();
+}
+
+radio6b.onclick = function()
+{
+	updateGraph6();
+}
+
 
 function updateGraph2()
 {
@@ -334,5 +350,58 @@ function updateGraph4Labels(val1, val2, val3)
 	document.getElementById("label4b").innerHTML = "Difference: " + val2;
 	document.getElementById("label4c").innerHTML = "Number of Rectangles: " + val3;
 }
+
+
+
+
+function updateGraph6()
+{
+	ctx6.clearRect(0, 0, 1000, 1000);
+	ctx6.strokeStyle = "black";
+	ctx6.fillStyle = "black";
+	ctx6.lineWidth = 5;
+	drawGraphLines(ctx6, graph6);
+
+	ctx6.strokeStyle = "rgb(255, 0, 0)";
+	ctx6.fillStyle = "rgba(255, 0, 0, 0.6)";
+
+	var numSamples = Math.floor(slider6.value);
+
+	if (radio6a.checked)
+	{
+		graph6.graphPoints = generateStratifiedPoints(numSamples, 10);
+	}
+	else
+	{	
+	 	graph6.graphPoints = generateRandomPoints(numSamples);
+	}
+
+	drawPoints(ctx6, graph6);
+
+
+	// var variance = 0;
+
+	// for (var n = 0; n < graph6.graphPoints.length; n++)
+	// {
+	// 	var p = graph6.graphPoints[n];
+	// 	variance += Math.sqrt(Math.pow(0.5 - p.x, 2) + Math.pow(0.5 - p.y, 2));
+	// }
+
+	// variance /= graph6.graphPoints.length;
+
+	// console.log(variance);
+
+
+
+	updateGraph6Labels(graph6.graphPoints.length);
+}
+
+function updateGraph6Labels(val1)
+{
+	document.getElementById("label6a").innerHTML = "Number of samples: " + val1;
+}
+
+
+
 
 

@@ -117,6 +117,40 @@ function generateVarianceForSampling(func, start, end, expectedArea, pdf, cdf)
 
 
 
+function generateRandomPoints(numPoints)
+{
+	var points = [];
+
+	for (var n = 0; n < numPoints; n++)
+	{
+		var p = {x: Math.random(), y: Math.random()};
+		points.push(p);
+	}
+
+	return points;
+}
+
+function generateStratifiedPoints(numPoints, numSubdivisions)
+{
+	var pointsPerBlock = numPoints / (numSubdivisions * numSubdivisions);
+	var points = [];
+
+	for (var n = 0; n < numSubdivisions; n++)
+	{
+		for (var m = 0; m < numSubdivisions; m++)
+		{
+			for (var o = 0; o < pointsPerBlock; o++)
+			{
+				var p = {x: (n + Math.random()) / numSubdivisions, y: (m + Math.random()) / numSubdivisions};
+				points.push(p);
+			}
+		}
+	}
+
+	return points;
+}
+
+
 
 
 

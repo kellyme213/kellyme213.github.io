@@ -104,8 +104,72 @@
                 </div>
             </div>
 
-            <p> As you increase the number of samples per approximation, you will notice that the errors converge towards 0. <b>Talk about variance a bit.</b> </p>
+            <p> As you increase the number of samples per approximation, you will notice that the errors converge towards 0. <b>Talk about variance a bit.</b> However, the Riemann Sum also converges towards 0. Which one converges faster?</p>
             
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas5"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>Variances vs number of samples</b> </p>
+                    <p> Red line - Riemann </p>
+                    <p> Blue line - Random </p>
+                </div>
+            </div>
+
+            <p> Based on the graph, we see that the variance of the riemann sum is always smaller than the variance of the random samples. :(. But, can we do better? Of course we can! <b> Maybe do a graph of number of samples vs % of approximations smaller than riemann error. </b></p>
+
+            <h2> Stratified sampling </h2>
+
+            <p> <b> strified s a m p l i n g </b> </p>
+
+
+
+
+
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas6"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>Stratified sampling vs uniform sampling</b> </p>
+                    <p id = "label6a"> Number of samples: </p>
+                    <br/>
+                    <input class = "slider" type = "range" id = "slider6" min = "1" max = "500" value = "10"/>
+                    <br/>
+                    <div style = "width: 100%; text-align: center">
+                        <input type = "radio" name = "radio6" id = "radio6a" style = "width: 15px;">  </input>
+                        <label for = "radio6a" style = "padding-right: 10px"> Stratified </label>
+                        <br/>
+                        <input type = "radio" name = "radio6" id = "radio6b" style = "width: 15px;">  </input>
+                        <label for = "radio6b" style = "padding-right: 10px"> Random </label>
+                    </div>
+                    <br/>
+                    <div style="width: 100%; text-align: center;">
+                        <button type = "button" name = "button6" id = "button6" style = "width: 150px"> Evaluate Integral </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <p> As you can see, stratified sampling reduces the clumping and empty spots we see in random sampling. There are a few disadvantages though. THe number of stratified samples must be a multiple of the number of regions that we sample from. This is to ensure that the random samples are uniformly distributed across each region. If there were certain regions that contain more samples than others, we would be <i> biasing </i> the points towards specifc areas of the sample space (more on biasing later). Additionally, if certain sectoins had more points than others, we would start running into the same clumping issues we were trying to avoid from rando sampling. </p>
+
+            <p> In fact, there is some bias in our Riemann sum. <b> Show high frequency graph. </b> </p>
+
+
+
+
+
+            <br/>
+            <br/>            <br/>
+            <br/>            <br/>
+            <br/>            <br/>
+            <br/>            <br/>
+            <br/>            <br/>
+            <br/>            <br/>
+            <br/>            <br/>
+            <br/>            <br/>
+            <br/>
 
             <div class = "graph">
                 <div class = "splitContent leftSplitContent noLeft">
@@ -131,16 +195,7 @@
                 </div>
             </div>
 
-                <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
-                    <canvas width = "1000px" height = "1000px" id = "canvas5"> </canvas>
-                </div>
-                <div class = "splitContent rightSplitContent noRight">
-                    <p> <b>Variances vs number of samples</b> </p>
-                    <p> Red line - Riemann </p>
-                    <p> Blue line - Random </p>
-                </div>
-            </div>
+
 
 
 
