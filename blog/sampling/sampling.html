@@ -135,18 +135,20 @@
                     <p> <b>Stratified sampling vs uniform sampling</b> </p>
                     <p id = "label6a"> Number of samples: </p>
                     <br/>
-                    <input class = "slider" type = "range" id = "slider6" min = "1" max = "500" value = "10"/>
+                    <input class = "slider" type = "range" id = "slider6" min = "0" max = "500" value = "100"/>
                     <br/>
-                    <div style = "width: 100%; text-align: center">
+                    <div style = "width: 100%; text-align: center;">
+                        <div style="margin-left: 150px; text-align: left;">
                         <input type = "radio" name = "radio6" id = "radio6a" style = "width: 15px;">  </input>
                         <label for = "radio6a" style = "padding-right: 10px"> Stratified </label>
                         <br/>
                         <input type = "radio" name = "radio6" id = "radio6b" style = "width: 15px;">  </input>
                         <label for = "radio6b" style = "padding-right: 10px"> Random </label>
+                        </div>
                     </div>
                     <br/>
                     <div style="width: 100%; text-align: center;">
-                        <button type = "button" name = "button6" id = "button6" style = "width: 150px"> Evaluate Integral </button>
+                        <button type = "button" name = "button6" id = "button6" style = "width: 150px"> Generate Points </button>
                     </div>
                 </div>
             </div>
@@ -156,7 +158,34 @@
 
             <p> In fact, there is some bias in our Riemann sum. <b> Show high frequency graph. </b> </p>
 
-
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas7"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>Stratified sampling vs uniform sampling</b> </p>
+                    <p id = "label6a"> Number of samples: </p>
+                    <br/>
+                    <input class = "slider" type = "range" id = "slider7" min = "0" max = "500" value = "100"/>
+                    <br/>
+                    <div style = "width: 100%; text-align: center;">
+                        <div style="margin-left: 150px; text-align: left;">
+                        <input type = "radio" name = "radio7" id = "radio7a" style = "width: 15px;">  </input>
+                        <label for = "radio7a" style = "padding-right: 10px"> Stratified </label>
+                        <br/>
+                        <input type = "radio" name = "radio7" id = "radio7b" style = "width: 15px;">  </input>
+                        <label for = "radio7b" style = "padding-right: 10px"> Random </label>
+                        <br/>
+                        <input type = "radio" name = "radio7" id = "radio7c" style = "width: 15px;">  </input>
+                        <label for = "radio7c" style = "padding-right: 10px"> Riemann </label>
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="width: 100%; text-align: center;">
+                        <button type = "button" name = "button7" id = "button7" style = "width: 150px"> Evaluate Integral </button>
+                    </div>
+                </div>
+            </div>
 
 
 

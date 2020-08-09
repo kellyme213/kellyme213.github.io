@@ -41,6 +41,12 @@ function graphFunction4(x)
 	return 2 * x * (1.0 + 0.5 * Math.abs(Math.cos(x * x)));
 }
 
+function graphFunction7(x)
+{
+	var a = 8 * Math.abs(Math.sin(7 * x));
+	return a + 1;
+}
+
 
 function createGraphObject(xMin, xMax, yMin, yMax, xStep, yStep, graphX, graphY, graphWidth, graphHeight, graphFunc)
 {
@@ -144,7 +150,7 @@ function drawLine(ctx, graphObj, useCachedPoints, start, end)
 		console.log("canvasHeight not set.");
 	}
 
-	var numPoints = 100;
+	var numPoints = 1000;
 	if (useCachedPoints)
 	{
 		numPoints = graphObj.graphPoints.length;

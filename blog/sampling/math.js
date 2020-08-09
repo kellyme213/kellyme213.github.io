@@ -35,6 +35,19 @@ function sampleFunction(func, start, end, numSamples, pdf, cdf)
 	return sum * (end - start) / numSamples;
 }
 
+function sampleFunctionStratified(func, start, end, numSamples, numSubdivisions)
+{
+	var sum = 0;
+	var randoms = generateStratifiedNumbers(numSamples, numSubdivisions);
+	for (var n = 0; n < randoms.length; n++)
+	{
+		var x = lerp(start, end, randoms[n]);
+		sum += func(x);
+	}
+
+	return sum * (end - start) / randoms.length;
+}
+
 function integrate(graphObj)
 {
 	var sum = 0;
@@ -144,6 +157,22 @@ function generateStratifiedPoints(numPoints, numSubdivisions)
 				var p = {x: (n + Math.random()) / numSubdivisions, y: (m + Math.random()) / numSubdivisions};
 				points.push(p);
 			}
+		}
+	}
+
+	return points;
+}
+
+function generateStratifiedNumbers(numPoints, numSubdivisions)
+{
+	var pointsPerBlock = numPoints / (numSubdivisions);
+	var points = [];
+
+	for (var n = 0; n < numSubdivisions; n++)
+	{
+		for (var m = 0; m < pointsPerBlock; m++)
+		{
+			points.push((n + Math.random()) / numSubdivisions);
 		}
 	}
 

@@ -36,6 +36,11 @@ var radio6b = document.getElementById("radio6b");
 var button6 = document.getElementById("button6");
 var graph6 = createGraphObject(0, 1.0, 0, 1.0, 10, 10, 100, 100, 800, 800, undefined);
 
+
+var ctx7 = document.getElementById("canvas7").getContext("2d");
+var graph7 = createGraphObject(0, 10, 0, 10, 10, 10, 100, 100, 800, 800, graphFunction7);
+
+
 window.onload = function() {
 
 
@@ -75,7 +80,13 @@ window.onload = function() {
 	radio6a.checked = true;
 	updateGraph6();
 
+	initializeContext(ctx7, graph7);
+	ctx7.lineWidth = 2;
+	drawLineNoCached(ctx7, graph7, 0, 10);
 
+	var n = 20;
+	console.log(riemannSum(graphFunction7, 0, 10, n));
+	console.log(sampleFunctionStratified(graphFunction7, 0, 10, n, 10));
 	//console.log(generateVarianceForRiemannSum(graphFunction4, 0, 3, 11.793940));
 	//console.log(generateVarianceForSampling(graphFunction4, 0, 3, 11.793940, pdf4, cdf4));
 };
