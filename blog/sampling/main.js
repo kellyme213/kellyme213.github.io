@@ -38,7 +38,15 @@ var graph6 = createGraphObject(0, 1.0, 0, 1.0, 10, 10, 100, 100, 800, 800, undef
 
 
 var ctx7 = document.getElementById("canvas7").getContext("2d");
+var radio7a = document.getElementById("radio7a");
+var radio7b = document.getElementById("radio7b");
+var radio7c = document.getElementById("radio7c");
+var slider7 = document.getElementById("slider7");
+var button7 = document.getElementById("button7");
 var graph7 = createGraphObject(0, 10, 0, 10, 10, 10, 100, 100, 800, 800, graphFunction7);
+
+var ctx8 = document.getElementById("canvas8").getContext("2d");
+var graph8 = createGraphObject(0, 50, 0, 200, 2, 6, 120, 100, 800, 800, undefined);
 
 
 window.onload = function() {
@@ -81,14 +89,32 @@ window.onload = function() {
 	updateGraph6();
 
 	initializeContext(ctx7, graph7);
-	ctx7.lineWidth = 2;
-	drawLineNoCached(ctx7, graph7, 0, 10);
+	radio7a.checked = true;
+	updateGraph7();
 
-	var n = 20;
-	console.log(riemannSum(graphFunction7, 0, 10, n));
-	console.log(sampleFunctionStratified(graphFunction7, 0, 10, n, 10));
+	//var n = 10000;
+	//console.log(riemannSum(graphFunction7, 0, 10, n));
+	//console.log(sampleFunctionStratified(graphFunction7, 0, 10, n, 10));
 	//console.log(generateVarianceForRiemannSum(graphFunction4, 0, 3, 11.793940));
 	//console.log(generateVarianceForSampling(graphFunction4, 0, 3, 11.793940, pdf4, cdf4));
+
+
+	//console.log(generateVarianceForRiemannSum(graphFunction7, 0, 10, 18.11364));
+	//console.log(generateVarianceForSampling(graphFunction7, 0, 10, 18.11364, uniformPdf, uniformCdf));
+	//console.log(generateVarianceForStratified(graphFunction7, 0, 10, 18.11364));
+
+	initializeContext(ctx8, graph8);
+	ctx8.lineWidth = 3;
+	ctx8.strokeStyle = "red";
+	graph8.graphPoints = constant5;
+	drawLineCached(ctx8, graph8);
+	ctx8.strokeStyle = "blue";
+	graph8.graphPoints = constant6;
+	drawLineCached(ctx8, graph8);
+	ctx8.strokeStyle = "green";
+	graph8.graphPoints = constant7;
+	drawLineCached(ctx8, graph8);
+
 };
 
 
@@ -197,6 +223,36 @@ radio6b.onclick = function()
 	updateGraph6();
 }
 
+slider7.oninput = function() 
+{
+	updateGraph7();
+}
+
+radio7a.onclick = function()
+{
+	updateGraph7();
+}
+
+radio7b.onclick = function()
+{
+	updateGraph7();
+}
+
+radio7c.onclick = function()
+{
+	updateGraph7();
+}
+
+check7.onclick = function()
+{
+	updateGraph7();
+}
+
+button7.onclick = function()
+{
+	updateGraph7();
+}
+
 
 function updateGraph2()
 {
@@ -274,34 +330,6 @@ function updateGraph3()
 	graph3.yMax = (graph3.graphFunc(0));
 	drawLineNoCached(ctx3, graph3, -0.25, 0.25);
 	graph3.yMax = 1.0;
-
-/*
-	graph3.yMax = numSamples;
-	graph3.xMin = 0;
-	graph3.xMax = numSamples;
-	
-	graph3.graphPoints = generateVarianceGraph(graphFunction1, 0, 1, uniformPdf, uniformCdf, 1.0, numSamples);
-	drawLineCached(ctx3, graph3);
-
-	graph3.yMax = 1.0;
-	graph3.xMin = -0.25;
-	graph3.xMax = 0.25;
-
-	var s = 0;
-	for (var x = 0; x < graph3.graphPoints.length; x++)
-	{
-		var t = graph3.graphPoints[x].x / graph3.graphPoints[x].y;
-		s += t;
-	}
-
-	s = s / graph3.graphPoints.length;
-	console.log("acg " + s, 1.0 / s);
-	*/
-
-	//var h = generateErrorHistogramForFunction(graphFunction1, 0, 1, uniformPdf, uniformCdf, 1.0, 10000);
-	//var v = 1.0 / h.variance;
-	//console.log(v / 10000, 10000 / v);
-
 }
 
 function updateGraph3Labels(val1, val2, val3)
@@ -412,6 +440,81 @@ function updateGraph6Labels(val1)
 	document.getElementById("label6a").innerHTML = "Number of samples: " + val1;
 }
 
+
+function updateGraph7()
+{
+	ctx7.clearRect(0, 0, 1000, 1000);
+	ctx7.strokeStyle = "black";
+	ctx7.fillStyle = "black";
+	ctx7.lineWidth = 5;
+	drawGraphLines(ctx7, graph7);
+
+
+	var numRectangles = Math.floor(slider7.value);
+	var flag = check7.checked;
+	ctx7.strokeStyle = "black";
+	ctx7.fillStyle = "black";
+	ctx7.lineWidth = 2;
+	drawLineNoCached(ctx7, graph7, 0, 10);
+
+	var numSamples = numRectangles;
+	var approximateArea = 0;
+
+	if (radio7a.checked)
+	{
+		ctx7.lineWidth = 5;
+		approximateArea = drawIntegralRectanglesStratified(
+			ctx7, 
+			graph7, 
+			numRectangles, 
+			0, 
+			10, 
+			10, 
+			flag,
+			colorFunction2);
+
+		numSamples = Math.floor(numRectangles / 10) * 10;
+	}
+	else if (radio7b.checked)
+	{
+		ctx7.lineWidth = 5;
+		approximateArea = drawIntegralRectanglesSampled(
+			ctx7, 
+			graph7, 
+			numRectangles, 
+			0, 
+			10, 
+			uniformPdf, 
+			uniformCdf, 
+			flag,
+			colorFunction2);
+	}
+	else
+	{
+		ctx7.strokeStyle = "rgb(255, 0, 0)";
+		ctx7.fillStyle = "rgba(255, 0, 0, 0.7)";
+		drawIntegralRectangles(ctx7, graph7, numRectangles, 0, 10);
+		
+		approximateArea = riemannSum(graph7.graphFunc, 0, 10, numRectangles);
+	}
+
+	var exactArea = 18.11364;
+	var diff = approximateArea - exactArea;
+
+	approximateArea = truncate(approximateArea, 5);
+	diff = truncate(diff, 5);
+
+
+
+	updateGraph7Labels(approximateArea, diff, numSamples);
+}
+
+function updateGraph7Labels(val1, val2, val3)
+{
+	document.getElementById("label7a").innerHTML = "Approximated Area: " + val1;
+	document.getElementById("label7b").innerHTML = "Difference: " + val2;
+	document.getElementById("label7c").innerHTML = "Number of samples: " + val3;
+}
 
 
 

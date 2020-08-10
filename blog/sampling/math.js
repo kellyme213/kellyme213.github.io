@@ -94,7 +94,7 @@ function generateVarianceForRiemannSum(func, start, end, expectedArea)
 {
 	var points = [];
 
-	for (var n = 10; n <= 500; n+=10)
+	for (var n = 0; n <= 200; n+=10)
 	{
 		var approximatedArea = riemannSum(func, start, end, n);
 		var variance = approximatedArea - expectedArea;
@@ -110,7 +110,7 @@ function generateVarianceForSampling(func, start, end, expectedArea, pdf, cdf)
 {
 	var points = [];
 
-	for (var n = 10; n <= 500; n+=10)
+	for (var n = 0; n <= 200; n+=10)
 	{
 		var histogram = generateErrorHistogramForFunction(
 			func, 
@@ -123,6 +123,26 @@ function generateVarianceForSampling(func, start, end, expectedArea, pdf, cdf)
 			500);
 
 		points.push({x: n, y: histogram.variance});
+	}
+
+	return points;
+}
+
+function generateVarianceForStratified(func, start, end, expectedArea)
+{
+	var points = [];
+
+	for (var n = 1; n <= 9; n+=1)
+	{
+		var numIterations = 500;
+		var variance = 0;
+		for (var m = 0; m < numIterations; m++)
+		{
+			var approximatedArea = sampleFunctionStratified(func, start, end, n, 10);
+			var diff = expectedArea - approximatedArea;
+			variance += (1.0 / numIterations) * diff * diff;
+		}
+		points.push({x: n, y: truncate(variance, 5)});
 	}
 
 	return points;
@@ -145,7 +165,7 @@ function generateRandomPoints(numPoints)
 
 function generateStratifiedPoints(numPoints, numSubdivisions)
 {
-	var pointsPerBlock = numPoints / (numSubdivisions * numSubdivisions);
+	var pointsPerBlock = Math.floor(numPoints / (numSubdivisions * numSubdivisions));
 	var points = [];
 
 	for (var n = 0; n < numSubdivisions; n++)
@@ -165,8 +185,8 @@ function generateStratifiedPoints(numPoints, numSubdivisions)
 
 function generateStratifiedNumbers(numPoints, numSubdivisions)
 {
-	var pointsPerBlock = numPoints / (numSubdivisions);
-	var points = [];
+	var pointsPerBlock = Math.floor(numPoints / (numSubdivisions));
+ 	var points = [];
 
 	for (var n = 0; n < numSubdivisions; n++)
 	{

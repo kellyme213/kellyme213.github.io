@@ -43,8 +43,8 @@ function graphFunction4(x)
 
 function graphFunction7(x)
 {
-	var a = 8 * Math.abs(Math.sin(7 * x));
-	return a + 1;
+	var a = 25 * (Math.max(0.7, Math.sin(6 * x)) - 0.7);
+	return a + 0.5;
 }
 
 
@@ -254,9 +254,9 @@ function drawIntegralRectangles(ctx, graphObj, numRectangles, start, end)
 		drawRectangle(
 			ctx, 
 			graphObj, 
-			n / numRectangles, 
+			(n / numRectangles) * (end - start), 
 			graphObj.graphFunc(lerp(start, end, n / numRectangles)), 
-			1.0 / numRectangles);
+			(1.0 / numRectangles) * (end - start));
 	}
 }
 
@@ -275,6 +275,40 @@ function drawIntegralRectanglesSampled(ctx, graphObj, numRectangles, start, end,
 		var w = (1.0 / numRectangles) * (1.0 / p) * (end - start);
 
 		colorFunction(ctx, x, y, p, flag);
+		if (flag)
+		{
+			drawRectangle(ctx, graphObj, xVal, y, w);
+			xVal += w;
+		}
+		else
+		{
+			drawRectangle(ctx, graphObj, x, y, w);
+		}
+		sum += y * w;
+	}
+
+	return sum;
+}
+
+function drawIntegralRectanglesStratified(ctx, graphObj, numRectangles, start, end, numSubdivisions, flag, colorFunction)
+{
+	var randoms = generateStratifiedNumbers(numRectangles, numSubdivisions);
+	if (flag)
+	{
+		randoms.sort();
+	}
+
+	var sum = 0;
+
+	var xVal = 0;
+
+	for (var n = 0; n < randoms.length; n++)
+	{
+		var x = lerp(start, end, randoms[n]);
+		var y = graphObj.graphFunc(x);
+		var w = (1.0 / randoms.length) * (end - start);
+
+		colorFunction(ctx, x, y, 1.0, flag);
 		if (flag)
 		{
 			drawRectangle(ctx, graphObj, xVal, y, w);

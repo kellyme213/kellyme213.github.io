@@ -163,10 +163,16 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas7"> </canvas>
                 </div>
                 <div class = "splitContent rightSplitContent noRight">
-                    <p> <b>Stratified sampling vs uniform sampling</b> </p>
-                    <p id = "label6a"> Number of samples: </p>
+                    <p> <b>Stratified sampling vs uniform sampling, </b> </p>
+                    <p> <b> Graph of <i>y = 25 * (max(0.7, sin(6 * x)) - 0.7) + 0.5</i> from 0 to 10. </b> </p>
+                    <p> Exact Area: 18.11364 </p>
+                    <p id = "label7a"> Approximated Area: </p>
+                    <p id = "label7b"> Difference: </p>
+                    <p id = "label7c"> Number of samples: </p>
+
+
                     <br/>
-                    <input class = "slider" type = "range" id = "slider7" min = "0" max = "500" value = "100"/>
+                    <input class = "slider" type = "range" id = "slider7" min = "0" max = "200" value = "10"/>
                     <br/>
                     <div style = "width: 100%; text-align: center;">
                         <div style="margin-left: 150px; text-align: left;">
@@ -181,13 +187,35 @@
                         </div>
                     </div>
                     <br/>
+                    <div style = "width = 100%; text-align: center">
+                        <input type = "checkbox" id = "check7" name = "check7" style = "width: 15px;"/>
+                        <label for = "check7" style = "padding-right: 10px"> Align Rectangles </label>
+                    </div>
+                    <br/>
                     <div style="width: 100%; text-align: center;">
                         <button type = "button" name = "button7" id = "button7" style = "width: 150px"> Evaluate Integral </button>
                     </div>
                 </div>
             </div>
 
+            <p> stratified is slightly better than random, </p>
 
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas8"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>Variances vs number of samples</b> </p>
+                    <p> Red line - Riemann </p>
+                    <p> Blue line - Random </p>
+                    <p> Green line - Stratified </p>
+                </div>
+            </div>
+
+            <p> Talk about red line, high frequency function and riemann bias cause it, stratified doesnt really make a difference in this function, both are about the same variance. talk about using stratified in ray tracing for generating rays and sampling from lights and whatnot. </p>
+
+
+            <h2> Importance Sampling </h2>
 
             <br/>
             <br/>            <br/>
