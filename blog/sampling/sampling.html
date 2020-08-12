@@ -217,6 +217,59 @@
 
             <h2> Importance Sampling </h2>
 
+            <p> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. In other words, each random value was equally likely to appear. What if we change this, so that some values are more likely to appear than others? This leads us to the idea of Probability Distribution Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, so that all numbers are equally likely to appear. Before we construct a new PDF, let's talk about some properties of PDFs. </p>
+
+            <p> <b> Bullets </b> PDF is defined over the interval [0, 1]. The integral of the PDF from 0 to 1 = 1 (normalized PDF).</p>
+
+            <p> We can take the integral of a PDF to obtain a CDF - Cumulative Distribution Function. While PDF(x) defines the relative probability of x being selected, CDF(x) is the amount of samples less than x that are generated. CDF(0) = 0, PDF(1) = 1. </p>
+
+            <p> We've currently been using a PDF of y = 1. Let's define a PDF of y = 2x. How do we generate numbers to follow the PDF? We will use Inverse Transorm Sampling.</p>
+
+            <p> 1. create a normalized PDF, y = PDF(x). 2. Create the CDF, y = CDF(x). 3. Invert the CDF y = CDF-1(x). 4. Generate a random sample from a uniform PDF, u. plug in u into CDF-1, the output will be distributed along the PDF.</p>
+
+            <p> As an example, let's use y = 2x as a PDF. The integral of 2x is x2. The inverse of x2 is sqrt(x). So, if we generate a random number u, sqrt(u) will be distributed along the PDF. Unfortunately, not all PDFs can be easily inverted like this, so we have to do approximations in that case, which is much more expensive than the y = 2x case. However, it can be done. </p>
+
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas9"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>PDF, CDF, Inverse Sampling</b> </p>
+                    <p id = "label9a"> Number of Points: </p>
+                    <br/>
+                    <input class = "slider" type = "range" id = "slider9" min = "0" max = "50" value = "10"/>
+                    <br/>
+                    <div style = "">
+                        <div style = "width: 49%; display: inline-block; vertical-align: top;">
+                            <p> <b> PDF </b> </p>
+                            <input type = "radio" name = "radio9" id = "radio9a" style = "width: 15px;">  </input>
+                            <label for = "radio9a" style = "padding-right: 10px"> y = 1 </label>
+                            <br/>
+                            <input type = "radio" name = "radio9" id = "radio9b" style = "width: 15px;">  </input>
+                            <label for = "radio9b" style = "padding-right: 10px"> y = 2x </label>
+                            <br/>
+                            <input type = "radio" name = "radio9" id = "radio9c" style = "width: 15px;">  </input>
+                            <label for = "radio9c" style = "padding-right: 10px"> y = {0 if 0.2 < x < 0.8, 2.5 otherwise} </label>
+                            <br/>
+                        </div>
+                        <div style = "width: 49%; display: inline-block; vertical-align: top;">
+                            <p> <b>Display Options</b> </p>
+                            <input type = "checkbox" name = "check9" id = "check9a" style = "width: 15px;">  </input>
+                            <label for = "check9a" style = "padding-right: 10px"> PDF (Red Line) </label>
+                            <br/>
+                            <input type = "checkbox" name = "check9" id = "check9b" style = "width: 15px;">  </input>
+                            <label for = "check9b" style = "padding-right: 10px"> CDF (Blue Line) </label>
+                            <br/>
+                            <input type = "checkbox" name = "check9" id = "check9c" style = "width: 15px;">  </input>
+                            <label for = "check9c" style = "padding-right: 10px"> Points </label>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <br/>
             <br/>            <br/>
             <br/>            <br/>

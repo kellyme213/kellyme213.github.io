@@ -72,6 +72,7 @@ function pdf4(x)
 }
 
 var cdf4 = generateCdf(pdf4);
+var cdf5 = generateCdf(pdf5);
 
 
 function generateCdf(pdf)
