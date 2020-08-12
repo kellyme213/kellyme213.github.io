@@ -55,6 +55,7 @@ function generateToolsHeader()
 	var sectionContent = document.createElement("DIV");
 	sectionContent.className = "headerContent";
 	sectionContent.appendChild(createLink("AR Camera Layout Tool", "arcamera.html", "arCameraBar"));
+	sectionContent.appendChild(createLink("Intro to Sampling", "blog/sampling/sampling.html", "samplingBar"));
 	sectionContent.appendChild(createLink("Procedural Snowman", "snowman.html", "snowmanBar"));
 	section.appendChild(sectionContent);
 
