@@ -19,10 +19,12 @@
             <p style = "text-align: center;"> <i>This page is currently in beta early access. Expect typos and bugs. I hope to be done in mid August, but who knows!</i> </p>
             <h1> Intro to Sampling </h1>
 
+            <p> <b> Intro paragraph talking about stuff, prerequisites and motivations for sampling maybe. </b> </p>
 
 
             <!--<canvas width = "2000px" height = "1000px" id = "canvas0" style = "width: 500px;"> </canvas>-->
 
+            <h2> Riemann Sums </h2>
 
             <p> Before we talk about sampling, let's talk about integrals. Integrals are all about finding the area under a curve. How do we find the area under a curve. Some functions are easy to integrate, the integral can be written in a closed form and we can solve for the exact area under the curve. However, some functions cannot be integraled easily, and we have to solve them analytically. This will allow us to approximate the integral's solution. One way to approximate the integral is to draw rectangles under the funciton, then add up the areas of the triangles to get an approximation. </p>
 
@@ -44,6 +46,9 @@
 
             <p> If you play around with the graph above, you can visually see how to approximate an integral. As the number of rectangles increases, the approximation gets better. In fact, as the number of rectangles used approaches infinity, the approximation approaches the exact solution! This type of approximation is typically reffered to as a Riemann sum. </p>
 
+            <p> <b> Riemann sum equation picture </b> </p>
+
+            <h2> Random Sampling </h2>
 
             <p> But is there a different way to approximate the integral? Instead of evaluating the function at evenly spaced points on the curve, what if we evaluate at randomly selected points? Let's try it! </p>
 
@@ -115,6 +120,7 @@
                     <p> <b>Variances vs number of samples</b> </p>
                     <p> Red line - Riemann </p>
                     <p> Blue line - Random </p>
+                    <p> <b> Add controls to toggle lines, maybe controls to change bounds of the graph. </b> </p>
                 </div>
             </div>
 
@@ -122,7 +128,7 @@
 
             <h2> Stratified sampling </h2>
 
-            <p> <b> strified s a m p l i n g </b> </p>
+            <p> <b> strified s a m p l i n g  talk about how it is different and whatnton </b> </p>
 
 
 
@@ -157,7 +163,7 @@
 
             <p> As you can see, stratified sampling reduces the clumping and empty spots we see in random sampling. There are a few disadvantages though. THe number of stratified samples must be a multiple of the number of regions that we sample from. This is to ensure that the random samples are uniformly distributed across each region. If there were certain regions that contain more samples than others, we would be <i> biasing </i> the points towards specifc areas of the sample space (more on biasing later). Additionally, if certain sectoins had more points than others, we would start running into the same clumping issues we were trying to avoid from rando sampling. </p>
 
-            <p> In fact, there is some bias in our Riemann sum. <b> Show high frequency graph. </b> </p>
+            <p> In fact, there is some bias in our Riemann sum. <b> add more talking about how high frequency functions are not well approximated by Riemann </b> </p>
 
             <div class = "graph">
                 <div class = "splitContent leftSplitContent noLeft">
@@ -210,6 +216,7 @@
                     <p> Red line - Riemann </p>
                     <p> Blue line - Random </p>
                     <p> Green line - Stratified </p>
+                    <p> <b> Add controls to toggle lines, maybe controls to change bounds of the graph. </b> </p>
                 </div>
             </div>
 
@@ -269,18 +276,14 @@
                 </div>
             </div>
 
+            <p> A few things about selecting a PDF to use. We want the shape of the PDF to closely match the shape of the fuction that is being approximated. The closer the shapes, the better the approximation will be. Conversely, choosing a pdf with a shape that does not closely match the function will result in poor approximations. Additionally, if we have a separable function, like y = f(x) * g(x), using either f(x) or g(x) as the PDF will lead to good results. </p>
 
+            <p> So, can we just start generating samples with our fancy new PDF/CDF and expect goos results? Almost. One last thing to consider. Our pdf will cause samples to be more or less dense now. In areas where samples are more dense, each rectangle generated should have a smaller width, since there are more samples to better approximate the dense area. Likewise, in areas of less density, the width of the rectangles should decrease, since that rectangle needs to approximate more of the function since fewer samples will be in that area. But how much to we scale these widths by? The value of the PDF at the random sample point. This leads to the following equation: </p>
 
-            <br/>
-            <br/>            <br/>
-            <br/>            <br/>
-            <br/>            <br/>
-            <br/>            <br/>
-            <br/>            <br/>
-            <br/>            <br/>
-            <br/>            <br/>
-            <br/>            <br/>
-            <br/>
+            <p> <b> importance sampling equation </b> </p>
+
+            <p> With all this in mind, lets try using importance sampling on a seperable equation and see what happens! </p>
+
 
             <div class = "graph">
                 <div class = "splitContent leftSplitContent noLeft">
@@ -331,7 +334,7 @@
         
         
         <div class = "footer">
-            <p> TEST </p>
+            <p> S̴͕͗̓A̸̡̧͉͍͈̠̘͉̜̐̿M̶̨͉̪̹̳͓͉̥̆̈́̾͜͝P̵͙̰͔̲͂L̵̢͉̽́͛̆́̂̽̊̑͘I̴̡͖̤̘̾͆̍̊͋̚N̴̢͎͚̗̤͠͝G̷̩̙̮̙̼͓͈̉̇̆̄͂̓̾ </p>
             <a href = "../../index.html"> <img src = "../../pictures/logo-white.png"> </img> </a>
             <div class = "linkBox">
                 <a href = "../../index.html"> Home </a>

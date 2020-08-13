@@ -131,8 +131,8 @@ window.onload = function() {
 	initializeContext(ctx9, graph9);
 	radio9a.checked = true;
 	check9a.checked = true;
-	check9b.checked = true;
-	check9c.checked = true;
+	//check9b.checked = true;
+	//check9c.checked = true;
 	updateGraph9();
 
 
@@ -632,7 +632,7 @@ function updateGraph9()
 	if (check9c.checked)
 	{
 
-		for (var n = 0; n < numPoints; n++)
+		for (var n = 1; n <= numPoints; n++)
 		{
 			var y = lerp(0, 1, n / numPoints);
 			var r = lerp(255, 0, n / numPoints);
@@ -641,11 +641,20 @@ function updateGraph9()
 			ctx9.strokeStyle = "rgb(" + r + ", 0, " + b + ")";
 			ctx9.fillStyle = "rgba(" + r + ", 0, " + b + ", 1.0)";
 
-			drawPoint(ctx9, graph9, 0, y, 15);
+			drawPoint(ctx9, graph9, 0, y, 10);
 
 			var x = evaluateInvertedCdf(cdf, y);
 
-			drawPoint(ctx9, graph9, x, 0, 15);
+			drawPoint(ctx9, graph9, x, 0, 10);
+
+			ctx9.strokeStyle = "rgba(" + r + ", 0, " + b + ", 1.0)";
+			ctx9.lineWidth = 3;
+			var points = [];
+			points.push({x: x, y: 0});
+			points.push({x: x, y: y});
+			points.push({x: 0, y: y});
+			graph9.graphPoints = points;
+			drawLineCached(ctx9, graph9);
 		}
 	}
 
