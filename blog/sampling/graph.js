@@ -122,25 +122,25 @@ function drawGraphLines(ctx, graphObj)
 	ctx.textAlign = "left";
 	ctx.fillText(
 		graphObj.xMin.toString(), 
-		graphObj.graphX, 
-		ctx.canvasHeight - graphObj.graphY + 50);
+		graphObj.graphX + ctx.d1.x, 
+		ctx.canvasHeight - graphObj.graphY + 50 + ctx.d1.y);
 
 	ctx.fillText(
 		graphObj.xMax.toString(), 
-		graphObj.graphX + graphObj.graphWidth, 
-		ctx.canvasHeight - graphObj.graphY + 50);
+		graphObj.graphX + graphObj.graphWidth + ctx.d2.x, 
+		ctx.canvasHeight - graphObj.graphY + 50 + ctx.d2.y);
 
 
 	ctx.textAlign = "right";
 	ctx.fillText(
 		graphObj.yMin.toString(), 
-		graphObj.graphX - 15, 
-		ctx.canvasHeight - graphObj.graphY);
+		graphObj.graphX - 15 + ctx.d3.x, 
+		ctx.canvasHeight - graphObj.graphY + ctx.d3.y);
 
 	ctx.fillText(
 		graphObj.yMax.toString(), 
-		graphObj.graphX - 15, 
-		ctx.canvasHeight - graphObj.graphY - graphObj.graphHeight);
+		graphObj.graphX - 15 + ctx.d4.x, 
+		ctx.canvasHeight - graphObj.graphY - graphObj.graphHeight + ctx.d4.y);
 }
 
 function drawLine(ctx, graphObj, useCachedPoints, start, end)

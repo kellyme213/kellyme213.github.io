@@ -118,9 +118,15 @@
                 </div>
                 <div class = "splitContent rightSplitContent noRight">
                     <p> <b>Variances vs number of samples</b> </p>
-                    <p> Red line - Riemann </p>
-                    <p> Blue line - Random </p>
-                    <p> <b> Add controls to toggle lines, maybe controls to change bounds of the graph. </b> </p>
+                    <br/>
+                    <input class = "slider" type = "range" id = "slider5" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
+                    <p> <b> Display Options </b> </p>
+                    <input type = "checkbox" name = "check5" id = "check5a" style = "width: 15px;">  </input>
+                    <label for = "check5a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
+                    <br/>
+                    <input type = "checkbox" name = "check5" id = "check5b" style = "width: 15px;">  </input>
+                    <label for = "check5b" style = "padding-right: 10px"> Random Samples (Blue Line) </label>
+                    <br/>
                 </div>
             </div>
 

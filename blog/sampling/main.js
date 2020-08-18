@@ -28,7 +28,10 @@ var check4 = document.getElementById("check4");
 var graph4 = createGraphObject(0, 3, 0, 9, 2, 6, 100, 100, 800, 800, graphFunction4);
 
 var ctx5 = document.getElementById("canvas5").getContext("2d");
-var graph5 = createGraphObject(0, 500, 0, 0.1, 2, 6, 100, 100, 800, 800, undefined);
+var check5a = document.getElementById("check5a");
+var check5b = document.getElementById("check5b");
+var slider5 = document.getElementById("slider5");
+var graph5 = createGraphObject(0, 500, 0, 0.1, 2, 6, 150, 100, 800, 800, undefined);
 
 var ctx6 = document.getElementById("canvas6").getContext("2d");
 var radio6a = document.getElementById("radio6a");
@@ -87,13 +90,10 @@ window.onload = function() {
 
 
 	initializeContext(ctx5, graph5);
-	ctx5.strokeStyle = "red";
-	graph5.graphPoints = constant1;
-	drawLineCached(ctx5, graph5);
-	ctx5.strokeStyle = "blue";
-	graph5.graphPoints = constant2;
-	drawLineCached(ctx5, graph5);
-
+	check5a.checked = true;
+	check5b.checked = true;
+	ctx5.d2.x = -50;
+	updateGraph5();
 
 	initializeContext(ctx6, graph6);
 	radio6a.checked = true;
@@ -143,10 +143,15 @@ function initializeContext(ctx, graph)
 {
 	ctx.font = '50px Montserrat';
 	ctx.canvasHeight = 1000;
+	ctx.d1 = {x: 0, y: 0};
+	ctx.d2 = {x: 0, y: 0};
+	ctx.d3 = {x: 0, y: 0};
+	ctx.d4 = {x: 0, y: 0};
 	drawGraphLines(ctx, graph);
 	ctx.lineWidth = 5;
 	ctx.strokeStyle = "black";
 	ctx.fillStyle = "black";
+
 }
 
 slider1.oninput = function()
@@ -222,6 +227,21 @@ button4.onclick = function()
 check4.onclick = function()
 {
 	updateGraph4();
+}
+
+slider5.oninput = function() 
+{
+	updateGraph5();
+}
+
+check5a.onclick = function()
+{
+	updateGraph5();
+}
+
+check5b.onclick = function()
+{
+	updateGraph5();
 }
 
 button6.onclick = function()
@@ -450,7 +470,31 @@ function updateGraph4Labels(val1, val2, val3)
 }
 
 
+function updateGraph5()
+{
+	graph5.yMax = slider5.value;
+	ctx5.clearRect(0, 0, 1000, 1000);
+	ctx5.strokeStyle = "black";
+	ctx5.fillStyle = "black";
+	ctx5.lineWidth = 5;
+	drawGraphLines(ctx5, graph5);
 
+	if (check5a.checked)
+	{
+		ctx5.lineWidth = 5;
+		ctx5.strokeStyle = "red";
+		graph5.graphPoints = constant1;
+		drawLineCached(ctx5, graph5);
+	}
+
+	if (check5b.checked)
+	{
+		ctx5.lineWidth = 5;
+		ctx5.strokeStyle = "blue";
+		graph5.graphPoints = constant2;
+		drawLineCached(ctx5, graph5);
+	}
+}
 
 function updateGraph6()
 {
