@@ -117,7 +117,7 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas5"> </canvas>
                 </div>
                 <div class = "splitContent rightSplitContent noRight">
-                    <p> <b>Variances vs number of samples</b> </p>
+                    <p> <b>Variance vs number of samples</b> </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider5" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
                     <p> <b> Display Options </b> </p>
@@ -218,11 +218,19 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas8"> </canvas>
                 </div>
                 <div class = "splitContent rightSplitContent noRight">
-                    <p> <b>Variances vs number of samples</b> </p>
-                    <p> Red line - Riemann </p>
-                    <p> Blue line - Random </p>
-                    <p> Green line - Stratified </p>
-                    <p> <b> Add controls to toggle lines, maybe controls to change bounds of the graph. </b> </p>
+                    <p> <b>Variance vs number of samples</b> </p>
+                    <br/>
+                    <input class = "slider" type = "range" id = "slider8" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
+                    <p> <b> Display Options </b> </p>
+                    <input type = "checkbox" name = "check8" id = "check8a" style = "width: 15px;">  </input>
+                    <label for = "check8a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
+                    <br/>
+                    <input type = "checkbox" name = "check8" id = "check8b" style = "width: 15px;">  </input>
+                    <label for = "check8b" style = "padding-right: 10px"> Random Samples (Blue Line) </label>
+                    <br/>
+                    <input type = "checkbox" name = "check8" id = "check8c" style = "width: 15px;">  </input>
+                    <label for = "check8c" style = "padding-right: 10px"> Stratified Samples (Green Line) </label>
+                    <br/>
                 </div>
             </div>
 
@@ -331,6 +339,16 @@
             <script src = "pdf.js"> </script>            
             <script src = "histogram.js"> </script>
             <script src = "graph.js"> </script>
+            <script src = "graph1.js"> </script>
+            <script src = "graph2.js"> </script>
+            <script src = "graph3.js"> </script>
+            <script src = "graph4.js"> </script>
+            <script src = "graph5.js"> </script>
+            <script src = "graph6.js"> </script>
+            <script src = "graph7.js"> </script>
+            <script src = "graph8.js"> </script>
+            <script src = "graph9.js"> </script>
+
             <script src = "main.js"> </script>
 
 
