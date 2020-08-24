@@ -4,7 +4,7 @@ var ctx5 = document.getElementById("canvas5").getContext("2d");
 var check5a = document.getElementById("check5a");
 var check5b = document.getElementById("check5b");
 var slider5 = document.getElementById("slider5");
-var graph5 = createGraphObject(0, 500, 0, 0.1, 2, 6, 150, 100, 800, 800, undefined);
+var graph5 = createGraphObject(0, 500, 0, 0.1, 2, 6, 100, 100, 800, 800, undefined);
 
 slider5.oninput = function() 
 {

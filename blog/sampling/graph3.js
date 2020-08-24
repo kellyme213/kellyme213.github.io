@@ -4,7 +4,7 @@
 var ctx3 = document.getElementById("canvas3").getContext("2d");
 var slider3 = document.getElementById("slider3");
 var button3 = document.getElementById("button3");
-var graph3 = createGraphObject(-0.25, 0.25, 0, 1, 4, 2, 80, 100, 800, 800, undefined);
+var graph3 = createGraphObject(-0.25, 0.25, 0, 1, 4, 2, 100, 100, 800, 800, undefined);
 
 
 slider3.oninput = function()

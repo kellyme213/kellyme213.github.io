@@ -11,6 +11,11 @@ window.onload = function() {
 
 
 	initializeContext(ctx3, graph3);
+	ctx3.clearRect(0, 0, 1000, 1000);
+	ctx3.strokeStyle = "black";
+	ctx3.fillStyle = "black";
+	ctx3.d2.x = -70;
+	drawGraphLines(ctx3, graph3);
 
 
 	initializeContext(ctx4, graph4);
@@ -21,6 +26,8 @@ window.onload = function() {
 	check5a.checked = true;
 	check5b.checked = true;
 	ctx5.d2.x = -50;
+	ctx5.d4.x = 50;
+	ctx5.d4.y = -20;
 	updateGraph5();
 
 
