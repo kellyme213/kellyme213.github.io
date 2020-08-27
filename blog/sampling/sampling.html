@@ -277,10 +277,10 @@
                         <div style = "width: 49%; display: inline-block; vertical-align: top;">
                             <p> <b>Display Options</b> </p>
                             <input type = "checkbox" name = "check9" id = "check9a" style = "width: 15px;">  </input>
-                            <label for = "check9a" style = "padding-right: 10px"> PDF (Red Line) </label>
+                            <label for = "check9a" style = "padding-right: 10px"> PDF (Blue Line) </label>
                             <br/>
                             <input type = "checkbox" name = "check9" id = "check9b" style = "width: 15px;">  </input>
-                            <label for = "check9b" style = "padding-right: 10px"> CDF (Blue Line) </label>
+                            <label for = "check9b" style = "padding-right: 10px"> CDF (Red Line) </label>
                             <br/>
                             <input type = "checkbox" name = "check9" id = "check9c" style = "width: 15px;">  </input>
                             <label for = "check9c" style = "padding-right: 10px"> Points </label>
@@ -326,8 +326,32 @@
 
 
 
-
-
+            <h2> Test code block </h2>
+            <div class = "codeBlock">
+                <code>
+<pre> two's compliment
+ how we represent negative numbers in binary
+ two's compliment uses signed integers/doubles.
+ if we only need to represent positive numbers, we can use an unsigned number.
+ unsigned char = [0, 255]
+ signed char = [-127, 128]
+ to represent a negative number, take its positive binary representation, flip all the bits, and add 1.
+ -a = ~a + 1
+ 
+ example:
+     -20 in binary
+     0001 0100  (20 in binary)              (14 in hex)
+     1110 1011  (~20 in binary)             (EB in hex)
+     1110 1100  (~20 + 1 = -20 in binary)   (EC in hex)
+ 
+     we can confirm that this is correct by adding -20 + 20 to see if it is 0
+ 
+     1111 1
+     0001 0100
+     1110 1100 +
+     0000 0000 </pre>
+                </code>
+            </div>
 
 
 

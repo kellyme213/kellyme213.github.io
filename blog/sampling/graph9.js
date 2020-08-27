@@ -85,14 +85,14 @@ function updateGraph9()
 
 	if (check9a.checked)
 	{
-		ctx9.strokeStyle = "red";
+		ctx9.strokeStyle = "blue";
 		graph9.graphFunc = pdf;
 		drawLineNoCached(ctx9, graph9, 0, 1);
 	}
 
 	if (check9b.checked)
 	{
-		ctx9.strokeStyle = "blue";
+		ctx9.strokeStyle = "red";
 		graph9.graphPoints = cdf.points;
 		drawLineCached(ctx9, graph9);
 	}

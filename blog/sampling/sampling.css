@@ -12,6 +12,11 @@ canvas
 	margin-right: auto;
 }
 
+.graph canvas
+{
+	border-radius: 20px;
+}
+
 .graph p
 {
 	font-size: 12px;
