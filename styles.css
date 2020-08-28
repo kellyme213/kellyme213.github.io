@@ -506,8 +506,12 @@ canvas
 {
     background-color: white;
     color: var(--siteColor);
-    //border-bottom-right-radius: inherit;
-    //border-bottom-left-radius: inherit;
+}
+
+#oxioBar, #snowmanBar, #plasmaballBar, #lightingBar
+{
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
 }
 
 .headerSection p

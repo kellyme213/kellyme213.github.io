@@ -305,6 +305,9 @@ tesselation vs geometry shader
 shadow maps
 cascaded shadow maps
 forward plus rendering
+tone mapping
+bloom
+how to generate a mipmap on the gpu
 
 
 
