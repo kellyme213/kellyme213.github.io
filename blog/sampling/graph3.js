@@ -9,7 +9,7 @@ var graph3 = createGraphObject(-0.25, 0.25, 0, 1, 4, 2, 100, 100, 800, 800, unde
 
 slider3.oninput = function()
 {
-	updateGraph3Labels("", "", Math.floor(slider3.value));
+	updateGraph3Labels("", "", Math.floor(slider3.value), "");
 }
 
 button3.onclick = function()
@@ -38,7 +38,7 @@ function updateGraph3()
 		numSamples, 
 		500);
 	drawHistogram(ctx3, graph3, histogram);
-	updateGraph3Labels(histogram.minDiff, histogram.maxDiff, numSamples);
+	updateGraph3Labels(histogram.minDiff, histogram.maxDiff, numSamples, truncate(histogram.variance, 5));
 	//console.log(histogram.percent, 1.0 / (histogram.variance));
 
 	ctx3.strokeStyle = "black";
@@ -51,9 +51,12 @@ function updateGraph3()
 	graph3.yMax = 1.0;
 }
 
-function updateGraph3Labels(val1, val2, val3)
+function updateGraph3Labels(val1, val2, val3, val4)
 {
 	document.getElementById("label3a").innerHTML = "Smallest Difference: " + val1;
 	document.getElementById("label3b").innerHTML = "Largest Difference: " + val2;
 	document.getElementById("label3c").innerHTML = "Samples Per Approximation: " + val3;
+	document.getElementById("label3d").innerHTML = "Variance: " + val4;
 }
+
+

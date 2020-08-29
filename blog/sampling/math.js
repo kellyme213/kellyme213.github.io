@@ -94,7 +94,16 @@ function generateVarianceForRiemannSum(func, start, end, expectedArea)
 {
 	var points = [];
 
-	for (var n = 0; n <= 200; n+=10)
+
+	for (var n = 1; n < 10; n++)
+	{
+		var approximatedArea = riemannSum(func, start, end, n);
+		var variance = approximatedArea - expectedArea;
+		variance = variance * variance;
+		points.push({x: n, y: truncate(variance, 5)});
+	}
+
+	for (var n = 10; n <= 200; n+=10)
 	{
 		var approximatedArea = riemannSum(func, start, end, n);
 		var variance = approximatedArea - expectedArea;
@@ -110,7 +119,22 @@ function generateVarianceForSampling(func, start, end, expectedArea, pdf, cdf)
 {
 	var points = [];
 
-	for (var n = 0; n <= 200; n+=10)
+	for (var n = 1; n < 10; n++)
+	{
+		var histogram = generateErrorHistogramForFunction(
+			func, 
+			start, 
+			end, 
+			pdf, 
+			cdf, 
+			expectedArea, 
+			n, 
+			500);
+
+		points.push({x: n, y: histogram.variance});
+	}
+
+	for (var n = 10; n <= 200; n+=10)
 	{
 		var histogram = generateErrorHistogramForFunction(
 			func, 

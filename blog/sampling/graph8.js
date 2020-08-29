@@ -3,7 +3,7 @@ var check8a = document.getElementById("check8a");
 var check8b = document.getElementById("check8b");
 var check8c = document.getElementById("check8c");
 var slider8 = document.getElementById("slider8");
-var graph8 = createGraphObject(0, 50, 0, 200, 2, 6, 120, 100, 800, 800, undefined);
+var graph8 = createGraphObject(0, 50, 0, 200, 2, 6, 100, 100, 800, 800, undefined);
 
 
 check8a.onclick = function()

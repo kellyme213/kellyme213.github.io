@@ -19,6 +19,8 @@ window.onload = function() {
 
 
 	initializeContext(ctx4, graph4);
+	radio4b.checked = true;
+	check4b.checked = true;
 	updateGraph4();
 
 
@@ -42,6 +44,11 @@ window.onload = function() {
 
 
 	initializeContext(ctx8, graph8);
+	ctx8.d4.y = -20;
+	ctx8.d4.x = 20;
+	check8a.checked = true;
+	check8b.checked = true;
+	check8c.checked = true;
 	updateGraph8();
 
 
@@ -49,6 +56,13 @@ window.onload = function() {
 	radio9a.checked = true;
 	check9a.checked = true;
 	updateGraph9();
+
+	initializeContext(ctx10, graph10);
+	check10a.checked = true;
+	check10b.checked = true;
+	check10c.checked = true;
+	check10d.checked = true;
+	updateGraph10();
 };
 
 

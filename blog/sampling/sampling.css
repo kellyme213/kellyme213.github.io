@@ -7,9 +7,15 @@ canvas
 
 .graph
 {
-	width: 800px;
+	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
+	font-size: 18px;
+}
+
+.graph p
+{
+	font-size: 18px;
 }
 
 .graph canvas
@@ -17,22 +23,66 @@ canvas
 	border-radius: 20px;
 }
 
-.graph p
+.graph label
 {
-	font-size: 12px;
-}
-
-label
-{
-	font-size: 12px;
 	margin: 0px;
 	padding: 0px;
 	display: inline;
 	color: var(--blackColor);
 }
 
+
 button
 {
-	font-size: 12px;
 	font-family: 'Montserrat';
 }
+
+button
+{
+    width: initial;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition-duration: 0.4s;
+    border: 1px solid red;
+    margin-right: auto;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0px 0px 10px rgb(150, 150, 150);
+    cursor: pointer;
+}
+
+button:hover
+{
+    color: red;
+    background-color: white;
+}
+
+button:active
+{
+	transition-duration: 0.0s;
+	background-color: rgb(255, 245, 245);
+}
+
+.graph input
+{
+	font-size: 20px;
+}
+
+.graphCheck
+{
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	transform: translateY(1px);
+}
+
+
+

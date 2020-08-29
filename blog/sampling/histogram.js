@@ -85,9 +85,9 @@ function generateErrorHistogramForFunction(func, start, end, pdf, cdf, exactArea
 function generateVarianceGraph(func, start, end, pdf, cdf, exactArea, numSamples)
 {
 	var points = [];
-	for (var n = 10; n < numSamples; n += 20)
+	for (var n = 10; n <= numSamples; n += 10)
 	{
-		var histogram = generateErrorHistogramForFunction(func, start, end, pdf, cdf, exactArea, n);
+		var histogram = generateErrorHistogramForFunction(func, start, end, pdf, cdf, exactArea, n, 500);
 		var p = {x: n, y: 1.0 / histogram.variance};
 		points.push(p);
 	}

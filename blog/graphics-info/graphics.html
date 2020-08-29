@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../styles.css"> </link>
+        <title> Graphics </title>
+        <meta name = "viewport" content = "width=1000"> </meta>
+        <meta charset = "UTF-8"> </meta>
+    </head>
+    
+    <body>
+        <div class = "header" id = "header">
+            <div class = "headerSection">
+                <p> <a href = "index.html" style = "text-decoration: none; color: white;"> Home </a> </p>
+            </div>
+        </div>
+        <p style = "text-align: center;"> 👷 <b>WORK IN PROGRESS</b> 👷 </p>
+        <div class = "content" style = "visibility: hidden;">
+            <h2> Test code block </h2>
+            <div class = "codeBlock">
+                <code>
+<pre> two's compliment
+ how we represent negative numbers in binary
+ two's compliment uses signed integers/doubles.
+ if we only need to represent positive numbers, we can use an unsigned number.
+ unsigned char = [0, 255]
+ signed char = [-127, 128]
+ to represent a negative number, take its positive binary representation, flip all the bits, and add 1.
+ -a = ~a + 1
+ 
+ example:
+     -20 in binary
+     0001 0100  (20 in binary)              (14 in hex)
+     1110 1011  (~20 in binary)             (EB in hex)
+     1110 1100  (~20 + 1 = -20 in binary)   (EC in hex)
+ 
+     we can confirm that this is correct by adding -20 + 20 to see if it is 0
+ 
+     1111 1
+     0001 0100
+     1110 1100 +
+     0000 0000 </pre>
+                </code>
+            </div>
+
+
+            <h1> Graphics is my <i>~* P A S S I O N *~</i></h1>
+            <p>
+                Hi, I'm Michael. I'm also a new grad (as of May 2020), so I've been doing a few interviews lately. I've found that graphics interviews require a lot more domain-specific knowledge than your run-of-the mill junior software dev interview (and are also a lot harder to get). Since I have failed many an interview because I didn't fully understand common graphics interview topics, I thought I would make a page dedicated to some of those topics, along with my (hopefully correct) answers and my additional understanding about them. This page is mostly for me to write down my own knowledge of graphics, but maybe this will help someone looking to get an idea of the type of stuff you'll need to know to get into the graphics industry.
+            </p>
+
+            <h2 class = "resumeHeading"> Powers of 2 </h2>
+            <div class = "heading">
+                <p>
+                    Yes, really. I've been directly asked about them in at least 2<sup>1</sup> interviews.
+                </p>
+                <p>
+                    I just know that 2<sup>4</sup> = 16, 2<sup>8</sup> = 256, and that I can multiply or divide by 2 to get whatever specific power of 2 I get asked to compute.
+                </p>
+            </div>
+            
+            <h2 class = "resumeHeading"> Hexadecimal </h2>
+            <div class = "heading">
+                <p>
+                    I've been asked about this a few times too. Hex is a base-16 number system. Digits 0-9 are the same as decimal, but 10 = A, 11 = B, 12 = C, 13 = D, 14 = E, 15 = F. Four binary digits corresponds to one hex digit.
+                </p>
+            </div>
+
+            <h2 class = "resumeHeading"> Two's compliment </h2>
+            <div class = "heading">
+                <p>
+                </p>
+            </div>
+
+            <h2 class = "resumeHeading"> The Rendering Equation </h2>
+            <div class = "heading">
+                <p> From <a style = "text-decoration:none;color:var(--siteColor);" href = "https://en.wikipedia.org/wiki/Rendering_equation" target = "_blank">Wikipedia</a>, the rendering equation is: </p>
+                <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/3955fb75fee8d1ace1e117f728dd33f919262b36" style = "width: 80%;"/>
+
+                <p>
+                    <i>For each input direction wi, calculate the light absorbed by the surface along wi (Li * wi&#183;n), then multiply that value by the amount of the absorbed light that exits the surface in the direction of wo (fr). Then, if the surface itself emits light, calculate the amount of emitted light that leaves the surface along wo and add it to the previous sum (Le). This is equal to the total amount of light that leaves the surface along wo (Lo).</i>
+                </p>
+
+                <p>
+                    Let's break it down in more detail, starting with the integral. This integral is a hemisphere integral, which means we are integrating over all possible input directions in the hemisphere above the surface. Next, fr(wi, wo), the BRDF of the surface. The BRDF is the ratio of light reflected along wo (radiance) divided by the light absorbed along wi (irradiance). Then, the term Li wi&#183;n. Typically, this is broken down into two terms, but I like to think of it as the irradiance term. This is because it allows the BRDF, which is radiance/irradiance, to 'cancel out' the irradiance term and leave us with radiance left in the integral.
+                </p>
+
+
+
+                <p>
+                    To understand why the irradiance term has a dot product in it, we need to look at the definition of irradiance. Irradiance is flux per unit area. We can think of the flux portion of the irradiance term as the incoming radiance Li. This means the dot product is the 'per unit area' portion of the irradiance. But how? The way I think about it is by using a flashlight. If you shine a flashlight directly down on a surface, it makes a circle of light on the surface. However, if you shine the flashlight on the surface at an angle, the circle of light turns into an ellipse, which has a larger area than the circle. If the radiance from the flashlight remains constant, and the surface area increases, the irradiance will decrease, since irradiance is flux per unit area. It turns out we can model this behavior by using the dot product term.
+                </p>
+
+                <p>
+                    A few more things about the rendering equation. In most cases, there is no closed-form solution to the integral. The rendering equation must be solved analytically. Luckily, we have computers to do that for us! The basic rendering equation does not capture some rendering effects like subsurface scattering and transmission. However, the rendering equation can be modified to accomodate these effects.
+                </p>
+            </div>
+
+            <h2 class = "resumeHeading"> BXDFs - BRDF, BSSDF, and more </h2>
+            <div class = "heading">
+                <p>
+                    BXDF stands for Bidirectional X Distribution Function - where the X is either Reflectance, Subsurface Scattering, Transmission, or other words, depending on the context. Generally, a BXDF is a function that returns the ratio of radiance to irradiance for specified input and output light directions. The simplest of the BXDF is the Bidirectional Reflectance Distribution Function, or BRDF. The BRDF will take in a direction towards the light source, wi, and the direction out of the surface/towards the camera, wr. From <a style = "text-decoration:none;color:var(--siteColor);" href = "https://en.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function" target = "_blank">Wikipedia</a>:
+                </p>
+
+                <img src = "https://upload.wikimedia.org/wikipedia/commons/e/ed/BRDF_Diagram.svg" style = "width: 30%;"/>
+
+                <p>
+
+                </p>
+
+                <p>
+                </p>
+
+                <p>
+                </p>
+            </div>
+
+            <h2 class = "resumeHeading"> Deferred Rendering </h2>
+            <div class = "heading">
+                <p>
+                    Deferred rendering is a screen-space rendering algorithm with two rendering passes instead of one. Normally, lighting calculations are performed in the fragment shader. However, in deferred rendering, the fragment shader instead writes the fragment inputs like diffuse color, specular color, depth, and normals to 4 separate textures. These textures are called the G-buffer. After all fragments have been processed, a second rendering pass combines the 4 textures together, along with the lighting, to create the final image.
+                </p>
+                <p>
+                    Why deferred rendering? In large rendering engines, there is a concept of a draw call. A draw call contains mesh data, textures, and other data to render the mesh. A draw call typically doesn't contain all of the geometry in a scene, so multiple draw calls are needed to fully render a scene. In a game, this might mean that the mountains in the background are one draw call, the trees are some more draw calls, each enemy is another draw call, and the player is another draw call. These draw calls may be done sequentially or in parallel. If we compute expensive lighting calculations in the fragment shader for the mountain draw call, it's likely that a majority of the computed pixels will be occluded by other geometry, which means those computations are wasted.
+                </p>
+                <p>
+                    Now, if you are knowledgable of the graphics pipeline, you may know that some pipelines include early depth testing that occurs before the fragment shader. While this is true, not all graphics pipelines support this, and some only perform depth testing after the fragment shader. Additionally, going back to the example from earlier, if the first draw call renders the mountains and all subsequent draw calls render in front of the mountains, we would still be performing lighting computations on the mountains that wouldn't be removed via early depth testing because the mountains were in a separate draw call from the other geometry. This is why we use deferred rendering!
+                </p>
+                <p>
+                    There are some disadvantages to deferred rendering, however. It doesn't handle transparent geometry, so you'd need to fall back to standard forward rendering to handle transparent surfaces. It also uses more memory for the G-buffer, which may be an issue on memory-constrained GPUs.
+                </p>
+            </div>
+
+
+            <h2 class = "resumeHeading"> </h2>
+            <div class = "heading">
+                <p>
+                </p>
+            </div>
+        </div>
+        
+        <!--<script type = "text/javascript" src = "scripts/header.js"> </script>-->
+        <div class = "footer">
+            <p> TEST </p>
+            <a href = "index.html"> <img src = "pictures/logo-white.png"> </img> </a>
+            <div class = "linkBox">
+                <a href = "index.html"> Home </a>
+            </div>
+        </div>
+        <script type = "text/javascript" src = "../../scripts/footer.js"> </script>
+        
+        
+    </body>
+</html>
+
+
+<!--
+ 
+ -->

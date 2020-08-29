@@ -16,7 +16,7 @@
         </div>
         <div class = "content">
             <p style = "text-align: center;"> 👷 <b>WORK IN PROGRESS</b> 👷 </p>
-            <p style = "text-align: center;"> <i>This page is currently in beta early access. Expect typos and bugs. I hope to be done in mid August, but who knows!</i> </p>
+            <p style = "text-align: center;"> <i>This page is currently in beta. Expect typos and bugs. I hope to be done in early September, but who knows!</i> </p>
             <h1> Intro to Sampling </h1>
 
             <p> <b> Intro paragraph talking about stuff, prerequisites and motivations for sampling maybe. </b> </p>
@@ -68,7 +68,7 @@
                     <input class = "slider" type = "range" id = "slider2" min = "1" max = "500" value = "10"/>
                     <br/>
                     <div style = "width = 100%; text-align: center">
-                        <input type = "checkbox" id = "check2" name = "check2" style = "width: 15px;"/>
+                        <input type = "checkbox" id = "check2" name = "check2" class = "graphCheck"/>
                         <label for = "check2" style = "padding-right: 10px"> Align Rectangles </label>
                     </div>
                     <br/>
@@ -99,6 +99,7 @@
                     <p id = "label3a"> Smallest Difference: </p>
                     <p id = "label3b"> Largest Difference: </p>
                     <p id = "label3c"> Samples Per Approximation: </p>
+                    <p id = "label3d"> Variance: </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider3" min = "1" max = "500" value = "250"/>
 
@@ -121,10 +122,10 @@
                     <br/>
                     <input class = "slider" type = "range" id = "slider5" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
                     <p> <b> Display Options </b> </p>
-                    <input type = "checkbox" name = "check5" id = "check5a" style = "width: 15px;">  </input>
+                    <input type = "checkbox" name = "check5" id = "check5a" class = "graphCheck">  </input>
                     <label for = "check5a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
                     <br/>
-                    <input type = "checkbox" name = "check5" id = "check5b" style = "width: 15px;">  </input>
+                    <input type = "checkbox" name = "check5" id = "check5b" class = "graphCheck">  </input>
                     <label for = "check5b" style = "padding-right: 10px"> Random Samples (Blue Line) </label>
                     <br/>
                 </div>
@@ -152,10 +153,10 @@
                     <br/>
                     <div style = "width: 100%; text-align: center;">
                         <div style="margin-left: 150px; text-align: left;">
-                        <input type = "radio" name = "radio6" id = "radio6a" style = "width: 15px;">  </input>
+                        <input type = "radio" name = "radio6" id = "radio6a" class = "graphCheck">  </input>
                         <label for = "radio6a" style = "padding-right: 10px"> Stratified </label>
                         <br/>
-                        <input type = "radio" name = "radio6" id = "radio6b" style = "width: 15px;">  </input>
+                        <input type = "radio" name = "radio6" id = "radio6b" class = "graphCheck">  </input>
                         <label for = "radio6b" style = "padding-right: 10px"> Random </label>
                         </div>
                     </div>
@@ -189,19 +190,19 @@
                     <br/>
                     <div style = "width: 100%; text-align: center;">
                         <div style="margin-left: 150px; text-align: left;">
-                        <input type = "radio" name = "radio7" id = "radio7a" style = "width: 15px;">  </input>
+                        <input type = "radio" name = "radio7" id = "radio7a" class = "graphCheck">  </input>
                         <label for = "radio7a" style = "padding-right: 10px"> Stratified </label>
                         <br/>
-                        <input type = "radio" name = "radio7" id = "radio7b" style = "width: 15px;">  </input>
+                        <input type = "radio" name = "radio7" id = "radio7b" class = "graphCheck">  </input>
                         <label for = "radio7b" style = "padding-right: 10px"> Random </label>
                         <br/>
-                        <input type = "radio" name = "radio7" id = "radio7c" style = "width: 15px;">  </input>
+                        <input type = "radio" name = "radio7" id = "radio7c" class = "graphCheck">  </input>
                         <label for = "radio7c" style = "padding-right: 10px"> Riemann </label>
                         </div>
                     </div>
                     <br/>
                     <div style = "width = 100%; text-align: center">
-                        <input type = "checkbox" id = "check7" name = "check7" style = "width: 15px;"/>
+                        <input type = "checkbox" id = "check7" name = "check7" class = "graphCheck"/>
                         <label for = "check7" style = "padding-right: 10px"> Align Rectangles </label>
                     </div>
                     <br/>
@@ -222,13 +223,13 @@
                     <br/>
                     <input class = "slider" type = "range" id = "slider8" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
                     <p> <b> Display Options </b> </p>
-                    <input type = "checkbox" name = "check8" id = "check8a" style = "width: 15px;">  </input>
+                    <input type = "checkbox" name = "check8" id = "check8a" class = "graphCheck">  </input>
                     <label for = "check8a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
                     <br/>
-                    <input type = "checkbox" name = "check8" id = "check8b" style = "width: 15px;">  </input>
+                    <input type = "checkbox" name = "check8" id = "check8b" class = "graphCheck">  </input>
                     <label for = "check8b" style = "padding-right: 10px"> Random Samples (Blue Line) </label>
                     <br/>
-                    <input type = "checkbox" name = "check8" id = "check8c" style = "width: 15px;">  </input>
+                    <input type = "checkbox" name = "check8" id = "check8c" class = "graphCheck">  </input>
                     <label for = "check8c" style = "padding-right: 10px"> Stratified Samples (Green Line) </label>
                     <br/>
                 </div>
@@ -264,25 +265,25 @@
                     <div style = "">
                         <div style = "width: 49%; display: inline-block; vertical-align: top;">
                             <p> <b> PDF </b> </p>
-                            <input type = "radio" name = "radio9" id = "radio9a" style = "width: 15px;">  </input>
+                            <input type = "radio" name = "radio9" id = "radio9a" class = "graphCheck">  </input>
                             <label for = "radio9a" style = "padding-right: 10px"> y = 1 </label>
                             <br/>
-                            <input type = "radio" name = "radio9" id = "radio9b" style = "width: 15px;">  </input>
+                            <input type = "radio" name = "radio9" id = "radio9b" class = "graphCheck">  </input>
                             <label for = "radio9b" style = "padding-right: 10px"> y = 2x </label>
                             <br/>
-                            <input type = "radio" name = "radio9" id = "radio9c" style = "width: 15px;">  </input>
+                            <input type = "radio" name = "radio9" id = "radio9c" class = "graphCheck">  </input>
                             <label for = "radio9c" style = "padding-right: 10px"> y = {0 if 0.2 < x < 0.8, 2.5 otherwise} </label>
                             <br/>
                         </div>
                         <div style = "width: 49%; display: inline-block; vertical-align: top;">
                             <p> <b>Display Options</b> </p>
-                            <input type = "checkbox" name = "check9" id = "check9a" style = "width: 15px;">  </input>
+                            <input type = "checkbox" name = "check9" id = "check9a" class = "graphCheck">  </input>
                             <label for = "check9a" style = "padding-right: 10px"> PDF (Blue Line) </label>
                             <br/>
-                            <input type = "checkbox" name = "check9" id = "check9b" style = "width: 15px;">  </input>
+                            <input type = "checkbox" name = "check9" id = "check9b" class = "graphCheck">  </input>
                             <label for = "check9b" style = "padding-right: 10px"> CDF (Red Line) </label>
                             <br/>
-                            <input type = "checkbox" name = "check9" id = "check9c" style = "width: 15px;">  </input>
+                            <input type = "checkbox" name = "check9" id = "check9c" class = "graphCheck">  </input>
                             <label for = "check9c" style = "padding-right: 10px"> Points </label>
                             <br/>
                         </div>
@@ -313,8 +314,31 @@
                     <input class = "slider" type = "range" id = "slider4" min = "1" max = "500" value = "10"/>
                     <br/>
                     <div style = "width: 100%; text-align: center">
-                        <input type = "checkbox" id = "check4" name = "check4" style = "width: 15px;"/>
+                        <input type = "checkbox" id = "check4" name = "check4" class = "graphCheck"/>
                         <label for = "check4" style = "padding-right: 10px"> Align Rectangles </label>
+                    </div>
+                    <br/>
+                    <div style = "">
+                        <div style = "width: 49%; display: inline-block; vertical-align: top;">
+                            <p> <b> PDF </b> </p>
+                            <input type = "radio" name = "radio4" id = "radio4a" class = "graphCheck">  </input>
+                            <label for = "radio4a" style = "padding-right: 10px"> y = 1 </label>
+                            <br/>
+                            <input type = "radio" name = "radio4" id = "radio4b" class = "graphCheck">  </input>
+                            <label for = "radio4b" style = "padding-right: 10px"> y = 2x </label>
+                            <br/>
+                            <input type = "radio" name = "radio4" id = "radio4c" class = "graphCheck">  </input>
+                            <label for = "radio4c" style = "padding-right: 10px"> y = {0 if 0.2 < x < 0.8, 2.5 otherwise} </label>
+                            <br/>
+                        </div>
+                        <div style = "width: 49%; display: inline-block; vertical-align: top;">
+                            <p> <b>Display Options</b> </p>
+                            <input type = "checkbox" name = "check4" id = "check4a" class = "graphCheck">  </input>
+                            <label for = "check4a" style = "padding-right: 10px"> PDF (Blue Line) </label>
+                            <br/>
+                            <input type = "checkbox" name = "check4" id = "check4b" class = "graphCheck">  </input>
+                            <label for = "check4b" style = "padding-right: 10px"> Graph (Black Line) </label>
+                        </div>
                     </div>
                     <br/>
                     <div style="width: 100%; text-align: center;">
@@ -323,35 +347,32 @@
                 </div>
             </div>
 
+            <p> Let's compare importance sampling to Riemann and see which evaluation strategy produces a lower variance. </p>
 
-
-
-            <h2> Test code block </h2>
-            <div class = "codeBlock">
-                <code>
-<pre> two's compliment
- how we represent negative numbers in binary
- two's compliment uses signed integers/doubles.
- if we only need to represent positive numbers, we can use an unsigned number.
- unsigned char = [0, 255]
- signed char = [-127, 128]
- to represent a negative number, take its positive binary representation, flip all the bits, and add 1.
- -a = ~a + 1
- 
- example:
-     -20 in binary
-     0001 0100  (20 in binary)              (14 in hex)
-     1110 1011  (~20 in binary)             (EB in hex)
-     1110 1100  (~20 + 1 = -20 in binary)   (EC in hex)
- 
-     we can confirm that this is correct by adding -20 + 20 to see if it is 0
- 
-     1111 1
-     0001 0100
-     1110 1100 +
-     0000 0000 </pre>
-                </code>
+            <div class = "graph">
+                <div class = "splitContent leftSplitContent noLeft">
+                    <canvas width = "1000px" height = "1000px" id = "canvas10"> </canvas>
+                </div>
+                <div class = "splitContent rightSplitContent noRight">
+                    <p> <b>Variance vs number of samples</b> </p>
+                    <br/>
+                    <p> <b> Display Options </b> </p>
+                    <input type = "checkbox" name = "check10" id = "check10a" class = "graphCheck">  </input>
+                    <label for = "check10a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
+                    <br/>
+                    <input type = "checkbox" name = "check10" id = "check10b" class = "graphCheck">  </input>
+                    <label for = "check10b" style = "padding-right: 10px"> y = 1 (Blue Line) </label>
+                    <br/>
+                    <input type = "checkbox" name = "check10" id = "check10c" class = "graphCheck">  </input>
+                    <label for = "check10c" style = "padding-right: 10px"> y = 2x (Green Line) </label>
+                    <br/>
+                    <input type = "checkbox" name = "check10" id = "check10d" class = "graphCheck">  </input>
+                    <label for = "check10d" style = "padding-right: 10px"> y = {0 if 0.2 < x < 0.8, 2.5 otherwise} (Black Line) </label>
+                    <br/>
+                </div>
             </div>
+
+            <p> Hooray! With importance sampling, we are able to get an approximation with a lower variance than our Riemann sum! talk about different lines, how riemann eventualy gets better, but on higher dimentional functions and high frequency functions this will take longer than ~50 samples to occur, so importance sampling is a general purpose way to consistently get a better result with a decent number of samples. </p>
 
 
 
@@ -372,6 +393,7 @@
             <script src = "graph7.js"> </script>
             <script src = "graph8.js"> </script>
             <script src = "graph9.js"> </script>
+            <script src = "graph10.js"> </script>
 
             <script src = "main.js"> </script>
 
