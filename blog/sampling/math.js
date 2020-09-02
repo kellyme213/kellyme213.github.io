@@ -224,6 +224,48 @@ function generateStratifiedNumbers(numPoints, numSubdivisions)
 }
 
 
+function generatePercentGraphPoint(func, start, end, expectedArea, pdf, cdf, numSamples, numIterations)
+{
+	var riemannError = Math.abs(riemannSum(func, start, end, numSamples) - expectedArea);
+	var numSmaller = 0;
+	for (var y = 0; y < numIterations; y++)
+	{
+		var randomError = Math.abs(sampleFunction(func, start, end, numSamples, pdf, cdf) - expectedArea);
+		//var randomError = Math.abs(sampleFunctionStratified(func, start, end, numSamples, 10) - expectedArea);
+		if (randomError <= riemannError)
+		{
+			numSmaller++;
+		}
+	}
+	return {x: numSamples, y: truncate(numSmaller / numIterations, 5)};
+}
+
+function generatePercentGraph(func, start, end, expectedArea, pdf, cdf)
+{
+	var points = [];
+
+	var numIterations = 500;
+	for (var x = 1; x < 10; x++)
+	{	
+		var p = generatePercentGraphPoint(func, start, end, expectedArea, pdf, cdf, x, numIterations);
+		points.push(p);
+	}
+
+	for (var x = 10; x <= 200; x+=10)
+	{
+		var p = generatePercentGraphPoint(func, start, end, expectedArea, pdf, cdf, x, numIterations);
+		points.push(p);
+	}
+	
+	return points;
+}
+
+
+
+
+
+
+
 
 
 

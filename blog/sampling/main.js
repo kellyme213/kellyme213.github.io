@@ -63,6 +63,9 @@ window.onload = function() {
 	check10c.checked = true;
 	check10d.checked = true;
 	updateGraph10();
+
+	//console.log(generatePercentGraph(graphFunction7, 0, 10, 18.11364, uniformPdf, uniformCdf));
+	//console.log(generatePercentGraph(graphFunction4, 0, 3, 11.793940, pdf5, cdf5));
 };
 
 

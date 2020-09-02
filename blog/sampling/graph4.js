@@ -120,15 +120,18 @@ function updateGraph4()
 	var diff = 11.793940 - approximateArea;
 	diff = truncate(diff, 5);
 
-	updateGraph4Labels(approximateArea, diff, numRectangles);
+	var r = riemannSum(graphFunction4, 0, 3, numRectangles);
+	r = truncate(11.793940 - r, 5);
 
-	var r = riemannSum(graph4.graphFunc, 0, 3, numRectangles);
+	updateGraph4Labels(approximateArea, diff, r, numRectangles);
+
 	//console.log(11.793940 - r);
 }
 
-function updateGraph4Labels(val1, val2, val3)
+function updateGraph4Labels(val1, val2, val3, val4)
 {
 	document.getElementById("label4a").innerHTML = "Approximated Area: " + val1;
-	document.getElementById("label4b").innerHTML = "Difference: " + val2;
-	document.getElementById("label4c").innerHTML = "Number of Rectangles: " + val3;
+	document.getElementById("label4b").innerHTML = "Error: " + val2;
+	document.getElementById("label4c").innerHTML = "Riemann Error: " + val3;
+	document.getElementById("label4d").innerHTML = "Number of Rectangles: " + val4;
 }

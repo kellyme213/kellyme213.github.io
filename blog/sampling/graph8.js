@@ -3,7 +3,8 @@ var check8a = document.getElementById("check8a");
 var check8b = document.getElementById("check8b");
 var check8c = document.getElementById("check8c");
 var slider8 = document.getElementById("slider8");
-var graph8 = createGraphObject(0, 50, 0, 200, 2, 6, 100, 100, 800, 800, undefined);
+//50 200
+var graph8 = createGraphObject(0, 200, 0, 1.0, 2, 6, 100, 100, 800, 800, undefined);
 
 
 check8a.onclick = function()
@@ -40,20 +41,20 @@ function updateGraph8()
 	{
 		ctx8.strokeStyle = "red";
 		graph8.graphPoints = constant5;
-		drawLineCached(ctx8, graph8);
+		//drawLineCached(ctx8, graph8);
 	}
 
 	if (check8b.checked)
 	{
 		ctx8.strokeStyle = "blue";
-		graph8.graphPoints = constant6;
+		graph8.graphPoints = pConstant2;
 		drawLineCached(ctx8, graph8);
 	}
 
 	if (check8c.checked)
 	{
 		ctx8.strokeStyle = "green";
-		graph8.graphPoints = constant7;
+		graph8.graphPoints = pConstant3;
 		drawLineCached(ctx8, graph8);
 	}
 }
