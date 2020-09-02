@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="../../styles.css"> </link>
         <link rel="stylesheet" href="./sampling.css"> </link>
-        <meta name = "viewport" content = "width=1200"> </meta>
+        <meta name = "viewport" content = "width=700"> </meta>
         <title> TEST </title>
         <meta charset = "UTF-8"> </meta>
     </head>
@@ -29,18 +29,18 @@
             <p> Before we talk about sampling, let's talk about integrals. Integrals are all about finding the area under a curve. How do we find the area under a curve. Some functions are easy to integrate, the integral can be written in a closed form and we can solve for the exact area under the curve. However, some functions cannot be integraled easily, and we have to solve them analytically. This will allow us to approximate the integral's solution. One way to approximate the integral is to draw rectangles under the funciton, then add up the areas of the triangles to get an approximation. </p>
 
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas1"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>The graph of y = 3x<sup>2</sup> from 0 to 1.</b> </p>
                     <p> Exact Area: 1.0 </p>
                     <p id = "label1a"> Approximated Area: </p>
                     <p id = "label1b"> Difference: </p>
                     <p id = "label1c"> Number of Rectangles: </p>
                     <br/>
-                    <input type = "range" id = "slider1" min = "1" max = "500" value = "10"/>
+                    <input class = "slider" type = "range" id = "slider1" min = "1" max = "500" value = "10"/>
                 </div>
             </div>
 
@@ -54,11 +54,11 @@
 
 
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas2"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>The graph of y = 3x<sup>2</sup> from 0 to 1 with random samples.</b> </p>
                     <p> Exact Area: 1.0 </p>
                     <p id = "label2a"> Approximated Area: </p>
@@ -88,11 +88,11 @@
             <!--<textarea id = "t" rows = "5" cols = "50"> </textarea>-->
 
 
-            <div class = "graph"> 
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer"> 
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas3"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b> A histogram showing the error between the randomly approximated area and exact area. </b> </p>
 
                     <p> Number of Approximations: 500 </p>
@@ -113,11 +113,11 @@
 
             <p> As you increase the number of samples per approximation, you will notice that the errors converge towards 0. <b>Talk about variance a bit.</b> However, the Riemann Sum also converges towards 0. Which one converges faster?</p>
             
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas5"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>Variance vs number of samples</b> </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider5" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
@@ -141,11 +141,11 @@
 
 
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas6"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>Stratified sampling vs uniform sampling</b> </p>
                     <p id = "label6a"> Number of samples: </p>
                     <br/>
@@ -172,11 +172,11 @@
 
             <p> In fact, there is some bias in our Riemann sum. <b> add more talking about how high frequency functions are not well approximated by Riemann </b> </p>
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas7"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>Stratified sampling vs uniform sampling, </b> </p>
                     <p> <b> Graph of <i>y = 25 * (max(0.7, sin(6 * x)) - 0.7) + 0.5</i> from 0 to 10. </b> </p>
                     <p> Exact Area: 18.11364 </p>
@@ -214,11 +214,11 @@
 
             <p> stratified is slightly better than random, </p>
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas8"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>Variance vs number of samples</b> </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider8" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
@@ -252,11 +252,11 @@
 
             <p> As an example, let's use y = 2x as a PDF. The integral of 2x is x2. The inverse of x2 is sqrt(x). So, if we generate a random number u, sqrt(u) will be distributed along the PDF. Unfortunately, not all PDFs can be easily inverted like this, so we have to do approximations in that case, which is much more expensive than the y = 2x case. However, it can be done. </p>
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas9"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>PDF, CDF, Inverse Sampling</b> </p>
                     <p id = "label9a"> Number of Points: </p>
                     <br/>
@@ -300,11 +300,11 @@
             <p> With all this in mind, lets try using importance sampling on a seperable equation and see what happens! </p>
 
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas4"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>The graph of y = 2x * g(x) from 0 to 3 approximated with important sampling.</b> </p>
                     <p> Exact Area: 11.793940 </p>
                     <p id = "label4a"> Approximated Area: </p>
@@ -350,11 +350,11 @@
 
             <p> Let's compare importance sampling to Riemann and see which evaluation strategy produces a lower variance. </p>
 
-            <div class = "graph">
-                <div class = "splitContent leftSplitContent noLeft">
+            <div class = "graphContainer">
+                <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas10"> </canvas>
                 </div>
-                <div class = "splitContent rightSplitContent noRight">
+                <div class = "graphControls">
                     <p> <b>Variance vs number of samples</b> </p>
                     <br/>
                     <p> <b> Display Options </b> </p>

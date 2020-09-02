@@ -1,29 +1,29 @@
-canvas
+.graphContainer
 {
-	//box-shadow: none;
-	margin: 0px: 
-	//display: inline;
-}
-
-.graph
-{
-	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 18px;
+	text-align: center;
+	padding-top: 50px;
 }
 
-.graph p
+.graphContainer p
 {
 	font-size: 18px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
-.graph canvas
+.graphContainer canvas
 {
 	border-radius: 20px;
+	width: 450px;
+	text-align: center;
 }
 
-.graph label
+.graphContainer label
 {
 	margin: 0px;
 	padding: 0px;
@@ -71,7 +71,7 @@ button:active
 	background-color: rgb(255, 245, 245);
 }
 
-.graph input
+.graphContainer input
 {
 	font-size: 20px;
 }
@@ -83,6 +83,33 @@ button:active
 	margin-right: 5px;
 	transform: translateY(1px);
 }
+
+.graph
+{
+	padding-bottom: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: inline-block; 
+}
+
+.graphControls
+{
+	padding-bottom: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: inline-block; 
+	width: 450px; 
+	text-align: left; 
+	vertical-align: top;
+
+}
+
+.graphControls .slider
+{
+	width: 100%;
+}
+
+
 
 
 
