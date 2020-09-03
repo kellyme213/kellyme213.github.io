@@ -85,7 +85,7 @@ function updateGraph9()
 
 	if (check9a.checked)
 	{
-		ctx9.strokeStyle = "blue";
+		ctx9.strokeStyle = "rgb(50, 0, 200)";
 		graph9.graphFunc = pdf;
 		drawLineNoCached(ctx9, graph9, 0, 1);
 	}
@@ -104,8 +104,8 @@ function updateGraph9()
 		for (var n = 1; n <= numPoints; n++)
 		{
 			var y = lerp(0, 1, n / numPoints);
-			var r = lerp(255, 0, n / numPoints);
-			var b = lerp(0, 255, n / numPoints);
+			var r = lerp(255, 50, n / numPoints);
+			var b = lerp(0, 200, n / numPoints);
 
 			ctx9.strokeStyle = "rgb(" + r + ", 0, " + b + ")";
 			ctx9.fillStyle = "rgba(" + r + ", 0, " + b + ", 1.0)";

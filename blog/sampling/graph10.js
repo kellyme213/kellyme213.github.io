@@ -44,7 +44,7 @@ function updateGraph10()
 
 	if (check10b.checked)
 	{
-		ctx10.strokeStyle = "blue";
+		ctx10.strokeStyle = "rgb(50, 0, 200)";
 		graph10.graphPoints = pConstant4;
 		//graph10.graphPoints = constant8;
 		drawLineCached(ctx10, graph10);
@@ -52,7 +52,7 @@ function updateGraph10()
 
 	if (check10c.checked)
 	{
-		ctx10.strokeStyle = "green";
+		ctx10.strokeStyle = "rgb(50, 200, 0)";
 		graph10.graphPoints = pConstant6;
 		//graph10.graphPoints = constant9;
 		drawLineCached(ctx10, graph10);

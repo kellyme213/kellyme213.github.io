@@ -39,21 +39,21 @@ function updateGraph8()
 
 	if (check8a.checked)
 	{
-		ctx8.strokeStyle = "red";
+		ctx8.strokeStyle = "rgb(255, 0, 0)";
 		graph8.graphPoints = constant5;
 		//drawLineCached(ctx8, graph8);
 	}
 
 	if (check8b.checked)
 	{
-		ctx8.strokeStyle = "blue";
+		ctx8.strokeStyle = "rgb(50, 0, 200)";
 		graph8.graphPoints = pConstant2;
 		drawLineCached(ctx8, graph8);
 	}
 
 	if (check8c.checked)
 	{
-		ctx8.strokeStyle = "green";
+		ctx8.strokeStyle = "rgb(50, 200, 0)";
 		graph8.graphPoints = pConstant3;
 		drawLineCached(ctx8, graph8);
 	}

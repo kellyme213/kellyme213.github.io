@@ -47,6 +47,11 @@ function graphFunction7(x)
 	return a + 0.5;
 }
 
+function graphFunction11(x)
+{
+	return x;
+}
+
 
 function createGraphObject(xMin, xMax, yMin, yMax, xStep, yStep, graphX, graphY, graphWidth, graphHeight, graphFunc)
 {

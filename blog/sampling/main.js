@@ -64,6 +64,11 @@ window.onload = function() {
 	check10d.checked = true;
 	updateGraph10();
 
+
+	initializeContext(ctx11, graph11);
+	radio11a.checked = true;
+	updateGraph11();
+
 	//console.log(generatePercentGraph(graphFunction7, 0, 10, 18.11364, uniformPdf, uniformCdf));
 	//console.log(generatePercentGraph(graphFunction4, 0, 3, 11.793940, pdf5, cdf5));
 };

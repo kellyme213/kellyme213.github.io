@@ -34,14 +34,14 @@ function updateGraph5()
 
 	if (check5a.checked)
 	{
-		ctx5.strokeStyle = "red";
+		ctx5.strokeStyle = "rgb(255, 0, 0)";
 		graph5.graphPoints = constant1;
 		//drawLineCached(ctx5, graph5);
 	}
 
 	if (check5b.checked)
 	{
-		ctx5.strokeStyle = "blue";
+		ctx5.strokeStyle = "rgb(50, 0, 200)";
 		graph5.graphPoints = pConstant1;
 		drawLineCached(ctx5, graph5);
 	}

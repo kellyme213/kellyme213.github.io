@@ -105,8 +105,8 @@ function updateGraph4()
 
 	if (check4a.checked)
 	{
-		ctx4.strokeStyle = "blue";
-		ctx4.fillStyle = "blue";
+		ctx4.strokeStyle = "rgb(50, 0, 200)";
+		ctx4.fillStyle = "rgb(50, 0, 200)";
 		ctx4.lineWidth = 5;
 		graph4.graphFunc = pdf;
 		graph4.xMax = 1;
