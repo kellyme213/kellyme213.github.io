@@ -67,9 +67,11 @@
                     <br/>
                     <input class = "slider" type = "range" id = "slider2" min = "1" max = "500" value = "10"/>
                     <br/>
-                    <div style = "width = 100%; text-align: center">
-                        <input type = "checkbox" id = "check2" name = "check2" class = "graphCheck"/>
-                        <label for = "check2" style = "padding-right: 10px"> Align Rectangles </label>
+                    <div style = "text-align: center;">
+                        <div style = "display: inline-block;">
+                            <input type = "checkbox" id = "check2" name = "check2"/>
+                            <label for = "check2"> Align Rectangles </label>
+                        </div>
                     </div>
                     <br/>
                     <div style="width = 100%; text-align: center;">
@@ -102,11 +104,10 @@
                     <p id = "label3d"> Variance: </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider3" min = "1" max = "500" value = "250"/>
-
+                    <br/>
                     <div style="width = 100%; text-align: center;">
                         <button type = "button" name = "button3" id = "button3" style = "width: 150px"> Generate Histogram </button>
                     </div>
-                    <br/>
                     <p> <i>This graph is expensive to generate, especially for high number of samples, so you'll need to press the 'Generate Histogram' button to render the graph.</i> </p>
                 </div>
             </div>
@@ -122,12 +123,10 @@
                     <br/>
                     <input class = "slider" type = "range" id = "slider5" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
                     <p> <b> Display Options </b> </p>
-                    <input type = "checkbox" name = "check5" id = "check5a" class = "graphCheck">  </input>
-                    <label for = "check5a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
-                    <br/>
-                    <input type = "checkbox" name = "check5" id = "check5b" class = "graphCheck">  </input>
-                    <label for = "check5b" style = "padding-right: 10px"> Random Samples (Blue Line) </label>
-                    <br/>
+                    <input type = "checkbox" name = "check5" id = "check5a">  </input>
+                    <label for = "check5a"> Riemann Sum (Red Line) </label>
+                    <input type = "checkbox" name = "check5" id = "check5b">  </input>
+                    <label for = "check5b"> Random Samples (Blue Line) </label>
                 </div>
             </div>
 
@@ -151,13 +150,12 @@
                     <br/>
                     <input class = "slider" type = "range" id = "slider6" min = "0" max = "500" value = "100"/>
                     <br/>
-                    <div style = "width: 100%; text-align: center;">
-                        <div style="margin-left: 150px; text-align: left;">
-                        <input type = "radio" name = "radio6" id = "radio6a" class = "graphCheck">  </input>
-                        <label for = "radio6a" style = "padding-right: 10px"> Stratified </label>
-                        <br/>
-                        <input type = "radio" name = "radio6" id = "radio6b" class = "graphCheck">  </input>
-                        <label for = "radio6b" style = "padding-right: 10px"> Random </label>
+                    <div style = "text-align: center;">
+                        <div style="text-align: left; display: inline-block;">
+                            <input type = "radio" name = "radio6" id = "radio6a">  </input>
+                            <label for = "radio6a"> Stratified </label>
+                            <input type = "radio" name = "radio6" id = "radio6b">  </input>
+                            <label for = "radio6b"> Random </label>
                         </div>
                     </div>
                     <br/>
@@ -188,22 +186,22 @@
                     <br/>
                     <input class = "slider" type = "range" id = "slider7" min = "0" max = "200" value = "10"/>
                     <br/>
-                    <div style = "width: 100%; text-align: center;">
-                        <div style="margin-left: 150px; text-align: left;">
-                        <input type = "radio" name = "radio7" id = "radio7a" class = "graphCheck">  </input>
-                        <label for = "radio7a" style = "padding-right: 10px"> Stratified </label>
-                        <br/>
-                        <input type = "radio" name = "radio7" id = "radio7b" class = "graphCheck">  </input>
-                        <label for = "radio7b" style = "padding-right: 10px"> Random </label>
-                        <br/>
-                        <input type = "radio" name = "radio7" id = "radio7c" class = "graphCheck">  </input>
-                        <label for = "radio7c" style = "padding-right: 10px"> Riemann </label>
+                    <div style = "text-align: center;">
+                        <div style="text-align: left; display: inline-block;">
+                            <input type = "radio" name = "radio7" id = "radio7a">  </input>
+                            <label for = "radio7a"> Stratified </label>
+                            <input type = "radio" name = "radio7" id = "radio7b">  </input>
+                            <label for = "radio7b"> Random </label>
+                            <input type = "radio" name = "radio7" id = "radio7c">  </input>
+                            <label for = "radio7c"> Riemann </label>
                         </div>
                     </div>
                     <br/>
-                    <div style = "width = 100%; text-align: center">
-                        <input type = "checkbox" id = "check7" name = "check7" class = "graphCheck"/>
-                        <label for = "check7" style = "padding-right: 10px"> Align Rectangles </label>
+                    <div style = "text-align: center;">
+                        <div style = "display: inline-block;">
+                            <input type = "checkbox" id = "check7" name = "check7"/>
+                            <label for = "check7"> Align Rectangles </label>
+                        </div>
                     </div>
                     <br/>
                     <div style="width: 100%; text-align: center;">
@@ -223,15 +221,12 @@
                     <br/>
                     <input class = "slider" type = "range" id = "slider8" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
                     <p> <b> Display Options </b> </p>
-                    <input type = "checkbox" name = "check8" id = "check8a" class = "graphCheck">  </input>
-                    <label for = "check8a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
-                    <br/>
-                    <input type = "checkbox" name = "check8" id = "check8b" class = "graphCheck">  </input>
-                    <label for = "check8b" style = "padding-right: 10px"> Random Samples (Blue Line) </label>
-                    <br/>
-                    <input type = "checkbox" name = "check8" id = "check8c" class = "graphCheck">  </input>
-                    <label for = "check8c" style = "padding-right: 10px"> Stratified Samples (Green Line) </label>
-                    <br/>
+                    <input type = "checkbox" name = "check8" id = "check8a">  </input>
+                    <label for = "check8a"> Riemann Sum (Red Line) </label>
+                    <input type = "checkbox" name = "check8" id = "check8b">  </input>
+                    <label for = "check8b"> Random Samples (Blue Line) </label>
+                    <input type = "checkbox" name = "check8" id = "check8c">  </input>
+                    <label for = "check8c"> Stratified Samples (Green Line) </label>
                 </div>
             </div>
 
@@ -265,27 +260,21 @@
                     <div style = "">
                         <div style = "width: 49%; display: inline-block; vertical-align: top;">
                             <p> <b> PDF </b> </p>
-                            <input type = "radio" name = "radio9" id = "radio9a" class = "graphCheck">  </input>
-                            <label for = "radio9a" style = "padding-right: 10px"> y = 1 </label>
-                            <br/>
-                            <input type = "radio" name = "radio9" id = "radio9b" class = "graphCheck">  </input>
-                            <label for = "radio9b" style = "padding-right: 10px"> y = 2x </label>
-                            <br/>
-                            <input type = "radio" name = "radio9" id = "radio9c" class = "graphCheck">  </input>
-                            <label for = "radio9c" style = "padding-right: 10px"> y = {0 if 0.2 < x < 0.8, 2.5 otherwise} </label>
-                            <br/>
+                            <input type = "radio" name = "radio9" id = "radio9a">  </input>
+                            <label for = "radio9a"> y = 1 </label>
+                            <input type = "radio" name = "radio9" id = "radio9b">  </input>
+                            <label for = "radio9b"> y = 2x </label>
+                            <input type = "radio" name = "radio9" id = "radio9c">  </input>
+                            <label for = "radio9c"> y = {if 0.2 < x < 0.8: 0; else: 2.5} </label>
                         </div>
                         <div style = "width: 49%; display: inline-block; vertical-align: top;">
                             <p> <b>Display Options</b> </p>
-                            <input type = "checkbox" name = "check9" id = "check9a" class = "graphCheck">  </input>
-                            <label for = "check9a" style = "padding-right: 10px"> PDF (Blue Line) </label>
-                            <br/>
-                            <input type = "checkbox" name = "check9" id = "check9b" class = "graphCheck">  </input>
-                            <label for = "check9b" style = "padding-right: 10px"> CDF (Red Line) </label>
-                            <br/>
-                            <input type = "checkbox" name = "check9" id = "check9c" class = "graphCheck">  </input>
-                            <label for = "check9c" style = "padding-right: 10px"> Points </label>
-                            <br/>
+                            <input type = "checkbox" name = "check9" id = "check9a">  </input>
+                            <label for = "check9a"> PDF (Blue Line) </label>
+                            <input type = "checkbox" name = "check9" id = "check9b">  </input>
+                            <label for = "check9b"> CDF (Red Line) </label>
+                            <input type = "checkbox" name = "check9" id = "check9c">  </input>
+                            <label for = "check9c"> Points </label>
                         </div>
                     </div>
                 </div>
@@ -304,16 +293,16 @@
                 </div>
                 <div class = "graphControls">
                     <p> <b>Uniform sampling vs Importance sampling</b> </p>
-                    <br/>
                     <div style = "width: 100%; text-align: center;">
                         <div style="text-align: left;">
-                        <input type = "radio" name = "radio11" id = "radio11a" class = "graphCheck">  </input>
-                        <label for = "radio11a" style = "padding-right: 10px"> 'Uniform Sampling' </label>
-                        <br/>
-                        <input type = "radio" name = "radio11" id = "radio11b" class = "graphCheck">  </input>
-                        <label for = "radio11b" style = "padding-right: 10px"> 'Importance Sampling' </label>
+                        <input type = "radio" name = "radio11" id = "radio11a">  </input>
+                        <label for = "radio11a"> Uniform Sampling </label>
+                        <input type = "radio" name = "radio11" id = "radio11b">  </input>
+                        <label for = "radio11b"> Importance Sampling </label>
                         </div>
                     </div>
+                    <br/>
+                    <i><p id = "label11a"> </p></i>
                 </div>
             </div>
 
@@ -334,32 +323,30 @@
                     <p id = "label4d"> Number of Rectangles: </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider4" min = "1" max = "500" value = "10"/>
-                    <br/>
-                    <div style = "width: 100%; text-align: center">
-                        <input type = "checkbox" id = "check4" name = "check4" class = "graphCheck"/>
-                        <label for = "check4" style = "padding-right: 10px"> Align Rectangles </label>
+                    <div style = "text-align: center;">
+                        <div style = "display: inline-block;">
+                            <input type = "checkbox" id = "check4" name = "check4"/>
+                            <label for = "check4"> Align Rectangles </label>
+                        </div>
                     </div>
                     <br/>
-                    <div style = "">
+
+                    <div>
                         <div style = "width: 49%; display: inline-block; vertical-align: top;">
                             <p> <b> PDF </b> </p>
-                            <input type = "radio" name = "radio4" id = "radio4a" class = "graphCheck">  </input>
-                            <label for = "radio4a" style = "padding-right: 10px"> y = 1 </label>
-                            <br/>
-                            <input type = "radio" name = "radio4" id = "radio4b" class = "graphCheck">  </input>
-                            <label for = "radio4b" style = "padding-right: 10px"> y = 2x </label>
-                            <br/>
-                            <input type = "radio" name = "radio4" id = "radio4c" class = "graphCheck">  </input>
-                            <label for = "radio4c" style = "padding-right: 10px"> y = {0 if 0.2 < x < 0.8, 2.5 otherwise} </label>
-                            <br/>
+                            <input type = "radio" name = "radio4" id = "radio4a">  </input>
+                            <label for = "radio4a"> y = 1 </label>
+                            <input type = "radio" name = "radio4" id = "radio4b">  </input>
+                            <label for = "radio4b"> y = 2x </label>
+                            <input type = "radio" name = "radio4" id = "radio4c">  </input>
+                            <label for = "radio4c"> y = {if 0.2 < x < 0.8: 0; else: 2.5} </label>
                         </div>
                         <div style = "width: 49%; display: inline-block; vertical-align: top;">
                             <p> <b>Display Options</b> </p>
-                            <input type = "checkbox" name = "check4" id = "check4a" class = "graphCheck">  </input>
-                            <label for = "check4a" style = "padding-right: 10px"> PDF (Blue Line) </label>
-                            <br/>
-                            <input type = "checkbox" name = "check4" id = "check4b" class = "graphCheck">  </input>
-                            <label for = "check4b" style = "padding-right: 10px"> Graph (Black Line) </label>
+                            <input type = "checkbox" name = "check4" id = "check4a">  </input>
+                            <label for = "check4a"> PDF (Blue Line) </label>
+                            <input type = "checkbox" name = "check4" id = "check4b">  </input>
+                            <label for = "check4b"> Graph (Black Line) </label>
                         </div>
                     </div>
                     <br/>
@@ -379,18 +366,14 @@
                     <p> <b>Variance vs number of samples</b> </p>
                     <br/>
                     <p> <b> Display Options </b> </p>
-                    <input type = "checkbox" name = "check10" id = "check10a" class = "graphCheck">  </input>
-                    <label for = "check10a" style = "padding-right: 10px"> Riemann Sum (Red Line) </label>
-                    <br/>
-                    <input type = "checkbox" name = "check10" id = "check10b" class = "graphCheck">  </input>
-                    <label for = "check10b" style = "padding-right: 10px"> y = 1 (Blue Line) </label>
-                    <br/>
-                    <input type = "checkbox" name = "check10" id = "check10c" class = "graphCheck">  </input>
-                    <label for = "check10c" style = "padding-right: 10px"> y = 2x (Green Line) </label>
-                    <br/>
-                    <input type = "checkbox" name = "check10" id = "check10d" class = "graphCheck">  </input>
-                    <label for = "check10d" style = "padding-right: 10px"> y = {0 if 0.2 < x < 0.8, 2.5 otherwise} (Black Line) </label>
-                    <br/>
+                    <input type = "checkbox" name = "check10" id = "check10a">  </input>
+                    <label for = "check10a"> Riemann Sum (Red Line) </label>
+                    <input type = "checkbox" name = "check10" id = "check10b">  </input>
+                    <label for = "check10b"> y = 1 (Blue Line) </label>
+                    <input type = "checkbox" name = "check10" id = "check10c">  </input>
+                    <label for = "check10c"> y = 2x (Green Line) </label>
+                    <input type = "checkbox" name = "check10" id = "check10d">  </input>
+                    <label for = "check10d"> y = {if 0.2 < x < 0.8: 0; else: 2.5} (Black Line) </label>
                 </div>
             </div>
 

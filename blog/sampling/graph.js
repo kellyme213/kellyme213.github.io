@@ -342,21 +342,29 @@ function colorFunction2(ctx, x, y, pdf, flag)
 	ctx.strokeStyle = "rgb(255, 0, 0)";
 }
 
-function colorFunction22(ctx, x, y, pdf, flag)
+function colorFunction4(ctx, x, y, pdf, flag)
 {
-	var p = (Math.min(pdf / 4.0, 1.0));
-	var r = lerp(255, 150, p);
-	var b = lerp(0, 255, p);
+	var p = (Math.min(pdf, 2.0) / 2.0);
+	var r = lerp(50, 50, p);
+	var g = lerp(0, 200, p);
+	var b = lerp(200, 0, p);
+
+	if (Math.abs(1.0 - pdf) < 0.0005)
+	{
+		r = 255;
+		g = 0; 
+		b = 0;
+	}
 
 	if (!flag)
 	{
-		ctx.fillStyle = "rgba(" + r + ", 0, " + b + ", 0.3)";
+		ctx.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 0.3)";
 	}
 	else
 	{
-		ctx.fillStyle = "rgba(" + r + ", 0, " + b + ", 0.7)";
+		ctx.fillStyle = "rgba(" + r + ", " + g + ", " + b + ", 0.7)";
 	}
-	ctx.strokeStyle = "rgb(" + r + ", 0, " + b + ")";
+	ctx.strokeStyle = "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
 function drawPoints(ctx, graphObj)

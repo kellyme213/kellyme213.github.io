@@ -639,7 +639,17 @@ var pConstant6 = [
 
 
 
+var text1 = "In uniform sampling, the samples are evenly spread throughout the entire interval. \
+Since the samples are evenly spread out, each sample approximates the same amount of the function as \
+all the others, so all of the rectangles have the same width.";
 
+var text2 = "In importance sampling, some parts of the function are sampled more frequently than other parts. \
+In this \
+case, the interval from 0.5 to 1.0 (shown in green) is sampled twice as often as the interval from 0.0 to 0.5 \
+(shown in blue). Since there are fewer samples from 0 to 0.5, each sample needs to approximate more \
+of the function, so the width of the rectangles has to increase. Similarly, since there are more samples in \
+the interval from 0.5 to 1, each sample needs approximate less of the function, so the width of the \
+rectangles should decrease.";
 
 
 

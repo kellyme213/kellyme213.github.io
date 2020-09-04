@@ -33,6 +33,7 @@ function updateGraph11()
 			drawRectangle(ctx11, graph11, x / 12, graphFunction11(x / 12), 1.0 / 12);
 			area += graphFunction11(x / 12) * (1.0 / 12);
 		}
+		updateGraph11Labels(text1);
 	}
 	else
 	{
@@ -56,16 +57,20 @@ function updateGraph11()
 				xVal += 1.0 / 16;
 			}
 		}
+		updateGraph11Labels(text2);
 	}
-
-	console.log(area);
 
 	ctx11.strokeStyle = "black";
 	drawLineNoCached(ctx11, graph11, 0, 1);
 
-
-
-
-
-
 }
+
+
+
+function updateGraph11Labels(val1)
+{
+	document.getElementById("label11a").innerHTML = val1;
+}
+
+
+

@@ -93,7 +93,7 @@ function updateGraph4()
 		pdf, 
 		cdf, 
 		flag,
-		colorFunction2);
+		colorFunction4);
 
 	if (check4b.checked)
 	{
