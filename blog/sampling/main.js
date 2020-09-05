@@ -16,7 +16,7 @@ window.onload = function() {
 	ctx3.fillStyle = "black";
 	ctx3.d2.x = -70;
 	drawGraphLines(ctx3, graph3);
-
+	updateGraph3Labels("", "", 250, "");
 
 	initializeContext(ctx4, graph4);
 	radio4b.checked = true;

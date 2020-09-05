@@ -649,7 +649,13 @@ case, the interval from 0.5 to 1.0 (shown in green) is sampled twice as often as
 (shown in blue). Since there are fewer samples from 0 to 0.5, each sample needs to approximate more \
 of the function, so the width of the rectangles has to increase. Similarly, since there are more samples in \
 the interval from 0.5 to 1, each sample needs approximate less of the function, so the width of the \
-rectangles should decrease.";
+rectangles has to decrease.";
+
+
+var text3 = "There are a number of points that are evenly distributed along the vertical axis of the graph. \
+Follow the horizontal line attached to each point and see where the line intersects with the CDF line. Then, \
+follow the vertical line down to the horizontal axis. You will notice that the points are no longer evenly \
+distributed, and they are distributed based on the PDF.";
 
 
 

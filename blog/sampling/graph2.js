@@ -53,14 +53,17 @@ function updateGraph2()
 	var diff = 1.0 - approximateArea;
 	diff = truncate(diff, 5);
 
-	updateGraph2Labels(approximateArea, diff, numRectangles);
+	var r = truncate(1.0 - truncate(riemannSum(graphFunction1, 0, 1, numRectangles), 5), 5);
+
+	updateGraph2Labels(approximateArea, diff, numRectangles, r);
 }
 
-function updateGraph2Labels(val1, val2, val3)
+function updateGraph2Labels(val1, val2, val3, val4)
 {
 	document.getElementById("label2a").innerHTML = "Approximated Area: " + val1;
-	document.getElementById("label2b").innerHTML = "Difference: " + val2;
-	document.getElementById("label2c").innerHTML = "Number of Rectangles: " + val3;
+	document.getElementById("label2b").innerHTML = "Error: " + val2;
+	document.getElementById("label2c").innerHTML = "Number of Samples: " + val3;
+	document.getElementById("label2d").innerHTML = "Riemann Sum Error: " + val4;
 }
 
 

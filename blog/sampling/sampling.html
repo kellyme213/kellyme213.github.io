@@ -16,17 +16,18 @@
         </div>
         <div class = "content">
             <p style = "text-align: center;"> 👷 <b>WORK IN PROGRESS</b> 👷 </p>
-            <p style = "text-align: center;"> <i>This page is currently in beta. Expect typos and bugs. I hope to be done in early September, but who knows!</i> </p>
+            <p style = "text-align: center;"> <i>This page is currently in beta. Expect typos and bugs. I hope to be done in early September. </i> </p>
             <h1> Intro to Sampling </h1>
 
-            <p> <b> Intro paragraph talking about stuff, prerequisites and motivations for sampling maybe. </b> </p>
+            <p> Hello! This article will introduce you to the concept of sampling- starting with Riemann sums, then moving on to uniform sampling, stratified sampling, and finishing with importance sampling. This article will explain sampling through a combination of text and interactive visual demos. If you're interested in a rigourous mathematical introduction to sampling, you may want to look elsewhere. But, if you like interactive demos, you've come to the right place! Before you begin reading, I suggest you have a good understanding of how to graph and evaluate functions. If you've taken late high school or early college level math, you should be fine. </p>
 
+            <p> <i> Let's get started! </i> </p>
 
             <!--<canvas width = "2000px" height = "1000px" id = "canvas0" style = "width: 500px;"> </canvas>-->
 
-            <h2> Riemann Sums </h2>
+            <h2> Riemann sums </h2>
 
-            <p> Before we talk about sampling, let's talk about integrals. Integrals are all about finding the area under a curve. How do we find the area under a curve. Some functions are easy to integrate, the integral can be written in a closed form and we can solve for the exact area under the curve. However, some functions cannot be integraled easily, and we have to solve them analytically. This will allow us to approximate the integral's solution. One way to approximate the integral is to draw rectangles under the funciton, then add up the areas of the triangles to get an approximation. </p>
+            <p> Before we talk about sampling, let's talk about integrals. The integral of a function is equal to the area between the function and the x-axis. Some functions are easy to integrate, the integral can be written in a nice way and we can solve for the exact area under the curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically. By solving an integral analytically, we get an approximation of the area under a curve. There are multiple ways to analytically solve an integral, but we will focus on a simple way to evaluate an integral, called a Riemann sum. In a Riemann sum, we evaluate a function at a points, then draw a rectangle with the height of the evaluated point. Let's see what this looks like visually. </p>
 
 
             <div class = "graphContainer">
@@ -34,19 +35,18 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas1"> </canvas>
                 </div>
                 <div class = "graphControls">
-                    <p> <b>The graph of y = 3x<sup>2</sup> from 0 to 1.</b> </p>
+                    <p> <b>Riemann sum of y = 3x<sup>2</sup> from 0 to 1.</b> </p>
                     <p> Exact Area: 1.0 </p>
-                    <p id = "label1a"> Approximated Area: </p>
-                    <p id = "label1b"> Difference: </p>
-                    <p id = "label1c"> Number of Rectangles: </p>
+                    <p id = "label1a"> </p>
+                    <p id = "label1b"> </p>
+                    <p id = "label1c"> </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider1" min = "1" max = "500" value = "10"/>
                 </div>
             </div>
 
-            <p> If you play around with the graph above, you can visually see how to approximate an integral. As the number of rectangles increases, the approximation gets better. In fact, as the number of rectangles used approaches infinity, the approximation approaches the exact solution! This type of approximation is typically reffered to as a Riemann sum. </p>
+            <p> If you play around with the graph above, you can visually see how to approximate an integral with a Riemann sum. As the number of rectangles increases, the approximation gets better, and the error in the approximation is reduced. </p>
 
-            <p> <b> Riemann sum equation picture </b> </p>
 
             <h2> Random Sampling </h2>
 
@@ -59,11 +59,12 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas2"> </canvas>
                 </div>
                 <div class = "graphControls">
-                    <p> <b>The graph of y = 3x<sup>2</sup> from 0 to 1 with random samples.</b> </p>
+                    <p> <b>Approximation of y = 3x<sup>2</sup> from 0 to 1.</b> </p>
                     <p> Exact Area: 1.0 </p>
-                    <p id = "label2a"> Approximated Area: </p>
-                    <p id = "label2b"> Difference: </p>
-                    <p id = "label2c"> Number of Rectangles: </p>
+                    <p id = "label2a"> </p>
+                    <p id = "label2b"> </p>
+                    <p id = "label2d"> </p>
+                    <p id = "label2c"> </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider2" min = "1" max = "500" value = "10"/>
                     <br/>
@@ -77,17 +78,17 @@
                     <div style="width = 100%; text-align: center;">
                         <button type = "button" name = "button2" id = "button2" style = "width: 150px"> Evaluate Integral </button>
                     </div>
+                    <p> <i>Since the function isn't evaluated at evenly spaced intervals, the rectangles overlap, so you can check the 'Align Rectangles' box to align the rectangles and eliminate the overlap like in the first visualization.</i> </p>
                 </div>
             </div>
 
 
-            <p> Since we aren't evaluating the function at even intervals anymore, the rectangles overlap in the visualization, so you can check the 'Align Rectangles' box to align the rectangles like in the first visualization. </p>
+
 
             <p> The randomly sampled integral estimation gives a slightly different result than the Riemann sum. Like the Riemann sum, the random approximation gets better as the number of samples increases. However, the random approximation varies in how accurate it is. Sometimes the random approximation is closer than the Reimann sum to the true value, sometimes it is further away. </p>
 
 
             <p> This error can be visualized using a historgram. </p>
-            <!--<textarea id = "t" rows = "5" cols = "50"> </textarea>-->
 
 
             <div class = "graphContainer"> 
@@ -98,10 +99,10 @@
                     <p> <b> A histogram showing the error between the randomly approximated area and exact area. </b> </p>
 
                     <p> Number of Approximations: 500 </p>
-                    <p id = "label3a"> Smallest Difference: </p>
-                    <p id = "label3b"> Largest Difference: </p>
-                    <p id = "label3c"> Samples Per Approximation: </p>
-                    <p id = "label3d"> Variance: </p>
+                    <p id = "label3a"> </p>
+                    <p id = "label3b"> </p>
+                    <p id = "label3c"> </p>
+                    <p id = "label3d"> </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider3" min = "1" max = "500" value = "250"/>
                     <br/>
@@ -277,6 +278,8 @@
                             <label for = "check9c"> Points </label>
                         </div>
                     </div>
+                    <br/>
+                    <i> <p id = "label9b"> </p> </i>
                 </div>
             </div>
 

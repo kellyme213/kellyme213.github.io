@@ -127,10 +127,21 @@ function updateGraph9()
 		}
 	}
 
-	updateGraph9Labels(numPoints);
+	var t = "";
+	if (check9c.checked)
+	{
+		t = text3;
+	}
+
+	updateGraph9Labels(numPoints, t);
 }
 
-function updateGraph9Labels(val1)
+function updateGraph9Labels(val1, val2)
 {
 	document.getElementById("label9a").innerHTML = "Number of Points: " + val1;
+	document.getElementById("label9b").innerHTML = val2;
 }
+
+
+
+

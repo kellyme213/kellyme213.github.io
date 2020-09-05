@@ -349,7 +349,7 @@ function colorFunction4(ctx, x, y, pdf, flag)
 	var g = lerp(0, 200, p);
 	var b = lerp(200, 0, p);
 
-	if (Math.abs(1.0 - pdf) < 0.0005)
+	if (Math.abs(1.0 - pdf) < 0.00005)
 	{
 		r = 255;
 		g = 0; 

@@ -39,6 +39,6 @@ function updateGraph1()
 function updateGraph1Labels(val1, val2, val3)
 {
 	document.getElementById("label1a").innerHTML = "Approximated Area: " + val1;
-	document.getElementById("label1b").innerHTML = "Difference: " + val2;
+	document.getElementById("label1b").innerHTML = "Error: " + val2;
 	document.getElementById("label1c").innerHTML = "Number of Rectangles: " + val3;
 }
