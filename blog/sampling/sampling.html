@@ -27,7 +27,7 @@
 
             <h2> Riemann sums </h2>
 
-            <p> Before we talk about sampling, let's talk about integrals. The integral of a function is equal to the area between the function and the x-axis. Some functions are easy to integrate, the integral can be written in a nice way and we can solve for the exact area under the curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically. By solving an integral analytically, we get an approximation of the area under a curve. There are multiple ways to analytically solve an integral, but we will focus on a simple way to evaluate an integral, called a Riemann sum. In a Riemann sum, we evaluate a function at a points, then draw a rectangle with the height of the evaluated point. Let's see what this looks like visually. </p>
+            <p> Before we talk about sampling, let's talk about integrals. We typically think of an integral as the "area under a curve", specifically the area between the function curve and the x-axis. Some functions are easy to integrate; we can write a nice formula to determine the exact area under a curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically. By solving an integral analytically, we get an approximation of the integral. There are multiple ways to analytically solve an integral, but we will focus on a simple way called a Riemann sum. In a Riemann sum, we evaluate a function at evenly spaced points along the curve, then draw a rectangle with the height of the evaluated point. We calculate the area of each rectangle, sum the areas, and we get an approximation for the integral. Let's see what this looks like visually. </p>
 
 
             <div class = "graphContainer">
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <p> If you play around with the graph above, you can visually see how to approximate an integral with a Riemann sum. As the number of rectangles increases, the approximation gets better, and the error in the approximation is reduced. </p>
+            <p> If you tinker with the graph above, you can visually see how to approximate an integral with a Riemann sum. As the number of rectangles increases, the approximation gets better and better, and the error in the approximation is reduced. </p>
 
 
             <h2> Random Sampling </h2>
@@ -85,10 +85,10 @@
 
 
 
-            <p> The randomly sampled integral estimation gives a slightly different result than the Riemann sum. Like the Riemann sum, the random approximation gets better as the number of samples increases. However, the random approximation varies in how accurate it is. Sometimes the random approximation is closer than the Reimann sum to the true value, sometimes it is further away. </p>
+            <p> The randomly sampled integral estimation yields a slightly different result than the Riemann sum. Like the Riemann sum, the random approximation gets better as the number of rectangles (also called samples) increases. However, the randomly approximated area is different each time you evaluate the integral. This causes the error in the approximation to vary as well. In fact, sometimes the random approximation error is smaller than the Reimann sum error, sometimes it is larger. </p>
 
 
-            <p> This error can be visualized using a historgram. </p>
+            <p> Let's visualize the error terms in a histogram. The histogram will show the errors generated from approximating the integral many times. </p>
 
 
             <div class = "graphContainer"> 
@@ -113,7 +113,9 @@
                 </div>
             </div>
 
-            <p> As you increase the number of samples per approximation, you will notice that the errors converge towards 0. <b>Talk about variance a bit.</b> However, the Riemann Sum also converges towards 0. Which one converges faster?</p>
+            <p> You may notice that at a low number of samples per approximation, there is a large variation in the error terms. As the number of samples is increased, the errors converge towards 0 and there is much less variation. This 'variation' actually has a name - variance. Broadly speaking, variance is a measurement of how spread out a group of numbers is from the average value of the group. We can see that the variance in the error terms decreases towards 0 as the number of samples increases. In this case, a variance of 0 means that the random approximation is equal to the exact value of the integral, which is what we want. We can also apply this idea of variance to our Riemann sum approximation, since there is an error term in that approximation as well. In fact, we can compare the variances of the two sampling methods, and then use the method with the smaller variance to perform our approximations. <p>
+
+            <p> <i> Side note - you may notice that the errors in the histogram mostly fit inside of a curve. This curve is called a normal/Gaussian distribution. The formula for producing a Gaussian distribution includes a variance term. </i> </p>
             
             <div class = "graphContainer">
                 <div class = "graph">
@@ -128,6 +130,12 @@
                     <label for = "check5a"> Riemann Sum (Red Line) </label>
                     <input type = "checkbox" name = "check5" id = "check5b">  </input>
                     <label for = "check5b"> Random Samples (Blue Line) </label>
+                    <br/>
+                    <p> <b> Graph Options </b> </p>
+                    <input type = "radio" name = "radio5" id = "radio5a">  </input>
+                    <label for = "radio5a"> Variance </label>
+                    <input type = "radio" name = "radio5" id = "radio5b">  </input>
+                    <label for = "radio5b"> Probability of a better approximation than Riemann </label>
                 </div>
             </div>
 
