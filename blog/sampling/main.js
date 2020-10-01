@@ -27,9 +27,10 @@ window.onload = function() {
 	initializeContext(ctx5, graph5);
 	check5a.checked = true;
 	check5b.checked = true;
+	radio5a.checked = true;
 	ctx5.d2.x = -50;
-	ctx5.d4.x = 50;
-	ctx5.d4.y = -20;
+	//ctx5.d4.x = 50;
+	//ctx5.d4.y = -20;
 	updateGraph5();
 
 
