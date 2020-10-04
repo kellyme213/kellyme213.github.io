@@ -139,11 +139,11 @@
                 </div>
             </div>
 
-            <p> Based on the graph, we see that the variance of the riemann sum is always smaller than the variance of the random samples. :(. But, can we do better? Of course we can! <b> Maybe do a graph of number of samples vs % of approximations smaller than riemann error. </b></p>
+            <p> Based on the graph, we see that the variance of the riemann sum is always smaller than the variance of the random samples. This means that our Riemann Sum approximation is generally better than our random sampling strategy. However, even though Riemann has a smaller variance, we could still get lucky and run into a case where random is better than Riemann. If you look at the second graph, you can see the probability that random sampling has a smaller error than Riemann. You'll see that the random sampling has less than 30% chance of a better approximation once the sample count is larger than 20. Those are not good odds. :(. But, can we do better? Of course we can! </p>
 
             <h2> Stratified sampling </h2>
 
-            <p> <b> strified s a m p l i n g  talk about how it is different and whatnton </b> </p>
+            <p> Let's take a slight detour to talk about Stratified Sampling. You may have noticed that in random sampling, there are cases where the random samples clump together, leaving large gaps in the interval. Usually, we do not like large gaps. We want our samples to be randomly distributed, but not clumped. How can we avoid this? With Stratified Sampling! In Stratified Sampling, we split the interval into smaller subintervals, then generate random samples in each of the subintervals. In our case, we will make sure that all the subintervals are the same size, but you could do stratified sampling with unevenly sized subintervals. </p>
 
 
 
@@ -236,10 +236,20 @@
                     <label for = "check8b"> Random Samples (Blue Line) </label>
                     <input type = "checkbox" name = "check8" id = "check8c">  </input>
                     <label for = "check8c"> Stratified Samples (Green Line) </label>
+                    <br/>
+                    <p> <b> Graph Options </b> </p>
+                    <input type = "radio" name = "radio8" id = "radio8a">  </input>
+                    <label for = "radio8a"> Variance </label>
+                    <input type = "radio" name = "radio8" id = "radio8b">  </input>
+                    <label for = "radio8b"> Probability of a better approximation than Riemann </label>
                 </div>
             </div>
 
-            <p> Talk about red line, high frequency function and riemann bias cause it, stratified doesnt really make a difference in this function, both are about the same variance. talk about using stratified in ray tracing for generating rays and sampling from lights and whatnot. </p>
+            <p> Talk about red line, high frequency function and riemann bias cause it, stratified doesnt really make a difference in this function, both are about the same variance.</p>
+
+
+            <h2> Applications of Stratified Sampling </h2>
+            <p> Generating rays through a viewport, sampling area lights.</p>
 
 
             <h2> Importance Sampling </h2>
@@ -384,14 +394,26 @@
                     <input type = "checkbox" name = "check10" id = "check10c">  </input>
                     <label for = "check10c"> y = 2x (Green Line) </label>
                     <input type = "checkbox" name = "check10" id = "check10d">  </input>
-                    <label for = "check10d"> y = {if 0.2 < x < 0.8: 0; else: 2.5} (Black Line) </label>
+                    <label for = "check10d"> y = {if 0.2 < x < 0.8: 0; else: 2.5} (Yellow Line) </label>
+                    <br/>
+                    <p> <b> Graph Options </b> </p>
+                    <input type = "radio" name = "radio10" id = "radio10a">  </input>
+                    <label for = "radio10a"> Variance </label>
+                    <input type = "radio" name = "radio10" id = "radio10b">  </input>
+                    <label for = "radio10b"> Probability of a better approximation than Riemann </label>
                 </div>
             </div>
 
-            <p> Hooray! With importance sampling, we are able to get an approximation with a lower variance than our Riemann sum! talk about different lines, how riemann eventualy gets better, but on higher dimentional functions and high frequency functions this will take longer than ~50 samples to occur, so importance sampling is a general purpose way to consistently get a better result with a decent number of samples. </p>
+            <p> Hooray! With importance sampling, we are able to get an approximation with a lower variance than our Riemann sum! Also, if you look at the probability graph, you'll notice that importance sampling has a 99% chance of producing a closer approximation than Riemann when there are less than 20 samples! Additionally, while uniform sampling drops down to around 10% at 200 samples, importance sampling is around 50%. You may also notice that our third PDF does a <i>terrible</i> job of approximating the function; it has a variance that bottoms out around 50, and a probability of better appximation that drops to 0% almost instantly. </p>
+
+            <p> In this specific case, importance sampling is almost always better when the sample count less than 20 samples. On higher dimensional functions, this '20' number will increase, since higher dimensional functions generally require more samples to accurately approximate. Because of this, we should use importance sampling wherever possible. </p>
 
 
+            <h2> Applications of Importance sampling</h2>
+            <p> Importance sampling has many applications in the computer graphics field, mostly within ray tracing. Specifically, we use importance sampling when solving the rendering equation. Sometimes we use cosine-weighted importance sampling, which used y = cos(x) as the PDF. Other times we use BRDF importance sampling, where the BRDF of the material (or parts of it) is the PDF. In other cases, we need to use multiple PDFs to efficiently sample an integral. This is called multiple importance sampling, and it's a topic for another day :). </p>
 
+            <h2> Conclusion </h2>
+            <p> Sampling is a pretty useful technique for evaluating integrals. I hope you enjoyed the demos and learned something new! </p>
 
             <br/>
             <br/>

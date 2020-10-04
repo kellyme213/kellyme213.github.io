@@ -50,6 +50,7 @@ window.onload = function() {
 	check8a.checked = true;
 	check8b.checked = true;
 	check8c.checked = true;
+	radio8a.checked = true;
 	updateGraph8();
 
 
@@ -63,6 +64,7 @@ window.onload = function() {
 	check10b.checked = true;
 	check10c.checked = true;
 	check10d.checked = true;
+	radio10a.checked = true;
 	updateGraph10();
 
 

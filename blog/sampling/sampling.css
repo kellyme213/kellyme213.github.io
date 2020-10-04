@@ -126,6 +126,23 @@ button:active
 	width: 100%;
 }
 
+.content
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 1060px)
+{
+    .content
+    {
+        width: initial;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
 
 
 

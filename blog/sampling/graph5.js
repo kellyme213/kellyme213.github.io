@@ -7,7 +7,7 @@ var slider5 = document.getElementById("slider5");
 var radio5a = document.getElementById("radio5a");
 var radio5b = document.getElementById("radio5b");
 //0.1
-var graph5 = createGraphObject(0, 200, 0, 1.0, 2, 6, 100, 100, 800, 800, undefined);
+var graph5 = createGraphObject(0, 200, 0, 1.0, 2, 10, 100, 100, 800, 800, undefined);
 
 slider5.oninput = function() 
 {
@@ -48,7 +48,6 @@ function updateGraph5()
 	if (radio5a.checked)
 	{
 		graph5.yMax = 0.1;
-		graph5.xMax = 200;
 		drawGraphLines(ctx5, graph5);
 		ctx5.lineWidth = 5;
 		if (check5a.checked)
