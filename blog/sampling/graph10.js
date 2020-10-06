@@ -78,6 +78,8 @@ function updateGraph10()
 			graph10.graphPoints = constant10;
 			drawLineCached(ctx10, graph10);
 		}
+
+		updateGraph10Labels("Variance vs number of samples <br> <br/>");
 	}
 	else if (radio10b.checked)
 	{
@@ -104,8 +106,16 @@ function updateGraph10()
 			graph10.graphPoints = pConstant5;
 			drawLineCached(ctx10, graph10);
 		}
+
+		updateGraph10Labels("Probability of a better approximation vs number of samples");
 	}
-
-
-
 }
+
+
+function updateGraph10Labels(val1)
+{
+	document.getElementById("label10a").innerHTML = val1;
+}
+
+
+

@@ -3,16 +3,10 @@
 var ctx5 = document.getElementById("canvas5").getContext("2d");
 var check5a = document.getElementById("check5a");
 var check5b = document.getElementById("check5b");
-var slider5 = document.getElementById("slider5"); 
 var radio5a = document.getElementById("radio5a");
 var radio5b = document.getElementById("radio5b");
 //0.1
 var graph5 = createGraphObject(0, 200, 0, 1.0, 2, 10, 100, 100, 800, 800, undefined);
-
-slider5.oninput = function() 
-{
-	updateGraph5();
-}
 
 check5a.onclick = function()
 {
@@ -63,6 +57,7 @@ function updateGraph5()
 			graph5.graphPoints = constant2;
 			drawLineCached(ctx5, graph5);
 		}
+		updateGraph5Labels("Variance vs number of samples <br> <br/>");
 	}
 	else if (radio5b.checked)
 	{
@@ -75,7 +70,17 @@ function updateGraph5()
 			graph5.graphPoints = pConstant1;
 			drawLineCached(ctx5, graph5);
 		}
+		updateGraph5Labels("Probability of a better approximation vs number of samples");
 	}
 
 
 }
+
+
+function updateGraph5Labels(val1)
+{
+	document.getElementById("label5a").innerHTML = val1;
+}
+
+
+

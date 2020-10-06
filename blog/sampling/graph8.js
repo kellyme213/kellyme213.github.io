@@ -2,7 +2,6 @@ var ctx8 = document.getElementById("canvas8").getContext("2d");
 var check8a = document.getElementById("check8a");
 var check8b = document.getElementById("check8b");
 var check8c = document.getElementById("check8c");
-var slider8 = document.getElementById("slider8");
 var radio8a = document.getElementById("radio8a");
 var radio8b = document.getElementById("radio8b");
 //50 200
@@ -20,11 +19,6 @@ check8b.onclick = function()
 }
 
 check8c.onclick = function()
-{
-	updateGraph8();
-}
-
-slider8.oninput = function() 
 {
 	updateGraph8();
 }
@@ -72,6 +66,8 @@ function updateGraph8()
 			graph8.graphPoints = constant7;
 			drawLineCached(ctx8, graph8);
 		}
+
+		updateGraph8Labels("Variance vs number of samples <br> <br/>");
 	}
 	else if (radio8b.checked)
 	{
@@ -91,7 +87,23 @@ function updateGraph8()
 			graph8.graphPoints = pConstant3;
 			drawLineCached(ctx8, graph8);
 		}
+
+		updateGraph8Labels("Probability of a better approximation vs number of samples");
 	}
 
 
 }
+
+
+function updateGraph8Labels(val1)
+{
+	document.getElementById("label8a").innerHTML = val1;
+}
+
+
+
+
+
+
+
+

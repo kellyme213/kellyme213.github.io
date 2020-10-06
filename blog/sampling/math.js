@@ -103,6 +103,8 @@ function generateVarianceForRiemannSum(func, start, end, expectedArea)
 		points.push({x: n, y: truncate(variance, 5)});
 	}
 
+	return points;
+
 	for (var n = 10; n <= 200; n+=10)
 	{
 		var approximatedArea = riemannSum(func, start, end, n);

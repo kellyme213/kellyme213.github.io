@@ -23,11 +23,9 @@
 
             <p> <i> Let's get started! </i> </p>
 
-            <!--<canvas width = "2000px" height = "1000px" id = "canvas0" style = "width: 500px;"> </canvas>-->
-
-            <h2> Riemann sums </h2>
-
-            <p> Before we talk about sampling, let's talk about integrals. We typically think of an integral as the "area under a curve", specifically the area between the function curve and the x-axis. Some functions are easy to integrate; we can write a nice formula to determine the exact area under a curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically. By solving an integral analytically, we get an approximation of the integral. There are multiple ways to analytically solve an integral, but we will focus on a simple way called a Riemann sum. In a Riemann sum, we evaluate a function at evenly spaced points along the curve, then draw a rectangle with the height of the evaluated point. We calculate the area of each rectangle, sum the areas, and we get an approximation for the integral. Let's see what this looks like visually. </p>
+            <br/>
+            <h2 class = "sectionHeader"> Riemann sums </h2>
+            <p class = "sectionIntro"> Before we talk about sampling, let's talk about integrals. We typically think of an integral as the "area under a curve", specifically the area between the function curve and the x-axis. Some functions are easy to integrate; we can write a nice formula to determine the exact area under a curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically. By solving an integral analytically, we get an approximation of the integral. There are multiple ways to analytically solve an integral, but we will focus on a simple way called a Riemann sum. In a Riemann sum, we evaluate a function at evenly spaced points along the curve, then draw a rectangle with the height of the evaluated point. We calculate the area of each rectangle, sum the areas, and we get an approximation for the integral. Let's see what this looks like visually. </p>
 
 
             <div class = "graphContainer">
@@ -47,10 +45,9 @@
 
             <p> If you tinker with the graph above, you can visually see how to approximate an integral with a Riemann sum. As the number of rectangles increases, the approximation gets better and better, and the error in the approximation is reduced. </p>
 
-
-            <h2> Random Sampling </h2>
-
-            <p> But is there a different way to approximate the integral? Instead of evaluating the function at evenly spaced points on the curve, what if we evaluate at randomly selected points? Let's try it! </p>
+            <br/>
+            <h2 class = "sectionHeader"> Random Sampling </h2>
+            <p class = "sectionIntro"> But is there a different way to approximate the integral? Instead of evaluating the function at evenly spaced points on the curve, what if we evaluate at randomly selected points? Let's try it! </p>
 
 
 
@@ -122,9 +119,7 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas5"> </canvas>
                 </div>
                 <div class = "graphControls">
-                    <p> <b>Variance vs number of samples</b> </p>
-                    <br/>
-                    <input class = "slider" type = "range" id = "slider5" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
+                    <p style = "font-weight: bold;" id = "label5a"> </p>
                     <p> <b> Display Options </b> </p>
                     <input type = "checkbox" name = "check5" id = "check5a">  </input>
                     <label for = "check5a"> Riemann Sum (Red Line) </label>
@@ -141,9 +136,9 @@
 
             <p> Based on the graph, we see that the variance of the riemann sum is always smaller than the variance of the random samples. This means that our Riemann Sum approximation is generally better than our random sampling strategy. However, even though Riemann has a smaller variance, we could still get lucky and run into a case where random is better than Riemann. If you look at the second graph, you can see the probability that random sampling has a smaller error than Riemann. You'll see that the random sampling has less than 30% chance of a better approximation once the sample count is larger than 20. Those are not good odds. :(. But, can we do better? Of course we can! </p>
 
-            <h2> Stratified sampling </h2>
-
-            <p> Let's take a slight detour to talk about Stratified Sampling. You may have noticed that in random sampling, there are cases where the random samples clump together, leaving large gaps in the interval. Usually, we do not like large gaps. We want our samples to be randomly distributed, but not clumped. How can we avoid this? With Stratified Sampling! In Stratified Sampling, we split the interval into smaller subintervals, then generate random samples in each of the subintervals. In our case, we will make sure that all the subintervals are the same size, but you could do stratified sampling with unevenly sized subintervals. </p>
+            <br/>
+            <h2 class = "sectionHeader"> Stratified sampling </h2>
+            <p class="sectionIntro"> Let's take a slight detour to talk about Stratified Sampling. You may have noticed that in random sampling, there are cases where the random samples clump together, leaving large gaps in the interval. Usually, we do not like large gaps. We want our samples to be randomly distributed, but not clumped. How can we avoid this? With Stratified Sampling! In Stratified Sampling, we split the interval into smaller subintervals, then generate random samples in each of the subintervals. In our case, we will make sure that all the subintervals are the same size, but you could do stratified sampling with unevenly sized subintervals. </p>
 
 
 
@@ -157,7 +152,7 @@
                     <p> <b>Stratified sampling vs uniform sampling</b> </p>
                     <p id = "label6a"> Number of samples: </p>
                     <br/>
-                    <input class = "slider" type = "range" id = "slider6" min = "0" max = "500" value = "100"/>
+                    <input class = "slider" type = "range" id = "slider6" min = "1" max = "500" value = "100"/>
                     <br/>
                     <div style = "text-align: center;">
                         <div style="text-align: left; display: inline-block;">
@@ -193,7 +188,7 @@
 
 
                     <br/>
-                    <input class = "slider" type = "range" id = "slider7" min = "0" max = "200" value = "10"/>
+                    <input class = "slider" type = "range" id = "slider7" min = "1" max = "200" value = "10"/>
                     <br/>
                     <div style = "text-align: center;">
                         <div style="text-align: left; display: inline-block;">
@@ -226,9 +221,7 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas8"> </canvas>
                 </div>
                 <div class = "graphControls">
-                    <p> <b>Variance vs number of samples</b> </p>
-                    <br/>
-                    <input class = "slider" type = "range" id = "slider8" min = "0.01" max = "0.1" value = "0.1" step = "0.005"/>
+                    <p style = "font-weight: bold;" id = "label8a">  </p>
                     <p> <b> Display Options </b> </p>
                     <input type = "checkbox" name = "check8" id = "check8a">  </input>
                     <label for = "check8a"> Riemann Sum (Red Line) </label>
@@ -247,14 +240,13 @@
 
             <p> Talk about red line, high frequency function and riemann bias cause it, stratified doesnt really make a difference in this function, both are about the same variance.</p>
 
+            <br/>
+            <h2 class = "sectionHeader"> Applications of Stratified Sampling </h2>
+            <p class = "sectionIntro"> Generating rays through a viewport, sampling area lights.</p>
 
-            <h2> Applications of Stratified Sampling </h2>
-            <p> Generating rays through a viewport, sampling area lights.</p>
-
-
-            <h2> Importance Sampling </h2>
-
-            <p> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. In other words, each random value was equally likely to appear. What if we change this, so that some values are more likely to appear than others? This leads us to the idea of Probability Distribution Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, so that all numbers are equally likely to appear. Before we construct a new PDF, let's talk about some properties of PDFs. </p>
+            <br/>
+            <h2 class = "sectionHeader"> Importance Sampling </h2>
+            <p class = "sectionIntro"> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. In other words, each random value was equally likely to appear. What if we change this, so that some values are more likely to appear than others? This leads us to the idea of Probability Distribution Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, so that all numbers are equally likely to appear. Before we construct a new PDF, let's talk about some properties of PDFs. </p>
 
             <p> <b> Bullets </b> PDF is defined over the interval [0, 1]. The integral of the PDF from 0 to 1 = 1 (normalized PDF).</p>
 
@@ -384,8 +376,7 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas10"> </canvas>
                 </div>
                 <div class = "graphControls">
-                    <p> <b>Variance vs number of samples</b> </p>
-                    <br/>
+                    <p style = "font-weight: bold;" id = "label10a">  </p>
                     <p> <b> Display Options </b> </p>
                     <input type = "checkbox" name = "check10" id = "check10a">  </input>
                     <label for = "check10a"> Riemann Sum (Red Line) </label>
@@ -408,12 +399,13 @@
 
             <p> In this specific case, importance sampling is almost always better when the sample count less than 20 samples. On higher dimensional functions, this '20' number will increase, since higher dimensional functions generally require more samples to accurately approximate. Because of this, we should use importance sampling wherever possible. </p>
 
+            <br/>
+            <h2 class = "sectionHeader"> Applications of Importance sampling</h2>
+            <p class = "sectionIntro"> Importance sampling has many applications in the computer graphics field, mostly within ray tracing. Specifically, we use importance sampling when solving the rendering equation. Sometimes we use cosine-weighted importance sampling, which used y = cos(x) as the PDF. Other times we use BRDF importance sampling, where the BRDF of the material (or parts of it) is the PDF. In other cases, we need to use multiple PDFs to efficiently sample the entire interval of an integral. This is called multiple importance sampling, and it's a topic for another day :). </p>
 
-            <h2> Applications of Importance sampling</h2>
-            <p> Importance sampling has many applications in the computer graphics field, mostly within ray tracing. Specifically, we use importance sampling when solving the rendering equation. Sometimes we use cosine-weighted importance sampling, which used y = cos(x) as the PDF. Other times we use BRDF importance sampling, where the BRDF of the material (or parts of it) is the PDF. In other cases, we need to use multiple PDFs to efficiently sample an integral. This is called multiple importance sampling, and it's a topic for another day :). </p>
-
-            <h2> Conclusion </h2>
-            <p> Sampling is a pretty useful technique for evaluating integrals. I hope you enjoyed the demos and learned something new! </p>
+            <br/>
+            <h2 class = "sectionHeader"> Conclusion </h2>
+            <p class = "sectionIntro"> Sampling is a pretty useful technique for evaluating integrals. I hope you enjoyed the demos and learned something new! </p>
 
             <br/>
             <br/>
