@@ -170,9 +170,9 @@
             </div>
 
 
-            <p> As you can see, stratified sampling reduces the clumping and empty spots we see in random sampling. There are a few disadvantages though. THe number of stratified samples must be a multiple of the number of regions that we sample from. This is to ensure that the random samples are uniformly distributed across each region. If there were certain regions that contain more samples than others, we would be <i> biasing </i> the points towards specifc areas of the sample space (more on biasing later). Additionally, if certain sectoins had more points than others, we would start running into the same clumping issues we were trying to avoid from rando sampling. </p>
+            <p> As you can see, stratified sampling reduces the clumping and empty spots we see in random sampling. However, there are a few disadvantages to stratified sampling. THe number of stratified samples must be a multiple of the number of subintervals. We want to ensure that each subinterval has the same number of samples as all the others. If the number of samples is not a multiple of the number of subintervals, some of the subintervals would have more samples than others, which would introduce bias into our sampling strategy (more on biasing later). We want stratified samping to remain unbiased, just like uniform sampling. In fact, our Riemann sum approximation has some bias in it, although much more subtle. The bias comes from the fact that the function is sampled at evenly spaced points along the interval, which is not the case with uniform or stratified sampling. </p>
 
-            <p> In fact, there is some bias in our Riemann sum. <b> add more talking about how high frequency functions are not well approximated by Riemann </b> </p>
+            <p> Now, let's use stratified sampling to approximate an intergral. We will approximate a high frequency intergral this time, which means the function has relatively large values over multiple small intervals. </p>
 
             <div class = "graphContainer">
                 <div class = "graph">
@@ -214,8 +214,6 @@
                 </div>
             </div>
 
-            <p> stratified is slightly better than random, </p>
-
             <div class = "graphContainer">
                 <div class = "graph">
                     <canvas width = "1000px" height = "1000px" id = "canvas8"> </canvas>
@@ -238,11 +236,11 @@
                 </div>
             </div>
 
-            <p> Talk about red line, high frequency function and riemann bias cause it, stratified doesnt really make a difference in this function, both are about the same variance.</p>
+            <p> Based on the data, there isn't much difference between stratified and uniform sampling in this case. However, you may notice that the Riemann sum approximation sometimes does a very poor job of approximating the function at low sample counts. This is partially because the bias in the Riemann sum where we sample at evenly spaced points along the function. It's also due to undersampling- a common problem in signal processing. While stratified sampling does not consistently beat Riemann, we have found a weakness in Riemann. It's not great at sampling high frequency functions when the sample count is low. Perhaps we can use the idea of bias to our advantage somehow... </p>
 
             <br/>
             <h2 class = "sectionHeader"> Applications of Stratified Sampling </h2>
-            <p class = "sectionIntro"> Generating rays through a viewport, sampling area lights.</p>
+            <p class = "sectionIntro"> While we saw negligible results when using stratified sampling, there are certain cases where it is used and has a slightly better approximation than uniform sampling. Some of these cases are: sampling area lights, generating camera rays through a pixel or viewport. </p>
 
             <br/>
             <h2 class = "sectionHeader"> Importance Sampling </h2>
