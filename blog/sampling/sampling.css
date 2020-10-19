@@ -143,17 +143,32 @@ button:active
     }
 }
 
-.sectionHeader
+li
 {
-	margin-bottom: 0px;
-	border-bottom: 1px solid var(--siteColor);
+	color: var(--blackColor);
+	font-size: 20px
 }
 
-.sectionIntro
+.learnMore
 {
-	margin-top: 0px;
-
+	width: 450px;
+	padding: 20px;
+	padding-top: 0px;
+	background-color: rgb(255, 247, 243);
+	box-shadow: 0px 0px 10px rgb(200, 200, 200);
+	border-radius: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+.content .learnMoreTitle
+{
+	font-weight: bold;
+	padding: 0px;
+	margin: 0px;
+	font-size: 25px;
+}
+
 
 
 

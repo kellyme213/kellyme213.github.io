@@ -17,10 +17,8 @@
             
             <h1> GPU Photon Mapping </h1>
             
-            <p> 
-            	This project achieves real-time GPU photon mapping by turning photons into small triangles and using Metal's ray tracing library to gather the photons. Metal uses a BVH to store triangles for GPU ray tracing. By turning photon points into photon triangles, the photon map can utilize Metal's BVH to enable photon gathering on the GPU. Photons are gathered via ray casts that originate in a square above the photon gather point. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image.
-        	</p>
-            
+            <p> This project is an experimental implementation of photon mapping that runs on the GPU using Metal compute shaders and ray tracing APIs. This implementation modifies the density estimation step of the traditional photon mapping algorithm. Instead of storing photons as points, photons are stores as triangles and density estimation occurs by creating photon gather rays in a square above the gather point and intersecting the rays with the photon triangles. By turning photon points into photon triangles, the photon map can utilize Metal's BVH implementation to enable photon gathering and density estimation on the GPU. If a photon gather ray intersects with a photon triangle, that photon is gathered. Then, compute shaders aggregate the gathered photons into a caustic texture, which contains the contribution of the photons to the indirect lighting of the scene. This texture is combined with the direct lighting texture computed by the rest of the path tracer to create the final rendered image. </p>
+
             <div class = "links">
                 <a href = "https://github.com/kellyme213/BrotonMapping" target = "_blank"> Source Code </a>
             </div>

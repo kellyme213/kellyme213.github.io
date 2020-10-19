@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../../styles.css"> </link>
+        <link rel="stylesheet" href="../blog.css"> </link>
         <link rel="stylesheet" href="./sampling.css"> </link>
         <meta name = "viewport" content = "width=700"> </meta>
         <title> Intro to Sampling </title>
@@ -44,6 +45,15 @@
             </div>
 
             <p> If you tinker with the graph above, you can visually see how to approximate an integral with a Riemann sum. As the number of rectangles increases, the approximation gets better and better, and the error in the approximation is reduced. </p>
+
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://en.wikipedia.org/wiki/Riemann_sum" target = "_blank"> More about Riemann Sums </a>
+                    </div>
+                </div>
+            </div>
 
             <br/>
             <h2 class = "sectionHeader"> Random Sampling </h2>
@@ -134,7 +144,17 @@
                 </div>
             </div>
 
-            <p> Based on the graph, we see that the variance of the riemann sum is always smaller than the variance of the random samples. This means that our Riemann Sum approximation is generally better than our random sampling strategy. However, even though Riemann has a smaller variance, we could still get lucky and run into a case where random is better than Riemann. If you look at the second graph, you can see the probability that random sampling has a smaller error than Riemann. You'll see that the random sampling has less than 30% chance of a better approximation once the sample count is larger than 20. Those are not good odds. :(. But, can we do better? Of course we can! </p>
+            <p> Based on the graph, we see that the variance of the riemann sum is always smaller than the variance of the random samples. This means that our Riemann Sum approximation is generally better than our random sampling strategy. However, even though Riemann has a smaller variance, we could still get lucky and run into a case where random is better than Riemann. If you look at the second graph, you can see the probability that random sampling has a smaller error than Riemann. You'll see that the random sampling has less than 30% chance of a better approximation once the sample count is larger than 20. Those are not good odds 😢. But can we do better? Of course we can! </p>
+
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://en.wikipedia.org/wiki/Normal_distribution" target = "_blank"> Gaussian Distribution </a>
+                        <a href = "https://en.wikipedia.org/wiki/Continuous_uniform_distribution" target = "_blank"> Uniform Distribution </a>
+                    </div>
+                </div>
+            </div>
 
             <br/>
             <h2 class = "sectionHeader"> Stratified sampling </h2>
@@ -238,23 +258,82 @@
 
             <p> Based on the data, there isn't much difference between stratified and uniform sampling in this case. However, you may notice that the Riemann sum approximation sometimes does a very poor job of approximating the function at low sample counts. This is partially because the bias in the Riemann sum where we sample at evenly spaced points along the function. It's also due to undersampling- a common problem in signal processing. While stratified sampling does not consistently beat Riemann, we have found a weakness in Riemann. It's not great at sampling high frequency functions when the sample count is low. Perhaps we can use the idea of bias to our advantage somehow... </p>
 
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://en.wikipedia.org/wiki/Stratified_sampling" target = "_blank"> Stratified Sampling </a>
+                    </div>
+                </div>
+            </div>
+
             <br/>
             <h2 class = "sectionHeader"> Applications of Stratified Sampling </h2>
             <p class = "sectionIntro"> While we saw negligible results when using stratified sampling, there are certain cases where it is used and has a slightly better approximation than uniform sampling. Some of these cases are: sampling area lights, generating camera rays through a pixel or viewport. </p>
 
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://cg.informatik.uni-freiburg.de/course_notes/graphics2_04_sampling.pdf" target = "_blank"> Other types of sampling </a>
+                    </div>
+                </div>
+            </div>
+
             <br/>
-            <h2 class = "sectionHeader"> Importance Sampling </h2>
-            <p class = "sectionIntro"> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. In other words, each random value was equally likely to appear. What if we change this, so that some values are more likely to appear than others? This leads us to the idea of Probability Distribution Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, so that all numbers are equally likely to appear. Before we construct a new PDF, let's talk about some properties of PDFs. </p>
+            <h2 class = "sectionHeader"> PDFs and CDFs </h2>
+            <p class = "sectionIntro"> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. Essentially, this means if we generate 12 random samples, we expect 1/2 of them (6) to be in the range [0, 0.5), and 1/2 of them (6) to be [0.5, 1.0]. But what if we want 1/3 of the samples (4) in the range [0, 0.5) and 2/3 of the samples (8) in the range [0.5, 1.0]? 
+            </p>
 
-            <p> <b> Bullets </b> PDF is defined over the interval [0, 1]. The integral of the PDF from 0 to 1 = 1 (normalized PDF).</p>
+            <p>
+            To accomplish this, we need to discuss Probability Distribution Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, which has the equation y = 1. This means that each random value is equally likely to appear. Before we construct a new PDF, let's talk about some properties of PDFs. </p>
 
-            <p> We can take the integral of a PDF to obtain a CDF - Cumulative Distribution Function. While PDF(x) defines the relative probability of x being selected, CDF(x) is the amount of samples less than x that are generated. CDF(0) = 0, PDF(1) = 1. </p>
 
-            <p> We've currently been using a PDF of y = 1. Let's define a PDF of y = 2x. How do we generate numbers to follow the PDF? We will use Inverse Transorm Sampling.</p>
+            <ul>
+                <li> 
+                    <p> A PDF is defined over the interval from 0 to 1. The integral of the PDF from 0 to 1 is equal to 1. This means that the PDF is normalized. If you have a function whose integral is not equal to 1 over the interval, simply divide the function by whatever the integral's value is and the function will be normalized. </p>
+                </li>
+                <li> 
+                    <p> For a given PDF, the integral of a PDF is called a Cumulative Distribution Function, or CDF. While PDF(x) descibes the relative probability of x being chosen from the distribution, CDF(x) describes the probability that a randomly generated value will have a value less than x. This means that CDF(0) = 0 and CDF(1) = 1. </p>
+                </li>
+            </ul>
 
-            <p> 1. create a normalized PDF, y = PDF(x). 2. Create the CDF, y = CDF(x). 3. Invert the CDF y = CDF-1(x). 4. Generate a random sample from a uniform PDF, u. plug in u into CDF-1, the output will be distributed along the PDF.</p>
+            <p> We can use a technique called Inverse Transform Sampling to generate random values that match the distribution defined by a PDF. Here are the steps. </p>
+            <ol> 
+                <li> 
+                    <p> Create a normalized PDF. </p>
+                </li>
+                <li> 
+                    <p> Integrate the PDF to create the CDF, y = CDF(x). </p>
+                </li>
+                <li> 
+                    <p> Create a function that is the inverse of the CDF, x = CDF(y) or y = CDF<sup>-1</sup>(x). </p>
+                </li>
+                <li> 
+                    <p> Generate a random value from a uniform PDF (what we've been using so far), u. </p>
+                </li>
+                <li> 
+                    <p> Evaluate CDF<sup>-1</sup>(u). </p>
+                </li>
+            </ol>
 
-            <p> As an example, let's use y = 2x as a PDF. The integral of 2x is x2. The inverse of x2 is sqrt(x). So, if we generate a random number u, sqrt(u) will be distributed along the PDF. Unfortunately, not all PDFs can be easily inverted like this, so we have to do approximations in that case, which is much more expensive than the y = 2x case. However, it can be done. </p>
+            <p> As an example, let's use y = 2x as a PDF and follow the Inverse Transform Sampling steps. </p>
+
+            <ol> 
+                <li> 
+                    <p> y = 2x is normalized. </p>
+                </li>
+                <li> 
+                    <p> The integral of y = 2x is y = x<sup>2</sup>. </p>
+                </li>
+                <li> 
+                    <p> The inverse function of y = x<sup>2</sup> is y = sqrt(x). </p>
+                </li>
+            </ol>
+
+            <p> So, if we plug in randomly generated numbers into sqrt(x), they will follow the distribution of y = 2x. Fortunately for us, sqrt(x) is an easy function to evaluate so it will be very easy to generate samples distributed along the PDF. However, not all functions have nice integrals and inverses, so it's important to pick functions that can be quickly evalutated. </p>
+
+            <p> Below is a graph that shows you various PDFs, CDFs, and how they generate different distributions of random samples. </p>
 
             <div class = "graphContainer">
                 <div class = "graph">
@@ -404,6 +483,7 @@
             <br/>
             <h2 class = "sectionHeader"> Conclusion </h2>
             <p class = "sectionIntro"> Sampling is a pretty useful technique for evaluating integrals. I hope you enjoyed the demos and learned something new! </p>
+
 
             <br/>
             <br/>
