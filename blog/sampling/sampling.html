@@ -20,13 +20,13 @@
             <p style = "text-align: center;"> <i>This page is currently in beta. Expect typos and bugs. I hope to be done in early October. </i> </p>
             <h1> Intro to Sampling </h1>
 
-            <p> Hello! This article will introduce you to the concept of sampling- starting with Riemann sums, then moving on to uniform sampling, stratified sampling, and finishing with importance sampling. This article will explain sampling through a combination of text and interactive visual demos. If you're interested in a rigourous mathematical introduction to sampling, you may want to look elsewhere. But, if you like interactive demos, you've come to the right place! Before you begin reading, I suggest you have a good understanding of how to graph and evaluate functions. If you've taken late high school or early college level math, you should be fine. </p>
+            <p> Hello! This article will introduce you to the concept of sampling- starting with Riemann sums, then moving on to uniform sampling, stratified sampling, and finishing with importance sampling. This article will explain sampling through a combination of text and interactive visual demos. If you're interested in a rigourous mathematical introduction to sampling, you may want to look elsewhere. But, if you like interactive demos, you've come to the right place! Before you begin reading, I suggest you have a good understanding of how to graph and evaluate functions. If you've taken Calculus 1 and 2, you should be able to understand this article. </p>
 
             <p> <i> Let's get started! </i> </p>
 
             <br/>
             <h2 class = "sectionHeader"> Riemann sums </h2>
-            <p class = "sectionIntro"> Before we talk about sampling, let's talk about integrals. We typically think of an integral as the "area under a curve", specifically the area between the function curve and the x-axis. Some functions are easy to integrate; we can write a nice formula to determine the exact area under a curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically. By solving an integral analytically, we get an approximation of the integral. There are multiple ways to analytically solve an integral, but we will focus on a simple way called a Riemann sum. In a Riemann sum, we evaluate a function at evenly spaced points along the curve, then draw a rectangle with the height of the evaluated point. We calculate the area of each rectangle, sum the areas, and we get an approximation for the integral. Let's see what this looks like visually. </p>
+            <p class = "sectionIntro"> Before we talk about sampling, let's talk about integrals. We typically think of an integral as the "signed area under a curve". Some functions are easy to integrate; we can write a nice formula to determine the exact area under a curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically, which leads to an approximation of the integral. One simple way to analytically evaluate an integral is called a Riemann sum. In a Riemann sum, we evaluate a function at evenly spaced points along the curve, then draw a rectangle with the height of the evaluated point. We calculate the area of each rectangle, sum the areas, and we get an approximation for the integral. Let's see what this looks like visually. </p>
 
 
             <div class = "graphContainer">
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <p> If you tinker with the graph above, you can visually see how to approximate an integral with a Riemann sum. As the number of rectangles increases, the approximation gets better and better, and the error in the approximation is reduced. </p>
+            <p> If you tinker with the visualization above, you can see how to approximate an integral with a Riemann sum. As the number of rectangles increases, the approximation gets better and better, and the error in the approximation is reduced. </p>
 
             <div class = "learnMore">
                 <p class = "learnMoreTitle"> 🧠 Learn More </p> 
@@ -120,9 +120,7 @@
                 </div>
             </div>
 
-            <p> You may notice that at a low number of samples per approximation, there is a large variation in the error terms. As the number of samples is increased, the errors converge towards 0 and there is much less variation. This 'variation' actually has a name - variance. Broadly speaking, variance is a measurement of how spread out a group of numbers is from the average value of the group. We can see that the variance in the error terms decreases towards 0 as the number of samples increases. In this case, a variance of 0 means that the random approximation is equal to the exact value of the integral, which is what we want. We can also apply this idea of variance to our Riemann sum approximation, since there is an error term in that approximation as well. In fact, we can compare the variances of the two sampling methods, and then use the method with the smaller variance to perform our approximations. <p>
-
-            <p> <i> Side note - you may notice that the errors in the histogram mostly fit inside of a curve. This curve is called a normal/Gaussian distribution. The formula for producing a Gaussian distribution includes a variance term. </i> </p>
+            <p> At a low number of samples per approximation, there is a large variation in the error terms. As the number of samples is increased, the errors converge towards 0. This 'variation' actually has a name- variance. Broadly speaking, variance is a measurement of how spread out a group of numbers is from the average value of the group. We can see that the variance in the error terms decreases towards 0 as the number of samples increases. A variance of 0 means that the random approximation is equal to the exact value of the integral, which is what we want. We can also apply this idea of variance to our Riemann sum approximation. Let's compare the variances of our two sampling stategies. <p>
             
             <div class = "graphContainer">
                 <div class = "graph">
@@ -144,7 +142,7 @@
                 </div>
             </div>
 
-            <p> Based on the graph, we see that the variance of the riemann sum is always smaller than the variance of the random samples. This means that our Riemann Sum approximation is generally better than our random sampling strategy. However, even though Riemann has a smaller variance, we could still get lucky and run into a case where random is better than Riemann. If you look at the second graph, you can see the probability that random sampling has a smaller error than Riemann. You'll see that the random sampling has less than 30% chance of a better approximation once the sample count is larger than 20. Those are not good odds 😢. But can we do better? Of course we can! </p>
+            <p> We see that the variance of the Riemann sum is always smaller than the variance of the random samples. This means that our Riemann sum approximation is generally better than our random sampling strategy. However, even though Riemann has a smaller variance, we could still get lucky and run into a case where random is better than Riemann. If you look at the visualization above, you can see a graph of the  probability that random sampling has a smaller error than Riemann. You'll see that the random sampling has less than 30% chance of a better approximation once the sample count is larger than 20. Those are not good odds 😢. But can we do better? Of course we can! </p>
 
             <div class = "learnMore">
                 <p class = "learnMoreTitle"> 🧠 Learn More </p> 
@@ -158,10 +156,7 @@
 
             <br/>
             <h2 class = "sectionHeader"> Stratified sampling </h2>
-            <p class="sectionIntro"> Let's take a slight detour to talk about Stratified Sampling. You may have noticed that in random sampling, there are cases where the random samples clump together, leaving large gaps in the interval. Usually, we do not like large gaps. We want our samples to be randomly distributed, but not clumped. How can we avoid this? With Stratified Sampling! In Stratified Sampling, we split the interval into smaller subintervals, then generate random samples in each of the subintervals. In our case, we will make sure that all the subintervals are the same size, but you could do stratified sampling with unevenly sized subintervals. </p>
-
-
-
+            <p class="sectionIntro"> Let's take a slight detour to talk about stratified sampling. You may have noticed that in random sampling, there are cases where the random samples clump together, leaving large gaps in the interval. Usually, we do not like large gaps. We want our samples to be randomly distributed, but not clumped. How can we avoid this? With stratified sampling! In stratified sampling, we split the interval into smaller subintervals, then generate random samples in each of the subintervals. </p>
 
 
             <div class = "graphContainer">
@@ -190,9 +185,9 @@
             </div>
 
 
-            <p> As you can see, stratified sampling reduces the clumping and empty spots we see in random sampling. However, there are a few disadvantages to stratified sampling. THe number of stratified samples must be a multiple of the number of subintervals. We want to ensure that each subinterval has the same number of samples as all the others. If the number of samples is not a multiple of the number of subintervals, some of the subintervals would have more samples than others, which would introduce bias into our sampling strategy (more on biasing later). We want stratified samping to remain unbiased, just like uniform sampling. In fact, our Riemann sum approximation has some bias in it, although much more subtle. The bias comes from the fact that the function is sampled at evenly spaced points along the interval, which is not the case with uniform or stratified sampling. </p>
+            <p> Stratified sampling reduces the clumping and empty spots present in random sampling. However, there are a few disadvantages to this approach. The number of stratified samples must be a multiple of the number of subintervals. We want to ensure that each subinterval has the same number of samples as all the others. If the number of samples is not a multiple of the number of subintervals, some of the subintervals would have more samples than others, which would introduce bias into our sampling strategy. We want stratified samping to remain unbiased, just like uniform sampling. </p>
 
-            <p> Now, let's use stratified sampling to approximate an intergral. We will approximate a high frequency intergral this time, which means the function has relatively large values over multiple small intervals. </p>
+            <p> Let's use stratified sampling to approximate an high frequency function. </p>
 
             <div class = "graphContainer">
                 <div class = "graph">
@@ -256,7 +251,7 @@
                 </div>
             </div>
 
-            <p> Based on the data, there isn't much difference between stratified and uniform sampling in this case. However, you may notice that the Riemann sum approximation sometimes does a very poor job of approximating the function at low sample counts. This is partially because the bias in the Riemann sum where we sample at evenly spaced points along the function. It's also due to undersampling- a common problem in signal processing. While stratified sampling does not consistently beat Riemann, we have found a weakness in Riemann. It's not great at sampling high frequency functions when the sample count is low. Perhaps we can use the idea of bias to our advantage somehow... </p>
+            <p> Based on the data, there isn't much difference between stratified and uniform sampling. However, you may notice that the Riemann sum approximation sometimes does a very poor job of approximating the function at low sample counts. This is partially because Riemann samples the function at evenly spaced intervals, while random sampling does not. </p>
 
             <div class = "learnMore">
                 <p class = "learnMoreTitle"> 🧠 Learn More </p> 
@@ -269,7 +264,7 @@
 
             <br/>
             <h2 class = "sectionHeader"> Applications of Stratified Sampling </h2>
-            <p class = "sectionIntro"> While we saw negligible results when using stratified sampling, there are certain cases where it is used and has a slightly better approximation than uniform sampling. Some of these cases are: sampling area lights, generating camera rays through a pixel or viewport. </p>
+            <p class = "sectionIntro"> While we saw negligible results when using stratified sampling, there are certain cases where it yields a better approximation than uniform sampling. This can occur when sampling area lights, or generating camera rays through a pixel or viewport. </p>
 
             <div class = "learnMore">
                 <p class = "learnMoreTitle"> 🧠 Learn More </p> 
@@ -282,21 +277,16 @@
 
             <br/>
             <h2 class = "sectionHeader"> PDFs and CDFs </h2>
-            <p class = "sectionIntro"> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. Essentially, this means if we generate 12 random samples, we expect 1/2 of them (6) to be in the range [0, 0.5), and 1/2 of them (6) to be [0.5, 1.0]. But what if we want 1/3 of the samples (4) in the range [0, 0.5) and 2/3 of the samples (8) in the range [0.5, 1.0]? 
+            <p class = "sectionIntro"> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. Essentially, this means if we generate 12 random samples, we expect 50% of them (6) to be in the range [0, 0.5), and 50% of them (6) to be [0.5, 1.0]. But what if we want 33% of the samples (4) in the range [0, 0.5) and 67% of the samples (8) in the range [0.5, 1.0]? 
             </p>
 
             <p>
-            To accomplish this, we need to discuss Probability Distribution Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, which has the equation y = 1. This means that each random value is equally likely to appear. Before we construct a new PDF, let's talk about some properties of PDFs. </p>
+            To accomplish this, we need to discuss Probability Density Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, which has the equation y = 1. This means that each random value is equally likely to appear. 
+            </p>
 
-
-            <ul>
-                <li> 
-                    <p> A PDF is defined over the interval from 0 to 1. The integral of the PDF from 0 to 1 is equal to 1. This means that the PDF is normalized. If you have a function whose integral is not equal to 1 over the interval, simply divide the function by whatever the integral's value is and the function will be normalized. </p>
-                </li>
-                <li> 
-                    <p> For a given PDF, the integral of a PDF is called a Cumulative Distribution Function, or CDF. While PDF(x) descibes the relative probability of x being chosen from the distribution, CDF(x) describes the probability that a randomly generated value will have a value less than x. This means that CDF(0) = 0 and CDF(1) = 1. </p>
-                </li>
-            </ul>
+            <p> A PDF is defined over the interval from 0 to 1. The integral of the PDF from 0 to 1 is equal to 1. This means that the PDF is normalized. </p>
+            
+            <p> The integral of a PDF is called a Cumulative Distribution Function, or CDF. While PDF(x) descibes the relative probability of x being chosen from the distribution, CDF(x) describes the probability that a randomly generated value will have a value less than x. This means that CDF(0) = 0 and CDF(1) = 1. </p>
 
             <p> We can use a technique called Inverse Transform Sampling to generate random values that match the distribution defined by a PDF. Here are the steps. </p>
             <ol> 
@@ -331,9 +321,9 @@
                 </li>
             </ol>
 
-            <p> So, if we plug in randomly generated numbers into sqrt(x), they will follow the distribution of y = 2x. Fortunately for us, sqrt(x) is an easy function to evaluate so it will be very easy to generate samples distributed along the PDF. However, not all functions have nice integrals and inverses, so it's important to pick functions that can be quickly evalutated. </p>
+            <p> So, if we plug in randomly generated numbers into sqrt(x), they will follow the distribution of y = 2x. Fortunately for us, sqrt(x) is an easy function to evaluate, so it will be very easy to generate samples distributed along the PDF. However, not all functions have nice integrals and inverses, so it's important to pick functions that can be quickly evalutated. </p>
 
-            <p> Below is a graph that shows you various PDFs, CDFs, and how they generate different distributions of random samples. </p>
+            <p> Below is a visualization that shows you various PDFs, CDFs, and how they generate different distributions of random samples. </p>
 
             <div class = "graphContainer">
                 <div class = "graph">
@@ -370,12 +360,9 @@
                 </div>
             </div>
 
-            <p> A few things about selecting a PDF to use. We want the shape of the PDF to closely match the shape of the fuction that is being approximated. The closer the shapes, the better the approximation will be. Conversely, choosing a pdf with a shape that does not closely match the function will result in poor approximations. Additionally, if we have a separable function, like y = f(x) * g(x), using either f(x) or g(x) as the PDF will lead to good results. </p>
+            <p> How do we select a good PDF? The shape of the PDF should closely match the shape of the fuction that is being approximated. The closer the shapes, the better the approximation will be. Conversely, choosing a PDF with a shape that does not closely match the function will result in poor approximations. Additionally, if we have a separable function, like y = f(x) * g(x), using either f(x) or g(x) as the PDF will lead to good results. </p>
 
-            <p> So, can we just start generating samples with our fancy new PDF/CDF and expect goos results? Almost. One last thing to consider. Our pdf will cause samples to be more or less dense now. In areas where samples are more dense, each rectangle generated should have a smaller width, since there are more samples to better approximate the dense area. Likewise, in areas of less density, the width of the rectangles should decrease, since that rectangle needs to approximate more of the function since fewer samples will be in that area. But how much to we scale these widths by? The value of the PDF at the random sample point. This leads to the following equation: </p>
-
-            <p> <b> importance sampling equation </b> </p>
-
+            <p> Is it finally time to use our PDF to generate random samples? Almost. Using a non-uniform PDF will cause generated samples to be more or less dense in different regions of the interval. In areas where samples are more dense, each rectangle generated should have a smaller width, since there are more samples to better approximate the dense area. Likewise, in areas of less density, the width of the rectangles should increase, since that rectangle needs to approximate more of the function since fewer samples will be in that region. But how much to we scale these rectangle widths by? By the value of the PDF at the random sample point. Take a look at this concept in the visualization below. </p>
 
             <div class = "graphContainer">
                 <div class = "graph">
@@ -474,11 +461,11 @@
 
             <p> Hooray! With importance sampling, we are able to get an approximation with a lower variance than our Riemann sum! Also, if you look at the probability graph, you'll notice that importance sampling has a 99% chance of producing a closer approximation than Riemann when there are less than 20 samples! Additionally, while uniform sampling drops down to around 10% at 200 samples, importance sampling is around 50%. You may also notice that our third PDF does a <i>terrible</i> job of approximating the function; it has a variance that bottoms out around 50, and a probability of better appximation that drops to 0% almost instantly. </p>
 
-            <p> In this specific case, importance sampling is almost always better when the sample count less than 20 samples. On higher dimensional functions, this '20' number will increase, since higher dimensional functions generally require more samples to accurately approximate. Because of this, we should use importance sampling wherever possible. </p>
+            <p> In this specific case, importance sampling is almost always better when the sample count less than 20 samples. On higher dimensional functions, this '20' number will increase, since higher dimensional functions require more samples to approximate accurately. Because of this, we should use importance sampling wherever possible. </p>
 
             <br/>
             <h2 class = "sectionHeader"> Applications of Importance sampling</h2>
-            <p class = "sectionIntro"> Importance sampling has many applications in the computer graphics field, mostly within ray tracing. Specifically, we use importance sampling when solving the rendering equation. Sometimes we use cosine-weighted importance sampling, which used y = cos(x) as the PDF. Other times we use BRDF importance sampling, where the BRDF of the material (or parts of it) is the PDF. In other cases, we need to use multiple PDFs to efficiently sample the entire interval of an integral. This is called multiple importance sampling, and it's a topic for another day :). </p>
+            <p class = "sectionIntro"> Impotance sampling is used when solving the rendering equation. Sometimes cosine-weighted importance sampling is used, which used y = cos(x) as the PDF. Other times we use BRDF importance sampling, where the BRDF of the material (or parts of it) is the PDF. In other cases, we need to use multiple PDFs to efficiently sample the entire interval of an integral. This is called multiple importance sampling, and it's a topic for another day 😊. </p>
 
             <br/>
             <h2 class = "sectionHeader"> Conclusion </h2>
