@@ -20,13 +20,13 @@
             <p style = "text-align: center;"> <i>This page is currently in beta. Expect typos and bugs. I hope to be done in early October. </i> </p>
             <h1> Intro to Sampling </h1>
 
-            <p> Hello! This article will introduce you to the concept of sampling- starting with Riemann sums, then moving on to uniform sampling, stratified sampling, and finishing with importance sampling. This article will explain sampling through a combination of text and interactive visual demos. If you're interested in a rigourous mathematical introduction to sampling, you may want to look elsewhere. But, if you like interactive demos, you've come to the right place! Before you begin reading, I suggest you have a good understanding of how to graph and evaluate functions. If you've taken Calculus 1 and 2, you should be able to understand this article. </p>
+            <p> Hello! This article will introduce the concept of sampling - starting with Riemann sums, then moving on to uniform sampling, stratified sampling, and finishing with importance sampling. This article will explain sampling through a combination of text and interactive visual demos. If you're interested in a rigourous mathematical introduction to sampling, you may want to look elsewhere. But, if you like interactive demos, you've come to the right place! Before you begin reading, I suggest you have a good understanding of how to graph and evaluate functions. If you've taken Calculus 1 and 2, you should be able to understand this article. </p>
 
             <p> <i> Let's get started! </i> </p>
 
             <br/>
             <h2 class = "sectionHeader"> Riemann sums </h2>
-            <p class = "sectionIntro"> Before we talk about sampling, let's talk about integrals. We typically think of an integral as the "signed area under a curve". Some functions are easy to integrate; we can write a nice formula to determine the exact area under a curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically, which leads to an approximation of the integral. One simple way to analytically evaluate an integral is called a Riemann sum. In a Riemann sum, we evaluate a function at evenly spaced points along the curve, then draw a rectangle with the height of the evaluated point. We calculate the area of each rectangle, sum the areas, and we get an approximation for the integral. Let's see what this looks like visually. </p>
+            <p class = "sectionIntro"> Before we talk about sampling, let's talk about integrals. We typically think of an integral as the "area under a curve". Some functions are easy to integrate; we can write a nice formula to determine the exact area under a curve. However, some functions cannot be easily integrated, and we have to evaluate them analytically, which leads to an approximation of the integral. One simple way to analytically evaluate an integral is called a Riemann sum. In a Riemann sum, we evaluate a function at evenly spaced points along the curve, then draw a rectangle with the height of the evaluated point. We calculate the area of each rectangle, sum the areas, and we get an approximation for the integral. Let's see what this looks like visually. </p>
 
 
             <div class = "graphContainer">
@@ -50,7 +50,7 @@
                 <p class = "learnMoreTitle"> 🧠 Learn More </p> 
                 <div class = "learnMoreLinks">
                     <div class = "links">
-                        <a href = "https://en.wikipedia.org/wiki/Riemann_sum" target = "_blank"> More about Riemann Sums </a>
+                        <a href = "https://en.wikipedia.org/wiki/Riemann_sum" target = "_blank"> Riemann sum </a>
                     </div>
                 </div>
             </div>
@@ -148,8 +148,8 @@
                 <p class = "learnMoreTitle"> 🧠 Learn More </p> 
                 <div class = "learnMoreLinks">
                     <div class = "links">
-                        <a href = "https://en.wikipedia.org/wiki/Normal_distribution" target = "_blank"> Gaussian Distribution </a>
-                        <a href = "https://en.wikipedia.org/wiki/Continuous_uniform_distribution" target = "_blank"> Uniform Distribution </a>
+                        <a href = "https://en.wikipedia.org/wiki/Normal_distribution" target = "_blank"> Gaussian distribution </a>
+                        <a href = "https://en.wikipedia.org/wiki/Continuous_uniform_distribution" target = "_blank"> Uniform distribution </a>
                     </div>
                 </div>
             </div>
@@ -257,7 +257,7 @@
                 <p class = "learnMoreTitle"> 🧠 Learn More </p> 
                 <div class = "learnMoreLinks">
                     <div class = "links">
-                        <a href = "https://en.wikipedia.org/wiki/Stratified_sampling" target = "_blank"> Stratified Sampling </a>
+                        <a href = "https://en.wikipedia.org/wiki/Stratified_sampling" target = "_blank"> Stratified sampling </a>
                     </div>
                 </div>
             </div>
@@ -277,18 +277,34 @@
 
             <br/>
             <h2 class = "sectionHeader"> PDFs and CDFs </h2>
-            <p class = "sectionIntro"> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. Essentially, this means if we generate 12 random samples, we expect 50% of them (6) to be in the range [0, 0.5), and 50% of them (6) to be [0.5, 1.0]. But what if we want 33% of the samples (4) in the range [0, 0.5) and 67% of the samples (8) in the range [0.5, 1.0]? 
+            <p class = "sectionIntro"> So far, we've been generating random samples that are evenly distributed over the interval from 0 to 1. Essentially, this means if we generate a large number of random samples, we expect 50% of them to be in less than 0.5, and 50% of them to be greater than 0.5. But what if we want to generate samples so that 33% of the samples are less than 0.5 and 67% of the samples are greater than 0.5? 
             </p>
 
             <p>
-            To accomplish this, we need to discuss Probability Density Functions, or PDFs. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, which has the equation y = 1. This means that each random value is equally likely to appear. 
+            To accomplish this, we need to use a Probability Density Function, or PDF. A PDF is a function that describes the relative likelyhood that a random value is chosen. So far, we've been using a uniform PDF, which has the equation y = 1. This means that each random value is equally likely to appear. 
             </p>
 
             <p> A PDF is defined over the interval from 0 to 1. The integral of the PDF from 0 to 1 is equal to 1. This means that the PDF is normalized. </p>
             
             <p> The integral of a PDF is called a Cumulative Distribution Function, or CDF. While PDF(x) descibes the relative probability of x being chosen from the distribution, CDF(x) describes the probability that a randomly generated value will have a value less than x. This means that CDF(0) = 0 and CDF(1) = 1. </p>
 
-            <p> We can use a technique called Inverse Transform Sampling to generate random values that match the distribution defined by a PDF. Here are the steps. </p>
+            <p> How do we select a good PDF? The shape of the PDF should closely match the shape of the function that is being approximated. The closer the shapes, the better the approximation will be. Conversely, choosing a PDF with a shape that does not closely match the function will result in poor approximations. Additionally, if we have a separable function, like y = f(x) * g(x), using either f(x) or g(x) as the PDF will lead to good results. </p>
+
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://en.wikipedia.org/wiki/Probability_density_function" target = "_blank"> PDF </a>
+                        <br/>
+                        <a href = "https://en.wikipedia.org/wiki/Cumulative_distribution_function" target = "_blank"> CDF </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <br/>
+            <h2 class = "sectionHeader"> Inverse Transform Sampling </h2>
+            <p class = "sectionIntro"> Now we need a technique to generate random numbers that are distributed based on our desired PDF. We can use a technique called Inverse Transform Sampling to accomplish this. Here are the steps. </p>
             <ol> 
                 <li> 
                     <p> Create a normalized PDF. </p>
@@ -330,7 +346,7 @@
                     <canvas width = "1000px" height = "1000px" id = "canvas9"> </canvas>
                 </div>
                 <div class = "graphControls">
-                    <p> <b>PDF, CDF, Inverse Sampling</b> </p>
+                    <p> <b>PDF, CDF, Inverse Transform Sampling</b> </p>
                     <p id = "label9a"> Number of Points: </p>
                     <br/>
                     <input class = "slider" type = "range" id = "slider9" min = "0" max = "50" value = "10"/>
@@ -360,9 +376,20 @@
                 </div>
             </div>
 
-            <p> How do we select a good PDF? The shape of the PDF should closely match the shape of the fuction that is being approximated. The closer the shapes, the better the approximation will be. Conversely, choosing a PDF with a shape that does not closely match the function will result in poor approximations. Additionally, if we have a separable function, like y = f(x) * g(x), using either f(x) or g(x) as the PDF will lead to good results. </p>
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://en.wikipedia.org/wiki/Inverse_transform_sampling" target = "_blank"> Inverse transform sampling </a>
+                        <a href = "https://en.wikipedia.org/wiki/Rejection_sampling" target = "_blank"> Rejection sampling </a>
+                    </div>
+                </div>
+            </div>
 
-            <p> Is it finally time to use our PDF to generate random samples? Almost. Using a non-uniform PDF will cause generated samples to be more or less dense in different regions of the interval. In areas where samples are more dense, each rectangle generated should have a smaller width, since there are more samples to better approximate the dense area. Likewise, in areas of less density, the width of the rectangles should increase, since that rectangle needs to approximate more of the function since fewer samples will be in that region. But how much to we scale these rectangle widths by? By the value of the PDF at the random sample point. Take a look at this concept in the visualization below. </p>
+
+            <br/>
+            <h2 class = "sectionHeader"> Importance Sampling </h2>
+            <p class = "sectionIntro"> Is it finally time to use our PDF to generate random samples? Almost. Using a non-uniform PDF will cause generated samples to be more or less dense in different regions of the interval. In areas where samples are more dense, each rectangle generated should have a smaller width, since there are more samples to better approximate the dense area. Likewise, in areas of less density, the width of the rectangles should increase, since that rectangle needs to approximate more of the function since fewer samples will be in that region. But how much to we scale these rectangle widths by? By the value of the PDF at the random sample point. Take a look at this concept in the visualization below. </p>
 
             <div class = "graphContainer">
                 <div class = "graph">
@@ -463,9 +490,30 @@
 
             <p> In this specific case, importance sampling is almost always better when the sample count less than 20 samples. On higher dimensional functions, this '20' number will increase, since higher dimensional functions require more samples to approximate accurately. Because of this, we should use importance sampling wherever possible. </p>
 
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://en.wikipedia.org/wiki/Importance_sampling" target = "_blank"> Importance sampling </a>
+                    </div>
+                </div>
+            </div>
+
+
             <br/>
-            <h2 class = "sectionHeader"> Applications of Importance sampling</h2>
-            <p class = "sectionIntro"> Impotance sampling is used when solving the rendering equation. Sometimes cosine-weighted importance sampling is used, which used y = cos(x) as the PDF. Other times we use BRDF importance sampling, where the BRDF of the material (or parts of it) is the PDF. In other cases, we need to use multiple PDFs to efficiently sample the entire interval of an integral. This is called multiple importance sampling, and it's a topic for another day 😊. </p>
+            <h2 class = "sectionHeader"> Applications of importance sampling </h2>
+            <p class = "sectionIntro"> Impotance sampling is heavily used in the computer graphics field. It is most commonly used in path tracers when solving the rendering equation. Sometimes, cosine-weighted importance sampling is used (cos(x) is the PDF). Other times we use BRDF importance sampling, where the BRDF of the material (or parts of it) is the PDF. In other cases, we need to use multiple PDFs to efficiently sample the entire interval of an integral. This is called multiple importance sampling, and it's a topic for another day 😊. </p>
+
+            <div class = "learnMore">
+                <p class = "learnMoreTitle"> 🧠 Learn More </p> 
+                <div class = "learnMoreLinks">
+                    <div class = "links">
+                        <a href = "https://gfx.cs.princeton.edu/proj/brdf/brdf.pdf" target = "_blank"> BRDF importance sampling </a>
+                        <a href = "https://arxiv.org/pdf/1511.03095.pdf" target = "_blank"> Multiple importance sampling </a>
+                    </div>
+                </div>
+            </div>
+
 
             <br/>
             <h2 class = "sectionHeader"> Conclusion </h2>
