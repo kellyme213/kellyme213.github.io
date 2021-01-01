@@ -159,7 +159,7 @@ h1
     font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
-    box-shadow: 0px 0px 10px rgb(150, 150, 150);
+    box-shadow: 0px 0px 10px var(--grayColor);
 }
 
 .links a:hover
@@ -261,8 +261,14 @@ tr
 
 :root
 {
-    --siteColor: rgba(255, 101, 0, 1.0);
-    --blackColor: rgba(25, 25, 25, 1.0);
+    /* need to update stylesIndex.css */
+    --siteColor:      rgba(255, 101, 0  , 1.0);
+    --blackColor:     rgba(25 , 25 , 25 , 1.0);
+    --lightSiteColor: rgba(255, 245, 240, 1.0);
+    --lightGrayColor: rgba(200, 200, 200, 1.0);
+    --grayColor:      rgba(150, 150, 150, 1.0);
+    --darkGrayColor:  rgba(100, 100, 100, 1.0);
+
     //--siteColor: rgba(186, 0, 255, 1.0);  
     //--siteColor: rgba(246, 195, 0, 1.0);
 }
@@ -348,7 +354,7 @@ canvas
     margin-left: auto;
     margin-right: auto;
     width: 40%;
-    box-shadow: 0px 0px 10px 2px rgb(200, 200, 200);
+    box-shadow: 0px 0px 10px 2px var(--lightGrayColor);
 }
 
 .content iframe.resumeEmbed
@@ -447,7 +453,7 @@ canvas
     flex-direction: row;
     justify-content: space-around;
     font-size: 20px;
-    box-shadow: 0px 3px 10px 2px grey;
+    box-shadow: 0px 3px 10px 2px var(--grayColor);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -466,7 +472,7 @@ canvas
     transition-duration: 0.3s;
     opacity: 0.0;
     width: 170px;
-    box-shadow: 0px 8px 10px grey;
+    box-shadow: 0px 8px 10px var(--grayColor);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }

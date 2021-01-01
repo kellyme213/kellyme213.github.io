@@ -668,7 +668,7 @@ In this \
 case, the interval from 0.5 to 1.0 (shown in green) is sampled twice as often as the interval from 0.0 to 0.5 \
 (shown in blue). Since there are fewer samples from 0 to 0.5, each sample needs to approximate more \
 of the function, so the width of the rectangles has to increase. Similarly, since there are more samples in \
-the interval from 0.5 to 1, each sample needs approximate less of the function, so the width of the \
+the interval from 0.5 to 1, each sample needs to approximate less of the function, so the width of the \
 rectangles has to decrease.";
 
 

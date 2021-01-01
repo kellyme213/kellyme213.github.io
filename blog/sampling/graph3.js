@@ -55,7 +55,7 @@ function updateGraph3Labels(val1, val2, val3, val4)
 {
 	document.getElementById("label3a").innerHTML = "Minimum: " + val1;
 	document.getElementById("label3b").innerHTML = "Maximum: " + val2;
-	document.getElementById("label3c").innerHTML = "Samples Per Approximation: " + val3;
+	document.getElementById("label3c").innerHTML = "Samples per Approximation: " + val3;
 	document.getElementById("label3d").innerHTML = "Variance: " + val4;
 }
 
