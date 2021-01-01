@@ -1,6 +1,6 @@
-generateA("About", "about.html");
+generateA("About", "/about.html");
 generateA("GitHub", "https://github.com/kellyme213/");
-generateA("Resume", "resume.html");
+generateA("Resume", "/resume.html");
 //generateA("LinkedIn", "https://www.linkedin.com/in/kellyme213/");
 
 
