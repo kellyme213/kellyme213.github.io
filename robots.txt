@@ -10,5 +10,3 @@ Disallow: /pictures/kusoge/
 Disallow: /games/
 Disallow: /downloads/other/resume.pdf
 Allow: /downloads/other/paper.pdf
-Disallow: /blog/*
-Disallow: /blog/
