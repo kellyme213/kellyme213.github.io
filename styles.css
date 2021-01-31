@@ -608,6 +608,57 @@ code
     background-color: transparent;
 }
 
+.subsectionHeader
+{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+ul, ol
+{
+    font-size: 20px;
+    color: var(--blackColor);
+}
+
+ul
+{
+    padding-left: 20px;
+}
+
+ul li
+{
+    padding-left: 0px;
+}
+
+ul ol
+{
+    padding-left: 30px;
+}
+
+.noTop
+{
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+}
+
+.noBottom
+{
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.subsectionContent p
+{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.subsectionContent ul
+{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
 
 
 

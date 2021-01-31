@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../../styles.css"> </link>
+        <link rel="stylesheet" href="../blog.css"> </link>
         <title> Graphics </title>
         <meta name = "viewport" content = "width=1000"> </meta>
         <meta charset = "UTF-8"> </meta>
@@ -10,43 +11,466 @@
     <body>
         <div class = "header" id = "header">
             <div class = "headerSection">
-                <p> <a href = "index.html" style = "text-decoration: none; color: white;"> Home </a> </p>
+                <p> <a href = "../index.html" style = "text-decoration: none; color: white;"> Blog Home </a> </p>
+            </div>
+            <div class = "headerSection">
+                <p> <a href = "../../index.html" style = "text-decoration: none; color: white;"> Home </a> </p>
             </div>
         </div>
-        <p style = "text-align: center;"> 👷 <b>WORK IN PROGRESS</b> 👷 </p>
-        <div class = "content" style = "visibility: hidden;">
-            <h2> Test code block </h2>
-            <div class = "codeBlock">
-                <code>
-<pre> two's compliment
- how we represent negative numbers in binary
- two's compliment uses signed integers/doubles.
- if we only need to represent positive numbers, we can use an unsigned number.
- unsigned char = [0, 255]
- signed char = [-127, 128]
- to represent a negative number, take its positive binary representation, flip all the bits, and add 1.
- -a = ~a + 1
- 
- example:
-     -20 in binary
-     0001 0100  (20 in binary)              (14 in hex)
-     1110 1011  (~20 in binary)             (EB in hex)
-     1110 1100  (~20 + 1 = -20 in binary)   (EC in hex)
- 
-     we can confirm that this is correct by adding -20 + 20 to see if it is 0
- 
-     1111 1
-     0001 0100
-     1110 1100 +
-     0000 0000 </pre>
-                </code>
+        <p style = "text-align: center; font-size: 25px;"> 👷 <b>Work in Progress</b> 👷 </p>
+        <div class = "content" style = "visibility: ;">
+
+
+            <h1> Junior Graphics Engineer Interview Questions </h1>
+            <p>
+                Junior graphics engineer interviews require a lot more domain-specific knowledge than your typical junior software engineer interviews. I've failed many interviews because I didn't fully understand common graphics interview topics. So I made this page to include some common interview topics I encountered during my interview process. I'm not going to go super in depth on all topics on this page, but I will link to other resources that do go in depth. Not all these topics will come up, but it's good to have familiarity with all of the topics.
+            </p>
+
+
+            <h2 class = "sectionHeader"> Math </h2>
+            
+            <p class = "subsectionHeader"> <b> Powers of 2 </b> </p>
+            <div class = "subsectionContent">
+                <p> 
+                    Yes, really. I've been directly asked about them in at least 2<sup>1</sup> interviews.
+                </p>
+                <p>
+                    I just know that 2<sup>4</sup> = 16, 2<sup>8</sup> = 256, and that I can multiply or divide by 2 to get whatever specific power of 2 I get asked to compute.
+                </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Power_of_two#Table_of_values" target = "_blank"> Wikipedia </a>
+                </div>
             </div>
 
 
-            <h1> Graphics is my <i>~* P A S S I O N *~</i></h1>
-            <p>
-                Hi, I'm Michael. I'm also a new grad (as of May 2020), so I've been doing a few interviews lately. I've found that graphics interviews require a lot more domain-specific knowledge than your run-of-the mill junior software dev interview (and are also a lot harder to get). Since I have failed many an interview because I didn't fully understand common graphics interview topics, I thought I would make a page dedicated to some of those topics, along with my (hopefully correct) answers and my additional understanding about them. This page is mostly for me to write down my own knowledge of graphics, but maybe this will help someone looking to get an idea of the type of stuff you'll need to know to get into the graphics industry.
-            </p>
+            <p class = "subsectionHeader"> <b> Hexadecimal </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Like binary, but with 16 numbers. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Hexadecimal" target = "_blank"> Wikipedia </a>
+                </div>
+            </div>
+
+
+
+            <p class = "subsectionHeader"> <b> Two's compliment </b> </p>
+            <div class = "subsectionContent">
+                <p> To create a negative number in two's compliment, determine the binary representation of the positive number, flip the bits, and add 1. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Two%27s_complement#From_the_ones'_complement" target = "_blank"> Wikipedia </a>
+                </div>
+            </div>
+
+
+            <p class = "subsectionHeader"> <b> Matrices </b> </p>
+            <div class = "subsectionContent">
+                <p class = "noBottom"> Rotation matrix properties </p>
+                <ul>
+                    <li> Each column vector is normalized </li> 
+                    <li> Dot product of 2 unique column vectors is 0 </li> 
+                    <li> All column vectors are orthonormal to each other, form an orthonormal basis </li> 
+                    <li> Inverse matrix is the transpose </li> 
+                </ul>
+                <p> Model matrix is model -> world space </p>
+                <p> View matrix is world -> camera space </p>
+                <p> Projection matrix applies perspective correction to the view frustum </p>
+                <p> Multiplication order matters, typically we multiply by scale, then rotation, then translation. </p>
+                <div class = "links">
+                    
+                    <a href = "https://en.wikipedia.org/wiki/Rotation_matrix" target = "_blank"> Wikipedia </a>
+                    <br/>
+                    <a href = "http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/" target = "_blank"> OpenGL-tutorial </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Ray intersections </b> </p>
+            <div class = "subsectionContent">
+                <p> A ray is defined at <b>x = dt + o</b>, where x is position, d is direction, t is time/distance, o is origin. d and o are normalized. </p>
+
+                <p class = "noBottom"> Sphere </p>
+                <ul> 
+                    <li> r<sup>2</sup> = dot(x - p, x - p) </li>
+                    <ul> 
+                        <li>r is the radius of the sphere</li> 
+                        <li> p is the center</li> 
+                    </ul>
+                    <li> r<sup>2</sup> = dot(dt + o - p, dt + o - p) </li>
+                    <li> r<sup>2</sup> = dot(dt + R, dt + R) </li>
+                    <ul> 
+                        <li> R = o - p </li>
+                    </ul>
+                    <li> r<sup>2</sup> = d<sup>2</sup> * t<sup>2</sup> + 2dRt + R<sup>2</sup> </li>
+                    <li> 0 = d<sup>2</sup> * t<sup>2</sup> + 2d(o - p)t + (o - p)<sup>2</sup> - r<sup>2</sup> </li>
+                    <li> 0 = At<sup>2</sup> + Bt + C </li>
+                    <ul> 
+                        <li> A = dot(d, d) </li>
+                        <li> B = 2 * dot(d, o - p) </li>
+                        <li> C = dot(o - p, o - p) - r<sup>2</sup></li>
+                    </ul>
+                    <li> Use quadratic equation to solve for real solutions of t. </li>
+                    <ul> 
+                        <li> Two solutions: two intersection points on the sphere, usually take the closer point </li>
+                        <li> One solution: ray is tangent to the sphere </li>
+                        <li> Zero solutions: no intersection point </li>
+                    </ul>
+                </ul>
+
+                <p class = "noBottom"> Plane </p>
+                <ul>
+                    <li> 0 = dot(x - p, n) </li>
+                    <ul> 
+                        <li> p is a point on the plane </li>
+                        <li> n is the plane's normal </li>
+                    </ul>
+                    <li> 0 = dot(dt + o - p, n)</li>
+                    <li> 0 = dot(d, n) * t + dot(o - p, n)</li>
+                    <li> -dot(o - p, n) / dot(d, n) = t </li>
+                    <ul> 
+                        <li> t is negative: the ray is facing away from the plane </li>
+                        <li> dot(d, n) = 0: ray and plane are parallel </li>
+                    </ul>
+                </ul>
+                <div class = "links">
+                    <a href = "https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection" target = "_blank"> Scratchapixel </a>
+                    <br/>
+                    <a href = "https://courses.cs.washington.edu/courses/csep557/10au/lectures/triangle_intersection.pdf" target = "_blank"> UW </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Dot/Cross products </b> </p>
+            <div class = "subsectionContent">
+                <p class = "noBottom"> Dot product </p>
+                <ul>
+                    <li> The angle between two vectors </li>
+                    <li> dot(a, b) = length(a) * length(b) * cos(theta) </li>
+                    <li> For normalized vectors, the range of dot product is -1 to 1 </li>
+                    <ul>
+                        <li> dot = 1: parallel facing same way (0 degrees) </li>
+                        <li> dot = 0: normal/orthogonal (90 degrees) </li>
+                        <li> dot = -1: parallel, facing opposite (180 degrees) </li>
+                        <li> <b>The dot product between two parallel vectors is -1 or 1.</b> (Most people just say 1 apparently) </li>
+                    </ul>
+                    <li> Dot product is used in the rendering equation, BRDFs, phong shading, determining angle between two vectors. </li>
+                </ul>
+                <p class = "noBottom"> Cross product </p>
+                <ul> 
+                    <li> AxB = vector that is orthogonal to A and B. </li>
+                    <li> AxB = -(BxA) = (-A)xB </li>
+                    <li> A.(AxB) = B.(AxB) = 0 </li>
+                    <li> length(AxB) = area of the parallelogram created by A and B </li>
+                    <li> Cross product is used to generate a camera basis, or to create a normal vector for a plane from 3 points. </li>
+                </ul>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Quaternions </b> </p>
+            <div class = "subsectionContent">
+                <p> Way to represent rotation with 4D numbers. </p>
+                <div class = "links">
+                    <a href = "https://wrf.ecse.rpi.edu/pmwiki/pmwiki.php/Research/Quaternions" target = "_blank"> RPI </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Euler Angles </b> </p>
+            <div class = "subsectionContent">
+                <p> Simple way to represent rotation. Can run into Gimbal lock, better to use quaternions. </p>
+                <div class = "links">
+                    <a href = "https://mathworld.wolfram.com/EulerAngles.html" target = "_blank"> Wolfram </a>
+                    <br/>
+                    <a href = "https://en.wikipedia.org/wiki/Gimbal_lock" target = "_blank"> Wikipedia (Gimbal lock) </a>
+                </div>
+            </div>            
+
+            <p class = "subsectionHeader"> <b> Barycentric Coordinates </b> </p>
+            <div class = "subsectionContent">
+                <p> Coordinate system where you represent a point on a triangle by the weighted sum of the triangle's vertices. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Barycentric_coordinate_system" target = "_blank"> Wikipedia </a>
+                </div>
+            </div>            
+
+            <p class = "subsectionHeader"> <b> Rendering Equation </b> </p>
+            <div class = "subsectionContent">
+                <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/3955fb75fee8d1ace1e117f728dd33f919262b36" style = "width: 80%;"/>
+
+
+                <p>
+                    For each input direction wi, calculate the light absorbed (irradiance) by the surface along wi (Li * wi&#183;n), then multiply that value by the amount of the absorbed light that exits the surface (radiance) in the direction of wo (fr). Then, if the surface itself emits light, calculate the amount of radiance that leaves the surface along wo (Le) and add it to the previous sum. This is equal to the total amount of radiance that leaves the surface along wo (Lo).
+                </p>
+
+                <p> 
+                    Why is irradiance = Li * wi&#183;n? Iradiance is flux per unit area. The radiance (Li) is the flux. To understand how the dot product give us 'per unit area', lets think about a flashlight. If you hold a flashlight directly above a table, a flashlight will form a circle on the table. As you tilt the flashlight so that it is at a 45 degree angle to the table, the circle will turn into an ellipse. The radiance in these two cases is the same, but the area covered by the light is more in the 45 degree case, so the irradiance is smaller. This effect is modeled with the dot product term. You can see this effect visually below.
+                </p>
+
+                <img src = "https://upload.wikimedia.org/wikipedia/commons/c/ca/Oswietlenie_lamberta.svg" style = "width: 400px;"/>
+
+
+                <p> 
+                    Rendering equation is impossible to solve exactly, so it has to be approximated. The basic rendering equation does not capture some rendering effects like subsurface scattering, transmission, and volumetric effects. However, the rendering equation can be modified to accomodate these effects by integrating over the whole sphere instead of the hemisphere.
+                </p>
+
+
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Rendering_equation" target = "_blank"> Wikipedia </a>
+                </div>
+            </div> 
+
+
+
+
+            <p class = "subsectionHeader"> <b> BXDF </b> </p>
+            <div class = "subsectionContent">
+                <p class = "noBottom"> Bidirectional X Distribution function, where X is </p>
+                <ul class = "noTop"> 
+                    <li> Reflectance </li>
+                    <li> Transmission </li>
+                    <li> Surface </li>
+                    <li> Subsurface Scattering </li>
+                </ul>
+
+                <p> Takes in two inputs, light direction into a surface (wi), light direction out of the surface (wo). The output of a BXDF is the ratio of radiance to irradiance for the surface. The amount of light absorbed along wi that is reflected out along wo. The %chance that a ray coming in along wi will reflect out along wo. </p>
+
+                <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/49e75397f3740b44e763145f6c8c64578b2440e7" style = "width: 400px;"/>
+
+
+                <p class = "noBottom"> Properties of BXDFs </p>
+                <ul class = "noTop"> 
+                    <li> All outputs are of the BXDF are non-negaive. </li>
+                    <li> Helmholtz reciprocity, BXDF(wi, wo) = BXDF(wo, wi) </li>
+                    <li> Conserves energy, integral of the BRDF is 1. </li>
+                </ul>
+
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function" target = "_blank"> Wikipedia </a>
+                </div>
+
+
+                <p> Lambert </p>
+
+                <p> Blinn-Phong </p>
+
+                <p> Cook-Torrance </p>
+            </div>
+
+
+            <p class = "subsectionHeader"> <b> Sampling </b> </p>
+            <div class = "subsectionContent">
+                <p> PDF of uniformy sampled hemisphere is 1/2pi</p>
+            </div>
+            <p> <b> Importance Sampling </b> </p>
+
+            <h2 class = "sectionHeader"> Graphics pipeline </h2>
+            <p> <b> IMR </b> </p>
+            <p> <b> TBDR </b> </p>
+            <p class = "subsectionHeader"> <b> Shader types </b> </p>
+            <div class = "subsectionContent">
+
+                <p> Vertex - Run per vertex/point in a mesh. Typically transform mesh vertices from model space to screen space. Vertex shaders predominently use the GPU's matrix vector multipliction.</p>
+                <p> Fragment/Pixel - Run per pixel on a render target. Typically compute lighting, texture lookups. Fragment shaders predominently use texture memory/samplers, ALUs. </p>
+                <p> Geometry - Used to create new geometry, like shadow volumes. </p>
+                <p> Tessellation - Used to create subdivided/fine detailed geometry within an input triangle patch. </p>
+                <p> Compute - Anything else. </p>
+
+                <div class = "links">
+                    <a href = "https://learnopengl.com/Advanced-OpenGL/Geometry-Shader" target = "_blank"> LearnOpenGL (Geometry shader) </a>
+                    <br/>
+                    <a href = "https://www.khronos.org/opengl/wiki/Tessellation" target = "_blank"> Khronos (Tessellation shader) </a>
+                </div>
+            </div>
+
+            <p> <b> Tile </b> </p>
+
+            <h2 class = "sectionHeader"> CPU/GPU Architecture </h2>
+
+            <p class = "subsectionHeader"> <b> Stack vs heap </b> </p>
+            <div class = "subsectionContent">
+                <p class = "noBottom"> Stack </p>
+                <ul>
+                    <li> A sequential block of memory, basically an array. </li>
+                    <li> There is a stack pointer that points to the top of the stack. </li>
+                    <li> Stack allocation is very quick, because adding new memory to the stack just requires incrementing the stack pointer. Deallocation is the same. </li>
+                    <li> Meant for 'temporary variables' that are locally scoped within a function that won't be needed after the function returns. </li>
+                    <li> Compiler can make some optimizations to preallocate all stack memory for a function when it is called </li>
+                </ul>
+                <p class = "noBottom"> Heap </p>
+                <ul>
+                    <li> A larger group of memory than the stack. </li>
+                    <li> In the heap, the OS basically finds spot in the heap to fit the data, which can be a challenge for large data structures. </li>
+                    <li> This can lead to gaps of unused memory, memory fragmentation. </li>
+                    <li> It takes longer to allocate and deallocate memory in the heap because of this. </li>
+                    <li> Data referenced by pointers is typically stored in the heap, pointers are usually on the stack. </li>
+                    <li> Heap is for data that needs to persist beyond the lifetime of a function (pointers). </li>
+                    <li> Heap is bigger than stack. </li>
+                </ul>
+                <div class = "links">
+                    <a href = "https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/" target = "_blank"> GeeksForGeeks </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Cache, memory, cache line </b> </p>
+            <div class = "subsectionContent"> 
+                <p> When executing a function, the assembly instructions and data for that function are usually stored sequentially. In order to speed up execution, the OS will prefetch a section of code instructions and data surrounding the current instruction location and store it in the cache, which is a very small, very fast bit of memory that is close to the CPU. While executing the function, the CPU will check the cache to see if the next instruction/data is in the cache. If it is, there is no need to go back to main memory to fetch the data. However, if it is not in the cache, this is a cache miss, and the data must be fetched from a lower cache level or main memory. The cache line is the amount of data that is read into the cache aat once. Since the cache relies on things being sequential, data structures that aren't contiguous can have many cache misses, stuff like graphs, trees, linked lists. Arrays have relatively fewer cache misses, since data is stored sequentially. There are multiple levels of caches, L1 is the fastest. </p>
+                <div class = "links">
+
+                    <a href = "https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a" target = "_blank"> Medium (CPU caches) </a>
+                    <br/>
+                    <a href = "https://rastergrid.com/blog/gpu-tech/2021/01/understanding-gpu-caches/" target = "_blank"> Rastergrid (GPU caches) </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> GPU Threads </b> </p>
+            <div class = "subsectionContent"> 
+                <p> GPUs are very good at executing functions in parallel. A thread executes one function. A threadgroup/wavefront is a group of threads that are executed on the GPU. Once the threadgroup is submitted to the GPU, it is split up into smaller groups called simd groups/warps. simd groups are typically 32 or 64 threads. One simd group is executed in parallel on a single GPU core. In typical CPU code, there are assembly instructions like 'add x y z', and the CPU will fetch x and y and store it in z. However, on the GPU, the equivalent instruction is essentially 'add32 x y z', where the GPU will fetch an array of 32 x's and y's, and add them all at once and store them in z. 32 is the simd group size, and the GPU will have specialized hardware to do this add32 instruction in parallel. All instructions are executed in parallel and in lock step. Because of this, if statements are an issue, because some threads may not execute the instructions. To resolve this, the GPU typically executes both branches of the code, and uses thread masking to turn the instructions into no ops for threads that do not execute that branch. This means that you could take a performance hit if you have divergent threads. Some compilers will make optimizations for cases where all your threads converge though. </p>                
+                <div class = "links">
+                    <a href = "http://www.icl.utk.edu/~luszczek/teaching/courses/fall2016/cosc462/pdf/GPU_Fundamentals.pdf" target = "_blank"> UTK </a>
+                    <br/>
+                    <a href = "https://aschrein.github.io/jekyll/update/2019/06/13/whatsup-with-my-branches-on-gpu.html" target = "_blank"> Anton Schrein </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Command Buffer </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Instructions for a GPU draw call are stored in a command buffer. Stuff like pipeline state, buffer bindings, rendering mode (triangles, points, lines). OpenGL/WebGL do not expose command buffers through their APIs, but they are first class citizens in Metal/Vulkan/other modern APIs. </p>
+                                <div class = "links">
+                    <a href = "https://developer.apple.com/library/archive/documentation/Miscellaneous/Conceptual/MetalProgrammingGuide/Cmd-Submiss/Cmd-Submiss.html" target = "_blank"> Apple </a>
+                </div>
+            </div> 
+            <p class = "subsectionHeader"> <b> Command Queue </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Command buffers are submitted to the command queue, which holds the command buffers for the draw calls. </p>
+                <div class = "links">
+                    <a href = "https://developer.apple.com/library/archive/documentation/Miscellaneous/Conceptual/MetalProgrammingGuide/Cmd-Submiss/Cmd-Submiss.html" target = "_blank"> Apple </a>
+                </div>
+            </div>           
+
+            <h2 class = "sectionHeader"> Rendering Techniques </h2>
+            <p class = "subsectionHeader"> <b> PBR </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Physically Based Rendering, a way to realistically compute the way light interacts with materials. PBR uses BRDFs to approximate the rendering equation, and is generally photorealistic. PBR models typically have a diffuse/albedo component, a specular/gloss component, a roughness, a metallness, and emmission components. Not all of the components correspond to exact photorealistic parameters, are are used for artists to be able to tune stuff. </p>
+            </div>              
+            <p> <b> Forward Rendering </b> </p>
+            <p> <b> Deferred rendering </b> </p>
+            <p> <b> Visibility buffer rendering </b> </p>
+            <p> <b> Shadow mapping </b> </p>
+            <p> <b> mipmapping, reasons for doing </b> </p>
+            <p class = "subsectionHeader"> <b> Tone mapping </b> </p>
+            <div class = "subsectionContent"> 
+                <p> A way to approximate HDR content on an low dynamic range screen. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Tone_mapping" target = "_blank"> Wikipedia </a>
+                </div>
+            </div>
+             <p> <b> bloom </b> </p>
+            <p> <b> ray tracing </b> </p>
+
+            <h2 class = "sectionHeader"> C++ stuff </h2>
+            <p> <b> virtual function </b> </p>
+            <p> <b> pointers </b> </p>
+            <p> <b> pointer vs reference </b> </p>
+            <p> <b> templated classes </b> </p>
+            <p> <b> static </b> </p>
+            <p> <b> padding </b> </p>
+            <p> <b> mutex semaphore </b> </p>
+            <p> <b> paging </b> </p>
+
+            <h2 class = "sectionHeader"> Data Structures/Algorithms </h2>
+            <p class = "subsectionHeader"> <b> DFS/BFS </b> </p>
+            <div class = "subsectionContent">
+                <p> Depth First Search and Breadth First Search. The DFS/BFS algorithms are pretty simple, and they come up occasionally. The iterative cases are very similar to each other. The iterative DFS is usually better than recursive, since large trees could cause the program to run out of stack memory. </p>
+                <div class = "codeBlock">
+                    <code> 
+                        <pre>
+ //The main difference between dfsIterative and bfsIterative is one
+ //function uses pushFront while the other uses pushBack.
+ void dfsIterative(TreeNode* root) {
+     if (root == NULL) {
+         return;
+     }
+     list l;
+     l.pushFront(root);
+ 
+     while (!l.empty()) {
+         TreeNode* n = l.popFront();
+         process(n);
+         for (TreeNode* child: n->children) {
+             if (child != NULL) {
+                 l.<b>pushFront</b>(child);
+             }
+         }
+     }
+ }
+ 
+ void bfsIterative(TreeNode* root) {
+     if (root == NULL) {
+         return;
+     }     
+     list l;
+     l.pushFront(root);
+ 
+     while (!l.empty()) {
+         TreeNode* n = l.popFront();
+         process(n);
+         for (TreeNode* child: n->children) {
+             if (child != NULL) {
+                 l.<b>pushBack</b>(child);
+             }
+         }
+     }
+ }
+ 
+ //DFS can also be done recursive
+ void dfsRecursive(TreeNode* root) {
+     if (root == NULL) {
+         return;
+     }
+ 
+     process(root);
+     for (TreeNode* child: root->children) {
+         dfsRecursive(child);
+     }
+ }</pre> </code>
+                </div>
+            </div>
+            <br/>
+
+            <p class = "subsectionHeader"> <b> Reverse Linked List </b> </p>
+            <div class = "subsectionContent">
+                <p> Been asked this question twice, its pretty simple to do in linear time. </p>
+                <div class = "codeBlock">
+                    <code> 
+                        <pre>
+ ListNode* reverse(ListNode* head) {
+     ListNode* currentNode = head;
+     ListNode* nextNode = head->next;
+     currentNode->next = NULL;
+ 
+     while (nextNode != NULL) {
+         ListNode* newNextNode = nextNode->next;
+         nextNode->next = currentNode;
+         currentNode = nextNode;
+         nextNode = newNextNode;
+     }
+     
+     //new head of the list
+     return currentNode;
+ }</pre>
+                    </code>
+                </div>
+            </div>
+            <br/>
+
+            <p> <b> k-d tree/bvh </b> </p>
+            <p> <b> linked list vs array pros cons </b> </p>
+
+            <h2 class = "sectionHeader"> Other stuff </h2>
+            <p> <b> Cloth sim </b> </p>
+            <p> <b> photon mapping </b> </p>
+            <p> <b> subdivision </b> </p>
+            <p> <b> fluid sim </b> </p>
+            <p> <b> integration methods </b> </p>
+            <p> <b> Apple Silicon </b> </p>
+            <p> <b> Node based graphs </b> </p>
+
+<!--
 
             <h2 class = "resumeHeading"> Powers of 2 </h2>
             <div class = "heading">
@@ -136,14 +560,15 @@
                 <p>
                 </p>
             </div>
+        -->
         </div>
         
         <!--<script type = "text/javascript" src = "scripts/header.js"> </script>-->
         <div class = "footer">
-            <p> TEST </p>
+            <p> :) </p>
             <a href = "index.html"> <img src = "pictures/logo-white.png"> </img> </a>
             <div class = "linkBox">
-                <a href = "index.html"> Home </a>
+                <a href = "../../index.html"> Home </a>
             </div>
         </div>
         <script type = "text/javascript" src = "../../scripts/footer.js"> </script>

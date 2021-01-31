@@ -154,33 +154,6 @@ li
 	font-size: 20px
 }
 
-.learnMore
-{
-	width: 500px;
-	padding: 0px;
-	background-color: var(--lightSiteColor);
-	box-shadow: 0px 0px 10px var(--lightGrayColor);
-	border-radius: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 40px;
-}
-
-.content .learnMoreTitle
-{
-	font-weight: bold;
-	padding: 0px;
-	margin: 0px;
-	font-size: 25px;
-	padding-left: 20px;
-}
-
-.content .learnMoreLinks
-{
-	width: 400px;
-	padding-left: 50px;
-}
-
 .blogLink
 {
 	height: 150px;
