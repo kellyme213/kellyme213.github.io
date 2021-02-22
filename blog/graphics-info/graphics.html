@@ -38,7 +38,7 @@
                     I just know that 2<sup>4</sup> = 16, 2<sup>8</sup> = 256, and that I can multiply or divide by 2 to get whatever specific power of 2 I get asked to compute.
                 </p>
                 <div class = "links">
-                    <a href = "https://en.wikipedia.org/wiki/Power_of_two#Table_of_values" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Power_of_two#Table_of_values" target = "_blank"> Powers of 2 (Wikipedia) </a>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
             <div class = "subsectionContent"> 
                 <p> Like binary, but with 16 numbers. </p>
                 <div class = "links">
-                    <a href = "https://en.wikipedia.org/wiki/Hexadecimal" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Hexadecimal" target = "_blank"> Hexadecimal (Wikipedia) </a>
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
             <div class = "subsectionContent">
                 <p> To create a negative number in two's compliment, determine the binary representation of the positive number, flip the bits, and add 1. </p>
                 <div class = "links">
-                    <a href = "https://en.wikipedia.org/wiki/Two%27s_complement#From_the_ones'_complement" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Two%27s_complement#From_the_ones'_complement" target = "_blank"> Two's compliment (Wikipedia) </a>
                 </div>
             </div>
 
@@ -77,9 +77,9 @@
                 <p> Multiplication order matters, typically we multiply by scale, then rotation, then translation. </p>
                 <div class = "links">
                     
-                    <a href = "https://en.wikipedia.org/wiki/Rotation_matrix" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Rotation_matrix" target = "_blank"> Rotation matrix (Wikipedia) </a>
                     <br/>
-                    <a href = "http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/" target = "_blank"> OpenGL-tutorial </a>
+                    <a href = "http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/" target = "_blank"> Tutorial 3 : Matrices (OpenGL-tutorial) </a>
                 </div>
             </div>
 
@@ -131,9 +131,9 @@
                     </ul>
                 </ul>
                 <div class = "links">
-                    <a href = "https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection" target = "_blank"> Scratchapixel </a>
+                    <a href = "https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection" target = "_blank"> Ray-Sphere Intersection (Scratchapixel) </a>
                     <br/>
-                    <a href = "https://courses.cs.washington.edu/courses/csep557/10au/lectures/triangle_intersection.pdf" target = "_blank"> UW </a>
+                    <a href = "https://courses.cs.washington.edu/courses/csep557/10au/lectures/triangle_intersection.pdf" target = "_blank"> Ray-triangle intersection (Brian Curless) </a>
                 </div>
             </div>
 
@@ -166,7 +166,8 @@
             <div class = "subsectionContent">
                 <p> Way to represent rotation with 4D numbers. </p>
                 <div class = "links">
-                    <a href = "https://wrf.ecse.rpi.edu/pmwiki/pmwiki.php/Research/Quaternions" target = "_blank"> RPI </a>
+                    <a href = "https://wrf.ecse.rpi.edu/pmwiki/pmwiki.php/Research/Quaternions" target = "_blank"> Quaternions (W. Randolph Franklin) </a>
+                    <!-- https://wrf.ecse.rpi.edu/pmwiki/Research/Quaternions -->
                 </div>
             </div>
 
@@ -174,9 +175,9 @@
             <div class = "subsectionContent">
                 <p> Simple way to represent rotation. Can run into Gimbal lock, better to use quaternions. </p>
                 <div class = "links">
-                    <a href = "https://mathworld.wolfram.com/EulerAngles.html" target = "_blank"> Wolfram </a>
+                    <a href = "https://mathworld.wolfram.com/EulerAngles.html" target = "_blank"> Euler Angles (Wolfram) </a>
                     <br/>
-                    <a href = "https://en.wikipedia.org/wiki/Gimbal_lock" target = "_blank"> Wikipedia (Gimbal lock) </a>
+                    <a href = "https://en.wikipedia.org/wiki/Gimbal_lock" target = "_blank"> Gimbal lock (Wikipedia) </a>
                 </div>
             </div>            
 
@@ -184,7 +185,7 @@
             <div class = "subsectionContent">
                 <p> Coordinate system where you represent a point on a triangle by the weighted sum of the triangle's vertices. </p>
                 <div class = "links">
-                    <a href = "https://en.wikipedia.org/wiki/Barycentric_coordinate_system" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Barycentric_coordinate_system" target = "_blank"> Barycentric Coordinates (Wikipedia) </a>
                 </div>
             </div>            
 
@@ -210,7 +211,7 @@
 
 
                 <div class = "links">
-                    <a href = "https://en.wikipedia.org/wiki/Rendering_equation" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Rendering_equation" target = "_blank"> Rendering Equation (Wikipedia) </a>
                 </div>
             </div> 
 
@@ -239,45 +240,110 @@
                     <li> Conserves energy, integral of the BRDF is 1. </li>
                 </ul>
 
+
+                <p class = "noBottom"> Types of BRDFs </p>
+                <ul class = "noTop"> 
+                    <li> Lambertian </li>
+                    <li> Disney Diffuse </li>
+                    <li> Blinn-Phong </li>
+                    <li> Cook-Torrance </li>
+                </ul>
+
                 <div class = "links">
-                    <a href = "https://en.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function" target = "_blank"> BRDF (Wikipedia) </a>
+                    <br/>
+                    <a href = "https://en.wikipedia.org/wiki/Blinn–Phong_reflection_model" target = "_blank"> Blinn-Phong (Wikipedia) </a>
+                    <br/>
+                    <a href = "http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx" target = "_blank"> Cook-Torrance (Wikipedia) </a>
+                    <br/>
+                    <a href = "https://sakibsaikia.github.io/graphics/2019/09/10/Deriving-Lambertian-BRDF-From-First-Principles.html" target = "_blank"> Lambertian (Sakib Saikia) </a>
+                    <br/>
+                    <a href = "https://media.disneyanimation.com/uploads/production/publication_asset/48/asset/s2012_pbs_disney_brdf_notes_v3.pdf" target = "_blank"> Disney Diffuse (Brent Burley) </a>
                 </div>
-
-
-                <p> Lambert </p>
-
-                <p> Blinn-Phong </p>
-
-                <p> Cook-Torrance </p>
             </div>
 
 
             <p class = "subsectionHeader"> <b> Sampling </b> </p>
             <div class = "subsectionContent">
-                <p> PDF of uniformy sampled hemisphere is 1/2pi</p>
-            </div>
-            <p> <b> Importance Sampling </b> </p>
-
-            <h2 class = "sectionHeader"> Graphics pipeline </h2>
-            <p> <b> IMR </b> </p>
-            <p> <b> TBDR </b> </p>
-            <p class = "subsectionHeader"> <b> Shader types </b> </p>
-            <div class = "subsectionContent">
-
-                <p> Vertex - Run per vertex/point in a mesh. Typically transform mesh vertices from model space to screen space. Vertex shaders predominently use the GPU's matrix vector multipliction.</p>
-                <p> Fragment/Pixel - Run per pixel on a render target. Typically compute lighting, texture lookups. Fragment shaders predominently use texture memory/samplers, ALUs. </p>
-                <p> Geometry - Used to create new geometry, like shadow volumes. </p>
-                <p> Tessellation - Used to create subdivided/fine detailed geometry within an input triangle patch. </p>
-                <p> Compute - Anything else. </p>
-
+                <p> In graphics, we have to approximate things, like the rendering equation. We use various sampling techniques to calculate the approximations. We are trying to avoid aliasing/jagged edges in the images we render, sampling helps to do that. </p>
                 <div class = "links">
-                    <a href = "https://learnopengl.com/Advanced-OpenGL/Geometry-Shader" target = "_blank"> LearnOpenGL (Geometry shader) </a>
+                    <a href = "http://web.cs.wpi.edu/~emmanuel/courses/cs563/S10/talks/wk3_p1_wadii_sampling_techniques.pdf" target = "_blank"> Sampling Techniques (Wadii Bellamine) </a>
                     <br/>
-                    <a href = "https://www.khronos.org/opengl/wiki/Tessellation" target = "_blank"> Khronos (Tessellation shader) </a>
+                    <a href = "https://www.cs.rpi.edu/~cutler/classes/advancedgraphics/F05/lectures/20_sampling_aliasing.pdf" target = "_blank"> Sampling, Aliasing, & Mipmaps (Barb Cutler) </a>
                 </div>
             </div>
 
-            <p> <b> Tile </b> </p>
+            <p class = "subsectionHeader"> <b> Importance Sampling </b> </p>
+            <div class = "subsectionContent">
+                <p> The reason that importance sampling is so important is due to the following observation: whether a given sample contributes 50% or 0.1% to the final sum, the time it takes to evaluate the function at the two sample points is the same. Because of this, we should spend more time evaluating areas of the interval that contribute significantly to the final sum, and less time on areas that do not contribute much. </p>
+                <div class = "links">
+                    <a href = "http://www.pbr-book.org/3ed-2018/Monte_Carlo_Integration/Importance_Sampling.html" target = "_blank"> Importance Sampling (Pharr, Jakob, Humphreys) </a>
+                    <br/>
+                    <a href = "../sampling/sampling.html" target = "_blank"> Intro to Sampling (made by me!) </a>
+                </div>
+            </div>
+
+
+            <h2 class = "sectionHeader"> Graphics pipeline </h2>
+            <p class = "subsectionHeader"> <b> Pipeline </b> </p>
+            <div class = "subsectionContent">
+
+                <ul> 
+                    <li> Vertex shader </li>
+                    <ul> 
+                        <li> Runs per vertex/point in the mesh. Typically transform mesh vertices from model space to screen space. Vertex shaders predominently use the GPU's matrix vector multipliction. </li>
+                    </ul>
+                    <li> Optional Tessellation shader </li>
+                    <ul> 
+                        <li> Used to create subdivided/fine detailed geometry within an input triangle patch. </li>
+                    </ul>
+                    <li> Optional Geometry shader </li>
+                    <ul> 
+                        <li> Used to create new geometry, like shadow volumes. </li>
+                    </ul>
+                    <li> Clipping </li>
+                    <ul> 
+                        <li> Remove vertices that are outside of the 1x1x1 cube, add new vertices if neccesary. </li>
+                    </ul>
+                    <li> Primative Assembly </li>
+                    <ul> 
+                        <li> Turn vertices into shapes (triangles, points, lines) </li>
+                    </ul>
+                    <li> Face culling </li>
+                    <ul> 
+                        <li> Front face/back face culling. If triangles face away from the screen, they are likely behind triangles that face the camera, so we should ignore them. This means triangles have a winding order (CW or CCW). </li>
+                    </ul>
+                    <li> Rasterization </li>
+                    <ul> 
+                        <li> Takes the triangles and figures out which pixels are covered by the triangles. If doing MSAA, might take multiple samples per pixel to reduce jaggies. </li>
+                    </ul>
+                    <li> Optional Early depth test </li>
+                    <ul> 
+                        <li> Depth test fragment against previously written depth for the pixel. If current fragment will be behind what is currently there, ignore this fragment to save power. </li>
+                    </ul>
+                    <li> Fragment shader </li>
+                    <ul> 
+                        <li> Take interpolated vertex output data, use it as input to calculate the pixel's color. </li>
+                    </ul>
+                    <li> depth/stencil test/alpha blending </li>
+                    <ul> 
+                        <li> Write to render target if this fragment will be in front of what is currently there. Same for stencil testing, also need to do alpha blending. Typically, depth and stencil occur before fragment shading, but it's possible to change the depth of a fragment in a fragment shader which would force depth test afterwards. </li>
+                    </ul>
+                </ul>
+                <div class = "links">
+                    <a href = "https://www.khronos.org/opengl/wiki/Rendering_Pipeline_Overview" target = "_blank"> Rendering Pipeline Overview (Khronos) </a>
+                </div>
+            </div>
+
+
+            <p class = "subsectionHeader"> <b> TBDR </b> </p>
+            <div class = "subsectionContent">
+                <p> Tile Based Deferred Rendering. Vertices are binned into tiles, then each tile is rendered separately, which reduces memory bandwidth between pipeline stages. </p>
+                <div class = "links">
+                    <a href = "https://developer.apple.com/videos/play/wwdc2020/10602/" target = "_blank"> Harness Apple GPUs with Metal (Apple) </a>
+                </div>
+            </div>
+
 
             <h2 class = "sectionHeader"> CPU/GPU Architecture </h2>
 
@@ -302,7 +368,7 @@
                     <li> Heap is bigger than stack. </li>
                 </ul>
                 <div class = "links">
-                    <a href = "https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/" target = "_blank"> GeeksForGeeks </a>
+                    <a href = "https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/" target = "_blank"> Stack vs Heap Memory Allocation (GeeksforGeeks) </a>
                 </div>
             </div>
 
@@ -311,36 +377,31 @@
                 <p> When executing a function, the assembly instructions and data for that function are usually stored sequentially. In order to speed up execution, the OS will prefetch a section of code instructions and data surrounding the current instruction location and store it in the cache, which is a very small, very fast bit of memory that is close to the CPU. While executing the function, the CPU will check the cache to see if the next instruction/data is in the cache. If it is, there is no need to go back to main memory to fetch the data. However, if it is not in the cache, this is a cache miss, and the data must be fetched from a lower cache level or main memory. The cache line is the amount of data that is read into the cache aat once. Since the cache relies on things being sequential, data structures that aren't contiguous can have many cache misses, stuff like graphs, trees, linked lists. Arrays have relatively fewer cache misses, since data is stored sequentially. There are multiple levels of caches, L1 is the fastest. </p>
                 <div class = "links">
 
-                    <a href = "https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a" target = "_blank"> Medium (CPU caches) </a>
+                    <a href = "https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a" target = "_blank"> Why software developers should care about CPU caches (EventHelix) </a>
                     <br/>
-                    <a href = "https://rastergrid.com/blog/gpu-tech/2021/01/understanding-gpu-caches/" target = "_blank"> Rastergrid (GPU caches) </a>
+                    <a href = "https://rastergrid.com/blog/gpu-tech/2021/01/understanding-gpu-caches/" target = "_blank"> Understanding GPU caches (Rastergrid) </a>
                 </div>
             </div>
 
-            <p class = "subsectionHeader"> <b> GPU Threads </b> </p>
+            <p class = "subsectionHeader"> <b> GPU Architecture </b> </p>
             <div class = "subsectionContent"> 
-                <p> GPUs are very good at executing functions in parallel. A thread executes one function. A threadgroup/wavefront is a group of threads that are executed on the GPU. Once the threadgroup is submitted to the GPU, it is split up into smaller groups called simd groups/warps. simd groups are typically 32 or 64 threads. One simd group is executed in parallel on a single GPU core. In typical CPU code, there are assembly instructions like 'add x y z', and the CPU will fetch x and y and store it in z. However, on the GPU, the equivalent instruction is essentially 'add32 x y z', where the GPU will fetch an array of 32 x's and y's, and add them all at once and store them in z. 32 is the simd group size, and the GPU will have specialized hardware to do this add32 instruction in parallel. All instructions are executed in parallel and in lock step. Because of this, if statements are an issue, because some threads may not execute the instructions. To resolve this, the GPU typically executes both branches of the code, and uses thread masking to turn the instructions into no ops for threads that do not execute that branch. This means that you could take a performance hit if you have divergent threads. Some compilers will make optimizations for cases where all your threads converge though. </p>                
+
+                <p> Thread - single invocation of a shader </p>
+                <p> simd group/warp - group of 32 threads. this size is fixed by the GPU. in a simd group, all threads are run in parallel in at once on a single gpu core. </p>
+                <p> threadgroup/wavefront - group of threads. this</p>
+                <p> Thread masking - gpus execute simd groups in parallel and in lock step. as an example, if there is an add instruction in a shader, the gpu will fetch the inputs to the add instruction all at once, and execute the add instruction all at once, and write the result at once. This works great for efficiency, but causes an issue for threads with if statements and loops (divergent threads). This is because some threads will execute different instructions. To solve this, the GPU will execute both branches of the if statement for each thread. The gpu will use thread masking to ignore the writes to the registers for the threads that are not supposed to be executing the instructions. This is why if statements should generally be avoided if possible. </p>
+                <p> Command Buffer - Instructions for a GPU draw call are stored in a command buffer. Stuff like pipeline state, buffer bindings, rendering mode (triangles, points, lines). OpenGL/WebGL do not expose command buffers through their APIs, but they are first class citizens in Metal/Vulkan/other modern APIs. </p>
+                <p> Command Queue - Command buffers are submitted to the command queue, which holds the command buffers for the draw calls. </p>
+              
                 <div class = "links">
-                    <a href = "http://www.icl.utk.edu/~luszczek/teaching/courses/fall2016/cosc462/pdf/GPU_Fundamentals.pdf" target = "_blank"> UTK </a>
+                    <a href = "http://www.icl.utk.edu/~luszczek/teaching/courses/fall2016/cosc462/pdf/GPU_Fundamentals.pdf" target = "_blank"> GPU Fundamentals (Jeff Larkin) </a>
                     <br/>
-                    <a href = "https://aschrein.github.io/jekyll/update/2019/06/13/whatsup-with-my-branches-on-gpu.html" target = "_blank"> Anton Schrein </a>
+                    <a href = "https://aschrein.github.io/jekyll/update/2019/06/13/whatsup-with-my-branches-on-gpu.html" target = "_blank"> What's up with my branch on GPU? (Anton Schrein) </a>
+                    <br/>
+                    <a href = "https://developer.apple.com/library/archive/documentation/Miscellaneous/Conceptual/MetalProgrammingGuide/Cmd-Submiss/Cmd-Submiss.html" target = "_blank"> Command Organization and Execution Model (Apple) </a>
                 </div>
             </div>
 
-            <p class = "subsectionHeader"> <b> Command Buffer </b> </p>
-            <div class = "subsectionContent"> 
-                <p> Instructions for a GPU draw call are stored in a command buffer. Stuff like pipeline state, buffer bindings, rendering mode (triangles, points, lines). OpenGL/WebGL do not expose command buffers through their APIs, but they are first class citizens in Metal/Vulkan/other modern APIs. </p>
-                                <div class = "links">
-                    <a href = "https://developer.apple.com/library/archive/documentation/Miscellaneous/Conceptual/MetalProgrammingGuide/Cmd-Submiss/Cmd-Submiss.html" target = "_blank"> Apple </a>
-                </div>
-            </div> 
-            <p class = "subsectionHeader"> <b> Command Queue </b> </p>
-            <div class = "subsectionContent"> 
-                <p> Command buffers are submitted to the command queue, which holds the command buffers for the draw calls. </p>
-                <div class = "links">
-                    <a href = "https://developer.apple.com/library/archive/documentation/Miscellaneous/Conceptual/MetalProgrammingGuide/Cmd-Submiss/Cmd-Submiss.html" target = "_blank"> Apple </a>
-                </div>
-            </div>           
 
             <h2 class = "sectionHeader"> Rendering Techniques </h2>
             <p class = "subsectionHeader"> <b> PBR </b> </p>
@@ -356,10 +417,10 @@
             <div class = "subsectionContent"> 
                 <p> A way to approximate HDR content on an low dynamic range screen. </p>
                 <div class = "links">
-                    <a href = "https://en.wikipedia.org/wiki/Tone_mapping" target = "_blank"> Wikipedia </a>
+                    <a href = "https://en.wikipedia.org/wiki/Tone_mapping" target = "_blank"> Tone Mapping (Wikipedia) </a>
                 </div>
             </div>
-             <p> <b> bloom </b> </p>
+            <p> <b> bloom </b> </p>
             <p> <b> ray tracing </b> </p>
 
             <h2 class = "sectionHeader"> C++ stuff </h2>
@@ -385,15 +446,15 @@
      if (root == NULL) {
          return;
      }
-     list l;
-     l.pushFront(root);
+     <b>stack s;
+     s.push(root);</b>
  
-     while (!l.empty()) {
-         TreeNode* n = l.popFront();
+     while (!s.empty()) {
+         TreeNode* n = <b>s.pop();</b>
          process(n);
          for (TreeNode* child: n->children) {
              if (child != NULL) {
-                 l.<b>pushFront</b>(child);
+                 s.<b>push</b>(child);
              }
          }
      }
@@ -403,15 +464,15 @@
      if (root == NULL) {
          return;
      }     
-     list l;
-     l.pushFront(root);
+     <b>queue q;
+     q.enqueue(root);</b>
  
-     while (!l.empty()) {
-         TreeNode* n = l.popFront();
+     while (!q.empty()) {
+         TreeNode* n = <b>q.dequeue();</b>
          process(n);
          for (TreeNode* child: n->children) {
              if (child != NULL) {
-                 l.<b>pushBack</b>(child);
+                 q.<b>enqueue</b>(child);
              }
          }
      }
@@ -458,17 +519,124 @@
             </div>
             <br/>
 
-            <p> <b> k-d tree/bvh </b> </p>
-            <p> <b> linked list vs array pros cons </b> </p>
+            <p class = "subsectionHeader"> <b> Spacial Data Structures </b> </p>
+            <div class = "subsectionContent">
+                <p> Used to query spacial data in sub-linear time. Still takes linear time to build spacial data structures. </p>
+                <p> k-d tree - partition data along alternating dimensions </p> 
+                <p> Bounding Volume Hierarchy - Create bounding boxes around objects, then more bounding boxes around groups of objects </p> 
+                <p> Binary Space Parition - Partition data using planes </p> 
+                <p> Octree - tree where each node has 8 children </p> 
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/K-d_tree" target = "_blank"> k-d tree (Wikipedia) </a>
+                    <br/>
+                    <a href = "https://en.wikipedia.org/wiki/Bounding_volume_hierarchy" target = "_blank"> BVH (Wikipedia) </a>
+                    <br/>
+                    <a href = "https://en.wikipedia.org/wiki/Binary_space_partitioning" target = "_blank"> BSP (Wikipedia) </a>
+                    <br/>
+                    <a href = "https://en.wikipedia.org/wiki/Octree" target = "_blank"> Octree (Wikipedia) </a>
+                    <br/>
+                </div>
+
+
+            </div>
+
+
+            <p class = "subsectionHeader"> <b> Linked List vs Arrays </b> </p>
+            <div class = "subsectionContent">
+                <p class = "noBottom"> Linked List </p>
+                <ul> 
+                    <li> A chain of nodes that contain pointers to the next and previous nodes in the list. </li>
+                    <li> Very quick to add, remove, and insert elements into the list. </li>
+                    <li> Generally takes linear time to find the nth element in the list. </li>
+                    <li> Won't have the best cache performance, since list nodes aren't neccesarily next to each other in memory. </li>
+                </ul>
+
+                <p class = "noBottom"> Array </p>
+                <ul> 
+                    <li> Collection of elements in a continous group of memory. </li>
+                    <li> Very quick to index into the array to the nth element. </li>
+                    <li> Can't resize the array without creating a new array and copying data over. </li>
+                    <li> Generally takes linear time to remove an element from an array. </li>
+                    <li> Typically has good cache performance since data is contiguous. </li>
+                </ul>
+            </div>
 
             <h2 class = "sectionHeader"> Other stuff </h2>
-            <p> <b> Cloth sim </b> </p>
-            <p> <b> photon mapping </b> </p>
-            <p> <b> subdivision </b> </p>
-            <p> <b> fluid sim </b> </p>
-            <p> <b> integration methods </b> </p>
-            <p> <b> Apple Silicon </b> </p>
-            <p> <b> Node based graphs </b> </p>
+            <p class = "subsectionHeader"> <b> Cloth Simulation </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Common cloth simulation methods are mass/spring. Bunch of cloth vertices are connected by springs that keep the vertices in place. There are structural springs, which are for adjacent vertices in the face. Shear vertices are for non-adjacent vertices in a face. Flexion/bend vertices are 'two hops' away. </p>
+
+                <div class = "links"> 
+                    <a href = "https://www.cs.umd.edu/class/fall2019/cmsc828X/LEC/Wei_Cloth.pdf" target = "_blank"> Cloth Simulation (Zhen Wei) </a>
+                    <br/>
+                    <a href = "https://docs.blender.org/manual/en/latest/physics/cloth/introduction.html" target = "_blank"> Introduction to Cloth (Blender) </a>
+                    <br/>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Subdivision Surfaces </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Process of smoothing out a surface and adding more geometry. Most common technique is Catmull-Clark. Typically we use half-edge data structures to represent meshes that we want to subdivide. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Subdivision_surface" target = "_blank"> Subdivision Surface (Wikipedia) </a>
+                    <br/>                    
+                    <a href = "https://en.wikipedia.org/wiki/Catmull–Clark_subdivision_surface" target = "_blank"> Catmull-Clark (Wikipedia) </a>
+                    <br/>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Fluid Simulation </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Fluid simulation involves solving the Navier-Stokes equation, which model forces like gravity, pressure, viscosity, etc. Two main types of fluid: Eulerian and Lagrangian. Lagrangian is about tracking individual particles in the simulation, while Eulerian is about tracking the flow of particles through a specific location, rather than individual particles. Lagrangian is a particle based approach (mesh free), while Eulerian is a grid/mesh based approach.  </p>
+                <div class = "links"> 
+                    <a href = "https://www.cs.rpi.edu/~cutler/classes/advancedgraphics/S09/lectures/08_fluid_simulation.pdf" target = "_blank"> Navier-Stokes & Flow Simulation (Barb Culter) </a>
+                    <br/>
+                    <a href = "https://en.wikipedia.org/wiki/Lagrangian_and_Eulerian_specification_of_the_flow_field" target = "_blank"> Eulerian vs Lagangian (Wikipedia) </a>
+                    <br/>
+                    <a href = "https://en.wikipedia.org/wiki/Navier–Stokes_equations" target = "_blank"> Navier-Stokes equations (Wikipedia) </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Integration methods </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Explicit Euler, Implicit Euler, and Runge-Kutta (RK4) are common integration methods. Euler is typically unstable on forces that vary with time/distance/position. RK4 doesn't have as many issues, but it's more complicated. </p>
+                <div class = "links"> 
+                    <a href = "https://www.cs.umd.edu/class/fall2019/cmsc828X/LEC/Wei_Cloth.pdf" target = "_blank"> Cloth Simulation (Zhen Wei) </a>
+                </div>
+            </div>
+            
+            <p class = "subsectionHeader"> <b> Apple Silicon </b> </p>
+            <div class = "subsectionContent">
+                <p> If you want to work for Apple (or are just interested), you'll want to be familiar with Apple Silicon. </p>
+                <div class = "links">
+                    <a href = "https://developer.apple.com/videos/play/tech-talks/10859" target = "_blank"> Tailor your Metal apps for Apple M1 (Apple) </a>
+                    <br/>
+                    <a href = "https://developer.apple.com/videos/play/wwdc2020/10631/" target = "_blank"> Bring your Metal app to Apple silicon Macs (Apple) </a>
+                    <br/>
+                    <a href = "https://developer.apple.com/videos/play/wwdc2020/10632/" target = "_blank"> Optimize Metal Performance for Apple silicon Macs (Apple) </a>
+                    <br/>
+                    <a href = "https://developer.apple.com/videos/play/tech-talks/10858/" target = "_blank"> Discover Metal enhancements for A14 Bionic (Apple) </a>
+                    <br/>
+                    <a href = "https://developer.apple.com/videos/play/wwdc2019/601/" target = "_blank"> Modern Rendering with Metal (Apple) </a>
+                </div>
+
+            </div>
+
+            <p class = "subsectionHeader"> <b> Node based graphs </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Lots of rendering/vfx stuff uses node graphs to represent shaders/render passes/materials/etc. </p>
+                <div class = "links">
+                    <a href = "https://unity.com/shader-graph" target = "_blank"> Unity Shader Graph </a>
+                    <br/>
+                    <a href = "https://unity.com/visual-effect-graph" target = "_blank"> Unity Visual Effect Graph </a>
+                    <br/>
+                    <a href = "https://levelup.gitconnected.com/organizing-gpu-work-with-directed-acyclic-graphs-f3fd5f2c2af3" target = "_blank"> Organizing GPU Work with Directed Acyclic Graphs </a>
+                    <br/>
+                    <a href = "https://apoorvaj.io/render-graphs-1/" target = "_blank"> Render graphs </a>
+                    <br/>
+                    <a href = "http://simonstechblog.blogspot.com/2019/07/render-graph.html" target = "_blank"> Render Graph </a>
+                </div>
+            </div>
 
 <!--
 

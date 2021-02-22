@@ -393,7 +393,9 @@
 
             <br/>
             <h2 class = "sectionHeader"> Importance Sampling </h2>
-            <p class = "sectionIntro"> Is it finally time to use our PDF to generate random samples and approximate an integral? Almost. Using a non-uniform PDF will cause generated samples to be more or less dense in different regions of the interval. In areas where samples are more dense, each rectangle generated should have a smaller width, since there are more samples to better approximate the dense area. Likewise, in areas of less sample density, the width of the rectangles should increase, since that rectangle needs to approximate more of the function because fewer samples will be in that region. But how much to we scale these rectangle widths by? By the value of the PDF at the random sample point. Take a look at this concept in the visualization below. </p>
+            <p class = "sectionIntro"> The reason that importance sampling is so important is due to the following observation: whether a given sample contributes 50% or 0.1% to the final sum, the time it takes to evaluate the function at the two sample points is the same. Because of this, we should spend more time evaluating areas of the interval that contribute significantly to the final sum, and less time on areas that do not contribute much. As we saw above, a PDF allows us to generate samples that are more dense in specific areas of an interval. </p>
+
+            <p> Using a non-uniform PDF will cause generated samples to be more/less dense in different regions of the interval. In areas where samples are more dense, each rectangle generated should have a smaller width, since there are more samples to better approximate the dense area. Likewise, in areas of less sample density, the width of the rectangles should increase, since that rectangle needs to approximate more of the function because fewer samples will be in that region. But how much to we scale these rectangle widths by? By the value of the PDF at the random sample point. Take a look at this concept in the visualization below. </p>
 
             <div class = "graphContainer">
                 <div class = "graph">

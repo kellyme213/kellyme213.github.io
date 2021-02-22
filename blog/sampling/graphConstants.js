@@ -661,15 +661,17 @@ var pConstant6 = [
 
 var text1 = "In uniform sampling, the samples are evenly spread throughout the entire interval. \
 Since the samples are evenly spread out, each sample approximates the same amount of the function as \
-all the others, so all of the rectangles have the same width.";
+all the others, so all of the rectangles have the same width. <br/> <br/> In this case, we are spending \
+50% of our computation time on evaluating the interval [0, 0.5], which only contributes 25% of the area \
+in the final sum.";
 
 var text2 = "In importance sampling, some parts of the function are sampled more frequently than other parts. \
-In this \
-case, the interval from 0.5 to 1.0 (shown in green) is sampled twice as often as the interval from 0.0 to 0.5 \
-(shown in blue). Since there are fewer samples from 0 to 0.5, each sample needs to approximate more \
-of the function, so the width of the rectangles has to increase. Similarly, since there are more samples in \
-the interval from 0.5 to 1, each sample needs to approximate less of the function, so the width of the \
-rectangles has to decrease.";
+In this case, 25% of our samples are spent sampling the interval from [0, 0.5] (shown in blue) and 75% of our \
+samples are in the interval [0.5, 1.0] (shown in green). This is more efficient, since the interval [0, 0.5] \
+only contributes 25% of the area in the final sum. \
+<br/> <br/> You'll notice that because the density of samples \
+is different, the width of the sample rectangles has to change depending on the density, which \
+is described by the PDF that generates the samples.";
 
 
 var text3 = "There are a number of points that are evenly distributed along the vertical axis of the graph. \
