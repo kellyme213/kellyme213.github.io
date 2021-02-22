@@ -666,7 +666,7 @@ all the others, so all of the rectangles have the same width. <br/> <br/> In thi
 in the final sum.";
 
 var text2 = "In importance sampling, some parts of the function are sampled more frequently than other parts. \
-In this case, 25% of our samples are spent sampling the interval from [0, 0.5] (shown in blue) and 75% of our \
+In this case, 33% of our samples are spent sampling the interval from [0, 0.5] (shown in blue) and 67% of our \
 samples are in the interval [0.5, 1.0] (shown in green). This is more efficient, since the interval [0, 0.5] \
 only contributes 25% of the area in the final sum. \
 <br/> <br/> You'll notice that because the density of samples \
