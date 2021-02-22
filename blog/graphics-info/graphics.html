@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="../../styles.css"> </link>
         <link rel="stylesheet" href="../blog.css"> </link>
-        <title> Graphics </title>
+        <title> Graphics Questions </title>
         <meta name = "viewport" content = "width=1000"> </meta>
         <meta charset = "UTF-8"> </meta>
     </head>
@@ -17,13 +17,10 @@
                 <p> <a href = "../../index.html" style = "text-decoration: none; color: white;"> Home </a> </p>
             </div>
         </div>
-        <p style = "text-align: center; font-size: 25px;"> 👷 <b>Work in Progress</b> 👷 </p>
-        <div class = "content" style = "visibility: ;">
-
-
+        <div class = "content">
             <h1> Junior Graphics Engineer Interview Questions </h1>
             <p>
-                Junior graphics engineer interviews require a lot more domain-specific knowledge than your typical junior software engineer interviews. I've failed many interviews because I didn't fully understand common graphics interview topics. So I made this page to include some common interview topics I encountered during my interview process. I'm not going to go super in depth on all topics on this page, but I will link to other resources that do go in depth. Not all these topics will come up, but it's good to have familiarity with all of the topics.
+                Junior graphics engineer interviews require a lot more domain-specific knowledge than your typical junior software engineer interviews. I've failed many interviews because I didn't fully understand common graphics interview topics. So I made this page to include some common interview topics I encountered during my interview process. I'm not going to go super in depth on all topics on this page, but I will link to other resources that do go in depth. Not all these topics will come up, but it's good to have familiarity with all of the topics. If you're interested about my experience applying for graphics jobs, you can read about that <a class = "colorLink" href = "../job/job.html">here</a>.
             </p>
 
 
@@ -53,7 +50,7 @@
 
 
 
-            <p class = "subsectionHeader"> <b> Two's compliment </b> </p>
+            <p class = "subsectionHeader"> <b> Two's Compliment </b> </p>
             <div class = "subsectionContent">
                 <p> To create a negative number in two's compliment, determine the binary representation of the positive number, flip the bits, and add 1. </p>
                 <div class = "links">
@@ -83,7 +80,7 @@
                 </div>
             </div>
 
-            <p class = "subsectionHeader"> <b> Ray intersections </b> </p>
+            <p class = "subsectionHeader"> <b> Ray Intersections </b> </p>
             <div class = "subsectionContent">
                 <p> A ray is defined at <b>x = dt + o</b>, where x is position, d is direction, t is time/distance, o is origin. d and o are normalized. </p>
 
@@ -228,7 +225,7 @@
                     <li> Subsurface Scattering </li>
                 </ul>
 
-                <p> Takes in two inputs, light direction into a surface (wi), light direction out of the surface (wo). The output of a BXDF is the ratio of radiance to irradiance for the surface. The amount of light absorbed along wi that is reflected out along wo. The %chance that a ray coming in along wi will reflect out along wo. </p>
+                <p> Takes in two inputs, light direction into a surface (wi), light direction out of the surface (wo). The output of a BXDF is the ratio of radiance to irradiance for the surface. You can also think of it as the amount of light absorbed along wi that is reflected out along wo, or the % chance that a ray coming in along wi will reflect out along wo. </p>
 
                 <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/49e75397f3740b44e763145f6c8c64578b2440e7" style = "width: 400px;"/>
 
@@ -241,7 +238,7 @@
                 </ul>
 
 
-                <p class = "noBottom"> Types of BRDFs </p>
+                <p class = "noBottom"> Types of BXDFs </p>
                 <ul class = "noTop"> 
                     <li> Lambertian </li>
                     <li> Disney Diffuse </li>
@@ -284,14 +281,14 @@
             </div>
 
 
-            <h2 class = "sectionHeader"> Graphics pipeline </h2>
+            <h2 class = "sectionHeader"> Graphics Pipeline </h2>
             <p class = "subsectionHeader"> <b> Pipeline </b> </p>
             <div class = "subsectionContent">
 
                 <ul> 
                     <li> Vertex shader </li>
                     <ul> 
-                        <li> Runs per vertex/point in the mesh. Typically transform mesh vertices from model space to screen space. Vertex shaders predominently use the GPU's matrix vector multipliction. </li>
+                        <li> Runs per vertex/point in the mesh. Typically transform mesh vertices from model space to screen space. Vertex shaders predominently use the GPU's matrix/vector multiplication units. </li>
                     </ul>
                     <li> Optional Tessellation shader </li>
                     <ul> 
@@ -319,11 +316,11 @@
                     </ul>
                     <li> Optional Early depth test </li>
                     <ul> 
-                        <li> Depth test fragment against previously written depth for the pixel. If current fragment will be behind what is currently there, ignore this fragment to save power. </li>
+                        <li> Depth test fragment against previously written depth for the pixel. If current fragment will be behind what is currently there, ignore this fragment to save computation time. </li>
                     </ul>
                     <li> Fragment shader </li>
                     <ul> 
-                        <li> Take interpolated vertex output data, use it as input to calculate the pixel's color. </li>
+                        <li> Take interpolated vertex output data, use it as input to calculate the pixel's color. Typically lighting calculations are done here, and fragment shaders use a lot of texture lookups and ALUs. </li>
                     </ul>
                     <li> depth/stencil test/alpha blending </li>
                     <ul> 
@@ -347,7 +344,7 @@
 
             <h2 class = "sectionHeader"> CPU/GPU Architecture </h2>
 
-            <p class = "subsectionHeader"> <b> Stack vs heap </b> </p>
+            <p class = "subsectionHeader"> <b> Stack vs Heap </b> </p>
             <div class = "subsectionContent">
                 <p class = "noBottom"> Stack </p>
                 <ul>
@@ -355,7 +352,7 @@
                     <li> There is a stack pointer that points to the top of the stack. </li>
                     <li> Stack allocation is very quick, because adding new memory to the stack just requires incrementing the stack pointer. Deallocation is the same. </li>
                     <li> Meant for 'temporary variables' that are locally scoped within a function that won't be needed after the function returns. </li>
-                    <li> Compiler can make some optimizations to preallocate all stack memory for a function when it is called </li>
+                    <li> Compiler can make some optimizations to preallocate all stack memory for a function when it is called. </li>
                 </ul>
                 <p class = "noBottom"> Heap </p>
                 <ul>
@@ -372,7 +369,7 @@
                 </div>
             </div>
 
-            <p class = "subsectionHeader"> <b> Cache, memory, cache line </b> </p>
+            <p class = "subsectionHeader"> <b> Cache, Memory, Cache Line </b> </p>
             <div class = "subsectionContent"> 
                 <p> When executing a function, the assembly instructions and data for that function are usually stored sequentially. In order to speed up execution, the OS will prefetch a section of code instructions and data surrounding the current instruction location and store it in the cache, which is a very small, very fast bit of memory that is close to the CPU. While executing the function, the CPU will check the cache to see if the next instruction/data is in the cache. If it is, there is no need to go back to main memory to fetch the data. However, if it is not in the cache, this is a cache miss, and the data must be fetched from a lower cache level or main memory. The cache line is the amount of data that is read into the cache aat once. Since the cache relies on things being sequential, data structures that aren't contiguous can have many cache misses, stuff like graphs, trees, linked lists. Arrays have relatively fewer cache misses, since data is stored sequentially. There are multiple levels of caches, L1 is the fastest. </p>
                 <div class = "links">
@@ -387,9 +384,9 @@
             <div class = "subsectionContent"> 
 
                 <p> Thread - single invocation of a shader </p>
-                <p> simd group/warp - group of 32 threads. this size is fixed by the GPU. in a simd group, all threads are run in parallel in at once on a single gpu core. </p>
-                <p> threadgroup/wavefront - group of threads. this</p>
-                <p> Thread masking - gpus execute simd groups in parallel and in lock step. as an example, if there is an add instruction in a shader, the gpu will fetch the inputs to the add instruction all at once, and execute the add instruction all at once, and write the result at once. This works great for efficiency, but causes an issue for threads with if statements and loops (divergent threads). This is because some threads will execute different instructions. To solve this, the GPU will execute both branches of the if statement for each thread. The gpu will use thread masking to ignore the writes to the registers for the threads that are not supposed to be executing the instructions. This is why if statements should generally be avoided if possible. </p>
+                <p> SIMD group/Warp - a group of 32 threads. This size is fixed by the GPU. In a SIMD group, all threads are executed in parallel in at once on a single GPU core. </p>
+                <p> Threadgroup/Wavefront - A group of threads that are dispatched to a GPU. The threadgroup size is typically set by the programmer. </p>
+                <p> Thread masking - GPUs execute SIMD groups in parallel and in lock step. As an example, if there is an add instruction in a shader, the GPU will fetch the inputs to the add instruction all at once, and execute the add instruction all at once, and write the results all at once. This is very efficient, but causes an issue for threads with if statements and loops (divergent threads). This is because some threads will execute different instructions while other threads need to execute other instructions. To solve this, the GPU will execute both branches of the if statement for each thread. The GPU will use thread masking to ignore the writes to the registers for the threads that are not supposed to be executing the instructions. This is why if statements should generally be avoided in GPU code if possible. </p>
                 <p> Command Buffer - Instructions for a GPU draw call are stored in a command buffer. Stuff like pipeline state, buffer bindings, rendering mode (triangles, points, lines). OpenGL/WebGL do not expose command buffers through their APIs, but they are first class citizens in Metal/Vulkan/other modern APIs. </p>
                 <p> Command Queue - Command buffers are submitted to the command queue, which holds the command buffers for the draw calls. </p>
               
@@ -404,35 +401,156 @@
 
 
             <h2 class = "sectionHeader"> Rendering Techniques </h2>
-            <p class = "subsectionHeader"> <b> PBR </b> </p>
+            <p class = "subsectionHeader"> <b> Physically Based Rendering </b> </p>
             <div class = "subsectionContent"> 
-                <p> Physically Based Rendering, a way to realistically compute the way light interacts with materials. PBR uses BRDFs to approximate the rendering equation, and is generally photorealistic. PBR models typically have a diffuse/albedo component, a specular/gloss component, a roughness, a metallness, and emmission components. Not all of the components correspond to exact photorealistic parameters, are are used for artists to be able to tune stuff. </p>
-            </div>              
-            <p> <b> Forward Rendering </b> </p>
-            <p> <b> Deferred rendering </b> </p>
-            <p> <b> Visibility buffer rendering </b> </p>
-            <p> <b> Shadow mapping </b> </p>
-            <p> <b> mipmapping, reasons for doing </b> </p>
-            <p class = "subsectionHeader"> <b> Tone mapping </b> </p>
+                <p> Physically Based Rendering, a way to realistically compute the way light interacts with materials. PBR uses BRDFs to approximate the rendering equation, and is generally photorealistic. PBR models typically have a diffuse/albedo component, a specular/gloss component, a roughness, a metallness, and emmission components. Not all of the components correspond to exact photorealistic parameters, but the parameters are meant to be tweakable by artists. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Physically_based_rendering" target = "_blank"> Tone Physically based rendering (Wikipedia) </a>
+                </div>
+            </div>   
+
+            <p class = "subsectionHeader"> <b> Forward Rendering </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Typical way that the graphics pipeline works. Have some triangles, put them through the vertex shader, compute lighting in fragment shader, then write to frame buffer. You might use a depth buffer to stop a fragment from being drawn behind a pixel that has already been drawn. </p>
+                <div class = "links"> 
+                    <a href = "https://gamedevelopment.tutsplus.com/articles/forward-rendering-vs-deferred-rendering--gamedev-12342" target = "_blank"> Forward Rendering vs. Deferred Rendering (Brent Owens) </a>
+                </div>
+            </div> 
+
+            <p class = "subsectionHeader"> <b> Deferred Rendering </b> </p>
+            <div class = "subsectionContent"> 
+                <p> While forward rendering works ok, it does not prevent the case where you compute lighting on a fragment that will later be overwritten by another fragment that is closer to the camera. This means that your lighting calculations for the first fragment are wasted (overdraw), which is inefficient. Deferred rendering tries to solve this by deferring lighting to a second compute pass after the triangles have all been rasterized. In deferred rendering, during the fragment shader, the shader writes the various material components to a G-buffer, which is a group of textures containing diffuse/specular/normal/depth information about the triangles. After rasterization, a second compute pass takes the G-buffer and computes lighting. This way lighting is only calculated on pixels that appear on screen. </p>
+                <p> Deferred rendering has some drawbacks, it uses significantly more texture memory than forward rendering, it can't handle transparent materials well, and it can be difficult to do MSAA with it. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Deferred_shading" target = "_blank"> Deferred Shading (Wikipedia) </a>
+                </div>
+            </div> 
+                        
+            <p class = "subsectionHeader"> <b> Visibility Buffer Rendering </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Visibility buffer rendering solves some issues with deferred rendering. In visibility buffer rendering, the fragment shader writes the triangle/primitive id and draw call id to the visibility buffer. This means you only need a depth + visibility buffer, no G-buffer. Then, in the lighting compute pass, the primitive id and draw call id are used to fetch the MVP matrices and material information from a material buffer, which is then used for lighting. </p>
+                <div class = "links">
+                    <a href = "http://diaryofagraphicsprogrammer.blogspot.com/2018/03/triangle-visibility-buffer.html" target = "_blank"> Triangle Visibility Buffer (Wolfgang Engel) </a>
+                </div>
+            </div> 
+
+            <p class = "subsectionHeader"> <b> Shadow Mapping </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Shadow mapping is a real time shadow algorithm. A depth buffer is rendered from the camera's point of view, and from the light's point of view. Then, pairs of depth values are compared between the images to determine if the pixels should be in light or shadow. Cascaded shadow mapping creates multiple depth buffers from the light's point of view for different depth ranges away from the camera to improve the resolution of the shadows. </p>
+                <div class = "links">
+                    <a href = "https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping" target = "_blank"> Shadow Mapping (Learn OpenGL) </a>
+                    <br/>
+                    <a href = "https://docs.microsoft.com/en-us/windows/win32/dxtecharts/cascaded-shadow-maps" target = "_blank"> Cascaded Shadow Mapping (Microsoft) </a>
+                </div>
+            </div> 
+
+
+            <p class = "subsectionHeader"> <b> Mipmapping </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Mipmapping is the process of creating lower resolution version of textures. With each mip level, the resolution is cut in half (pixel count cut into a quarter). The new mipmap levels will take up 33% more memory of than original texture. Having mipmaps can reduce Moiré patterns, and can save on texture memory by loading a lower resolution version of a texture if that texture appears far away from the camera. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Mipmap" target = "_blank"> Mipmap (Wikipedia) </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Tone Mapping </b> </p>
             <div class = "subsectionContent"> 
                 <p> A way to approximate HDR content on an low dynamic range screen. </p>
                 <div class = "links">
                     <a href = "https://en.wikipedia.org/wiki/Tone_mapping" target = "_blank"> Tone Mapping (Wikipedia) </a>
                 </div>
             </div>
-            <p> <b> bloom </b> </p>
-            <p> <b> ray tracing </b> </p>
 
-            <h2 class = "sectionHeader"> C++ stuff </h2>
-            <p> <b> virtual function </b> </p>
-            <p> <b> pointers </b> </p>
-            <p> <b> pointer vs reference </b> </p>
-            <p> <b> templated classes </b> </p>
-            <p> <b> static </b> </p>
-            <p> <b> padding </b> </p>
-            <p> <b> mutex semaphore </b> </p>
-            <p> <b> paging </b> </p>
+            <p class = "subsectionHeader"> <b> Bloom </b> </p>
+            <div class = "subsectionContent"> 
+                <p> A way to approximate the washed out/glow effect that bright lights cause on camera sensors. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Bloom_(shader_effect)" target = "_blank"> Bloom (Wikipedia) </a>
+                </div>
+            </div>
 
+            <p class = "subsectionHeader"> <b> Ray Tracing </b> </p>
+            <div class = "subsectionContent"> 
+                <p> A technique to create images by tracing light paths through a scene. </p>
+                <div class = "links">
+                    <a href = "https://en.wikipedia.org/wiki/Ray_tracing_(graphics)" target = "_blank"> Ray tracing (Wikipedia) </a>
+                </div>
+            </div>
+
+
+            <h2 class = "sectionHeader"> C++/OS stuff </h2>
+            <p class = "subsectionHeader"> <b> Virtual Functions </b> </p>
+            <div class = "subsectionContent"> 
+                <p> Polymorphic classes are allowed to have virtual functions, which allow the child classes to implement different versions of the function for each object. The program will determine which virtual function to execute for the object at runtime. classes with virtual functions will get an additional void* vptr member (increasing the object size) pointing to the vtable. The vtable is essentially a list of the object's virtual function address. Pure virtual functions are marked with = 0 and they must be implemented by the subclass. </p>
+                <div class = "links">
+                    <a href = "https://www.geeksforgeeks.org/virtual-functions-and-runtime-polymorphism-in-c-set-1-introduction/" target = "_blank"> Virtual Functions and Runtime Polymorphism in C++ (GeeksforGeeks) </a>
+                    <br/>
+                    <a href = "https://www.geeksforgeeks.org/virtual-function-cpp/" target = "_blank"> Virtual Function in C++ (GeeksforGeeks) </a>
+                    <br/>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Pointer vs Reference </b> </p>
+            <div class = "subsectionContent">
+                <p class = "noBottom"> Pointer </p>
+                <ul> 
+                    <li> Pointer is int* </li>
+                    <li> Can point to a single object or an array of objects </li>
+                    <li> Could be null, could be void* </li>
+                </ul>
+
+                <p class = "noBottom"> Reference </p>
+                <ul> 
+                    <li> Reference is int& </li>
+                    <li> Only points to a single object </li>
+                    <li> Will not be null, will not be void& </li>
+                </ul>
+
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/pointers-vs-references-cpp/" target = "_blank"> Pointer vs Reference (GeeksforGeeks) </a>
+                </div>
+            </div>
+
+
+           <p class = "subsectionHeader"> <b> Templated Classes </b> </p>
+            <div class = "subsectionContent">
+                <p> Templated classes allow you to write generic code/container classes. However, each new use of the class needs to be compiled individually, which can increase compile time and binary size. They can also be annoying to debug on old versions of C++. </p>
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/templates-cpp/" target = "_blank"> Templates in C++ (GeeksforGeeks) </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Static </b> </p>
+            <div class = "subsectionContent">
+                <p> A static variable in a class is a shared between all objects of that class, they can all access and modify it. </p>
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/static-keyword-cpp/" target = "_blank"> Static Keyword in C++ (GeeksforGeeks) </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Size, Padding, Alignment </b> </p>
+            <div class = "subsectionContent">
+                <p> The size of an object is important, and there is a difference between the padding, alignment, and size of an object. An empty object without a virtual function will have a size of 1 byte, with a virtual function is 4 bytes. </p>
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/structure-member-alignment-padding-and-data-packing/" target = "_blank"> Structure Member Alignment, Padding and Data Packing (GeeksforGeeks) </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Mutex and Semaphore </b> </p>
+            <div class = "subsectionContent">
+                <p> Used for multithreaded programming and locking to prevent race conditions. Mutexes generally allow one thread to access a resource, while a semaphore can allow multiple threads to access a resource. </p>
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/mutex-vs-semaphore/" target = "_blank"> Mutex vs Semaphore (GeeksforGeeks) </a>
+                </div>
+            </div>
+
+            <p class = "subsectionHeader"> <b> Paging </b> </p>
+            <div class = "subsectionContent">
+                <p> Paging allows you to have 'contiguous' memory that is not actually contiguous. This is nice for heap memory, which can become fragmented. </p>
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/paging-in-operating-system/" target = "_blank"> Paging in Operating System (GeeksforGeeks) </a>
+                </div>
+            </div>
             <h2 class = "sectionHeader"> Data Structures/Algorithms </h2>
             <p class = "subsectionHeader"> <b> DFS/BFS </b> </p>
             <div class = "subsectionContent">
@@ -441,7 +559,7 @@
                     <code> 
                         <pre>
  //The main difference between dfsIterative and bfsIterative is one
- //function uses pushFront while the other uses pushBack.
+ //function uses a stack while the other uses a queue.
  void dfsIterative(TreeNode* root) {
      if (root == NULL) {
          return;
@@ -490,8 +608,12 @@
      }
  }</pre> </code>
                 </div>
+                <br/>
+
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/bfs-vs-dfs-binary-tree/" target = "_blank"> BFS vs DFS for Binary Tree (GeeksforGeeks) </a>
+                </div>
             </div>
-            <br/>
 
             <p class = "subsectionHeader"> <b> Reverse Linked List </b> </p>
             <div class = "subsectionContent">
@@ -516,8 +638,12 @@
  }</pre>
                     </code>
                 </div>
+                <br/>
+
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/reverse-a-linked-list/" target = "_blank"> Reverse a linked list (GeeksforGeeks) </a>
+                </div>
             </div>
-            <br/>
 
             <p class = "subsectionHeader"> <b> Spacial Data Structures </b> </p>
             <div class = "subsectionContent">
@@ -553,24 +679,28 @@
 
                 <p class = "noBottom"> Array </p>
                 <ul> 
-                    <li> Collection of elements in a continous group of memory. </li>
+                    <li> Collection of elements in a continous block of memory. </li>
                     <li> Very quick to index into the array to the nth element. </li>
                     <li> Can't resize the array without creating a new array and copying data over. </li>
                     <li> Generally takes linear time to remove an element from an array. </li>
                     <li> Typically has good cache performance since data is contiguous. </li>
                 </ul>
+
+                <div class = "links"> 
+                    <a href = "https://www.geeksforgeeks.org/linked-list-vs-array/" target = "_blank"> Linked List vs Array (GeeksforGeeks) </a>
+                </div>
+                
             </div>
 
             <h2 class = "sectionHeader"> Other stuff </h2>
             <p class = "subsectionHeader"> <b> Cloth Simulation </b> </p>
             <div class = "subsectionContent"> 
-                <p> Common cloth simulation methods are mass/spring. Bunch of cloth vertices are connected by springs that keep the vertices in place. There are structural springs, which are for adjacent vertices in the face. Shear vertices are for non-adjacent vertices in a face. Flexion/bend vertices are 'two hops' away. </p>
+                <p> Common cloth simulation methods use mass/spring. A bunch of cloth vertices are connected by springs that keep the vertices in place. There are structural springs, which are for adjacent vertices in the face. Shear vertices are for non-adjacent vertices in a face. Flexion/bend vertices are 'two hops' away. </p>
 
                 <div class = "links"> 
                     <a href = "https://www.cs.umd.edu/class/fall2019/cmsc828X/LEC/Wei_Cloth.pdf" target = "_blank"> Cloth Simulation (Zhen Wei) </a>
                     <br/>
                     <a href = "https://docs.blender.org/manual/en/latest/physics/cloth/introduction.html" target = "_blank"> Introduction to Cloth (Blender) </a>
-                    <br/>
                 </div>
             </div>
 
@@ -597,9 +727,9 @@
                 </div>
             </div>
 
-            <p class = "subsectionHeader"> <b> Integration methods </b> </p>
+            <p class = "subsectionHeader"> <b> Integration Methods </b> </p>
             <div class = "subsectionContent"> 
-                <p> Explicit Euler, Implicit Euler, and Runge-Kutta (RK4) are common integration methods. Euler is typically unstable on forces that vary with time/distance/position. RK4 doesn't have as many issues, but it's more complicated. </p>
+                <p> Explicit Euler, Implicit Euler, and Runge-Kutta (RK4) are common integration methods. Euler is typically unstable on forces that vary with time/distance/position. RK4 is more stable, but it's more complicated. </p>
                 <div class = "links"> 
                     <a href = "https://www.cs.umd.edu/class/fall2019/cmsc828X/LEC/Wei_Cloth.pdf" target = "_blank"> Cloth Simulation (Zhen Wei) </a>
                 </div>
@@ -622,113 +752,21 @@
 
             </div>
 
-            <p class = "subsectionHeader"> <b> Node based graphs </b> </p>
+            <p class = "subsectionHeader"> <b> Node-Based Graphs </b> </p>
             <div class = "subsectionContent"> 
-                <p> Lots of rendering/vfx stuff uses node graphs to represent shaders/render passes/materials/etc. </p>
+                <p> Lots of rendering/VFX stuff uses node graphs to represent shaders/render passes/materials/etc. </p>
                 <div class = "links">
-                    <a href = "https://unity.com/shader-graph" target = "_blank"> Unity Shader Graph </a>
+                    <a href = "https://unity.com/shader-graph" target = "_blank"> Shader Graph (Unity) </a>
                     <br/>
-                    <a href = "https://unity.com/visual-effect-graph" target = "_blank"> Unity Visual Effect Graph </a>
+                    <a href = "https://unity.com/visual-effect-graph" target = "_blank"> Visual Effect Graph (Unity) </a>
                     <br/>
-                    <a href = "https://levelup.gitconnected.com/organizing-gpu-work-with-directed-acyclic-graphs-f3fd5f2c2af3" target = "_blank"> Organizing GPU Work with Directed Acyclic Graphs </a>
+                    <a href = "https://levelup.gitconnected.com/organizing-gpu-work-with-directed-acyclic-graphs-f3fd5f2c2af3" target = "_blank"> Organizing GPU Work with Directed Acyclic Graphs (Pavlo Muratov) </a>
                     <br/>
-                    <a href = "https://apoorvaj.io/render-graphs-1/" target = "_blank"> Render graphs </a>
+                    <a href = "https://apoorvaj.io/render-graphs-1/" target = "_blank"> Render graphs (Apoorva Joshi) </a>
                     <br/>
-                    <a href = "http://simonstechblog.blogspot.com/2019/07/render-graph.html" target = "_blank"> Render Graph </a>
+                    <a href = "http://simonstechblog.blogspot.com/2019/07/render-graph.html" target = "_blank"> Render Graph (Simon's tech blog) </a>
                 </div>
             </div>
-
-<!--
-
-            <h2 class = "resumeHeading"> Powers of 2 </h2>
-            <div class = "heading">
-                <p>
-                    Yes, really. I've been directly asked about them in at least 2<sup>1</sup> interviews.
-                </p>
-                <p>
-                    I just know that 2<sup>4</sup> = 16, 2<sup>8</sup> = 256, and that I can multiply or divide by 2 to get whatever specific power of 2 I get asked to compute.
-                </p>
-            </div>
-            
-            <h2 class = "resumeHeading"> Hexadecimal </h2>
-            <div class = "heading">
-                <p>
-                    I've been asked about this a few times too. Hex is a base-16 number system. Digits 0-9 are the same as decimal, but 10 = A, 11 = B, 12 = C, 13 = D, 14 = E, 15 = F. Four binary digits corresponds to one hex digit.
-                </p>
-            </div>
-
-            <h2 class = "resumeHeading"> Two's compliment </h2>
-            <div class = "heading">
-                <p>
-                </p>
-            </div>
-
-            <h2 class = "resumeHeading"> The Rendering Equation </h2>
-            <div class = "heading">
-                <p> From <a style = "text-decoration:none;color:var(--siteColor);" href = "https://en.wikipedia.org/wiki/Rendering_equation" target = "_blank">Wikipedia</a>, the rendering equation is: </p>
-                <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/3955fb75fee8d1ace1e117f728dd33f919262b36" style = "width: 80%;"/>
-
-                <p>
-                    <i>For each input direction wi, calculate the light absorbed by the surface along wi (Li * wi&#183;n), then multiply that value by the amount of the absorbed light that exits the surface in the direction of wo (fr). Then, if the surface itself emits light, calculate the amount of emitted light that leaves the surface along wo and add it to the previous sum (Le). This is equal to the total amount of light that leaves the surface along wo (Lo).</i>
-                </p>
-
-                <p>
-                    Let's break it down in more detail, starting with the integral. This integral is a hemisphere integral, which means we are integrating over all possible input directions in the hemisphere above the surface. Next, fr(wi, wo), the BRDF of the surface. The BRDF is the ratio of light reflected along wo (radiance) divided by the light absorbed along wi (irradiance). Then, the term Li wi&#183;n. Typically, this is broken down into two terms, but I like to think of it as the irradiance term. This is because it allows the BRDF, which is radiance/irradiance, to 'cancel out' the irradiance term and leave us with radiance left in the integral.
-                </p>
-
-
-
-                <p>
-                    To understand why the irradiance term has a dot product in it, we need to look at the definition of irradiance. Irradiance is flux per unit area. We can think of the flux portion of the irradiance term as the incoming radiance Li. This means the dot product is the 'per unit area' portion of the irradiance. But how? The way I think about it is by using a flashlight. If you shine a flashlight directly down on a surface, it makes a circle of light on the surface. However, if you shine the flashlight on the surface at an angle, the circle of light turns into an ellipse, which has a larger area than the circle. If the radiance from the flashlight remains constant, and the surface area increases, the irradiance will decrease, since irradiance is flux per unit area. It turns out we can model this behavior by using the dot product term.
-                </p>
-
-                <p>
-                    A few more things about the rendering equation. In most cases, there is no closed-form solution to the integral. The rendering equation must be solved analytically. Luckily, we have computers to do that for us! The basic rendering equation does not capture some rendering effects like subsurface scattering and transmission. However, the rendering equation can be modified to accomodate these effects.
-                </p>
-            </div>
-
-            <h2 class = "resumeHeading"> BXDFs - BRDF, BSSDF, and more </h2>
-            <div class = "heading">
-                <p>
-                    BXDF stands for Bidirectional X Distribution Function - where the X is either Reflectance, Subsurface Scattering, Transmission, or other words, depending on the context. Generally, a BXDF is a function that returns the ratio of radiance to irradiance for specified input and output light directions. The simplest of the BXDF is the Bidirectional Reflectance Distribution Function, or BRDF. The BRDF will take in a direction towards the light source, wi, and the direction out of the surface/towards the camera, wr. From <a style = "text-decoration:none;color:var(--siteColor);" href = "https://en.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function" target = "_blank">Wikipedia</a>:
-                </p>
-
-                <img src = "https://upload.wikimedia.org/wikipedia/commons/e/ed/BRDF_Diagram.svg" style = "width: 30%;"/>
-
-                <p>
-
-                </p>
-
-                <p>
-                </p>
-
-                <p>
-                </p>
-            </div>
-
-            <h2 class = "resumeHeading"> Deferred Rendering </h2>
-            <div class = "heading">
-                <p>
-                    Deferred rendering is a screen-space rendering algorithm with two rendering passes instead of one. Normally, lighting calculations are performed in the fragment shader. However, in deferred rendering, the fragment shader instead writes the fragment inputs like diffuse color, specular color, depth, and normals to 4 separate textures. These textures are called the G-buffer. After all fragments have been processed, a second rendering pass combines the 4 textures together, along with the lighting, to create the final image.
-                </p>
-                <p>
-                    Why deferred rendering? In large rendering engines, there is a concept of a draw call. A draw call contains mesh data, textures, and other data to render the mesh. A draw call typically doesn't contain all of the geometry in a scene, so multiple draw calls are needed to fully render a scene. In a game, this might mean that the mountains in the background are one draw call, the trees are some more draw calls, each enemy is another draw call, and the player is another draw call. These draw calls may be done sequentially or in parallel. If we compute expensive lighting calculations in the fragment shader for the mountain draw call, it's likely that a majority of the computed pixels will be occluded by other geometry, which means those computations are wasted.
-                </p>
-                <p>
-                    Now, if you are knowledgable of the graphics pipeline, you may know that some pipelines include early depth testing that occurs before the fragment shader. While this is true, not all graphics pipelines support this, and some only perform depth testing after the fragment shader. Additionally, going back to the example from earlier, if the first draw call renders the mountains and all subsequent draw calls render in front of the mountains, we would still be performing lighting computations on the mountains that wouldn't be removed via early depth testing because the mountains were in a separate draw call from the other geometry. This is why we use deferred rendering!
-                </p>
-                <p>
-                    There are some disadvantages to deferred rendering, however. It doesn't handle transparent geometry, so you'd need to fall back to standard forward rendering to handle transparent surfaces. It also uses more memory for the G-buffer, which may be an issue on memory-constrained GPUs.
-                </p>
-            </div>
-
-
-            <h2 class = "resumeHeading"> </h2>
-            <div class = "heading">
-                <p>
-                </p>
-            </div>
-        -->
         </div>
         
         <!--<script type = "text/javascript" src = "scripts/header.js"> </script>-->
