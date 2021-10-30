@@ -14,6 +14,11 @@ function blend(x, y, a)
 	return (1.0 - a) * x + a * y;
 }
 
+function randRange(x, y)
+{
+	return blend(x, y, rand());
+}
+
 function drawShape(x, y, t, s, n, ctx)
 {
 	for (var m = 0; m < n + 1; m++)
