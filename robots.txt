@@ -1,13 +1,14 @@
 User-agent: *
-Disallow: /downloads/*
-Disallow: /oldhtml/*
-Disallow: /downloads/
-Disallow: /oldhtml/
-Disallow: /styleskusoge.css
-Disallow: /kusoge.html
-Disallow: /pictures/kusoge/*
-Disallow: /pictures/kusoge/
-Disallow: /games/
-Disallow: /downloads/other/resume.pdf
-Allow: /downloads/other/paper.pdf
-Allow: /blog/
+Disallow: *
+# Disallow: /downloads/*
+# Disallow: /oldhtml/*
+# Disallow: /downloads/
+# Disallow: /oldhtml/
+# Disallow: /styleskusoge.css
+# Disallow: /kusoge.html
+# Disallow: /pictures/kusoge/*
+# Disallow: /pictures/kusoge/
+# Disallow: /games/
+# Disallow: /downloads/other/resume.pdf
+# Allow: /downloads/other/paper.pdf
+# Allow: /blog/
