@@ -37,7 +37,7 @@ function day5(p) {
         for (var x = 0; x < snowflakes.length; x++) {
             p.point(snowflakes[x].x, snowflakes[x].y);
             snowflakes[x].x += snowflakes[x].s * Math.sin(0.66 * Math.PI);
-            snowflakes[x].y += snowflakes[x].s * Math.sin(0.66 * Math.PI);
+            snowflakes[x].y += snowflakes[x].s * Math.cos(0.33 * Math.PI);
             if (snowflakes[x].x > 1000 || snowflakes[x].x < 0 || snowflakes[y].y > 1000 || snowflakes[x].y < 0) {
                 var r = p.random(2000);
                 snowflakes[x] = ({x: (r > 1000) ? r - 1000 : 0, y: (r > 1000) ? 0 : r, s: p.random(3, 7)});
