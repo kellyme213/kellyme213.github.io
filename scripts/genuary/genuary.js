@@ -52,6 +52,18 @@ new p5(day16, 'container15');
 new p5(day17, 'container16');
 new p5(day18, 'container17');
 new p5(day19, 'container18');
+new p5(day20, 'container19');
+new p5(day21, 'container20');
+new p5(day22, 'container21');
+new p5(day23, 'container22');
+new p5(day24, 'container23');
+new p5(day25, 'container24');
+new p5(day26, 'container25');
+new p5(day27, 'container26');
+new p5(day28, 'container27');
+new p5(day29, 'container28');
+new p5(day30, 'container29');
+new p5(day31, 'container30');
 
 window.onload = function() {
     applyRoundBorders();
